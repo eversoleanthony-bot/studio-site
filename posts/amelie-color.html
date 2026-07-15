@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amélie: La couleur de l'étrangeté — Anthony Eversole</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="nav-name" href="/">Anthony Eversole</a>
+    <button class="nav-hamburger" onclick="toggleMenu(this)" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/studio">Studio</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/performance">Performance</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li class="nav-cta"><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- POST HEADER -->
+  <header class="post-header">
+    <a class="post-back" href="/blog">Blog</a>
+    <div class="post-header-meta">
+      <span class="post-header-category">Direction</span>
+      <span class="post-header-date">March 2022</span>
+    </div>
+    <h1>Amélie: La couleur de l'étrangeté</h1>
+    <p class="post-lede">Color in Jeunet's film is not atmospheric decoration — it's structural narrative. An analysis of how red, green, yellow, and blue carry emotional and dramatic weight, and what that means for a stage adaptation.</p>
+  </header>
+
+  <!-- POST BODY -->
+  <article class="post-body">
+
+    <h2>The Jeunet Aesthetic</h2>
+
+    <p>Jean-Pierre Jeunet is a self-taught director whose work belongs to a tradition of fantastic cinema where form and color matter as much as story. <em>Amélie</em> earned international acclaim for its narrative invention, production design, and above all its specific — almost aggressive — relationship to color. This is not a film where color is chosen for pleasantness. It is chosen for meaning.</p>
+
+    <p>Jeunet has said: "I am not keen on trying to reproduce reality — for that you should do documentaries." His Paris in <em>Amélie</em> is representational: a city that stands for a city, filtered through Amélie's peculiar interiority. The consistent color scheme — greens and reds with yellow accents — creates a fairy-tale register that makes this world legible as interior rather than exterior, as emotional truth rather than documentary fact.</p>
+
+    <p>The fourth-wall breaks, the point-of-view shots, the camera's conspiratorial framing — all of these give the audience Amélie's perspective on the world. Color operates the same way. We see Paris as she sees it: heightened, saturated, organized by feeling.</p>
+
+    <h2>Juarez Machado — The Primary Reference</h2>
+
+    <p>Brazilian painter Juarez Machado (residing in Paris) is the principal influence on Jeunet's monochromatic approach. Machado works with two dominant hues — frequently including red — and one secondary accent. His paintings are narratives of idealism, happiness, and passion. His colors are deeply saturated, his figures idealized, his world closed and self-contained.</p>
+
+    <p>The resemblance to Jeunet's Paris is not coincidental. Machado's paintings offer a model for how a restricted palette functions not as limitation but as argument: this is the world as it should feel, not as it necessarily appears.</p>
+
+    <div class="post-gallery">
+      <span class="post-gallery-label">Juarez Machado</span>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216274120-DUOPQPO07OUZ5YWSD1AG/2a12a89e-f080-40be-8d2a-b7b4933f7cec.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216274120-DUOPQPO07OUZ5YWSD1AG/2a12a89e-f080-40be-8d2a-b7b4933f7cec.jpeg" alt="Juarez Machado painting" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216274098-U6Z43YRA77CQVQX5WRDF/2c6855726cc9dcce7dbf9cdb87f9dfa7.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216274098-U6Z43YRA77CQVQX5WRDF/2c6855726cc9dcce7dbf9cdb87f9dfa7.jpeg" alt="Juarez Machado painting" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216274688-SSJEU5M2VUGTIDIYYM2X/71jCrU4StTL._AC_SL1500_.jpg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216274688-SSJEU5M2VUGTIDIYYM2X/71jCrU4StTL._AC_SL1500_.jpg" alt="Juarez Machado painting" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216275207-OESGHK85YYZARMP1PCJ6/82b4f9c8-01de-4779-a804-d6dc0d8aad36_1.d977632465ea1a4fa5c12443a843869d.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216275207-OESGHK85YYZARMP1PCJ6/82b4f9c8-01de-4779-a804-d6dc0d8aad36_1.d977632465ea1a4fa5c12443a843869d.jpeg" alt="Juarez Machado painting" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216275188-KUISVUBQYBY8E6GQE4DC/924a8311-e304-46c4-8fa6-a441013d0aee.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216275188-KUISVUBQYBY8E6GQE4DC/924a8311-e304-46c4-8fa6-a441013d0aee.jpeg" alt="Juarez Machado painting" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216275651-UHVXGEMYPTBJP3YIVNPC/a10e3a24b648957b211328cef194624d.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216275651-UHVXGEMYPTBJP3YIVNPC/a10e3a24b648957b211328cef194624d.jpeg" alt="Juarez Machado painting" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216276170-OKI2NFBF0YU5P4U6MC7W/bistro-43214.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216276170-OKI2NFBF0YU5P4U6MC7W/bistro-43214.jpeg" alt="Juarez Machado — Bistro" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216276265-U1WUBM0A09EX3SP6824U/e53d7-juarez2bmachado252c2b2528b.2b19412529.jpg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216276265-U1WUBM0A09EX3SP6824U/e53d7-juarez2bmachado252c2b2528b.2b19412529.jpg" alt="Juarez Machado painting" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216276982-WH53AIKHUZ0ZN1TFT2W0/images.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216276982-WH53AIKHUZ0ZN1TFT2W0/images.jpeg" alt="Juarez Machado painting" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216277274-KN7NFOER3N291HFN8FYF/Juarez+Machado+1941+Brasilian+painter+-+Tutt%27Art%40+%2829%29.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216277274-KN7NFOER3N291HFN8FYF/Juarez+Machado+1941+Brasilian+painter+-+Tutt%27Art%40+%2829%29.jpeg" alt="Juarez Machado painting" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216278016-22J7T1R46RGT64AV5X1Z/Juarez+Machado+1941+Brasilian+painter+-+Tutt%27Art%40.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216278016-22J7T1R46RGT64AV5X1Z/Juarez+Machado+1941+Brasilian+painter+-+Tutt%27Art%40.jpeg" alt="Juarez Machado painting" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216278319-GPD79DVM9X62CSFQX8T7/Juarez-Machado-Tutt%27Art-11.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648216278319-GPD79DVM9X62CSFQX8T7/Juarez-Machado-Tutt%27Art-11.jpeg" alt="Juarez Machado painting" loading="lazy" /></div>
+      </div>
+    </div>
+
+    <h2>Red — Warmth, Vitality, Passion</h2>
+
+    <p>Red is the dominant hue of Amélie's world and her emotional state. It signifies warmth, vitality, energy, and passion. Though raised without a clear model for love — her father's detachment, her mother's anxiety — Amélie possesses enormous affective capacity that has simply never had a proper object. Red is present whenever that capacity pushes toward the surface.</p>
+
+    <div class="post-gallery">
+      <span class="post-gallery-label">Red</span>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648215673667-NJMEMR325CEVBBBKIHPQ/22+%2863%29.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648215673667-NJMEMR325CEVBBBKIHPQ/22+%2863%29.jpeg" alt="Amélie — red" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648215673545-M20VRTMSMIKY09YI3YGC/amelie+bed.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648215673545-M20VRTMSMIKY09YI3YGC/amelie+bed.jpeg" alt="Amélie in bed — red" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648215674480-AJ62KLY85EV878984VK6/amelie-e1285644357640.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648215674480-AJ62KLY85EV878984VK6/amelie-e1285644357640.jpeg" alt="Amélie — red" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648215683047-K1VGX9E1NRHNW0NO7MIL/Amelie1.png')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648215683047-K1VGX9E1NRHNW0NO7MIL/Amelie1.png" alt="Amélie — red" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648215675424-ZFZHU9S95MP7642FXJ33/dcbc51f18cef3c87974d201ae846ed6b.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648215675424-ZFZHU9S95MP7642FXJ33/dcbc51f18cef3c87974d201ae846ed6b.jpeg" alt="Amélie — red" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648220823831-MDX03JZBUH95P984XR2E/color7.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648220823831-MDX03JZBUH95P984XR2E/color7.jpeg" alt="Amélie — color study" loading="lazy" /></div>
+      </div>
+    </div>
+
+    <h2>Green — Paris, the Métro, Belonging</h2>
+
+    <p>Green is the color of Amélie's city. Much of the narrative moves through the Paris Métro, and green carries enormous historical weight for that system. When the city commissioned Hector Guimard to design the Métro entrances for the 1900 Exposition Universelle, he chose cast iron painted in a shade evoking oxidized brass — Guimard green, the color of Art Nouveau Paris.</p>
+
+    <p>His <em>édicule</em> entrances feature fan-like glass awnings inspired by dragonfly wings, a major Art Nouveau motif. The <em>entourage</em> entrances feature two serpentine lamp posts topped with glowing red orbs — insects' eyes, or flower buds, depending on who you ask. Only two original <em>édicule</em> entryways remain in the city today.</p>
+
+    <p>In the film, green is the color of Paris as Amélie has claimed it: her neighborhood, her routes, the system that connects her world. When she helps others through the city, green is present. It is the color of belonging to a place.</p>
+
+    <div class="post-gallery">
+      <span class="post-gallery-label">Green</span>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/52fa8229-4376-4498-83fd-48cf96ea8924/771216725_3ad33c5443_b.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/52fa8229-4376-4498-83fd-48cf96ea8924/771216725_3ad33c5443_b.jpeg" alt="Guimard édicule entrance" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/4fd58317-32d5-4fa2-b4d8-bef09f1583ca/W1siZiIsIjI0MDYzNCJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MTQ0MFx1MDAzZSJdXQ.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/4fd58317-32d5-4fa2-b4d8-bef09f1583ca/W1siZiIsIjI0MDYzNCJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MTQ0MFx1MDAzZSJdXQ.jpeg" alt="Guimard entourage entrance" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648220647007-873UCEBP1ETXH4B9HIWF/219-2194191_small.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648220647007-873UCEBP1ETXH4B9HIWF/219-2194191_small.jpeg" alt="Amélie — green" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648220647104-2XWPM5A7NSAMBJZYFBRV/96128af7a19e2888bc80e6246cd3302e.png')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648220647104-2XWPM5A7NSAMBJZYFBRV/96128af7a19e2888bc80e6246cd3302e.png" alt="Amélie — green" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648220647950-6NH8ZX0DEOZYSJRAE6E5/864945287def41bc8a0195ca4f10b08e.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648220647950-6NH8ZX0DEOZYSJRAE6E5/864945287def41bc8a0195ca4f10b08e.jpeg" alt="Amélie — green" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648220648393-RKLGZ7OH0MF1HARCZZA4/Amelie-Bridge-End.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648220648393-RKLGZ7OH0MF1HARCZZA4/Amelie-Bridge-End.jpeg" alt="Amélie — bridge" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648220659852-EN5BO5RXW3Y512QIM5F2/Amelie2.png')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648220659852-EN5BO5RXW3Y512QIM5F2/Amelie2.png" alt="Amélie — green" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648220707516-9JK1H2XWFZMD4J1YZ4X7/download.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648220707516-9JK1H2XWFZMD4J1YZ4X7/download.jpeg" alt="Amélie — green" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648220708304-WF6XPMR8Z5N807CPD6MQ/original.png')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648220708304-WF6XPMR8Z5N807CPD6MQ/original.png" alt="Amélie — green" loading="lazy" /></div>
+      </div>
+    </div>
+
+    <h2>Yellow — Discovery, Transformation, Hope</h2>
+
+    <p>Yellow is less omnipresent than red or green, which makes its appearances more legible as events. It dominates important moments of discovery and transformation. When Amélie finds Bretodeau's childhood tin box, her bathroom is predominantly yellow. When the ending vespa ride with Nino arrives, yellow is again prominent. It is the color of things that change everything — of hope and connection and belonging finally made available.</p>
+
+    <p>Yellow is also present when Amélie helps others: the blind beggar she guides across the street, Dufayel. These are the moments when her compulsive care for strangers — the displacement behavior of someone who can't yet receive love directly — is most visible. Yellow marks what she can give before she can let herself receive.</p>
+
+    <div class="post-gallery">
+      <span class="post-gallery-label">Yellow</span>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648221648089-YKBLE2GQ2R47K2GFG583/4347902438_1f7320eef7_b.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648221648089-YKBLE2GQ2R47K2GFG583/4347902438_1f7320eef7_b.jpeg" alt="Amélie — yellow" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648221648021-BN0UNY7YUZ6VCPIITIYF/Amelie-0202.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648221648021-BN0UNY7YUZ6VCPIITIYF/Amelie-0202.jpeg" alt="Amélie — yellow" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648221650469-EP654IZ4V2XEP4CDXOEQ/med_1500488855_image.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648221650469-EP654IZ4V2XEP4CDXOEQ/med_1500488855_image.jpeg" alt="Amélie — yellow" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648221648634-ZJX6P7YSDYMR8KACTUMS/Amelie-0407.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648221648634-ZJX6P7YSDYMR8KACTUMS/Amelie-0407.jpeg" alt="Amélie — yellow" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648221649212-TEMM217SRVII5L3J6OPJ/Amelie-1216.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648221649212-TEMM217SRVII5L3J6OPJ/Amelie-1216.jpeg" alt="Amélie — yellow" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648221649388-MVC9IGH116JPJKB77VQV/Amelie-1218.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648221649388-MVC9IGH116JPJKB77VQV/Amelie-1218.jpeg" alt="Amélie — yellow" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648221649790-5X8CVK1FBD1V7CR2LXK4/Amelie-and-the-Blind-Man-Cropped.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648221649790-5X8CVK1FBD1V7CR2LXK4/Amelie-and-the-Blind-Man-Cropped.jpeg" alt="Amélie and the blind man" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648221650049-J1YLN7C735NODXQNRARE/Amelie-Practical.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648221650049-J1YLN7C735NODXQNRARE/Amelie-Practical.jpeg" alt="Amélie — yellow" loading="lazy" /></div>
+      </div>
+    </div>
+
+    <h2>Blue — The Stranger, the Possibility</h2>
+
+    <p>Blues are virtually absent from the film until Nino Quincampoix's introduction. This is the most deliberate structural choice in the palette. When a color has been systematically excluded from a world and then appears, it reads as intrusion, disruption, possibility. Nino brings blue with him. He introduces new chromatic logic into Amélie's world — and with it, the possibility of receiving what she has only been able to give.</p>
+
+    <p>Blue first appears at the photo booth where Nino searches for torn images. Afterward, it appears in occasional, precisely chosen moments — always saturated, always deliberate, always carrying the weight of its absence everywhere else.</p>
+
+    <div class="post-gallery">
+      <span class="post-gallery-label">Blue</span>
+      <div class="gallery-grid">
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648222366693-Z9UL8E22SVQXD0SA0O2Z/amelie_01.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648222366693-Z9UL8E22SVQXD0SA0O2Z/amelie_01.jpeg" alt="Amélie — blue" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648222142110-EO8RDCC158MAD44FJGKZ/MV5BMTA5OTI1NDI0MjNeQTJeQWpwZ15BbWU4MDk0Nzk4NzUz._V1_.jpg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648222142110-EO8RDCC158MAD44FJGKZ/MV5BMTA5OTI1NDI0MjNeQTJeQWpwZ15BbWU4MDk0Nzk4NzUz._V1_.jpg" alt="Amélie — blue" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648222366926-KYOKA8E0WUANVXNCQQTT/Amelie-Blue-Lamp-Small.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648222366926-KYOKA8E0WUANVXNCQQTT/Amelie-Blue-Lamp-Small.jpeg" alt="Amélie — blue lamp" loading="lazy" /></div>
+        <div class="gallery-item" onclick="openLightbox('https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648222547164-LVD6WXPKKU1J2C0SPQR3/amelie-696x442.jpeg')"><img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648222547164-LVD6WXPKKU1J2C0SPQR3/amelie-696x442.jpeg" alt="Amélie — blue" loading="lazy" /></div>
+      </div>
+    </div>
+
+    <h2>The Narrative Power of Color</h2>
+
+    <figure class="post-img">
+      <img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/799a987c-9e92-46dc-b494-e526bb822631/color_wheel.jpeg" alt="Plutchik's Wheel of Emotions" loading="lazy" />
+      <figcaption>Plutchik's Wheel of Emotions</figcaption>
+    </figure>
+
+    <p>Color establishes tone, shifts scene meaning, and alerts audiences to importance within narrative or visual composition. It functions not as aesthetic decoration — it serves narrative purposes. Understanding audience emotional responses to different hues adds significant dimension to storytelling without requiring spoken dialogue.</p>
+
+    <p>Jeunet's achievement in <em>Amélie</em> is to use color as a consistent system rather than a series of individual choices. Red is always warm and alive. Green is always Paris and belonging. Yellow is always transformation and hope. Blue is always the outside coming in. Once the audience has internalized this vocabulary — unconsciously, as they're watching — every subsequent appearance of those colors carries accumulated meaning.</p>
+
+    <p>For a stage adaptation, the question is how to translate this systematic approach into the language of theatrical design: light, costume, scenery. The answer is not to reproduce Jeunet's palette literally, but to find the theatrical equivalent of his logic — a production world where color choices are made with the same intentionality and the same emotional grammar.</p>
+
+  </article>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+  </div>
+
+  <!-- POST NAV -->
+  <nav class="post-nav">
+    <a class="post-nav-item" href="zaza-psychology.html">
+      <span class="post-nav-label">← Previous</span>
+      <span class="post-nav-title">Psychological Themes of Zazà</span>
+    </a>
+    <a class="post-nav-item next" href="amelie-scenic.html">
+      <span class="post-nav-label">Next →</span>
+      <span class="post-nav-title">Amélie: Guimard, Art Nouveau, and the Scenic Aesthetic</span>
+    </a>
+  </nav>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">Anthony Eversole</span>
+    <ul class="footer-links">
+      <li><a href="/studio">Studio</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/performance">Performance</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    function toggleMenu(btn) {
+      var nav = document.getElementById('nav-links');
+      nav.classList.toggle('open');
+    }
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Studio — Anthony Eversole</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+    /* ── SERVICE DETAIL ───────────────────────────── */
+    .service-section {
+      padding: 72px 72px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .service-section:nth-child(even) {
+      background: var(--cream-dk);
+    }
+
+    .service-meta {
+      position: sticky;
+      top: 88px;
+    }
+
+    .service-num {
+      font-family: 'Crimson Pro', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--warm-lt);
+      display: block;
+      margin-bottom: 0.5em;
+    }
+
+    .service-title {
+      font-family: 'Crimson Pro', serif;
+      font-weight: 400;
+      font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 1.2em;
+    }
+
+    .service-tag {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--slate);
+      border: 1px solid var(--slate);
+      padding: 4px 10px;
+      margin-bottom: 0.5em;
+    }
+
+    .service-content p {
+      font-family: 'Crimson Pro', serif;
+      font-weight: 400;
+      font-size: clamp(1.1rem, 1.45vw, 1.25rem);
+      line-height: 1.85;
+      color: var(--ink-mid);
+      margin-bottom: 1em;
+    }
+
+    .service-content ul {
+      list-style: none;
+      margin: 1.5em 0;
+    }
+
+    .service-content ul li {
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: #666660;
+      line-height: 1.7;
+      padding: 0.4em 0;
+      border-bottom: 1px solid var(--stone);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75em;
+    }
+
+    .service-content ul li::before {
+      content: '—';
+      color: var(--warm-lt);
+      flex-shrink: 0;
+      font-size: 0.8rem;
+    }
+
+    .service-cta {
+      margin-top: 2em;
+      display: flex;
+      gap: 1.5em;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .service-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── BOOKING STRIP ────────────────────────────── */
+    .booking-strip {
+      padding: 72px 72px;
+      background: var(--ink);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .booking-strip .section-label {
+      color: var(--warm-lt);
+    }
+
+    .booking-strip-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2em;
+      flex-wrap: wrap;
+    }
+
+    .booking-strip-text {
+      font-family: 'Crimson Pro', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+      color: var(--stone);
+    }
+
+    .btn-primary-inv {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--cream);
+      padding: 14px 28px;
+      width: fit-content;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-primary-inv:hover { background: var(--stone); }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 1024px) {
+      .service-section { padding: 64px 40px; gap: 40px; }
+      .booking-strip { padding: 64px 40px; }
+    }
+
+    @media (max-width: 860px) {
+      .service-section { grid-template-columns: 1fr; gap: 28px; padding: 56px 32px; }
+      .service-meta { position: static; }
+      .booking-strip { padding: 56px 32px; grid-template-columns: 1fr; gap: 24px; }
+      .booking-strip-content { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .service-section { padding: 48px 24px; }
+      .booking-strip { padding: 48px 24px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="nav-name" href="/">Anthony Eversole</a>
+    <button class="nav-hamburger" onclick="toggleMenu(this)" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/studio" class="active">Studio</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/performance">Performance</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="nav-cta"><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <span class="section-label">The Studio</span>
+    <h1 class="page-title">Teaching &amp; Coaching</h1>
+    <p class="page-intro">Evidence-based voice instruction, acting coaching, and audition preparation for students of all ages — online via Zoom and in person in Salt Lake City.</p>
+  </section>
+
+  <!-- 01 VOICE LESSONS -->
+  <section class="service-section" id="voice">
+    <div class="service-meta">
+      <span class="service-num">01</span>
+      <h2 class="service-title">Private Voice Lessons</h2>
+      <span class="service-tag">Online · In Person</span>
+    </div>
+    <div class="service-content">
+      <p>One-on-one voice instruction for singers of all ages and experience levels, from early beginners through pre-professional students. Work is grounded in evidence-based vocal technique — combining anatomical understanding of the voice with sensory feedback to help students develop lasting self-diagnostic skills.</p>
+      <p>Repertoire spans classical, musical theatre, and commercial styles. Lessons are tailored to each student's voice, goals, and performance context — whether that's a recital, an audition, a production, or the ongoing development of a healthy, durable technique.</p>
+      <ul>
+        <li>Technique: breath, registration, resonance, range</li>
+        <li>Repertoire selection and coaching</li>
+        <li>Diction in English, Italian, German, French</li>
+        <li>Vocal health and longevity</li>
+        <li>Performance preparation and stage delivery</li>
+      </ul>
+      <p>Currently accepting new students online via Zoom. In-person availability in Salt Lake City by arrangement.</p>
+      <div class="service-cta">
+        <a class="btn-primary" href="/contact">Inquire About Lessons</a>
+        <span class="service-note">Response within 48 hours</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 02 ACTING COACHING -->
+  <section class="service-section" id="acting">
+    <div class="service-meta">
+      <span class="service-num">02</span>
+      <h2 class="service-title">Acting Coaching</h2>
+      <span class="service-tag">Online · In Person</span>
+    </div>
+    <div class="service-content">
+      <p>Private coaching for actors and singing actors at any stage of training or career. The work integrates vocal technique with character connection, emotional specificity, and genuine ownership of the material — developing performers who can tell a story, not just execute it.</p>
+      <p>Sessions can focus on a specific role, a recurring challenge in performance, or ongoing scene study. Equally applicable to spoken drama and musical theatre.</p>
+      <ul>
+        <li>Scene study and text analysis</li>
+        <li>Character development and backstory</li>
+        <li>Objective, obstacle, and action work</li>
+        <li>Physical and vocal expressiveness</li>
+        <li>Production coaching and role preparation</li>
+      </ul>
+      <div class="service-cta">
+        <a class="btn-primary" href="/contact">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 03 AUDITION PREP -->
+  <section class="service-section" id="audition">
+    <div class="service-meta">
+      <span class="service-num">03</span>
+      <h2 class="service-title">Audition Prep</h2>
+      <span class="service-tag">Online · In Person</span>
+    </div>
+    <div class="service-content">
+      <p>Focused preparation for specific auditions — college programs, conservatories, summer intensives, community and professional productions. The goal is not a polished performance of the work, but a confident, specific, and repeatable audition.</p>
+      <p>Sessions cover material selection, repertoire coaching, mock auditions, and the practical skills of walking into a room and making an impression quickly.</p>
+      <ul>
+        <li>Repertoire selection strategy</li>
+        <li>16- and 32-bar cut preparation</li>
+        <li>College and conservatory portfolio coaching</li>
+        <li>Mock auditions with feedback</li>
+        <li>Accompanist preparation and cut marking</li>
+      </ul>
+      <div class="service-cta">
+        <a class="btn-primary" href="/contact">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 04 WORKSHOPS -->
+  <section class="service-section" id="workshops">
+    <div class="service-meta">
+      <span class="service-num">04</span>
+      <h2 class="service-title">Workshops &amp; Group Clinics</h2>
+      <span class="service-tag">In Person · By Arrangement</span>
+    </div>
+    <div class="service-content">
+      <p>Voice and acting clinics for schools, studios, youth programs, and performing arts organizations. Sessions are designed to be immediately practical — students leave with specific tools they can apply in rehearsal and performance.</p>
+      <p>Available as single-session workshops or multi-week residencies. Topics are customized to the group and context.</p>
+      <ul>
+        <li>Vocal health and technique fundamentals</li>
+        <li>Audition technique and repertoire</li>
+        <li>Musical theatre performance practice</li>
+        <li>Stage presence and physical expressiveness</li>
+        <li>Scene study and text work</li>
+      </ul>
+      <div class="service-cta">
+        <a class="btn-primary" href="/contact">Book a Clinic</a>
+        <span class="service-note">Group rates available</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 05 STAGE DIRECTION -->
+  <section class="service-section" id="direction">
+    <div class="service-meta">
+      <span class="service-num">05</span>
+      <h2 class="service-title">Stage Direction</h2>
+      <span class="service-tag">Opera · Musical Theatre</span>
+    </div>
+    <div class="service-content">
+      <p>Direction for opera and musical theatre productions at all levels — from youth programs and community companies to semi-professional and professional productions. The work is rooted in a strong point of view, clear storytelling, and a deep respect for the music and text.</p>
+      <p>Past productions span a wide repertoire, from verismo opera and Brecht to golden-age and contemporary musical theatre.</p>
+      <ul>
+        <li>Opera: Leoncavallo, Menotti, Donizetti, and others</li>
+        <li>Musical Theatre: Sondheim, Strouse, and others</li>
+        <li>Stage direction for workshop and showcase productions</li>
+        <li>Movement and physical staging</li>
+        <li>Collaboration with music directors and choreographers</li>
+      </ul>
+      <div class="service-cta">
+        <a class="btn-primary" href="/contact">Inquire</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- 06 MUSIC DIRECTION -->
+  <section class="service-section" id="music-direction">
+    <div class="service-meta">
+      <span class="service-num">06</span>
+      <h2 class="service-title">Music Direction</h2>
+      <span class="service-tag">Musical Theatre · Opera</span>
+    </div>
+    <div class="service-content">
+      <p>Available for hire as music director for musical theatre and opera productions. Experienced working with singers at every level, from youth ensembles and community casts to professional productions.</p>
+      <p>Strong keyboard skills, fluency in a wide repertoire, and a collaborative approach to working with directors, choreographers, and production teams.</p>
+      <div class="service-cta">
+        <a class="btn-primary" href="/contact">Inquire</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING STRIP -->
+  <div class="booking-strip">
+    <span class="section-label">Ready to Start</span>
+    <div class="booking-strip-content">
+      <p class="booking-strip-text">Online lessons currently available. New students welcome.</p>
+      <a class="btn-primary-inv" href="/contact">Book a Lesson</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">Anthony Eversole</span>
+    <ul class="footer-links">
+      <li><a href="/studio">Studio</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/performance">Performance</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    function toggleMenu(btn) {
+      var nav = document.getElementById('nav-links');
+      nav.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

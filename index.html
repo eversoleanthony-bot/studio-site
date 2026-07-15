@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anthony Eversole — Voice · Acting · Direction</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+    /* ── HERO ─────────────────────────────────────── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      padding-top: 64px;
+    }
+
+    .hero-image {
+      overflow: hidden;
+      position: relative;
+      background: var(--stone);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .hero-image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #D8D2C8;
+      color: var(--muted);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 72px 80px;
+    }
+
+    .hero-name {
+      font-family: 'Crimson Pro', serif;
+      font-weight: 300;
+      font-size: clamp(2.8rem, 4.8vw, 5.5rem);
+      white-space: nowrap;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 0.35em;
+    }
+
+    .hero-tagline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 3.5em;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1em;
+    }
+
+    /* ── STUDIO / SERVICES ────────────────────────── */
+    .studio {
+      padding: 80px 72px;
+    }
+
+    .studio .section-label {
+      margin-bottom: 3em;
+    }
+
+    .services { list-style: none; }
+
+    .service-item { border-top: 1px solid var(--stone); }
+    .service-item:last-child { border-bottom: 1px solid var(--stone); }
+
+    .service-toggle {
+      display: grid;
+      grid-template-columns: 3rem 1fr auto;
+      align-items: center;
+      gap: 1.5em;
+      padding: 1.4em 0;
+      cursor: pointer;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      color: var(--ink);
+    }
+
+    .service-num {
+      font-family: 'Crimson Pro', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 0.95rem;
+      color: var(--warm-lt);
+    }
+
+    .service-name {
+      font-family: 'Crimson Pro', serif;
+      font-weight: 400;
+      font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+      color: var(--ink);
+      transition: color 0.2s;
+    }
+
+    .service-toggle:hover .service-name { color: var(--muted); }
+
+    .service-icon {
+      font-size: 1.3rem;
+      font-weight: 200;
+      color: var(--warm-lt);
+      line-height: 1;
+      transition: transform 0.25s ease;
+      user-select: none;
+    }
+
+    .service-item.open .service-icon { transform: rotate(45deg); }
+
+    .service-body {
+      display: none;
+      padding: 0 0 1.8em 4.5em;
+      max-width: 640px;
+    }
+
+    .service-item.open .service-body { display: block; }
+
+    .service-body p {
+      font-size: 0.92rem;
+      font-weight: 400;
+      line-height: 1.8;
+      color: #666660;
+      margin-bottom: 1.2em;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55em;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      transition: opacity 0.2s;
+    }
+
+    .service-link::after { content: '→'; }
+    .service-link:hover { opacity: 0.5; }
+
+    /* ── BIO ──────────────────────────────────────── */
+    .bio {
+      padding: 80px 72px;
+      background: var(--cream-dk);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .bio .section-label { padding-top: 6px; }
+
+    .bio-text p {
+      font-family: 'Crimson Pro', serif;
+      font-weight: 400;
+      font-size: clamp(1.15rem, 1.55vw, 1.35rem);
+      line-height: 1.85;
+      color: var(--ink-mid);
+      margin-bottom: 0.9em;
+    }
+
+    .bio-text a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55em;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-top: 0.5em;
+      transition: opacity 0.2s;
+    }
+
+    .bio-text a::after { content: '→'; }
+    .bio-text a:hover { opacity: 0.5; }
+
+    /* ── CONTACT NUDGE ────────────────────────────── */
+    .contact-nudge {
+      padding: 80px 72px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .contact-nudge-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2em;
+      flex-wrap: wrap;
+    }
+
+    .contact-nudge-text {
+      font-family: 'Crimson Pro', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+      color: var(--ink-mid);
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 1024px) {
+      .hero-text { padding: 60px 48px; }
+      .studio, .bio, .contact-nudge { padding: 64px 40px; }
+    }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-image { height: 70vw; max-height: 480px; }
+      .hero-text { padding: 48px 32px; }
+      .studio, .contact-nudge { padding: 56px 32px; }
+      .bio { padding: 56px 32px; grid-template-columns: 1fr; gap: 16px; }
+      .contact-nudge { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-text, .studio, .bio, .contact-nudge { padding-left: 24px; padding-right: 24px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="nav-name" href="/">Anthony Eversole</a>
+    <button class="nav-hamburger" onclick="toggleMenu(this)" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/" class="active">Home</a></li>
+      <li><a href="/studio">Studio</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/performance">Performance</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="nav-cta"><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-image">
+      <!--
+        Replace the placeholder div below with:
+        <img src="YOUR_IMAGE_URL" alt="Anthony Eversole" />
+      -->
+      <div class="hero-image-placeholder">Photo</div>
+    </div>
+    <div class="hero-text">
+      <h1 class="hero-name">Anthony Eversole</h1>
+      <p class="hero-tagline">Voice &middot; Acting &middot; Direction</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="/studio">Explore the Studio</a>
+        <a class="btn-ghost" href="/contact">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- STUDIO -->
+  <section class="studio">
+    <p class="section-label">The Studio</p>
+    <ul class="services">
+
+      <li class="service-item">
+        <button class="service-toggle" onclick="toggleService(this)">
+          <span class="service-num">01</span>
+          <span class="service-name">Private Voice Lessons</span>
+          <span class="service-icon">+</span>
+        </button>
+        <div class="service-body">
+          <p>One-on-one voice instruction for singers of all ages and levels. Repertoire spans classical, musical theatre, and commercial styles, with a focus on healthy technique, expressive range, and long-term vocal health.</p>
+          <p>Currently available online via Zoom.</p>
+          <a class="service-link" href="/studio">Learn more</a>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <button class="service-toggle" onclick="toggleService(this)">
+          <span class="service-num">02</span>
+          <span class="service-name">Acting Coaching</span>
+          <span class="service-icon">+</span>
+        </button>
+        <div class="service-body">
+          <p>Private coaching for actors and singing actors at any level. Work includes scene study, text analysis, character development, and performance refinement — for class, production, or audition.</p>
+          <a class="service-link" href="/studio">Learn more</a>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <button class="service-toggle" onclick="toggleService(this)">
+          <span class="service-num">03</span>
+          <span class="service-name">Audition Prep</span>
+          <span class="service-icon">+</span>
+        </button>
+        <div class="service-body">
+          <p>Focused preparation for specific auditions — college programs, summer intensives, community and professional productions. Material selection, repertoire coaching, and mock audition sessions.</p>
+          <a class="service-link" href="/studio">Learn more</a>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <button class="service-toggle" onclick="toggleService(this)">
+          <span class="service-num">04</span>
+          <span class="service-name">Clinical Workshops &amp; Group Clinics</span>
+          <span class="service-icon">+</span>
+        </button>
+        <div class="service-body">
+          <p>Voice and acting clinics for schools, studios, and performing arts programs. Topics include vocal health, audition technique, stage presence, and musical theatre performance. Available as single sessions or multi-week residencies.</p>
+          <a class="service-link" href="/contact">Book a clinic</a>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <button class="service-toggle" onclick="toggleService(this)">
+          <span class="service-num">05</span>
+          <span class="service-name">Stage Direction</span>
+          <span class="service-icon">+</span>
+        </button>
+        <div class="service-body">
+          <p>Direction for opera and musical theatre productions at all levels. Past productions include works by Leoncavallo, Menotti, Donizetti, and Brecht, as well as musical theatre from Sondheim to Strouse.</p>
+          <a class="service-link" href="/contact">Inquire</a>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <button class="service-toggle" onclick="toggleService(this)">
+          <span class="service-num">06</span>
+          <span class="service-name">Music Direction</span>
+          <span class="service-icon">+</span>
+        </button>
+        <div class="service-body">
+          <p>Available for hire as music director for musical theatre and opera productions. Experienced working with singers at all levels, from youth productions to professional casts.</p>
+          <a class="service-link" href="/contact">Inquire</a>
+        </div>
+      </li>
+
+      <li class="service-item">
+        <button class="service-toggle" onclick="toggleService(this)">
+          <span class="service-num">07</span>
+          <span class="service-name">Performing</span>
+          <span class="service-icon">+</span>
+        </button>
+        <div class="service-body">
+          <p>Baritone with credits in opera, musical theatre, and concert. Notable roles include Sweeney Todd, Don Giovanni, Falstaff, Sharpless, and Chauvelin.</p>
+          <a class="service-link" href="/performance">View credits</a>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- BIO -->
+  <section class="bio">
+    <span class="section-label">About</span>
+    <div class="bio-text">
+      <p>Dr. Anthony Eversole is a voice teacher and acting coach based in Salt Lake City, specializing in adult and pediatric vocal pedagogy across classical, musical theatre, and commercial styles. He is a former university voice professor with faculty experience at Oregon State University and the Crane School of Music at SUNY Potsdam.</p>
+      <p>As a baritone, he has performed opera and musical theatre with companies across the country — including the Maryland Opera Studio, Ash Lawn Opera, Castleton Festival, and Utah Lyric Opera — and appears regularly as an oratorio soloist. He holds the Doctor of Musical Arts from the University of Maryland.</p>
+      <a href="/about">Full bio</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT NUDGE -->
+  <section class="contact-nudge">
+    <span class="section-label">Get Started</span>
+    <div class="contact-nudge-content">
+      <p class="contact-nudge-text">Currently accepting students online. Lessons available via Zoom.</p>
+      <a class="btn-primary" href="/contact">Get in Touch</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">Anthony Eversole</span>
+    <ul class="footer-links">
+      <li><a href="/studio">Studio</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/performance">Performance</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    function toggleService(btn) {
+      var item = btn.closest('.service-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.service-item.open').forEach(function(el) {
+        el.classList.remove('open');
+      });
+      if (!isOpen) item.classList.add('open');
+    }
+
+    function toggleMenu(btn) {
+      var nav = document.getElementById('nav-links');
+      nav.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog — Anthony Eversole</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+    /* ── BLOG GRID ────────────────────────────────── */
+    .blog-grid {
+      padding: 80px 72px;
+    }
+
+    .blog-posts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 0;
+    }
+
+    /* ── POST CARD ────────────────────────────────── */
+    .post-card {
+      display: flex;
+      flex-direction: column;
+      padding: 40px;
+      background: var(--cream);
+      border: 1px solid var(--stone);
+      margin: -1px 0 0 -1px;
+      transition: background 0.2s;
+    }
+
+    .post-card:hover {
+      background: var(--cream-dk);
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.7em;
+      margin-bottom: 1.2em;
+      flex-wrap: wrap;
+    }
+
+    .post-category {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--slate);
+    }
+
+    .post-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--warm-lt);
+    }
+
+    .post-tag::before {
+      content: '·';
+      margin-right: 0.7em;
+      color: var(--stone);
+    }
+
+    .post-date {
+      font-size: 0.72rem;
+      color: var(--warm-lt);
+      margin-left: auto;
+    }
+
+    .post-title {
+      font-family: 'Crimson Pro', serif;
+      font-weight: 400;
+      font-size: clamp(1.15rem, 1.5vw, 1.35rem);
+      line-height: 1.3;
+      color: var(--ink);
+      margin-bottom: 0.8em;
+      flex-grow: 1;
+    }
+
+    .post-excerpt {
+      font-size: 0.88rem;
+      font-weight: 400;
+      line-height: 1.75;
+      color: #666660;
+      margin-bottom: 1.8em;
+    }
+
+    .post-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-top: auto;
+      transition: opacity 0.2s;
+    }
+
+    .post-link::after { content: '→'; }
+    .post-link:hover { opacity: 0.5; }
+
+    .post-title a { color: inherit; text-decoration: none; }
+    .post-title a:hover { opacity: 0.6; }
+
+    /* ── FEATURED POST ────────────────────────────── */
+    .post-card.featured {
+      grid-column: span 2;
+      flex-direction: row;
+      gap: 0;
+      align-items: stretch;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .post-card.featured .post-image {
+      flex: 0 0 48%;
+      overflow: hidden;
+      background: var(--stone);
+    }
+
+    .post-card.featured .featured-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 56px 52px;
+    }
+
+    .post-card.featured .post-title {
+      font-size: clamp(1.5rem, 2.1vw, 2rem);
+      margin-bottom: 0.65em;
+    }
+
+    .post-card.featured .post-meta {
+      margin-bottom: 1.6em;
+    }
+
+    /* ── CARD IMAGE ───────────────────────────────── */
+    .post-card-img {
+      margin: -40px -40px 28px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      background: var(--stone);
+    }
+
+    .post-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .post-card:hover .post-card-img img {
+      transform: scale(1.04);
+    }
+
+    .post-card.featured .post-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .post-card.featured:hover .post-image img {
+      transform: scale(1.03);
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 1024px) {
+      .blog-grid { padding: 64px 40px; }
+      .blog-posts { grid-template-columns: repeat(2, 1fr); }
+      .post-card.featured { grid-column: span 2; }
+    }
+
+    @media (max-width: 860px) {
+      .blog-grid { padding: 56px 32px; }
+      .blog-posts { grid-template-columns: 1fr; }
+      .post-card.featured { grid-column: span 1; flex-direction: column; }
+      .post-card.featured .post-image { flex: none; width: 100%; aspect-ratio: 16 / 9; }
+      .post-card.featured .post-body { padding: 36px 32px; }
+      .post-card { padding: 32px; }
+      .post-card-img { margin: -32px -32px 24px; }
+    }
+
+    @media (max-width: 480px) {
+      .blog-grid { padding: 48px 24px; }
+      .post-card, .post-card.featured { padding: 28px 24px; }
+      .post-card-img { margin: -28px -24px 20px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="nav-name" href="/">Anthony Eversole</a>
+    <button class="nav-hamburger" onclick="toggleMenu(this)" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/studio">Studio</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/performance">Performance</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/blog" class="active">Blog</a></li>
+      <li class="nav-cta"><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <span class="section-label">Blog</span>
+    <h1 class="page-title">Cracks Where The Light Enters</h1>
+    <p class="page-intro">Where vulnerability meets artistic truth — a collection of production ideas, research, and pedagogic musings.</p>
+  </section>
+
+  <!-- BLOG GRID -->
+  <div class="blog-grid">
+    <div class="blog-posts">
+
+      <!-- FEATURED -->
+      <article class="post-card featured">
+        <a class="post-image" href="/posts/singing-actor.html">
+          <img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1776719202817-E7SFVNQW78VDWYTGU0ET/solo-stage-spotlight-stockcake.webp" alt="Stage spotlight" loading="lazy" />
+        </a>
+        <div class="featured-body">
+          <div class="post-meta">
+            <span class="post-category">Acting</span>
+            <span class="post-tag">Audition</span>
+            <span class="post-tag">Parade</span>
+            <span class="post-date">April 2026</span>
+          </div>
+          <h2 class="post-title"><a href="/posts/singing-actor.html">"It's Hard to Speak My Heart": A Framework for the Singing Actor</a></h2>
+          <p class="post-excerpt">Eye focus must be planned with the same rigor as breath management or vowel modification.</p>
+          <a class="post-link" href="/posts/singing-actor.html">Read more</a>
+        </div>
+      </article>
+
+      <!-- CARD -->
+      <article class="post-card">
+        <a class="post-card-img" href="/posts/amelie-vulnerability.html">
+          <img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1657636149684-JJ4RFM5XBF9WQ7PUTQVR/242CD0BE-47D8-427C-B739-3FCF73C813BD.jpg" alt="Amélie" loading="lazy" />
+        </a>
+        <div class="post-meta">
+          <span class="post-category">Direction</span>
+          <span class="post-tag">Character</span>
+          <span class="post-tag">Amélie</span>
+          <span class="post-date">July 2022</span>
+        </div>
+        <h2 class="post-title"><a href="/posts/amelie-vulnerability.html">Amélie: Navigating Neglect and Risking Vulnerability</a></h2>
+        <p class="post-excerpt">Amélie's arc is one of overcoming childhood neglect, learning to love, and risking vulnerability.</p>
+        <a class="post-link" href="/posts/amelie-vulnerability.html">Read more</a>
+      </article>
+
+      <!-- CARD -->
+      <article class="post-card">
+        <a class="post-card-img" href="/posts/amelie-scenic.html">
+          <img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1649266222896-S1YFXOEHK86HIM1F4480/ppuw7yra5_c.jpeg" alt="Montmartre" loading="lazy" />
+        </a>
+        <div class="post-meta">
+          <span class="post-category">Direction</span>
+          <span class="post-tag">Scenic Design</span>
+          <span class="post-tag">Amélie</span>
+          <span class="post-date">April 2022</span>
+        </div>
+        <h2 class="post-title"><a href="/posts/amelie-scenic.html">Amélie: Guimard, Art Nouveau, and the Scenic Aesthetic</a></h2>
+        <p class="post-excerpt">On Hector Guimard's Art Nouveau visual language and how its organic geometry and <em>fin-de-siècle</em> spirit shape an approach to staging Amélie's Paris.</p>
+        <a class="post-link" href="/posts/amelie-scenic.html">Read more</a>
+      </article>
+
+      <!-- CARD -->
+      <article class="post-card">
+        <a class="post-card-img" href="/posts/amelie-color.html">
+          <img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1648224650521-5MK01MFN08VCQF1T2JC5/daniela-uhlig-amelie-s.jpeg" alt="Amélie color" loading="lazy" />
+        </a>
+        <div class="post-meta">
+          <span class="post-category">Direction</span>
+          <span class="post-tag">Color</span>
+          <span class="post-tag">Amélie</span>
+          <span class="post-date">March 2022</span>
+        </div>
+        <h2 class="post-title"><a href="/posts/amelie-color.html">Amélie: La couleur de l'etrangete</a></h2>
+        <p class="post-excerpt">Color in Jeunet's film is not atmospheric — it's structural. How specific hues carry emotional weight and narrative function, and what that means for a stage adaptation.</p>
+        <a class="post-link" href="/posts/amelie-color.html">Read more</a>
+      </article>
+
+      <!-- CARD -->
+      <article class="post-card">
+        <a class="post-card-img" href="/posts/zaza-psychology.html">
+          <img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1647104718129-6VMZJYB1U300GR7T3A0B/dmitry-ratushny-xsGApcVbojU-unsplash.jpg" alt="Psychological themes" loading="lazy" />
+        </a>
+        <div class="post-meta">
+          <span class="post-category">Research</span>
+          <span class="post-tag">Psychology</span>
+          <span class="post-tag">Zazà</span>
+          <span class="post-date">March 2022</span>
+        </div>
+        <h2 class="post-title"><a href="/posts/zaza-psychology.html">Psychological Themes of Zazà</a></h2>
+        <p class="post-excerpt">An examination of Zazà's psychological themes of addiction to new romance and trauma bonding.</p>
+        <a class="post-link" href="/posts/zaza-psychology.html">Read more</a>
+      </article>
+
+      <!-- CARD -->
+      <article class="post-card">
+        <a class="post-card-img" href="/posts/zaza-visual.html">
+          <img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1640692896965-RL3XG18VSW8RONLVGE3C/cours+mucha.jpg" alt="Alphonse Mucha" loading="lazy" />
+        </a>
+        <div class="post-meta">
+          <span class="post-category">Direction</span>
+          <span class="post-tag">Visual</span>
+          <span class="post-tag">Zazà</span>
+          <span class="post-date">December 2021</span>
+        </div>
+        <h2 class="post-title"><a href="/posts/zaza-visual.html">The Visual Language of Zazà</a></h2>
+        <p class="post-excerpt"><em>Fin-de-siècle</em> advertising and the graphic sensibility of Mucha and Leyendecker as visual source material for the production's aesthetic world.</p>
+        <a class="post-link" href="/posts/zaza-visual.html">Read more</a>
+      </article>
+
+      <!-- CARD -->
+      <article class="post-card">
+        <a class="post-card-img" href="/posts/zaza-leoncavallo.html">
+          <img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1639335725280-LMYNJPFYUIK3UGTKVF42/leopuc.jpeg" alt="Leoncavallo and Puccini" loading="lazy" />
+        </a>
+        <div class="post-meta">
+          <span class="post-category">Research</span>
+          <span class="post-tag">Opera</span>
+          <span class="post-tag">Zazà</span>
+          <span class="post-date">December 2021</span>
+        </div>
+        <h2 class="post-title"><a href="/posts/zaza-leoncavallo.html">Leoncavallo, Zazà &amp; The Giovane Scuola</a></h2>
+        <p class="post-excerpt">The <em>verismo</em> movement, the <em>giovane scuola</em>, and the particular place Leoncavallo occupies within it — history and context for understanding the opera's dramatic ambitions.</p>
+        <a class="post-link" href="/posts/zaza-leoncavallo.html">Read more</a>
+      </article>
+
+      <!-- CARD -->
+      <article class="post-card">
+        <a class="post-card-img" href="/posts/mahagonny-medium.html">
+          <img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1630926932179-QLSTZMRERN8ZBLFLRJQF/toa-heftiba-fbCxL_wEo5M-unsplash.jpg" alt="Human connection" loading="lazy" />
+        </a>
+        <div class="post-meta">
+          <span class="post-category">Direction</span>
+          <span class="post-tag">Weill</span>
+          <span class="post-tag">Menotti</span>
+          <span class="post-date">September 2021</span>
+        </div>
+        <h2 class="post-title"><a href="/posts/mahagonny-medium.html">Mahagonny &amp; Medium: The Search for Meaning</a></h2>
+        <p class="post-excerpt">What themes unify these operas and how do we, as artists, benefit from exploring them?</p>
+        <a class="post-link" href="/posts/mahagonny-medium.html">Read more</a>
+      </article>
+
+      <!-- CARD -->
+      <article class="post-card">
+        <a class="post-card-img" href="/posts/medium-spiritualism.html">
+          <img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1630926822141-2OBQ49XACPT5AF0Q0E2M/ksenia-yakovleva-b7_7gnECxI0-unsplash.jpg" alt="Spiritualism" loading="lazy" />
+        </a>
+        <div class="post-meta">
+          <span class="post-category">Research</span>
+          <span class="post-tag">History</span>
+          <span class="post-tag">The Medium</span>
+          <span class="post-date">September 2021</span>
+        </div>
+        <h2 class="post-title"><a href="/posts/medium-spiritualism.html">The Medium — A History of Spiritualism</a></h2>
+        <p class="post-excerpt">The history of 19th century Spiritualism.</p>
+        <a class="post-link" href="/posts/medium-spiritualism.html">Read more</a>
+      </article>
+
+      <!-- CARD -->
+      <article class="post-card">
+        <a class="post-card-img" href="/posts/mahagonny-concept.html">
+          <img src="https://images.squarespace-cdn.com/content/v1/609a9a7d260935746c9ebc8a/1629629128705-FZV1V3N7C5W0DTG6T47K/9.jpeg" alt="Mahagonny concept" loading="lazy" />
+        </a>
+        <div class="post-meta">
+          <span class="post-category">Direction</span>
+          <span class="post-tag">Concept</span>
+          <span class="post-tag">Weill / Brecht</span>
+          <span class="post-date">August 2021</span>
+        </div>
+        <h2 class="post-title"><a href="/posts/mahagonny-concept.html">Mahagonny Songspiel — A Concept</a></h2>
+        <p class="post-excerpt">Initial concept and research for <em>Mahagonny Songspiel</em> by Kurt Weill and Bertolt Brecht.</p>
+        <a class="post-link" href="/posts/mahagonny-concept.html">Read more</a>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">Anthony Eversole</span>
+    <ul class="footer-links">
+      <li><a href="/studio">Studio</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/performance">Performance</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    function toggleMenu(btn) {
+      var nav = document.getElementById('nav-links');
+      nav.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

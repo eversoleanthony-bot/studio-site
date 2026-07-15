@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Anthony Eversole</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+    /* ── BIO SECTION ──────────────────────────────── */
+    .bio-full {
+      padding: 80px 72px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .bio-photo {
+      position: sticky;
+      top: 88px;
+    }
+
+    .bio-photo-frame {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      background: var(--stone);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .bio-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bio-photo-caption {
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-top: 1em;
+      line-height: 1.6;
+    }
+
+    .bio-copy h2 {
+      font-family: 'Crimson Pro', serif;
+      font-weight: 400;
+      font-size: clamp(1.4rem, 2vw, 1.8rem);
+      color: var(--ink);
+      margin-bottom: 1em;
+      margin-top: 2.5em;
+    }
+
+    .bio-copy h2:first-child { margin-top: 0; }
+
+    .bio-copy p {
+      font-family: 'Crimson Pro', serif;
+      font-weight: 400;
+      font-size: clamp(1.1rem, 1.45vw, 1.25rem);
+      line-height: 1.9;
+      color: var(--ink-mid);
+      margin-bottom: 1em;
+    }
+
+    /* ── CREDENTIALS ──────────────────────────────── */
+    .credentials {
+      padding: 72px 72px;
+      background: var(--cream-dk);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .credentials .section-label {
+      padding-top: 4px;
+    }
+
+    .credentials-list {
+      list-style: none;
+    }
+
+    .credentials-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5em;
+      padding: 1.4em 0;
+      border-bottom: 1px solid var(--stone);
+      align-items: start;
+    }
+
+    .credentials-item:first-child {
+      border-top: 1px solid var(--stone);
+    }
+
+    .credentials-year {
+      font-family: 'Crimson Pro', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--warm-lt);
+      min-width: 3.5rem;
+      padding-top: 0.15em;
+    }
+
+    .credentials-detail strong {
+      display: block;
+      font-family: 'Crimson Pro', serif;
+      font-weight: 400;
+      font-size: 1.1rem;
+      color: var(--ink);
+      margin-bottom: 0.2em;
+    }
+
+    .credentials-detail span {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    /* ── TEACHING PHILOSOPHY ──────────────────────── */
+    .philosophy {
+      padding: 80px 72px;
+      max-width: 900px;
+    }
+
+    .philosophy .section-label {
+      display: block;
+      margin-bottom: 1.5em;
+    }
+
+    .philosophy-text {
+      font-family: 'Crimson Pro', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: clamp(1.3rem, 2vw, 1.7rem);
+      line-height: 1.75;
+      color: var(--ink-mid);
+    }
+
+    /* ── CTA ──────────────────────────────────────── */
+    .about-cta {
+      padding: 72px 72px;
+      background: var(--cream-dk);
+      border-top: 1px solid var(--stone);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2em;
+      flex-wrap: wrap;
+    }
+
+    .about-cta-text {
+      font-family: 'Crimson Pro', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+      color: var(--ink-mid);
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 1024px) {
+      .bio-full, .credentials { padding: 64px 40px; gap: 40px; }
+      .philosophy { padding: 64px 40px; }
+      .about-cta { padding: 56px 40px; }
+    }
+
+    @media (max-width: 860px) {
+      .bio-full { grid-template-columns: 1fr; gap: 40px; padding: 56px 32px; }
+      .bio-photo { position: static; }
+      .bio-photo-frame { aspect-ratio: 4 / 3; max-height: 480px; }
+      .credentials { grid-template-columns: 1fr; gap: 24px; padding: 56px 32px; }
+      .philosophy { padding: 56px 32px; }
+      .about-cta { padding: 48px 32px; flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── DIRECTING CREDITS ────────────────────────── */
+    .directing-credits {
+      padding: 72px 72px;
+      background: var(--cream-dk);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      align-items: start;
+      border-top: 1px solid var(--stone);
+    }
+
+    .directing-credits .section-label {
+      padding-top: 4px;
+    }
+
+    .directing-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    .directing-col h3 {
+      font-family: 'Crimson Pro', serif;
+      font-weight: 400;
+      font-size: 1.15rem;
+      color: var(--ink);
+      margin-bottom: 1em;
+      padding-bottom: 0.6em;
+      border-bottom: 1px solid var(--stone);
+    }
+
+    .directing-list {
+      list-style: none;
+    }
+
+    .directing-list li {
+      padding: 0.6em 0;
+      border-bottom: 1px solid var(--stone);
+    }
+
+    .directing-list li:last-child {
+      border-bottom: none;
+    }
+
+    .dir-title {
+      font-family: 'Crimson Pro', serif;
+      font-weight: 400;
+      font-size: 1.0rem;
+      color: var(--ink);
+      display: block;
+    }
+
+    .dir-composer {
+      font-family: 'Crimson Pro', serif;
+      font-style: italic;
+      font-size: 0.88rem;
+      color: var(--muted);
+    }
+
+    .directing-credits-footer {
+      grid-column: 1 / -1;
+      padding-top: 1.5em;
+      border-top: 1px solid var(--stone);
+      margin-top: 0.5em;
+    }
+
+    @media (max-width: 480px) {
+      .bio-full, .credentials, .philosophy { padding-left: 24px; padding-right: 24px; }
+      .about-cta { padding: 40px 24px; }
+      .directing-credits { padding: 48px 24px; }
+    }
+
+    @media (max-width: 860px) {
+      .directing-credits { grid-template-columns: 1fr; gap: 24px; padding: 56px 32px; }
+      .directing-cols { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 1024px) {
+      .directing-credits { padding: 64px 40px; gap: 40px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="nav-name" href="/">Anthony Eversole</a>
+    <button class="nav-hamburger" onclick="toggleMenu(this)" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/studio">Studio</a></li>
+      <li><a href="/about" class="active">About</a></li>
+      <li><a href="/performance">Performance</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="nav-cta"><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <span class="section-label">About</span>
+    <h1 class="page-title">Anthony Eversole</h1>
+    <p class="page-intro">Voice teacher, acting coach, and performer based in Salt Lake City. Doctor of Musical Arts, University of Maryland.</p>
+  </section>
+
+  <!-- BIO -->
+  <section class="bio-full">
+    <div class="bio-photo">
+      <!-- Replace with: <img src="YOUR_PHOTO_URL" alt="Anthony Eversole" /> -->
+      <div class="bio-photo-frame">Photo</div>
+      <p class="bio-photo-caption">Anthony Eversole<br>Salt Lake City, Utah</p>
+    </div>
+    <div class="bio-copy">
+      <h2>Teaching</h2>
+      <p>Dr. Anthony Eversole (he/him) is a voice teacher and acting coach specializing in adult and pediatric vocal pedagogy across classical, musical theatre, and commercial styles. His teaching combines anatomical understanding of vocal mechanics with sensory feedback, developing students' capacity to self-diagnose and solve problems independently over time.</p>
+      <p>He holds a decade of higher education experience as a voice professor, with former faculty positions at Oregon State University and the Crane School of Music at SUNY Potsdam. He currently teaches privately from his studio in Salt Lake City and online via Zoom, and is accepting new students.</p>
+
+      <h2>Performance</h2>
+      <p>As a baritone, Eversole has performed opera, musical theatre, and concert work with companies across the country. His operatic credits include principal roles with the Maryland Opera Studio, Ash Lawn Opera, Castleton Festival, Utah Lyric Opera, and the University of Oklahoma. His musical theatre work spans regional and academic productions in Utah, Oregon, and beyond.</p>
+      <p>Notable roles include Don Giovanni, Falstaff, Sharpless in <em>Madama Butterfly</em>, Gianni Schicchi, Sweeney Todd, and Chauvelin in <em>The Scarlet Pimpernel</em>. In concert, he has appeared as baritone soloist with The Baltimore Symphony, Tulsa Oratorio Chorus, Corvallis Repertory Singers, and others.</p>
+
+      <h2>Direction &amp; Production</h2>
+      <p>Eversole has directed opera and musical theatre at university, conservatory, and regional levels, with productions mounted at Oregon State University, the Crane School of Music, and the Community Performance Series. His directorial repertoire includes works by Leoncavallo, Weill, Menotti, Puccini, Donizetti, and Simon/Norman.</p>
+      <p>He is also a working voice actor with contracts in the AI and audiobook spaces, and holds a K-12 music educator license in the state of Utah.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- DIRECTING CREDITS -->
+  <section class="directing-credits">
+    <span class="section-label">Direction Credits</span>
+    <div>
+      <div class="directing-cols">
+
+        <div class="directing-col">
+          <h3>Stage Direction</h3>
+          <ul class="directing-list">
+            <li>
+              <span class="dir-title">Zazà</span>
+              <span class="dir-composer">Leoncavallo</span>
+            </li>
+            <li>
+              <span class="dir-title">Mahagonny Songspiel</span>
+              <span class="dir-composer">Weill / Brecht</span>
+            </li>
+            <li>
+              <span class="dir-title">The Medium</span>
+              <span class="dir-composer">Menotti</span>
+            </li>
+            <li>
+              <span class="dir-title">L'elisir d'amore</span>
+              <span class="dir-composer">Donizetti</span>
+            </li>
+            <li>
+              <span class="dir-title">La rondine</span>
+              <span class="dir-composer">Puccini</span>
+            </li>
+            <li>
+              <span class="dir-title">The Secret Garden</span>
+              <span class="dir-composer">Simon / Norman</span>
+            </li>
+            <li>
+              <span class="dir-title">Romeo and Juliet</span>
+              <span class="dir-composer">Shakespeare</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="directing-col">
+          <h3>Music Direction</h3>
+          <ul class="directing-list">
+            <li>
+              <span class="dir-title">Sweeney Todd</span>
+              <span class="dir-composer">Sondheim</span>
+            </li>
+            <li>
+              <span class="dir-title">Company</span>
+              <span class="dir-composer">Sondheim</span>
+            </li>
+            <li>
+              <span class="dir-title">Les Misérables</span>
+              <span class="dir-composer">Schönberg</span>
+            </li>
+            <li>
+              <span class="dir-title">Annie</span>
+              <span class="dir-composer">Strouse</span>
+            </li>
+            <li>
+              <span class="dir-title">The Pirates of Penzance</span>
+              <span class="dir-composer">Sullivan</span>
+            </li>
+            <li>
+              <span class="dir-title">Children of Eden</span>
+              <span class="dir-composer">Schwartz</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="directing-credits-footer">
+        <a class="btn-ghost" href="/services">All directing &amp; production services</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CREDENTIALS -->
+  <section class="credentials">
+    <span class="section-label">Education &amp; Training</span>
+    <ul class="credentials-list">
+      <li class="credentials-item">
+        <span class="credentials-year">DMA</span>
+        <div class="credentials-detail">
+          <strong>Doctor of Musical Arts — Opera &amp; Voice</strong>
+          <span>University of Maryland, College Park</span>
+        </div>
+      </li>
+      <li class="credentials-item">
+        <span class="credentials-year">MM</span>
+        <div class="credentials-detail">
+          <strong>Master of Music — Voice</strong>
+          <span>University of Oklahoma</span>
+        </div>
+      </li>
+      <li class="credentials-item">
+        <span class="credentials-year">BM</span>
+        <div class="credentials-detail">
+          <strong>Bachelor of Music — Vocal Performance</strong>
+          <span>Utah State University</span>
+        </div>
+      </li>
+      <li class="credentials-item">
+        <span class="credentials-year">BME</span>
+        <div class="credentials-detail">
+          <strong>Bachelor of Music Education — Choral Music</strong>
+          <span>Utah State University · Licensed K–12 Music Educator, Utah</span>
+        </div>
+      </li>
+      <li class="credentials-item">
+        <span class="credentials-year">Faculty</span>
+        <div class="credentials-detail">
+          <strong>Oregon State University</strong>
+          <span>Opera, Musical Theatre &amp; Voice</span>
+        </div>
+      </li>
+      <li class="credentials-item">
+        <span class="credentials-year">Faculty</span>
+        <div class="credentials-detail">
+          <strong>The Crane School of Music, SUNY Potsdam</strong>
+          <span>Voice</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy">
+    <span class="section-label">On Teaching</span>
+    <p class="philosophy-text">"The goal is always a voice that is free, expressive, and durable — one that serves the music and the story without getting in the way of either."</p>
+  </section>
+
+  <!-- CTA -->
+  <div class="about-cta">
+    <p class="about-cta-text">Currently accepting students online. Lessons available via Zoom.</p>
+    <a class="btn-primary" href="/contact">Get in Touch</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">Anthony Eversole</span>
+    <ul class="footer-links">
+      <li><a href="/studio">Studio</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/performance">Performance</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    function toggleMenu(btn) {
+      var nav = document.getElementById('nav-links');
+      nav.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

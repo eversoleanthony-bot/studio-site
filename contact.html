@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Anthony Eversole</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+    /* ── CONTACT LAYOUT ───────────────────────────── */
+    .contact-body {
+      padding: 80px 72px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    /* ── SIDEBAR ──────────────────────────────────── */
+    .contact-sidebar {
+      position: sticky;
+      top: 88px;
+    }
+
+    .contact-sidebar h2 {
+      font-family: 'Crimson Pro', serif;
+      font-weight: 400;
+      font-size: 1.5rem;
+      color: var(--ink);
+      margin-bottom: 1em;
+    }
+
+    .contact-sidebar p {
+      font-family: 'Crimson Pro', serif;
+      font-weight: 400;
+      font-size: 1.15rem;
+      line-height: 1.85;
+      color: var(--ink-mid);
+      margin-bottom: 2em;
+    }
+
+    .contact-details {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .contact-detail {
+      padding: 1em 0;
+      border-bottom: 1px solid var(--stone);
+    }
+
+    .contact-detail:first-child {
+      border-top: 1px solid var(--stone);
+    }
+
+    .contact-detail-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.62rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--slate);
+      display: block;
+      margin-bottom: 0.3em;
+    }
+
+    .contact-detail-value {
+      font-size: 0.92rem;
+      color: var(--ink-mid);
+    }
+
+    /* ── FORM ─────────────────────────────────────── */
+    .contact-form-wrap .section-label {
+      display: block;
+      margin-bottom: 2em;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .form-group.full {
+      grid-column: span 2;
+    }
+
+    label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    select,
+    textarea {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: var(--ink);
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid var(--stone);
+      padding: 10px 0;
+      width: 100%;
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+      appearance: none;
+      border-radius: 0;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    select:focus,
+    textarea:focus {
+      border-bottom-color: var(--ink);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: var(--warm-lt);
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B8B0A0' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 4px center;
+      padding-right: 24px;
+      cursor: pointer;
+    }
+
+    select option { background: var(--cream); }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+      line-height: 1.7;
+    }
+
+    .form-submit {
+      display: flex;
+      align-items: center;
+      gap: 2em;
+      margin-top: 2.5em;
+      flex-wrap: wrap;
+    }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 1024px) {
+      .contact-body { padding: 64px 40px; gap: 56px; }
+    }
+
+    @media (max-width: 860px) {
+      .contact-body { grid-template-columns: 1fr; gap: 48px; padding: 56px 32px; }
+      .contact-sidebar { position: static; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-group.full { grid-column: span 1; }
+    }
+
+    @media (max-width: 480px) {
+      .contact-body { padding: 48px 24px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="nav-name" href="/">Anthony Eversole</a>
+    <button class="nav-hamburger" onclick="toggleMenu(this)" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/studio">Studio</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/performance">Performance</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="nav-cta"><a href="/contact" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <span class="section-label">Contact</span>
+    <h1 class="page-title">Get in Touch</h1>
+    <p class="page-intro">For lesson inquiries, booking, and general questions. New students welcome.</p>
+  </section>
+
+  <!-- CONTACT BODY -->
+  <section class="contact-body">
+
+    <!-- SIDEBAR -->
+    <aside class="contact-sidebar">
+      <h2>Let's work together.</h2>
+      <p>Whether you're a beginner looking for your first lesson or an experienced performer preparing for a specific project, I'd be glad to hear from you.</p>
+
+      <ul class="contact-details">
+        <li class="contact-detail">
+          <span class="contact-detail-label">Location</span>
+          <span class="contact-detail-value">Salt Lake City, Utah</span>
+        </li>
+        <li class="contact-detail">
+          <span class="contact-detail-label">Online Lessons</span>
+          <span class="contact-detail-value">Available via Zoom</span>
+        </li>
+        <li class="contact-detail">
+          <span class="contact-detail-label">In Person</span>
+          <span class="contact-detail-value">By arrangement, SLC area</span>
+        </li>
+        <li class="contact-detail">
+          <span class="contact-detail-label">Response Time</span>
+          <span class="contact-detail-value">Within 48 hours</span>
+        </li>
+        <li class="contact-detail">
+          <span class="contact-detail-label">Instagram</span>
+          <span class="contact-detail-value"><a href="https://www.instagram.com/eversole.voice.studio" style="border-bottom:1px solid var(--stone);">@eversole.voice.studio</a></span>
+        </li>
+        <li class="contact-detail">
+          <span class="contact-detail-label">LinkedIn</span>
+          <span class="contact-detail-value"><a href="https://www.linkedin.com/in/anthony-eversole-dma-6b85b052" style="border-bottom:1px solid var(--stone);">Anthony Eversole, DMA</a></span>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- FORM -->
+    <div class="contact-form-wrap">
+      <span class="section-label">Send a Message</span>
+
+      <form action="#" method="POST">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first-name">First Name</label>
+            <input type="text" id="first-name" name="first_name" placeholder="First" autocomplete="given-name" />
+          </div>
+          <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text" id="last-name" name="last_name" placeholder="Last" autocomplete="family-name" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="(801) 000-0000" autocomplete="tel" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="service">I'm interested in</label>
+          <select id="service" name="service">
+            <option value="" disabled selected>Select a service</option>
+            <option value="voice">Private Voice Lessons</option>
+            <option value="acting">Acting Coaching</option>
+            <option value="audition">Audition Prep</option>
+            <option value="workshop">Workshop or Group Clinic</option>
+            <option value="direction">Stage Direction</option>
+            <option value="music-direction">Music Direction</option>
+            <option value="other">Other / Not Sure</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Tell me a bit about yourself</label>
+          <textarea id="message" name="message" placeholder="Your background, goals, availability, or anything else that would help me understand what you're looking for…"></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-primary">Send Message</button>
+          <span class="form-note">I'll be in touch within 48 hours.</span>
+        </div>
+
+      </form>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">Anthony Eversole</span>
+    <ul class="footer-links">
+      <li><a href="/studio">Studio</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/performance">Performance</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    function toggleMenu(btn) {
+      var nav = document.getElementById('nav-links');
+      nav.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

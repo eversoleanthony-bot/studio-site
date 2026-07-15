@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Anthony Eversole</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+    /* ── SERVICE DETAIL ───────────────────────────── */
+    .service-section {
+      padding: 72px 72px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .service-section + .service-section {
+      border-top: 1px solid var(--stone);
+    }
+
+    .service-meta {
+      position: sticky;
+      top: 88px;
+    }
+
+    .service-num {
+      font-family: 'Crimson Pro', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--warm-lt);
+      display: block;
+      margin-bottom: 0.5em;
+    }
+
+    .service-title {
+      font-family: 'Crimson Pro', serif;
+      font-weight: 400;
+      font-size: clamp(1.6rem, 2.4vw, 2.2rem);
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 1.2em;
+    }
+
+    .service-tag {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--slate);
+      border: 1px solid var(--slate);
+      padding: 4px 10px;
+      margin-bottom: 0.5em;
+    }
+
+    .service-content p {
+      font-family: 'Crimson Pro', serif;
+      font-weight: 400;
+      font-size: clamp(1.1rem, 1.45vw, 1.25rem);
+      line-height: 1.85;
+      color: var(--ink-mid);
+      margin-bottom: 1em;
+    }
+
+    .service-content ul {
+      list-style: none;
+      margin: 1.5em 0;
+    }
+
+    .service-content ul li {
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: #666660;
+      line-height: 1.7;
+      padding: 0.4em 0;
+      border-bottom: 1px solid var(--stone);
+      display: flex;
+      align-items: baseline;
+      gap: 0.75em;
+    }
+
+    .service-content ul li::before {
+      content: '—';
+      color: var(--warm-lt);
+      flex-shrink: 0;
+      font-size: 0.8rem;
+    }
+
+    .service-cta {
+      margin-top: 2em;
+      display: flex;
+      gap: 1.5em;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .service-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* ── STUDIO NUDGE ─────────────────────────────── */
+    .studio-nudge {
+      padding: 72px 72px;
+      background: var(--cream-dk);
+      border-top: 1px solid var(--stone);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .studio-nudge-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2em;
+      flex-wrap: wrap;
+    }
+
+    .studio-nudge-text {
+      font-family: 'Crimson Pro', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+      color: var(--ink-mid);
+    }
+
+    /* ── BOOKING STRIP ────────────────────────────── */
+    .booking-strip {
+      padding: 72px 72px;
+      background: var(--ink);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .booking-strip .section-label {
+      color: var(--warm-lt);
+    }
+
+    .booking-strip-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2em;
+      flex-wrap: wrap;
+    }
+
+    .booking-strip-text {
+      font-family: 'Crimson Pro', serif;
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(1.1rem, 1.5vw, 1.4rem);
+      color: var(--stone);
+    }
+
+    .btn-primary-inv {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: var(--cream);
+      padding: 14px 28px;
+      width: fit-content;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-primary-inv:hover { background: var(--stone); }
+
+    /* ── RESPONSIVE ───────────────────────────────── */
+    @media (max-width: 1024px) {
+      .service-section, .studio-nudge, .booking-strip { padding: 64px 40px; }
+      .service-section { gap: 40px; }
+    }
+
+    @media (max-width: 860px) {
+      .service-section { grid-template-columns: 1fr; gap: 28px; padding: 56px 32px; }
+      .service-meta { position: static; }
+      .studio-nudge { padding: 56px 32px; grid-template-columns: 1fr; gap: 24px; }
+      .studio-nudge-content { flex-direction: column; align-items: flex-start; }
+      .booking-strip { padding: 56px 32px; grid-template-columns: 1fr; gap: 24px; }
+      .booking-strip-content { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .service-section, .studio-nudge, .booking-strip { padding-left: 24px; padding-right: 24px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a class="nav-name" href="/">Anthony Eversole</a>
+    <button class="nav-hamburger" onclick="toggleMenu(this)" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/studio">Studio</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/performance">Performance</a></li>
+      <li><a href="/services" class="active">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li class="nav-cta"><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <span class="section-label">Services</span>
+    <h1 class="page-title">Direction, Conducting<br>&amp; Production</h1>
+    <p class="page-intro">Professional engagement for productions, organizations, and creative projects. For private voice and acting instruction, see <a href="/studio" style="border-bottom:1px solid var(--ink-mid);">The Studio</a>.</p>
+  </section>
+
+  <!-- STAGE DIRECTION -->
+  <section class="service-section" id="stage-direction">
+    <div class="service-meta">
+      <span class="service-num">01</span>
+      <h2 class="service-title">Stage Direction</h2>
+      <span class="service-tag">Opera · Musical Theatre</span>
+    </div>
+    <div class="service-content">
+      <p>Direction for opera and musical theatre productions at all levels — from academic workshops and youth conservatories to community and semi-professional companies. The work is rooted in a strong point of view, clear storytelling, and a deep respect for music and text.</p>
+      <p>As a performer and voice teacher, Eversole brings an unusual practical literacy to the rehearsal room — an understanding of how the voice works, what singers need, and how to build a production that serves the music without sacrificing the drama.</p>
+      <ul>
+        <li>Opera and music theatre direction</li>
+        <li>Workshop and showcase productions</li>
+        <li>Movement and physical staging</li>
+        <li>Collaboration with music directors and choreographers</li>
+        <li>Youth and academic productions</li>
+      </ul>
+      <div class="service-cta">
+        <a class="btn-primary" href="/contact">Inquire</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIC DIRECTION -->
+  <section class="service-section" id="music-direction">
+    <div class="service-meta">
+      <span class="service-num">02</span>
+      <h2 class="service-title">Music Direction</h2>
+      <span class="service-tag">Musical Theatre · Opera</span>
+    </div>
+    <div class="service-content">
+      <p>Music direction for musical theatre and opera productions at all levels. Strong keyboard skills, fluency across a wide repertoire, and a collaborative approach to working with directors, choreographers, and production teams.</p>
+      <p>Experienced working with singers from early beginners through professional casts — building ensembles, shaping scores, and creating the musical conditions in which a production can breathe.</p>
+      <ul>
+        <li>Music direction for musical theatre and opera</li>
+        <li>Pit conducting and keyboard direction</li>
+        <li>Cast music preparation and rehearsal</li>
+        <li>Score study and adaptation</li>
+        <li>Youth and community productions welcome</li>
+      </ul>
+      <div class="service-cta">
+        <a class="btn-primary" href="/contact">Inquire</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHORAL CONDUCTING -->
+  <section class="service-section" id="choral-conducting">
+    <div class="service-meta">
+      <span class="service-num">03</span>
+      <h2 class="service-title">Choral Conducting</h2>
+      <span class="service-tag">Ensemble · Choral</span>
+    </div>
+    <div class="service-content">
+      <p>Conducting for choral ensembles in academic, community, and professional contexts. Work spans sacred and secular repertoire, from Renaissance polyphony through contemporary choral music, oratorio, and concert programming.</p>
+      <p>Particular interest in building ensemble sound, refining intonation and blend, and developing singers' individual technique within the choral context.</p>
+      <ul>
+        <li>Community and academic choral directing</li>
+        <li>Concert programming and repertoire selection</li>
+        <li>Sectional coaching and vocal development</li>
+        <li>Oratorio and large ensemble preparation</li>
+      </ul>
+      <div class="service-cta">
+        <a class="btn-primary" href="/contact">Inquire</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUSIC PRODUCTION -->
+  <section class="service-section" id="music-production">
+    <div class="service-meta">
+      <span class="service-num">04</span>
+      <h2 class="service-title">Music Production</h2>
+      <span class="service-tag">Recording · Production</span>
+    </div>
+    <div class="service-content">
+      <p>Music production services for singers, ensembles, and performing arts projects. From demo recordings and audition materials to fully produced recordings for release or archival purposes.</p>
+      <p>A deep understanding of the voice and performance practice informs every project — the goal is always a recording that captures what the performer actually does, rather than a technical artifact.</p>
+      <ul>
+        <li>Vocal recording and production</li>
+        <li>Audition and demo recording</li>
+        <li>Ensemble and small ensemble recording</li>
+        <li>Arrangement and orchestration for recording</li>
+      </ul>
+      <div class="service-cta">
+        <a class="btn-primary" href="/contact">Inquire</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDIO NUDGE -->
+  <div class="studio-nudge">
+    <span class="section-label">The Studio</span>
+    <div class="studio-nudge-content">
+      <p class="studio-nudge-text">Looking for private voice lessons, acting coaching, or audition prep?</p>
+      <a class="btn-primary" href="/studio">Visit the Studio</a>
+    </div>
+  </div>
+
+  <!-- BOOKING STRIP -->
+  <div class="booking-strip">
+    <span class="section-label">Get in Touch</span>
+    <div class="booking-strip-content">
+      <p class="booking-strip-text">All levels and contexts considered. Happy to discuss your project.</p>
+      <a class="btn-primary-inv" href="/contact">Start a Conversation</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-name">Anthony Eversole</span>
+    <ul class="footer-links">
+      <li><a href="/studio">Studio</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/performance">Performance</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/blog">Blog</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    function toggleMenu(btn) {
+      var nav = document.getElementById('nav-links');
+      nav.classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>
