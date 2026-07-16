@@ -76,6 +76,8 @@ button { font-family: var(--sans); cursor: pointer; }
   padding-bottom: 2px;
 }
 .nav-book {
+  display: inline-flex;
+  align-items: center;
   background: var(--ink);
   color: var(--bg) !important;
   padding: 11px 22px;
