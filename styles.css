@@ -76,11 +76,11 @@ button { font-family: var(--sans); cursor: pointer; }
   padding-bottom: 2px;
 }
 .nav-book {
-  display: inline-flex;
-  align-items: center;
+  align-self: center;
   background: var(--ink);
   color: var(--bg) !important;
-  padding: 11px 22px;
+  padding: 10px 22px;
+  line-height: 1;
 }
 .nav-book:hover { opacity: .85; }
 .nav-book.active { background: var(--accent); }
