@@ -63,11 +63,14 @@
     </a>
     <div class="nav-links">
       <a href="lessons.html">Lessons</a>
-      <a href="direction.html">For Organizations</a>
+      <a href="organizations.html">For Organizations</a>
       <a href="performance.html">Performance</a>
       <a href="writing.html">Writing</a>
       <a href="about.html">About</a>
-      <a href="book.html" class="nav-book active">Book a Lesson</a>
+      <div class="nav-ctas">
+        <a href="book.html#login" class="nav-login" onclick="showBookPanel('panel-return',document.querySelectorAll('.book-toggle-btn')[1]);return false;">Student Login</a>
+        <a href="book.html" class="nav-book active">Book a Lesson</a>
+      </div>
     </div>
   </nav>
 
@@ -117,7 +120,7 @@
         <script src="https://app.mymusicstaff.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9QYnhKYiIsIldlYnNpdGVJRCI6Indic190cTFKdyIsIldlYnNpdGVCbG9ja0lEIjoid2JiX3ozcmg5SkgifQ=="></script>
       </div>
       <div class="book-panel" id="panel-return">
-        <script src="https://app.mymusicstaff.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9QYnhKYiIsIldlYnNpdGVJRCI6Indic190cTFKdyIsIldlYnNpdGVCbG9ja0lEIjoid2JiX3ozcmhoSnkifQ=="></script>
+        <script data-src="https://app.mymusicstaff.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9QYnhKYiIsIldlYnNpdGVJRCI6Indic190cTFKdyIsIldlYnNpdGVCbG9ja0lEIjoid2JiX3ozclZoSk4ifQ=="></script>
       </div>
     </div>
   </div>
@@ -127,7 +130,7 @@
     <p class="book-footer-note">
       Already a student? <a href="book.html#panel-return" onclick="showBookPanel('panel-return', document.querySelectorAll('.book-toggle-btn')[1]); return false;">Log in to your portal →</a>
       &nbsp;·&nbsp;
-      Booking for an organization: direction, workshops, clinics? <a href="direction.html">Send an inquiry instead →</a>
+      Booking for an organization: direction, workshops, clinics? <a href="organizations.html">Send an inquiry instead →</a>
     </p>
     <span class="book-footer-brand">The Eversole Studio</span>
   </div>
@@ -137,7 +140,7 @@
       <a href="terms.html">Terms</a>
     </div>
     <div class="footer-social-links">
-      <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">Instagram</a>
       <a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a>
       <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
     </div>
@@ -147,8 +150,17 @@
     function showBookPanel(id, btn) {
       document.querySelectorAll('.book-panel').forEach(function(p) { p.classList.remove('active'); });
       document.querySelectorAll('.book-toggle-btn').forEach(function(b) { b.classList.remove('active'); });
-      document.getElementById(id).classList.add('active');
+      var panel = document.getElementById(id);
+      panel.classList.add('active');
       btn.classList.add('active');
+      panel.querySelectorAll('script[data-src]').forEach(function(placeholder) {
+        var s = document.createElement('script');
+        s.src = placeholder.getAttribute('data-src');
+        placeholder.replaceWith(s);
+      });
+    }
+    if (window.location.hash === '#login') {
+      showBookPanel('panel-return', document.querySelectorAll('.book-toggle-btn')[1]);
     }
   </script>
 

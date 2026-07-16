@@ -6,12 +6,12 @@
   <title>Contact — Anthony Eversole</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-
-    /* ── CONTACT LAYOUT ───────────────────────────── */
-    .contact-body {
+    .contact-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
       padding: 80px 72px;
       display: grid;
       grid-template-columns: 1fr 2fr;
@@ -19,92 +19,90 @@
       align-items: start;
     }
 
-    /* ── SIDEBAR ──────────────────────────────────── */
+    /* Sidebar */
     .contact-sidebar {
       position: sticky;
       top: 88px;
     }
-
-    .contact-sidebar h2 {
-      font-family: 'Crimson Pro', serif;
-      font-weight: 400;
-      font-size: 1.5rem;
-      color: var(--ink);
-      margin-bottom: 1em;
+    .contact-sidebar h1 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      line-height: 1.2;
+      margin-bottom: 20px;
     }
-
     .contact-sidebar p {
-      font-family: 'Crimson Pro', serif;
-      font-weight: 400;
-      font-size: 1.15rem;
-      line-height: 1.85;
-      color: var(--ink-mid);
-      margin-bottom: 2em;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--secondary);
+      margin-bottom: 36px;
     }
-
-    .contact-details {
-      list-style: none;
+    .contact-meta {
       display: flex;
       flex-direction: column;
-      gap: 0;
+      border-top: 1px solid var(--border);
     }
-
-    .contact-detail {
-      padding: 1em 0;
-      border-bottom: 1px solid var(--stone);
+    .contact-meta-row {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
     }
-
-    .contact-detail:first-child {
-      border-top: 1px solid var(--stone);
-    }
-
-    .contact-detail-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.62rem;
-      font-weight: 500;
-      letter-spacing: 0.2em;
+    .contact-meta-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      color: var(--slate);
-      display: block;
-      margin-bottom: 0.3em;
+      color: var(--muted);
     }
-
-    .contact-detail-value {
-      font-size: 0.92rem;
-      color: var(--ink-mid);
+    .contact-meta-value {
+      font-size: 14px;
+      color: var(--body);
     }
+    .contact-meta-value a {
+      color: var(--accent);
+    }
+    .contact-meta-value a:hover { opacity: .75; }
 
-    /* ── FORM ─────────────────────────────────────── */
-    .contact-form-wrap .section-label {
-      display: block;
-      margin-bottom: 2em;
+    /* Form */
+    .contact-form-head {
+      margin-bottom: 36px;
+    }
+    .contact-form-head .kicker { margin-bottom: 10px; }
+    .contact-form-head p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--secondary);
     }
 
     .form-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
-      margin-bottom: 24px;
+      gap: 28px;
+      margin-bottom: 28px;
     }
-
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      margin-bottom: 24px;
+      gap: 7px;
+      margin-bottom: 28px;
     }
+    .form-row .form-group { margin-bottom: 0; }
 
-    .form-group.full {
-      grid-column: span 2;
-    }
-
-    label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.16em;
+    .form-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .14em;
       text-transform: uppercase;
       color: var(--muted);
+    }
+    .form-label-opt {
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 10px;
+      color: var(--meta);
     }
 
     input[type="text"],
@@ -112,220 +110,252 @@
     input[type="tel"],
     select,
     textarea {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.92rem;
-      font-weight: 400;
+      font-family: var(--sans);
+      font-size: 14px;
       color: var(--ink);
       background: transparent;
       border: none;
-      border-bottom: 1px solid var(--stone);
+      border-bottom: 1px solid var(--border);
       padding: 10px 0;
       width: 100%;
       outline: none;
-      transition: border-color 0.2s;
+      transition: border-color .15s;
       -webkit-appearance: none;
       appearance: none;
       border-radius: 0;
     }
-
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    input[type="tel"]:focus,
-    select:focus,
-    textarea:focus {
-      border-bottom-color: var(--ink);
-    }
-
     input::placeholder,
-    textarea::placeholder {
-      color: var(--warm-lt);
-    }
+    textarea::placeholder { color: var(--meta); }
+    input:focus,
+    select:focus,
+    textarea:focus { border-bottom-color: var(--accent); }
 
     select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23B8B0A0' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 11 7'%3E%3Cpath d='M1 1l4.5 4.5L10 1' stroke='%238B8378' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-position: right 4px center;
       padding-right: 24px;
       cursor: pointer;
     }
-
-    select option { background: var(--cream); }
+    select option { background: var(--bg); }
 
     textarea {
       resize: vertical;
-      min-height: 140px;
+      min-height: 130px;
       line-height: 1.7;
     }
 
     .form-submit {
       display: flex;
       align-items: center;
-      gap: 2em;
-      margin-top: 2.5em;
+      gap: 24px;
+      margin-top: 36px;
       flex-wrap: wrap;
     }
-
+    .btn-send {
+      background: var(--ink);
+      color: var(--bg);
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border: none;
+      cursor: pointer;
+      transition: opacity .15s;
+    }
+    .btn-send:hover { opacity: .8; }
     .form-note {
-      font-size: 0.78rem;
+      font-size: 13px;
       color: var(--muted);
-      font-style: italic;
     }
 
-    /* ── RESPONSIVE ───────────────────────────────── */
-    @media (max-width: 1024px) {
-      .contact-body { padding: 64px 40px; gap: 56px; }
+    /* Success / Error state */
+    .form-success {
+      display: none;
+      padding: 20px 24px;
+      background: var(--bg-alt);
+      border-left: 3px solid var(--accent);
+      font-size: 14px;
+      color: var(--body);
+      line-height: 1.6;
+      margin-top: 28px;
     }
 
     @media (max-width: 860px) {
-      .contact-body { grid-template-columns: 1fr; gap: 48px; padding: 56px 32px; }
+      .contact-wrap { grid-template-columns: 1fr; gap: 48px; padding: 56px 32px; }
       .contact-sidebar { position: static; }
-      .form-row { grid-template-columns: 1fr; }
-      .form-group.full { grid-column: span 1; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .form-row .form-group { margin-bottom: 28px; }
     }
-
     @media (max-width: 480px) {
-      .contact-body { padding: 48px 24px; }
+      .contact-wrap { padding: 48px 24px; }
     }
-
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="nav">
-    <a class="nav-name" href="/">Anthony Eversole</a>
-    <button class="nav-hamburger" onclick="toggleMenu(this)" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/studio">Studio</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/performance">Performance</a></li>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li class="nav-cta"><a href="/contact" class="active">Contact</a></li>
-    </ul>
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">The Eversole Studio</span>
+      <span class="nav-brand-kicker">Voice &amp; Stage</span>
+    </a>
+    <div class="nav-links">
+      <a href="lessons.html">Lessons</a>
+      <a href="organizations.html">For Organizations</a>
+      <a href="performance.html">Performance</a>
+      <a href="writing.html">Writing</a>
+      <a href="about.html">About</a>
+      <div class="nav-ctas">
+        <a href="book.html#login" class="nav-login">Student Login</a>
+        <a href="book.html" class="nav-book">Book a Lesson</a>
+      </div>
+    </div>
   </nav>
 
-  <!-- PAGE HERO -->
-  <section class="page-hero">
-    <span class="section-label">Contact</span>
-    <h1 class="page-title">Get in Touch</h1>
-    <p class="page-intro">For lesson inquiries, booking, and general questions. New students welcome.</p>
-  </section>
+  <div class="contact-wrap">
 
-  <!-- CONTACT BODY -->
-  <section class="contact-body">
-
-    <!-- SIDEBAR -->
     <aside class="contact-sidebar">
-      <h2>Let's work together.</h2>
-      <p>Whether you're a beginner looking for your first lesson or an experienced performer preparing for a specific project, I'd be glad to hear from you.</p>
-
-      <ul class="contact-details">
-        <li class="contact-detail">
-          <span class="contact-detail-label">Location</span>
-          <span class="contact-detail-value">Salt Lake City, Utah</span>
-        </li>
-        <li class="contact-detail">
-          <span class="contact-detail-label">Online Lessons</span>
-          <span class="contact-detail-value">Available via Zoom</span>
-        </li>
-        <li class="contact-detail">
-          <span class="contact-detail-label">In Person</span>
-          <span class="contact-detail-value">By arrangement, SLC area</span>
-        </li>
-        <li class="contact-detail">
-          <span class="contact-detail-label">Response Time</span>
-          <span class="contact-detail-value">Within 48 hours</span>
-        </li>
-        <li class="contact-detail">
-          <span class="contact-detail-label">Instagram</span>
-          <span class="contact-detail-value"><a href="https://www.instagram.com/eversole.voice.studio" style="border-bottom:1px solid var(--stone);">@eversole.voice.studio</a></span>
-        </li>
-        <li class="contact-detail">
-          <span class="contact-detail-label">LinkedIn</span>
-          <span class="contact-detail-value"><a href="https://www.linkedin.com/in/anthony-eversole-dma-6b85b052" style="border-bottom:1px solid var(--stone);">Anthony Eversole, DMA</a></span>
-        </li>
-      </ul>
+      <h1>Get in touch.</h1>
+      <p>Whether you're a new student or a working performer, Anthony would love to hear what you're working toward. Lesson inquiries, project collaboration, or general questions — all welcome.</p>
+      <div class="contact-meta">
+        <div class="contact-meta-row">
+          <span class="contact-meta-label">Location</span>
+          <span class="contact-meta-value">Salt Lake City, Utah</span>
+        </div>
+        <div class="contact-meta-row">
+          <span class="contact-meta-label">Online Lessons</span>
+          <span class="contact-meta-value">Available via Zoom</span>
+        </div>
+        <div class="contact-meta-row">
+          <span class="contact-meta-label">Response Time</span>
+          <span class="contact-meta-value">Within 48 hours</span>
+        </div>
+        <div class="contact-meta-row">
+          <span class="contact-meta-label">Instagram</span>
+          <span class="contact-meta-value"><a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">@eversole_voice</a></span>
+        </div>
+        <div class="contact-meta-row">
+          <span class="contact-meta-label">LinkedIn</span>
+          <span class="contact-meta-value"><a href="https://www.linkedin.com/in/anthony-eversole-dma-6b85b052" target="_blank" rel="noopener">Anthony Eversole, DMA</a></span>
+        </div>
+      </div>
     </aside>
 
-    <!-- FORM -->
-    <div class="contact-form-wrap">
-      <span class="section-label">Send a Message</span>
+    <div>
+      <div class="contact-form-head">
+        <div class="kicker">Send a Message</div>
+        <p>New students are always welcome. For lesson availability, use the booking page — this form is best for questions, collaboration inquiries, or anything else.</p>
+      </div>
 
-      <form action="#" method="POST">
+      <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="d4917e94-8d7d-49cb-95cf-f3fbdbad6199" />
+        <input type="hidden" name="subject" value="New inquiry from anthonyeversole.com" />
+        <input type="hidden" name="redirect" value="false" />
 
         <div class="form-row">
           <div class="form-group">
-            <label for="first-name">First Name</label>
-            <input type="text" id="first-name" name="first_name" placeholder="First" autocomplete="given-name" />
+            <label class="form-label" for="first_name">First Name</label>
+            <input type="text" id="first_name" name="first_name" placeholder="First" autocomplete="given-name" required />
           </div>
           <div class="form-group">
-            <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" name="last_name" placeholder="Last" autocomplete="family-name" />
+            <label class="form-label" for="last_name">Last Name</label>
+            <input type="text" id="last_name" name="last_name" placeholder="Last" autocomplete="family-name" required />
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" />
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required />
           </div>
           <div class="form-group">
-            <label for="phone">Phone <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional)</span></label>
+            <label class="form-label" for="phone">Phone <span class="form-label-opt">(optional)</span></label>
             <input type="tel" id="phone" name="phone" placeholder="(801) 000-0000" autocomplete="tel" />
           </div>
         </div>
 
         <div class="form-group">
-          <label for="service">I'm interested in</label>
-          <select id="service" name="service">
+          <label class="form-label" for="service">I'm interested in</label>
+          <select id="service" name="service" required>
             <option value="" disabled selected>Select a service</option>
-            <option value="voice">Private Voice Lessons</option>
-            <option value="acting">Acting Coaching</option>
-            <option value="audition">Audition Prep</option>
-            <option value="workshop">Workshop or Group Clinic</option>
-            <option value="direction">Stage Direction</option>
-            <option value="music-direction">Music Direction</option>
-            <option value="other">Other / Not Sure</option>
+            <option value="Private Voice Lessons">Private Voice Lessons</option>
+            <option value="Acting Coaching">Acting Coaching</option>
+            <option value="Audition Prep">Audition Prep</option>
+            <option value="Workshop or Group Clinic">Workshop or Group Clinic</option>
+            <option value="Stage Direction">Stage Direction</option>
+            <option value="Music Direction">Music Direction</option>
+            <option value="Other / Not Sure">Other / Not Sure</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label for="message">Tell me a bit about yourself</label>
-          <textarea id="message" name="message" placeholder="Your background, goals, availability, or anything else that would help me understand what you're looking for…"></textarea>
+          <label class="form-label" for="message">Tell us a bit about yourself</label>
+          <textarea id="message" name="message" placeholder="Your background, goals, and availability — anything that helps Anthony understand what you're looking for." required></textarea>
         </div>
 
         <div class="form-submit">
-          <button type="submit" class="btn-primary">Send Message</button>
-          <span class="form-note">I'll be in touch within 48 hours.</span>
+          <button type="submit" class="btn-send">Send Message</button>
+          <span class="form-note">Anthony will be in touch within 48 hours.</span>
         </div>
 
+        <div class="form-success" id="form-success">
+          Message sent — thank you. Anthony will be in touch within 48 hours.
+        </div>
       </form>
     </div>
 
-  </section>
+  </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <span class="footer-name">Anthony Eversole</span>
-    <ul class="footer-links">
-      <li><a href="/studio">Studio</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/performance">Performance</a></li>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
+  <footer class="footer-main">
+    <span>The Eversole Studio · Anthony Eversole, DMA</span>
+    <div class="footer-main-links">
+      <a href="lessons.html">Lessons</a>
+      <a href="organizations.html">For Organizations</a>
+      <a href="performance.html">Performance</a>
+      <a href="writing.html">Writing</a>
+      <a href="book.html">Book</a>
+    </div>
   </footer>
+  <div class="footer-legal">
+    <div class="footer-legal-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-social-links">
+      <a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
 
   <script>
-    function toggleMenu(btn) {
-      var nav = document.getElementById('nav-links');
-      nav.classList.toggle('open');
-    }
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var form = this;
+      var btn = form.querySelector('.btn-send');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form)
+      }).then(function(r) { return r.json(); }).then(function(data) {
+        if (data.success) {
+          form.reset();
+          document.getElementById('form-success').style.display = 'block';
+          btn.textContent = 'Sent';
+        } else {
+          btn.textContent = 'Send Message';
+          btn.disabled = false;
+          alert('Something went wrong. Please try again or email directly.');
+        }
+      }).catch(function() {
+        btn.textContent = 'Send Message';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again or email directly.');
+      });
+    });
   </script>
 
 </body>
