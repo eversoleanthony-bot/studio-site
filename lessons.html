@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lessons &amp; Coaching | The Eversole Studio</title>
+  <title>Lessons &amp; Coaching | Anthony Eversole</title>
   <meta name="description" content="Private voice lessons in musical theatre, CCM, and classical, plus acting coaching and audition prep — online via Zoom or in-studio in Salt Lake City." />
-  <meta property="og:title" content="Lessons &amp; Coaching | The Eversole Studio" />
+  <meta property="og:title" content="Lessons &amp; Coaching | Anthony Eversole" />
   <meta property="og:type" content="website" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,9 +13,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    .page-hero { padding: 88px 64px 64px; border-bottom: 1px solid var(--border); }
+    .page-hero { border-bottom: 1px solid var(--border); }
+    .page-hero-text { padding: 88px 64px 48px; }
     .page-h1   { font-family: var(--serif); font-weight: 300; font-size: 68px; line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 24px; }
     .page-sub  { font-family: var(--serif); font-size: 21px; line-height: 1.65; color: #4A453C; max-width: 640px; }
+
+    .page-hero-banner { height: 360px; margin: 0 0 72px; overflow: hidden; background: var(--ink); }
+    .page-hero-banner img { width: 100%; height: 100%; object-fit: cover; object-position: 45% 22%; display: block; }
 
     .service-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
 
@@ -47,15 +51,16 @@
 
   <nav class="nav">
     <a href="index.html" class="nav-brand">
-      <span class="nav-brand-name">The Eversole Studio</span>
+      <span class="nav-brand-name">Anthony Eversole</span>
       <span class="nav-brand-kicker">Voice &amp; Stage</span>
     </a>
     <div class="nav-links">
       <a href="lessons.html" class="active">Lessons</a>
-      <a href="organizations.html">For Organizations</a>
-      <a href="performance.html">Performance</a>
-      <a href="writing.html">Writing</a>
       <a href="about.html">About</a>
+      <a href="performance.html">Credits</a>
+      <a href="media.html">Media</a>
+      <a href="organizations.html">For Organizations</a>
+      <a href="writing.html">Blog</a>
       <div class="nav-ctas">
         <a href="book.html#login" class="nav-login">Student Login</a>
         <a href="book.html" class="nav-book">Book a Lesson</a>
@@ -65,9 +70,14 @@
 
   <!-- hero -->
   <header class="page-hero">
-    <div class="kicker" style="margin-bottom: 20px;">The Studio</div>
-    <h1 class="page-h1">Lessons &amp; Coaching</h1>
-    <p class="page-sub">Private voice, acting coaching, and audition preparation, online via Zoom and in person in Salt Lake City. All ages, all levels, all three of the big styles: musical theatre, CCM, and classical.</p>
+    <div class="page-hero-text">
+      <div class="kicker" style="margin-bottom: 20px;">The Studio</div>
+      <h1 class="page-h1">Lessons &amp; Coaching</h1>
+      <p class="page-sub">Private voice, acting coaching, and audition preparation, online via Zoom and in person in Salt Lake City. All ages, all levels, all three of the big styles: musical theatre, CCM, and classical.</p>
+    </div>
+    <div class="page-hero-banner">
+      <img src="images/site/Student.jpeg" alt="A student rehearsing an audition piece under stage lighting" />
+    </div>
   </header>
 
   <!-- service: voice -->
@@ -179,12 +189,13 @@
   </div>
 
   <footer class="footer-main">
-    <span>The Eversole Studio · Anthony Eversole, DMA</span>
+    <span>Anthony Eversole, DMA</span>
     <div class="footer-main-links">
       <a href="lessons.html">Lessons</a>
       <a href="organizations.html">For Organizations</a>
-      <a href="performance.html">Performance</a>
-      <a href="writing.html">Writing</a>
+      <a href="performance.html">Credits</a>
+      <a href="media.html">Media</a>
+      <a href="writing.html">Blog</a>
       <a href="book.html">Contact</a>
     </div>
   </footer>

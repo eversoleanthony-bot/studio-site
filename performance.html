@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Performance | The Eversole Studio</title>
+  <title>Credits | Anthony Eversole</title>
   <meta name="description" content="Recordings, credits, and production stills from baritone Anthony Eversole's musical theatre and opera career." />
-  <meta property="og:title" content="Performance | The Eversole Studio" />
+  <meta property="og:title" content="Credits | Anthony Eversole" />
   <meta property="og:type" content="website" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,23 +14,26 @@
   <link rel="stylesheet" href="styles.css" />
   <style>
     /* hero split */
-    .perf-hero { display: grid; grid-template-columns: 1fr 560px; border-bottom: 1px solid var(--border); }
+    .perf-hero { display: grid; grid-template-columns: 1fr 720px; }
     .perf-hero-text { padding: 88px 64px; display: flex; flex-direction: column; justify-content: center; }
     .perf-h1 { font-family: var(--serif); font-weight: 300; font-size: 68px; line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 24px; }
     .perf-sub { font-family: var(--serif); font-size: 21px; line-height: 1.65; color: #4A453C; max-width: 520px; margin-bottom: 36px; }
     .perf-actions { display: flex; gap: 20px; flex-wrap: wrap; }
     .perf-portrait { position: relative; min-height: 520px; }
 
-    /* listening room (dark) */
-    .listening-room { background: var(--ink); color: var(--bg); padding: 80px 64px; }
-    .listening-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
-    .listening-label { font-size: 13.5px; line-height: 1.7; color: var(--meta); }
-    .listening-embed { border: 1px solid #3B362E; background: #1A1712; padding: 16px; }
-    .listening-note { font-size: 12px; color: var(--faint); margin-top: 14px; font-family: monospace; letter-spacing: .02em; }
-
     /* résumé tables */
     .resume-section { padding: 72px 64px; border-bottom: 1px solid var(--border); }
     .resume-section:last-of-type { border-bottom: none; }
+
+    /* training & education (dark) */
+    .resume-section-dark { background: var(--ink); border-bottom: none; }
+    .resume-section-dark .resume-table tr { border-bottom-color: #3B362E; }
+    .resume-section-dark .r-role { color: var(--bg); }
+    .resume-section-dark .r-title { color: var(--bg); }
+    .resume-section-dark .r-org { color: var(--meta); }
+    .resume-section-dark .r-yr { color: var(--accent-md); }
+    .resume-section-dark .resume-sublabel { color: var(--faint); }
+    .resume-section-dark .pill { border-color: #3B362E; color: var(--meta); }
     .resume-section.alt { background: var(--bg-alt); }
     .resume-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
     .resume-table { width: 100%; border-collapse: collapse; font-size: 14px; }
@@ -43,12 +46,6 @@
     .r-yr    { color: var(--accent); text-align: right; width: 14%; font-size: 12px; letter-spacing: .08em; white-space: nowrap; padding-top: 1px; }
     .tag-upcoming { font-size: 9px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; border: 1px solid var(--accent); color: var(--accent); padding: 1px 5px; vertical-align: middle; margin-left: 7px; opacity: .8; }
 
-    /* education */
-    .edu-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
-    .edu-item  { margin-bottom: 20px; }
-    .edu-deg   { font-size: 14px; color: var(--ink); font-weight: 500; margin-bottom: 2px; }
-    .edu-inst  { font-size: 13px; color: var(--secondary); letter-spacing: .03em; }
-    .edu-yr    { font-size: 12px; color: var(--accent); letter-spacing: .08em; }
 
     /* pills */
     .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
@@ -67,32 +64,22 @@
 
     /* sub-label */
     .resume-sublabel { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 24px 0 10px; }
-
-    /* stills grid */
-    .stills-section { padding: 72px 64px; }
-    .stills-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
-    .stills-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
-    .still-item { aspect-ratio: 4/3; overflow: hidden; }
-    .still-item img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; transition: transform .3s ease; }
-    .still-item img:hover { transform: scale(1.03); }
-    .still-caption { font-size: 11px; color: var(--muted); letter-spacing: .06em; margin-top: 6px; }
-    .still-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .still-item .img-slot { width: 100%; height: 100%; }
   </style>
 </head>
 <body>
 
   <nav class="nav">
     <a href="index.html" class="nav-brand">
-      <span class="nav-brand-name">The Eversole Studio</span>
+      <span class="nav-brand-name">Anthony Eversole</span>
       <span class="nav-brand-kicker">Voice &amp; Stage</span>
     </a>
     <div class="nav-links">
       <a href="lessons.html">Lessons</a>
-      <a href="organizations.html">For Organizations</a>
-      <a href="performance.html" class="active">Performance</a>
-      <a href="writing.html">Writing</a>
       <a href="about.html">About</a>
+      <a href="performance.html" class="active">Credits</a>
+      <a href="media.html">Media</a>
+      <a href="organizations.html">For Organizations</a>
+      <a href="writing.html">Blog</a>
       <div class="nav-ctas">
         <a href="book.html#login" class="nav-login">Student Login</a>
         <a href="book.html" class="nav-book">Book a Lesson</a>
@@ -104,54 +91,31 @@
   <section class="perf-hero">
     <div class="perf-hero-text">
       <div class="kicker" style="margin-bottom: 20px;">Anthony Eversole · Baritone</div>
-      <h1 class="perf-h1">Performance</h1>
+      <h1 class="perf-h1">Credits</h1>
       <p class="perf-sub">Musical theatre, opera, and concert. Recordings, credits, and materials for casting, all in one place.</p>
       <div class="perf-actions">
         <a href="#credits" class="btn-dark">View Credits &amp; Résumé</a>
-        <a href="#stills" class="btn-outline">Production Photos</a>
+        <a href="media.html" class="btn-outline">Photos &amp; Recordings</a>
       </div>
     </div>
     <div class="img-slot perf-portrait">
-      <span class="img-slot-label">Production photo: in costume, in the moment — 560×520px</span>
-    </div>
-  </section>
-
-  <!-- listening room -->
-  <section class="listening-room">
-    <div class="listening-inner">
-      <div>
-        <div class="kicker kicker-md" style="margin-bottom: 16px;">The Listening Room</div>
-        <p class="listening-label">Selected recordings. For full-length videos and additional repertoire, get in touch.</p>
-      </div>
-      <div>
-        <div class="listening-embed">
-          <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay; encrypted-media"
-            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A1259828290&color=%237e3b2c&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"
-            style="display: block;">
-          </iframe>
-        </div>
-        <p class="listening-note"><a href="https://soundcloud.com/anthony-eversole/sets/assorted-performances" target="_blank" rel="noopener">View full playlist on SoundCloud →</a></p>
-      </div>
+      <img src="images/site/dongiovanni-4.jpg" alt="Anthony Eversole as Don Giovanni, Maryland Opera Studio" />
     </div>
   </section>
 
   <!-- RÉSUMÉ -->
 
   <!-- Training & Education -->
-  <section class="resume-section">
+  <section class="resume-section resume-section-dark">
     <div class="resume-inner">
-      <div class="kicker">Training &amp; Education</div>
+      <div class="kicker kicker-md">Training &amp; Education</div>
       <div>
-        <div class="edu-grid" style="margin-bottom: 28px;">
-          <div>
-            <div class="edu-item"><div class="edu-deg">Doctor of Musical Arts</div><div class="edu-inst">Opera &amp; Voice — University of Maryland</div><div class="edu-yr">2016</div></div>
-            <div class="edu-item"><div class="edu-deg">Master of Music</div><div class="edu-inst">Voice — University of Oklahoma</div><div class="edu-yr">2013</div></div>
-          </div>
-          <div>
-            <div class="edu-item"><div class="edu-deg">Bachelor of Music</div><div class="edu-inst">Vocal Performance — Utah State University</div><div class="edu-yr">2010</div></div>
-            <div class="edu-item"><div class="edu-deg">Bachelor of Music</div><div class="edu-inst">Choral Music Education — Utah State University</div><div class="edu-yr">2011</div></div>
-          </div>
-        </div>
+        <table class="resume-table" style="margin-bottom: 28px;">
+          <tr><td class="r-role">Doctor of Musical Arts</td><td class="r-title">Opera and Voice Pedagogy</td><td class="r-org">University of Maryland</td><td class="r-yr">2016</td></tr>
+          <tr><td class="r-role">Master of Music</td><td class="r-title">Voice</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2013</td></tr>
+          <tr><td class="r-role">Bachelor of Music</td><td class="r-title">Vocal Performance</td><td class="r-org">Utah State University</td><td class="r-yr">2010</td></tr>
+          <tr><td class="r-role">Bachelor of Music</td><td class="r-title">Choral Music Education</td><td class="r-org">Utah State University</td><td class="r-yr">2011</td></tr>
+        </table>
         <div class="resume-sublabel">Artist Training</div>
         <div class="pills">
           <span class="pill">Maryland Opera Studio 2014–16</span>
@@ -177,9 +141,9 @@
         <tr><td class="r-role">Friar Lawrence</td><td class="r-title">Romeo and Juliet</td><td class="r-org">OSU Bard in the Quad</td><td class="r-yr">2021</td></tr>
         <tr><td class="r-role">Andrew Carnes</td><td class="r-title">Oklahoma!</td><td class="r-org">Sundance Summer Theatre</td><td class="r-yr">2019</td></tr>
         <tr><td class="r-role">Chauvelin</td><td class="r-title">The Scarlet Pimpernel</td><td class="r-org">Cache Regional Theatre</td><td class="r-yr">2010</td></tr>
-        <tr><td class="r-role">Franz</td><td class="r-title">The Sound of Music</td><td class="r-org">Utah Festival Opera</td><td class="r-yr">2010</td></tr>
-        <tr><td class="r-role">Joseph Hewes</td><td class="r-title">1776</td><td class="r-org">Utah Festival Opera</td><td class="r-yr">2008</td></tr>
-        <tr><td class="r-role">Officer Krupke</td><td class="r-title">West Side Story</td><td class="r-org">Utah Festival Opera</td><td class="r-yr">2007</td></tr>
+        <tr><td class="r-role">Franz</td><td class="r-title">The Sound of Music</td><td class="r-org">Utah Festival Opera & Musical Theatre</td><td class="r-yr">2010</td></tr>
+        <tr><td class="r-role">Joseph Hewes</td><td class="r-title">1776</td><td class="r-org">Utah Festival Opera & Musical Theatre</td><td class="r-yr">2008</td></tr>
+        <tr><td class="r-role">Officer Krupke</td><td class="r-title">West Side Story</td><td class="r-org">Utah Festival Opera & Musical Theatre</td><td class="r-yr">2007</td></tr>
       </table>
     </div>
   </section>
@@ -189,12 +153,11 @@
     <div class="resume-inner">
       <div class="kicker">Operatic Roles</div>
       <table class="resume-table">
-        <tr><td class="r-role">Marullo</td><td class="r-title">Rigoletto</td><td class="r-org">Utah Lyric Opera</td><td class="r-yr">2018</td></tr>
         <tr><td class="r-role">Oscar Hubbard</td><td class="r-title">Regina</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2016</td></tr>
         <tr><td class="r-role">Papageno</td><td class="r-title">Die Zauberflöte</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2016</td></tr>
         <tr><td class="r-role">Don Giovanni</td><td class="r-title">Don Giovanni</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2015</td></tr>
         <tr><td class="r-role">Ollie Jr.</td><td class="r-title">A Family Reunion</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2015</td></tr>
-        <tr><td class="r-role">Sharpless</td><td class="r-title">Madama Butterfly</td><td class="r-org">Ash Lawn Opera</td><td class="r-yr">2015</td></tr>
+        <tr><td class="r-role">Sharpless</td><td class="r-title">Madama Butterfly</td><td class="r-org">Charlottesville Opera</td><td class="r-yr">2015</td></tr>
         <tr><td class="r-role">Sharpless</td><td class="r-title">Madama Butterfly</td><td class="r-org">Castleton Festival</td><td class="r-yr">2014</td></tr>
         <tr><td class="r-role">Falstaff</td><td class="r-title">Falstaff</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2013</td></tr>
         <tr><td class="r-role">Thoas</td><td class="r-title">Iphigénie en Tauride</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2013</td></tr>
@@ -237,13 +200,18 @@
       <div class="kicker">Directing &amp; Producing</div>
       <table class="resume-table">
         <tr><td class="r-role">Stage Director</td><td class="r-title">Zazà</td><td class="r-org">The Crane Opera Ensemble</td><td class="r-yr">2022</td></tr>
-        <tr><td class="r-role">Producer</td><td class="r-title">Once Upon a Mattress</td><td class="r-org">Community Performance Series</td><td class="r-yr">2022</td></tr>
-        <tr><td class="r-role">Stage Director</td><td class="r-title">L'elisir d'amore</td><td class="r-org">Oregon State University</td><td class="r-yr">2021</td></tr>
+        <tr><td class="r-role">Producer / Vocal Director</td><td class="r-title">Once Upon a Mattress</td><td class="r-org">Community Performance Series</td><td class="r-yr">2022</td></tr>
         <tr><td class="r-role">Stage Director</td><td class="r-title">The Medium</td><td class="r-org">The Crane Opera Ensemble</td><td class="r-yr">2021</td></tr>
         <tr><td class="r-role">Stage Director</td><td class="r-title">Mahagonny Songspiel</td><td class="r-org">The Crane Opera Ensemble</td><td class="r-yr">2021</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">L'elisir d'amore</td><td class="r-org">Oregon State University</td><td class="r-yr">2021</td></tr>
+        <tr><td class="r-role">Music Director</td><td class="r-title">Romeo and Juliet</td><td class="r-org">OSU Bard in the Quad</td><td class="r-yr">2021</td></tr>
         <tr><td class="r-role">Stage Director</td><td class="r-title">The Secret Garden</td><td class="r-org">Oregon State University</td><td class="r-yr">2020</td></tr>
         <tr><td class="r-role">Stage Director</td><td class="r-title">La rondine</td><td class="r-org">Oregon State University</td><td class="r-yr">2019</td></tr>
-        <tr><td class="r-role">Stage Director</td><td class="r-title">Guys and Dolls</td><td class="r-org">Providence Hall H.S.</td><td class="r-yr">2017</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">Mozartistry</td><td class="r-org">Oregon State University</td><td class="r-yr">2019</td></tr>
+        <tr><td class="r-role">Music Director</td><td class="r-title">Shakespeare in Love</td><td class="r-org">Oregon State University</td><td class="r-yr">2019</td></tr>
+        <tr><td class="r-role">Music Director</td><td class="r-title">Guys and Dolls</td><td class="r-org">Providence Hall H.S.</td><td class="r-yr">2017</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">So Many Possibilities</td><td class="r-org">Oregon State University</td><td class="r-yr">2017</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">Mozart Scenes Program</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2011</td></tr>
       </table>
     </div>
   </section>
@@ -265,26 +233,6 @@
     </div>
   </section>
 
-  <!-- Production Photos -->
-  <section class="stills-section" id="stills">
-    <div class="stills-inner">
-      <div>
-        <div class="kicker" style="margin-bottom: 16px;">Production Photos</div>
-        <p style="font-size: 14px; line-height: 1.8; color: var(--secondary);">Stills from recent productions.</p>
-      </div>
-      <div>
-        <div class="stills-grid">
-          <div class="still-item img-slot"><span class="img-slot-label">Production still — Tuck Everlasting · Sandy Arts</span></div>
-          <div class="still-item img-slot"><span class="img-slot-label">Production still — Mamma Mia! · Riverside Productions</span></div>
-          <div class="still-item img-slot"><span class="img-slot-label">Production still — Fiddler on the Roof · Centerpoint Theatre</span></div>
-          <div class="still-item img-slot"><span class="img-slot-label">Production still — Once Upon a Mattress · Community Performance Series</span></div>
-          <div class="still-item img-slot"><span class="img-slot-label">Production still — Madama Butterfly · Ash Lawn Opera</span></div>
-          <div class="still-item img-slot"><span class="img-slot-label">Production still — Zazà · The Crane Opera Ensemble</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Artistic Affiliates -->
   <section class="resume-section">
     <div class="resume-inner">
@@ -303,12 +251,13 @@
   </section>
 
   <footer class="footer-main">
-    <span>The Eversole Studio · Anthony Eversole, DMA</span>
+    <span>Anthony Eversole, DMA</span>
     <div class="footer-main-links">
       <a href="lessons.html">Lessons</a>
       <a href="organizations.html">For Organizations</a>
-      <a href="performance.html">Performance</a>
-      <a href="writing.html">Writing</a>
+      <a href="performance.html">Credits</a>
+      <a href="media.html">Media</a>
+      <a href="writing.html">Blog</a>
       <a href="book.html">Contact</a>
     </div>
   </footer>
