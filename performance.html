@@ -3,465 +3,323 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Performance — Anthony Eversole</title>
+  <title>Performance | The Eversole Studio</title>
+  <meta name="description" content="Recordings, credits, and production stills from baritone Anthony Eversole's musical theatre and opera career." />
+  <meta property="og:title" content="Performance | The Eversole Studio" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
+    /* hero split */
+    .perf-hero { display: grid; grid-template-columns: 1fr 560px; border-bottom: 1px solid var(--border); }
+    .perf-hero-text { padding: 88px 64px; display: flex; flex-direction: column; justify-content: center; }
+    .perf-h1 { font-family: var(--serif); font-weight: 300; font-size: 68px; line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 24px; }
+    .perf-sub { font-family: var(--serif); font-size: 21px; line-height: 1.65; color: #4A453C; max-width: 520px; margin-bottom: 36px; }
+    .perf-actions { display: flex; gap: 20px; flex-wrap: wrap; }
+    .perf-portrait { position: relative; min-height: 520px; }
 
-    /* ── CREDITS LAYOUT ───────────────────────────── */
-    .credits-body {
-      padding: 80px 72px;
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 64px;
-      align-items: start;
-    }
+    /* listening room (dark) */
+    .listening-room { background: var(--ink); color: var(--bg); padding: 80px 64px; }
+    .listening-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
+    .listening-label { font-size: 13.5px; line-height: 1.7; color: var(--meta); }
+    .listening-embed { border: 1px solid #3B362E; background: #1A1712; padding: 16px; }
+    .listening-note { font-size: 12px; color: var(--faint); margin-top: 14px; font-family: monospace; letter-spacing: .02em; }
 
-    .credits-nav {
-      position: sticky;
-      top: 88px;
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
+    /* résumé tables */
+    .resume-section { padding: 72px 64px; border-bottom: 1px solid var(--border); }
+    .resume-section:last-of-type { border-bottom: none; }
+    .resume-section.alt { background: var(--bg-alt); }
+    .resume-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
+    .resume-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .resume-table tr { border-bottom: 1px solid var(--border); }
+    .resume-table tr:last-child { border-bottom: none; }
+    .resume-table td { padding: 10px 0; vertical-align: top; line-height: 1.45; }
+    .r-role  { color: var(--ink); width: 24%; padding-right: 16px; }
+    .r-title { color: var(--secondary); font-family: var(--serif); font-style: italic; font-size: 16px; width: 30%; padding-right: 16px; }
+    .r-org   { color: var(--secondary); width: 32%; padding-right: 16px; font-size: 13px; }
+    .r-yr    { color: var(--accent); text-align: right; width: 14%; font-size: 12px; letter-spacing: .08em; white-space: nowrap; padding-top: 1px; }
+    .tag-upcoming { font-size: 9px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; border: 1px solid var(--accent); color: var(--accent); padding: 1px 5px; vertical-align: middle; margin-left: 7px; opacity: .8; }
 
-    .credits-nav a {
-      display: block;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding: 0.7em 0;
-      border-bottom: 1px solid var(--stone);
-      transition: color 0.2s;
-    }
+    /* education */
+    .edu-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+    .edu-item  { margin-bottom: 20px; }
+    .edu-deg   { font-size: 14px; color: var(--ink); font-weight: 500; margin-bottom: 2px; }
+    .edu-inst  { font-size: 13px; color: var(--secondary); letter-spacing: .03em; }
+    .edu-yr    { font-size: 12px; color: var(--accent); letter-spacing: .08em; }
 
-    .credits-nav a:hover { color: var(--ink); }
-    .credits-nav a.active { color: var(--slate); }
+    /* pills */
+    .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+    .pill  { font-size: 12px; padding: 5px 12px; border: 1px solid var(--border); color: var(--secondary); letter-spacing: .03em; }
 
-    /* ── CREDITS CATEGORY ─────────────────────────── */
-    .credits-category {
-      margin-bottom: 4em;
-    }
+    /* distinctions */
+    .distinctions { columns: 2; column-gap: 40px; }
+    .distinctions li { list-style: none; font-size: 13.5px; color: var(--secondary); line-height: 2; }
+    .distinctions li::before { content: "— "; color: var(--accent); }
 
-    .credits-category:last-child {
-      margin-bottom: 0;
-    }
+    /* affiliates */
+    .aff-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+    .aff-item  { margin-bottom: 24px; }
+    .aff-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+    .aff-names { font-size: 13.5px; color: var(--secondary); line-height: 1.8; }
 
-    .credits-category-label {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.68rem;
-      font-weight: 500;
-      letter-spacing: 0.26em;
-      text-transform: uppercase;
-      color: var(--slate);
-      display: block;
-      margin-bottom: 1.5em;
-      padding-bottom: 0.8em;
-      border-bottom: 1px solid var(--stone);
-    }
+    /* sub-label */
+    .resume-sublabel { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 24px 0 10px; }
 
-    /* ── CREDIT ROW ───────────────────────────────── */
-    .credit-list {
-      list-style: none;
-    }
-
-    .credit-item {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 2em;
-      align-items: baseline;
-      padding: 1em 0;
-      border-bottom: 1px solid var(--stone);
-    }
-
-    .credit-item:last-child {
-      border-bottom: none;
-    }
-
-    .credit-role {
-      font-family: 'Crimson Pro', serif;
-      font-weight: 400;
-      font-size: clamp(1.1rem, 1.45vw, 1.25rem);
-      color: var(--ink);
-    }
-
-    .credit-show {
-      font-family: 'Crimson Pro', serif;
-      font-style: italic;
-      font-size: 0.95rem;
-      color: var(--ink-mid);
-      margin-top: 0.15em;
-    }
-
-    .credit-company {
-      font-size: 0.78rem;
-      font-weight: 400;
-      color: var(--muted);
-      text-align: right;
-      white-space: nowrap;
-    }
-
-    /* ── RESPONSIVE ───────────────────────────────── */
-    @media (max-width: 1024px) {
-      .credits-body { padding: 64px 40px; gap: 40px; }
-    }
-
-    @media (max-width: 860px) {
-      .credits-body { grid-template-columns: 1fr; gap: 40px; padding: 56px 32px; }
-      .credits-nav {
-        position: static;
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 0;
-        border-top: 1px solid var(--stone);
-      }
-      .credits-nav a {
-        border-bottom: none;
-        border-right: 1px solid var(--stone);
-        padding: 0.6em 1em 0.6em 0;
-        margin-right: 1em;
-      }
-      .credit-item { grid-template-columns: 1fr; gap: 0.3em; }
-      .credit-company { text-align: left; }
-    }
-
-    @media (max-width: 480px) {
-      .credits-body { padding: 48px 24px; }
-    }
-
+    /* stills grid */
+    .stills-section { padding: 72px 64px; }
+    .stills-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
+    .stills-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+    .still-item { aspect-ratio: 4/3; overflow: hidden; }
+    .still-item img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; transition: transform .3s ease; }
+    .still-item img:hover { transform: scale(1.03); }
+    .still-caption { font-size: 11px; color: var(--muted); letter-spacing: .06em; margin-top: 6px; }
+    .still-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .still-item .img-slot { width: 100%; height: 100%; }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav class="nav">
-    <a class="nav-name" href="/">Anthony Eversole</a>
-    <button class="nav-hamburger" onclick="toggleMenu(this)" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/studio">Studio</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/performance" class="active">Performance</a></li>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li class="nav-cta"><a href="/contact">Contact</a></li>
-    </ul>
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">The Eversole Studio</span>
+      <span class="nav-brand-kicker">Voice &amp; Stage</span>
+    </a>
+    <div class="nav-links">
+      <a href="lessons.html">Lessons</a>
+      <a href="direction.html">For Organizations</a>
+      <a href="performance.html" class="active">Performance</a>
+      <a href="writing.html">Writing</a>
+      <a href="about.html">About</a>
+      <a href="book.html" class="nav-book">Book a Lesson</a>
+    </div>
   </nav>
 
-  <!-- PAGE HERO -->
-  <section class="page-hero">
-    <span class="section-label">Performance</span>
-    <h1 class="page-title">Selected Credits</h1>
-    <p class="page-intro">Baritone. Opera, musical theatre, and concert work with companies across the country.</p>
-  </section>
-
-  <!-- CREDITS -->
-  <section class="credits-body">
-
-    <ul class="credits-nav">
-      <li><a href="#opera" class="active">Opera</a></li>
-      <li><a href="#musical-theatre">Musical Theatre</a></li>
-      <li><a href="#concert">Concert &amp; Oratorio</a></li>
-    </ul>
-
-    <div class="credits-content">
-
-      <!-- OPERA -->
-      <div class="credits-category" id="opera">
-        <span class="credits-category-label">Opera</span>
-        <ul class="credit-list">
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Marullo</div>
-              <div class="credit-show">Rigoletto — Verdi</div>
-            </div>
-            <div class="credit-company">Utah Lyric Opera · 2018</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Oscar Hubbard</div>
-              <div class="credit-show">Regina — Blitzstein</div>
-            </div>
-            <div class="credit-company">Maryland Opera Studio · 2016</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Papageno</div>
-              <div class="credit-show">Die Zauberflöte — Mozart</div>
-            </div>
-            <div class="credit-company">Maryland Opera Studio · 2016</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Don Giovanni</div>
-              <div class="credit-show">Don Giovanni — Mozart</div>
-            </div>
-            <div class="credit-company">Maryland Opera Studio · 2015</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Sharpless</div>
-              <div class="credit-show">Madama Butterfly — Puccini</div>
-            </div>
-            <div class="credit-company">Ash Lawn Opera · 2015</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Sharpless</div>
-              <div class="credit-show">Madama Butterfly — Puccini</div>
-            </div>
-            <div class="credit-company">Castleton Festival · 2014</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Falstaff</div>
-              <div class="credit-show">Falstaff — Verdi</div>
-            </div>
-            <div class="credit-company">University of Oklahoma · 2013</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Thoas</div>
-              <div class="credit-show">Iphigénie en Tauride — Gluck</div>
-            </div>
-            <div class="credit-company">University of Oklahoma · 2013</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Seneca</div>
-              <div class="credit-show">L'incoronazione di Poppea — Monteverdi</div>
-            </div>
-            <div class="credit-company">University of Oklahoma · 2011</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Papageno</div>
-              <div class="credit-show">Die Zauberflöte — Mozart</div>
-            </div>
-            <div class="credit-company">Utah State University · 2011</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Gianni Schicchi</div>
-              <div class="credit-show">Gianni Schicchi — Puccini</div>
-            </div>
-            <div class="credit-company">Utah State University · 2010</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Rambaldo</div>
-              <div class="credit-show">La rondine — Puccini</div>
-            </div>
-            <div class="credit-company">Utah State University · 2009</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Vidal Hernando</div>
-              <div class="credit-show">Luisa Fernanda — Moreno Torroba</div>
-            </div>
-            <div class="credit-company">Utah State University · 2008</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Belcore</div>
-              <div class="credit-show">L'elisir d'amore — Donizetti</div>
-            </div>
-            <div class="credit-company">Utah State University · 2007</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Father / Peter</div>
-              <div class="credit-show">Hänsel und Gretel — Humperdinck</div>
-            </div>
-            <div class="credit-company">Utah State University · 2007</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Top</div>
-              <div class="credit-show">The Tender Land — Copland</div>
-            </div>
-            <div class="credit-company">Utah State University · 2006</div>
-          </li>
-        </ul>
+  <!-- hero split -->
+  <section class="perf-hero">
+    <div class="perf-hero-text">
+      <div class="kicker" style="margin-bottom: 20px;">Anthony Eversole · Baritone</div>
+      <h1 class="perf-h1">Performance</h1>
+      <p class="perf-sub">Musical theatre, opera, and concert. Recordings, credits, and materials for casting, all in one place.</p>
+      <div class="perf-actions">
+        <a href="#credits" class="btn-dark">View Credits &amp; Résumé</a>
+        <a href="#stills" class="btn-outline">Production Photos</a>
       </div>
-
-      <!-- MUSICAL THEATRE -->
-      <div class="credits-category" id="musical-theatre">
-        <span class="credits-category-label">Musical Theatre</span>
-        <ul class="credit-list">
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Sir Harry</div>
-              <div class="credit-show">Once Upon a Mattress — Rodgers</div>
-            </div>
-            <div class="credit-company">Community Performance Series · 2022</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Friar Lawrence</div>
-              <div class="credit-show">Romeo and Juliet — Shakespeare</div>
-            </div>
-            <div class="credit-company">OSU Bard in the Quad · 2021</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Andrew Carnes</div>
-              <div class="credit-show">Oklahoma! — Rodgers &amp; Hammerstein</div>
-            </div>
-            <div class="credit-company">Sundance Summer Theatre · 2019</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Sweeney Todd</div>
-              <div class="credit-show">Sweeney Todd — Sondheim</div>
-            </div>
-            <div class="credit-company">Utah State University · 2010</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Chauvelin</div>
-              <div class="credit-show">The Scarlet Pimpernel — Wildhorn</div>
-            </div>
-            <div class="credit-company">Cache Regional Theatre · 2010</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Franz</div>
-              <div class="credit-show">The Sound of Music — Rodgers &amp; Hammerstein</div>
-            </div>
-            <div class="credit-company">Utah Festival Opera · 2010</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Joseph Hewes</div>
-              <div class="credit-show">1776 — Edwards</div>
-            </div>
-            <div class="credit-company">Utah Festival Opera · 2008</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Officer Krupke</div>
-              <div class="credit-show">West Side Story — Bernstein</div>
-            </div>
-            <div class="credit-company">Utah Festival Opera · 2007</div>
-          </li>
-        </ul>
-      </div>
-
-      <!-- CONCERT -->
-      <div class="credits-category" id="concert">
-        <span class="credits-category-label">Concert &amp; Oratorio</span>
-        <ul class="credit-list">
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Baritone Soloist</div>
-              <div class="credit-show">The Creation — Haydn</div>
-            </div>
-            <div class="credit-company">Corvallis Repertory Singers · 2019</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Baritone Soloist</div>
-              <div class="credit-show">Ein Deutsches Requiem — Brahms</div>
-            </div>
-            <div class="credit-company">University of Maryland · 2015</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Baritone Soloist</div>
-              <div class="credit-show">Requiem — Fauré</div>
-            </div>
-            <div class="credit-company">Grace Church, Alexandria · 2015</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Baritone Soloist</div>
-              <div class="credit-show">War Requiem — Britten</div>
-            </div>
-            <div class="credit-company">The Baltimore Symphony · 2014</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Baritone Soloist</div>
-              <div class="credit-show">Christmas Oratorio — Saint-Saëns</div>
-            </div>
-            <div class="credit-company">Silver Spring United Methodist · 2014</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Baritone Soloist</div>
-              <div class="credit-show">Symphony No. 9 — Beethoven</div>
-            </div>
-            <div class="credit-company">University of Oklahoma · 2013</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Baritone Soloist</div>
-              <div class="credit-show">Mass of the Children / Gloria — Rutter</div>
-            </div>
-            <div class="credit-company">Tulsa Oratorio Chorus · 2012</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Baritone Soloist</div>
-              <div class="credit-show">Hodie — Vaughan Williams</div>
-            </div>
-            <div class="credit-company">Tulsa Oratorio Chorus · 2012</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Baritone Soloist</div>
-              <div class="credit-show">Die erste Walpurgisnacht — Mendelssohn</div>
-            </div>
-            <div class="credit-company">University of Oklahoma · 2011</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Baritone Soloist</div>
-              <div class="credit-show">Nicolaimesse — Haydn</div>
-            </div>
-            <div class="credit-company">University of Oklahoma · 2011</div>
-          </li>
-          <li class="credit-item">
-            <div>
-              <div class="credit-role">Baritone Soloist</div>
-              <div class="credit-show">Symphony No. 9 — Beethoven</div>
-            </div>
-            <div class="credit-company">Utah State University · 2009</div>
-          </li>
-        </ul>
-      </div>
-
+    </div>
+    <div class="img-slot perf-portrait">
+      <span class="img-slot-label">Production photo: in costume, in the moment — 560×520px</span>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <span class="footer-name">Anthony Eversole</span>
-    <ul class="footer-links">
-      <li><a href="/studio">Studio</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/performance">Performance</a></li>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
-  </footer>
+  <!-- listening room -->
+  <section class="listening-room">
+    <div class="listening-inner">
+      <div>
+        <div class="kicker kicker-md" style="margin-bottom: 16px;">The Listening Room</div>
+        <p class="listening-label">Selected recordings. For full-length videos and additional repertoire, get in touch.</p>
+      </div>
+      <div>
+        <div class="listening-embed">
+          <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay; encrypted-media"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/soundcloud%253Aplaylists%253A1259828290&color=%237e3b2c&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true"
+            style="display: block;">
+          </iframe>
+        </div>
+        <p class="listening-note"><a href="https://soundcloud.com/anthony-eversole/sets/assorted-performances" target="_blank" rel="noopener">View full playlist on SoundCloud →</a></p>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    function toggleMenu(btn) {
-      var nav = document.getElementById('nav-links');
-      nav.classList.toggle('open');
-    }
-  </script>
+  <!-- RÉSUMÉ -->
+
+  <!-- Training & Education -->
+  <section class="resume-section">
+    <div class="resume-inner">
+      <div class="kicker">Training &amp; Education</div>
+      <div>
+        <div class="edu-grid" style="margin-bottom: 28px;">
+          <div>
+            <div class="edu-item"><div class="edu-deg">Doctor of Musical Arts</div><div class="edu-inst">Opera &amp; Voice — University of Maryland</div><div class="edu-yr">2016</div></div>
+            <div class="edu-item"><div class="edu-deg">Master of Music</div><div class="edu-inst">Voice — University of Oklahoma</div><div class="edu-yr">2013</div></div>
+          </div>
+          <div>
+            <div class="edu-item"><div class="edu-deg">Bachelor of Music</div><div class="edu-inst">Vocal Performance — Utah State University</div><div class="edu-yr">2010</div></div>
+            <div class="edu-item"><div class="edu-deg">Bachelor of Music</div><div class="edu-inst">Choral Music Education — Utah State University</div><div class="edu-yr">2011</div></div>
+          </div>
+        </div>
+        <div class="resume-sublabel">Artist Training</div>
+        <div class="pills">
+          <span class="pill">Maryland Opera Studio 2014–16</span>
+          <span class="pill">Charlottesville Opera 2015</span>
+          <span class="pill">Castleton Festival 2014</span>
+          <span class="pill">Wolf Trap Opera</span>
+          <span class="pill">NYC Audition Boot Camp 2013</span>
+          <span class="pill">Utah Festival Opera &amp; Musical Theatre 2007–10</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Musical Theatre -->
+  <section id="musical-theatre" class="resume-section alt">
+    <div class="resume-inner">
+      <div class="kicker">Musical Theatre</div>
+      <table class="resume-table">
+        <tr><td class="r-role">Angus Tuck <span class="tag-upcoming">upcoming</span></td><td class="r-title">Tuck Everlasting</td><td class="r-org">Sandy Arts</td><td class="r-yr">2026</td></tr>
+        <tr><td class="r-role">Russian Soloist</td><td class="r-title">Fiddler on the Roof</td><td class="r-org">Centerpoint Theatre</td><td class="r-yr">2026</td></tr>
+        <tr><td class="r-role">Harry Bright</td><td class="r-title">Mamma Mia!</td><td class="r-org">Riverside Productions</td><td class="r-yr">2025</td></tr>
+        <tr><td class="r-role">Sir Harry</td><td class="r-title">Once Upon a Mattress</td><td class="r-org">Community Performance Series</td><td class="r-yr">2022</td></tr>
+        <tr><td class="r-role">Friar Lawrence</td><td class="r-title">Romeo and Juliet</td><td class="r-org">OSU Bard in the Quad</td><td class="r-yr">2021</td></tr>
+        <tr><td class="r-role">Andrew Carnes</td><td class="r-title">Oklahoma!</td><td class="r-org">Sundance Summer Theatre</td><td class="r-yr">2019</td></tr>
+        <tr><td class="r-role">Chauvelin</td><td class="r-title">The Scarlet Pimpernel</td><td class="r-org">Cache Regional Theatre</td><td class="r-yr">2010</td></tr>
+        <tr><td class="r-role">Franz</td><td class="r-title">The Sound of Music</td><td class="r-org">Utah Festival Opera</td><td class="r-yr">2010</td></tr>
+        <tr><td class="r-role">Joseph Hewes</td><td class="r-title">1776</td><td class="r-org">Utah Festival Opera</td><td class="r-yr">2008</td></tr>
+        <tr><td class="r-role">Officer Krupke</td><td class="r-title">West Side Story</td><td class="r-org">Utah Festival Opera</td><td class="r-yr">2007</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- Operatic Roles -->
+  <section id="credits" class="resume-section">
+    <div class="resume-inner">
+      <div class="kicker">Operatic Roles</div>
+      <table class="resume-table">
+        <tr><td class="r-role">Marullo</td><td class="r-title">Rigoletto</td><td class="r-org">Utah Lyric Opera</td><td class="r-yr">2018</td></tr>
+        <tr><td class="r-role">Oscar Hubbard</td><td class="r-title">Regina</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2016</td></tr>
+        <tr><td class="r-role">Papageno</td><td class="r-title">Die Zauberflöte</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2016</td></tr>
+        <tr><td class="r-role">Don Giovanni</td><td class="r-title">Don Giovanni</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2015</td></tr>
+        <tr><td class="r-role">Ollie Jr.</td><td class="r-title">A Family Reunion</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2015</td></tr>
+        <tr><td class="r-role">Sharpless</td><td class="r-title">Madama Butterfly</td><td class="r-org">Ash Lawn Opera</td><td class="r-yr">2015</td></tr>
+        <tr><td class="r-role">Sharpless</td><td class="r-title">Madama Butterfly</td><td class="r-org">Castleton Festival</td><td class="r-yr">2014</td></tr>
+        <tr><td class="r-role">Falstaff</td><td class="r-title">Falstaff</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2013</td></tr>
+        <tr><td class="r-role">Thoas</td><td class="r-title">Iphigénie en Tauride</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2013</td></tr>
+        <tr><td class="r-role">Seneca</td><td class="r-title">L'incoronazione di Poppea</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2011</td></tr>
+        <tr><td class="r-role">Papageno</td><td class="r-title">Die Zauberflöte</td><td class="r-org">Utah State University</td><td class="r-yr">2011</td></tr>
+        <tr><td class="r-role">Sweeney Todd</td><td class="r-title">Sweeney Todd</td><td class="r-org">Utah State University</td><td class="r-yr">2010</td></tr>
+        <tr><td class="r-role">Gianni Schicchi</td><td class="r-title">Gianni Schicchi</td><td class="r-org">Utah State University</td><td class="r-yr">2010</td></tr>
+        <tr><td class="r-role">Rambaldo</td><td class="r-title">La rondine</td><td class="r-org">Utah State University</td><td class="r-yr">2009</td></tr>
+        <tr><td class="r-role">Vidal Hernando</td><td class="r-title">Luisa Fernanda</td><td class="r-org">Utah State University</td><td class="r-yr">2008</td></tr>
+        <tr><td class="r-role">Belcore</td><td class="r-title">L'elisir d'amore</td><td class="r-org">Utah State University</td><td class="r-yr">2007</td></tr>
+        <tr><td class="r-role">Father / Peter</td><td class="r-title">Hansel &amp; Gretel</td><td class="r-org">Utah State University</td><td class="r-yr">2007</td></tr>
+        <tr><td class="r-role">Top</td><td class="r-title">The Tender Land</td><td class="r-org">Utah State University</td><td class="r-yr">2006</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- Concert & Oratorio -->
+  <section class="resume-section alt">
+    <div class="resume-inner">
+      <div class="kicker">Concert &amp; Oratorio</div>
+      <table class="resume-table">
+        <tr><td class="r-role">Haydn</td><td class="r-title">The Creation</td><td class="r-org">Corvallis Repertory Singers</td><td class="r-yr">2019</td></tr>
+        <tr><td class="r-role">Brahms</td><td class="r-title">Ein Deutsches Requiem</td><td class="r-org">University of Maryland</td><td class="r-yr">2015</td></tr>
+        <tr><td class="r-role">Fauré</td><td class="r-title">Requiem</td><td class="r-org">Grace Church, Alexandria</td><td class="r-yr">2015</td></tr>
+        <tr><td class="r-role">Britten</td><td class="r-title">War Requiem</td><td class="r-org">The Baltimore Symphony</td><td class="r-yr">2014</td></tr>
+        <tr><td class="r-role">Saint-Saëns</td><td class="r-title">Christmas Oratorio</td><td class="r-org">Silver Spring United Methodist</td><td class="r-yr">2014</td></tr>
+        <tr><td class="r-role">Beethoven</td><td class="r-title">Symphony No. 9</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2013</td></tr>
+        <tr><td class="r-role">Rutter</td><td class="r-title">Mass of the Children / Gloria</td><td class="r-org">Tulsa Oratorio Chorus</td><td class="r-yr">2012</td></tr>
+        <tr><td class="r-role">Vaughan Williams</td><td class="r-title">Hodie</td><td class="r-org">Tulsa Oratorio Chorus</td><td class="r-yr">2012</td></tr>
+        <tr><td class="r-role">Mendelssohn</td><td class="r-title">Die erste Walpurgisnacht</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2011</td></tr>
+        <tr><td class="r-role">Haydn</td><td class="r-title">Nicolaimesse</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2011</td></tr>
+        <tr><td class="r-role">Beethoven</td><td class="r-title">Symphony No. 9</td><td class="r-org">Utah State University</td><td class="r-yr">2009</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- Directing -->
+  <section class="resume-section">
+    <div class="resume-inner">
+      <div class="kicker">Directing &amp; Producing</div>
+      <table class="resume-table">
+        <tr><td class="r-role">Stage Director</td><td class="r-title">Zazà</td><td class="r-org">The Crane Opera Ensemble</td><td class="r-yr">2022</td></tr>
+        <tr><td class="r-role">Producer</td><td class="r-title">Once Upon a Mattress</td><td class="r-org">Community Performance Series</td><td class="r-yr">2022</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">L'elisir d'amore</td><td class="r-org">Oregon State University</td><td class="r-yr">2021</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">The Medium</td><td class="r-org">The Crane Opera Ensemble</td><td class="r-yr">2021</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">Mahagonny Songspiel</td><td class="r-org">The Crane Opera Ensemble</td><td class="r-yr">2021</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">The Secret Garden</td><td class="r-org">Oregon State University</td><td class="r-yr">2020</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">La rondine</td><td class="r-org">Oregon State University</td><td class="r-yr">2019</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">Guys and Dolls</td><td class="r-org">Providence Hall H.S.</td><td class="r-yr">2017</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- Distinctions -->
+  <section class="resume-section alt">
+    <div class="resume-inner">
+      <div class="kicker">Distinctions</div>
+      <ul class="distinctions">
+        <li>1st Place, Classical Singer University Competition, 2011</li>
+        <li>1st Place, NATS Student Auditions, Advanced, 2009 &amp; 2010</li>
+        <li>Winner, USU Concerto Competition, 2009 &amp; 2011</li>
+        <li>3rd Place, Benton Schmidt Vocal Competition, 2011</li>
+        <li>Finalist, MONC Auditions, Utah District, 2008–2010</li>
+        <li>WCFCA Opera Fellowship, University of Oklahoma</li>
+        <li>Teaching Assistantship, University of Maryland</li>
+        <li>Marie Eccles Caine Opera Quartet Scholarship</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Production Photos -->
+  <section class="stills-section" id="stills">
+    <div class="stills-inner">
+      <div>
+        <div class="kicker" style="margin-bottom: 16px;">Production Photos</div>
+        <p style="font-size: 14px; line-height: 1.8; color: var(--secondary);">Stills from recent productions.</p>
+      </div>
+      <div>
+        <div class="stills-grid">
+          <div class="still-item img-slot"><span class="img-slot-label">Production still — Tuck Everlasting · Sandy Arts</span></div>
+          <div class="still-item img-slot"><span class="img-slot-label">Production still — Mamma Mia! · Riverside Productions</span></div>
+          <div class="still-item img-slot"><span class="img-slot-label">Production still — Fiddler on the Roof · Centerpoint Theatre</span></div>
+          <div class="still-item img-slot"><span class="img-slot-label">Production still — Once Upon a Mattress · Community Performance Series</span></div>
+          <div class="still-item img-slot"><span class="img-slot-label">Production still — Madama Butterfly · Ash Lawn Opera</span></div>
+          <div class="still-item img-slot"><span class="img-slot-label">Production still — Zazà · The Crane Opera Ensemble</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artistic Affiliates -->
+  <section class="resume-section">
+    <div class="resume-inner">
+      <div class="kicker">Artistic Affiliates</div>
+      <div class="aff-grid">
+        <div>
+          <div class="aff-item"><div class="aff-label">Coaches</div><p class="aff-names">Elizabeth Avery, Stephen Carey, David Hanlon, Miah Im, Lynn Jemison-Keisker, Benedicte Jourdois, Justina Lee, David Mayfield, Bradley Moore, Shelby Rhoades, Stephanie Rhodes, Lorne Richstone, Ben Salisbury</p></div>
+          <div class="aff-item"><div class="aff-label">Masterclasses</div><p class="aff-names">Colin Baldy, Deb Birnbaum, Marilyn Horne, Lauren Flanigan, Stephen King, Cynthia Lawrence, Stanford Olsen, Mark Padmore</p></div>
+        </div>
+        <div>
+          <div class="aff-item"><div class="aff-label">Conductors</div><p class="aff-names">Andy Anderson, Sergio Bernal, Barbara Day-Turner, Nathan Fifeld, Steven Jarvi, Craig Jessop, Karen Keltner, Craig Kier, Bradley Moore, Jonathan Shames, Tim Sharp, Richard Zielinski</p></div>
+          <div class="aff-item"><div class="aff-label">Stage Directors</div><p class="aff-names">Colin Baldy, Amanda Consol, Andrea Dorf-McGray, Kevin Doyle, William Ferrara, Rachel Harris, Daniel Helfgot, James Marvel, Dan Rigazzi, Michael Shell, Jack Shouse, Tomer Zvulun</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-main">
+    <span>The Eversole Studio · Anthony Eversole, DMA</span>
+    <div class="footer-main-links">
+      <a href="lessons.html">Lessons</a>
+      <a href="direction.html">For Organizations</a>
+      <a href="performance.html">Performance</a>
+      <a href="writing.html">Writing</a>
+      <a href="book.html">Contact</a>
+    </div>
+  </footer>
+  <div class="footer-legal">
+    <div class="footer-legal-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-social-links">
+      <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a>
+      <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
 
 </body>
 </html>

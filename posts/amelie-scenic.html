@@ -3,34 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Amélie: Guimard, Art Nouveau, and the Scenic Aesthetic — Anthony Eversole</title>
+  <title>Amélie: Guimard, Art Nouveau, and the Scenic Aesthetic — The Eversole Studio</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
 
   <nav class="nav">
-    <a class="nav-name" href="/">Anthony Eversole</a>
-    <button class="nav-hamburger" onclick="toggleMenu(this)" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav-links" id="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/studio">Studio</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/performance">Performance</a></li>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/blog" class="active">Blog</a></li>
-      <li class="nav-cta"><a href="/contact">Contact</a></li>
-    </ul>
+    <a class="nav-brand" href="/">
+      <span class="nav-brand-name">The Eversole Studio</span>
+      <span class="nav-brand-kicker">Voice &amp; Stage</span>
+    </a>
+    <div class="nav-links">
+      <a href="/lessons">Lessons</a>
+      <a href="/about">About</a>
+      <a href="/direction">Direction</a>
+      <a href="/performance">Performance</a>
+      <a href="/writing" class="active">Journal</a>
+      <a href="/book" class="nav-book">Book a Lesson</a>
+    </div>
   </nav>
 
   <header class="post-header">
-    <a class="post-back" href="/blog">Blog</a>
+    <a class="post-back" href="../writing.html">← All Posts</a>
     <div class="post-header-meta">
-      <span class="post-header-category">Direction</span>
+      <span class="post-header-category">Dramaturgy</span>
       <span class="post-header-date">April 2022</span>
     </div>
     <h1>Amélie: Guimard, Art Nouveau, and the Scenic Aesthetic</h1>
@@ -395,40 +395,39 @@
   </nav>
 
   <footer>
-    <span class="footer-name">Anthony Eversole</span>
-    <ul class="footer-links">
-      <li><a href="/studio">Studio</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/performance">Performance</a></li>
-      <li><a href="/services">Services</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/contact">Contact</a></li>
-    </ul>
+    <div class="footer-main">
+      <a class="nav-brand" href="/"><span class="nav-brand-name">The Eversole Studio</span><span class="nav-brand-kicker">Voice &amp; Stage</span></a>
+      <div class="footer-main-links">
+        <a href="/lessons">Lessons</a>
+        <a href="/about">About</a>
+        <a href="/direction">Direction</a>
+        <a href="/performance">Performance</a>
+        <a href="/writing">Journal</a>
+      </div>
+    </div>
+    <div class="footer-legal">
+      <span>© 2025 The Eversole Studio</span>
+      <div class="footer-legal-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
   </footer>
 
   <script>
-    function toggleMenu(btn) {
-      var nav = document.getElementById('nav-links');
-      nav.classList.toggle('open');
-    }
-
     function openLightbox(src) {
-      var lb = document.getElementById('lightbox');
-      var img = document.getElementById('lightbox-img');
-      img.src = src;
-      lb.classList.add('active');
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
-
     function closeLightbox() {
-      var lb = document.getElementById('lightbox');
-      lb.classList.remove('active');
+      document.getElementById('lightbox').classList.remove('active');
       document.getElementById('lightbox-img').src = '';
       document.body.style.overflow = '';
     }
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeLightbox();
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+    document.querySelectorAll('.post-img img').forEach(function(img) {
+      img.addEventListener('click', function() { openLightbox(this.src); });
     });
   </script>
 </body>
