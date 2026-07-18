@@ -19,7 +19,7 @@
     .page-h1 { font-family: var(--serif); font-weight: 300; font-size: 68px; line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 24px; }
     .page-sub { font-family: var(--serif); font-size: 21px; line-height: 1.65; color: #4A453C; max-width: 640px; }
     .page-hero-banner { height: 360px; overflow: hidden; background: var(--ink); }
-    .page-hero-banner img { width: 100%; height: 100%; object-fit: cover; object-position: 45% 22%; display: block; }
+    .page-hero-banner img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 8%; display: block; }
 
     /* ---- Core Pillars Grid ---- */
     .pillars {
@@ -43,7 +43,21 @@
     .policy { padding: 80px 64px; border-bottom: 1px solid var(--border); background: var(--bg-alt); }
     .policy-header { display: grid; grid-template-columns: 280px 1fr; gap: 48px; margin-bottom: 48px; }
     .policy-label { font-size: 13.5px; line-height: 1.7; color: var(--secondary); max-width: 480px; }
-    .policy-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+
+    /* two-tier stack */
+    .policy-tiers { display: grid; gap: 2px; }
+    .policy-split { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
+
+    /* pricing table (lives inside card-dark) */
+    .price-table { width: 100%; border-collapse: collapse; }
+    .price-table th,
+    .price-table td { padding: 18px 32px; border: 1px solid rgba(246,241,231,.1); text-align: left; vertical-align: middle; }
+    .price-table th { font-size: 10.5px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-md); }
+    .price-expiry   { display: block; margin-top: 4px; font-size: 10px; letter-spacing: .06em; color: var(--accent-lt); font-weight: 400; text-transform: none; }
+    .price-length   { font-size: 13px; color: var(--accent-lt); font-weight: 500; letter-spacing: .04em; }
+    .price-val      { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--bg); }
+
+    /* policy card body */
     .policy-card-hl   { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--bg); margin: 14px 0 16px; line-height: 1.2; }
     .policy-card-body { font-size: 13px; line-height: 1.8; color: var(--accent-lt); }
     .policy-card-body li { list-style: none; padding: 5px 0; border-top: 1px solid rgba(246,241,231,.1); }
@@ -132,42 +146,69 @@
       <div class="kicker">Policy &amp; Investment</div>
       <p class="policy-label">Studio policies exist to protect the work. The terms below apply to all bookings and are confirmed at the time of scheduling.</p>
     </div>
-    <div class="policy-cards">
+    <div class="policy-tiers">
 
+      <!-- tier 1: pricing matrix -->
       <div class="card-dark">
         <div class="kicker">Investment</div>
-        <div class="policy-card-hl">Lesson Rates</div>
-        <ul class="policy-card-body">
-          <li><strong>$80</strong> · Single 60-minute lesson</li>
-          <li><strong>$65</strong> · Single 45-minute lesson</li>
-          <li><strong>$300</strong> · Package of four 60-minute lessons</li>
-          <li><strong>$560</strong> · Package of eight 60-minute lessons</li>
-          <li>Payment collected at booking. Packages scheduled at your pace.</li>
-        </ul>
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>Lesson Length</th>
+              <th>Single Session</th>
+              <th>4-Week Bundle<span class="price-expiry">5-wk expiry</span></th>
+              <th>8-Week Bundle<span class="price-expiry">10-wk expiry</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="price-length">60 Minutes</td>
+              <td><span class="price-val">$100</span></td>
+              <td><span class="price-val">$380</span></td>
+              <td><span class="price-val">$720</span></td>
+            </tr>
+            <tr>
+              <td class="price-length">45 Minutes</td>
+              <td><span class="price-val">$80</span></td>
+              <td><span class="price-val">$304</span></td>
+              <td><span class="price-val">$576</span></td>
+            </tr>
+            <tr>
+              <td class="price-length">30 Minutes</td>
+              <td><span class="price-val">$55</span></td>
+              <td><span class="price-val">$209</span></td>
+              <td><span class="price-val">$396</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
-      <div class="card-dark">
-        <div class="kicker">Scheduling</div>
-        <div class="policy-card-hl">Cadence &amp; Cancellation</div>
-        <ul class="policy-card-body">
-          <li>Weekly lessons are the standard cadence for active studio students.</li>
-          <li>Reschedule with <strong>24 hours' notice</strong> at no charge.</li>
-          <li>Late cancellations and no-shows are charged at the full lesson rate.</li>
-          <li>Available online via Zoom and in person in Salt Lake City.</li>
-        </ul>
-      </div>
+      <!-- tier 2: policy split -->
+      <div class="policy-split">
 
-      <div class="card-dark">
-        <div class="kicker">Getting Started</div>
-        <div class="policy-card-hl">The First Step</div>
-        <ul class="policy-card-body">
-          <li>New students begin with a <strong>consultation lesson</strong> before committing to a package.</li>
-          <li>No prior experience required. Studio accepts ages 12 and up.</li>
-          <li>A parent or guardian attends the consultation for students under 18.</li>
-          <li>Full studio policies are available on the <a href="terms.html" style="color: var(--accent-md);">Terms page</a>.</li>
-        </ul>
-      </div>
+        <div class="card-dark">
+          <div class="kicker">Scheduling</div>
+          <div class="policy-card-hl">Cadence &amp; Cancellation</div>
+          <ul class="policy-card-body">
+            <li>Weekly lessons are the standard cadence for active studio students.</li>
+            <li>Reschedule with <strong>24 hours' notice</strong> at no charge.</li>
+            <li>Late cancellations and no-shows are charged at the full lesson rate.</li>
+            <li>Available online via Zoom and in person in Salt Lake City.</li>
+          </ul>
+        </div>
 
+        <div class="card-dark">
+          <div class="kicker">Getting Started</div>
+          <div class="policy-card-hl">The First Step</div>
+          <ul class="policy-card-body">
+            <li>New students begin with a <strong>consultation lesson</strong> before committing to a package.</li>
+            <li>No prior experience required. Studio accepts ages 12 and up.</li>
+            <li>A parent or guardian attends the consultation for students under 18.</li>
+            <li>Full studio policies are available on the <a href="terms.html" style="color: var(--accent-md);">Terms page</a>.</li>
+          </ul>
+        </div>
+
+      </div>
     </div>
   </section>
 
