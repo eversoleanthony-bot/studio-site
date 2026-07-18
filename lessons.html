@@ -47,11 +47,10 @@
     .policy.is-warm .kicker        { color: rgba(246,241,231,.65); }
     .policy.is-warm .policy-label  { color: rgba(246,241,231,.65); }
 
-    /* two-tier stack */
+    /* tier stack — gap:2px shows rust bg as the hairline seam between tiers */
     .policy-tiers { display: grid; gap: 2px; }
-    .policy-split { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
 
-    /* pricing matrix — sits directly on the rust canvas */
+    /* pricing matrix — tier 1, on rust canvas */
     .price-matrix { padding: 40px 48px 48px; }
     .price-matrix .kicker { color: rgba(246,241,231,.65); margin-bottom: 20px; }
     .price-table { width: 100%; border-collapse: collapse; }
@@ -62,15 +61,36 @@
     .price-length { font-size: 13px; color: rgba(246,241,231,.55); font-weight: 500; letter-spacing: .04em; }
     .price-val    { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--bg); }
 
-    /* policy card body (inside .card-dark, ink background) */
-    .policy-card-hl   { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--bg); margin: 14px 0 16px; line-height: 1.2; }
-    .policy-card-body { font-size: 13px; line-height: 1.8; color: var(--accent-lt); }
-    .policy-card-body li { list-style: none; padding: 5px 0; border-top: 1px solid rgba(246,241,231,.1); }
+    /* light policy tiles — tier 2, cream canvas */
+    .policy-light-split { display: grid; grid-template-columns: repeat(2, 1fr); background: var(--bg); }
+    .policy-tile { padding: 56px 64px; background: var(--bg); }
+    .policy-tile:first-child { border-right: 1px solid rgba(34,30,25,.1); }
+    .policy-tile .kicker      { color: var(--accent); }
+    .policy-card-hl   { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--ink); margin: 14px 0 16px; line-height: 1.2; }
+    .policy-card-body { font-size: 13px; line-height: 1.8; color: var(--secondary); }
+    .policy-card-body li { list-style: none; padding: 6px 0; border-top: 1px solid var(--border); }
     .policy-card-body li:first-child { border-top: none; }
-    .policy-card-body strong { color: var(--bg); font-weight: 600; }
+    .policy-card-body strong { color: var(--ink); font-weight: 600; }
+    .policy-card-body a { color: var(--accent); }
 
-    /* ---- Accent strip CTA spacing ---- */
-    .accent-strip-actions { margin-top: 36px; }
+    /* ---- Light canvas CTA ---- */
+    .cta-light {
+      padding: 80px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 48px;
+      border-top: 1px solid var(--border);
+    }
+    .cta-light-hl {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-style: italic;
+      font-size: 32px;
+      line-height: 1.4;
+      color: var(--ink);
+      max-width: 600px;
+    }
   </style>
 </head>
 <body>
@@ -188,10 +208,10 @@
         </table>
       </div>
 
-      <!-- tier 2: policy split on ink cards -->
-      <div class="policy-split">
+      <!-- tier 2: policy tiles on light canvas -->
+      <div class="policy-light-split">
 
-        <div class="card-dark">
+        <div class="policy-tile">
           <div class="kicker">Scheduling</div>
           <div class="policy-card-hl">Cadence &amp; Cancellation</div>
           <ul class="policy-card-body">
@@ -202,14 +222,14 @@
           </ul>
         </div>
 
-        <div class="card-dark">
+        <div class="policy-tile">
           <div class="kicker">Getting Started</div>
           <div class="policy-card-hl">The First Step</div>
           <ul class="policy-card-body">
             <li>New students begin with a <strong>consultation lesson</strong> before committing to a package.</li>
             <li>No prior experience required. Studio accepts ages 12 and up.</li>
             <li>A parent or guardian attends the consultation for students under 18.</li>
-            <li>Full studio policies are available on the <a href="terms.html" style="color: var(--accent-md);">Terms page</a>.</li>
+            <li>Full studio policies are available on the <a href="terms.html">Terms page</a>.</li>
           </ul>
         </div>
 
@@ -217,13 +237,10 @@
     </div>
   </section>
 
-  <!-- dark ink CTA strip -->
-  <section class="accent-strip">
-    <div class="kicker">Ready to Begin?</div>
-    <p class="accent-strip-text">Schedule a consultation and find out what your voice can do.</p>
-    <div class="accent-strip-actions">
-      <a href="book.html" class="btn-light">Book a Consultation</a>
-    </div>
+  <!-- light canvas CTA -->
+  <section class="cta-light">
+    <p class="cta-light-hl">Schedule a consultation and find out what your voice can do.</p>
+    <a href="book.html" class="btn-dark">Book a Consultation</a>
   </section>
 
   <footer class="footer-main">
