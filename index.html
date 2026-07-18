@@ -44,9 +44,21 @@
       font-weight: 400;
       line-height: 1.6;
       color: #4A453C;
-      max-width: 480px;
+      max-width: 840px;
       margin-bottom: 40px;
     }
+    .hero-cta-primary {
+      display: inline-block;
+      background: #B35433;
+      color: #F9F6F0;
+      border: 1px solid #B35433;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      padding: 13px 20px;
+    }
+    .hero-cta-primary:hover { background: transparent; color: #B35433; border-color: #B35433; opacity: 1; }
     .hero-actions { display: flex; gap: 24px; align-items: center; }
     .hero-sec-link {
       font-size: 12px;
@@ -60,55 +72,63 @@
     }
     .hero-sec-link::before { content: ''; display: block; width: 24px; height: 1px; background: currentColor; }
 
+    /* Nav hamburger (hidden on desktop) */
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      padding: 8px 0;
+      align-items: center;
+      gap: 8px;
+    }
+
     /* ---- Home: offerings ---- */
     .offerings {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
+      background: var(--bg-alt);
     }
     .offering-primary { padding: 72px 64px; }
-    .offering-primary:first-child { border-right: 1px solid var(--border); }
+    .offering-primary:first-child { border-right: 2px solid rgba(34, 30, 25, 0.08); }
     .offering-anchor {
       grid-column: 1 / -1;
       padding: 64px 64px;
       border-top: 1px solid var(--border);
-      background: var(--bg-alt);
     }
     .offering-num { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--meta); margin-bottom: 12px; }
-    .offering-title { font-family: var(--serif); font-size: 32px; line-height: 1.15; margin-bottom: 16px; }
+    .offering-title { font-family: var(--serif); font-weight: 400; font-size: 24px; line-height: 1.2; margin-bottom: 12px; }
     .offering-body { font-size: 14px; line-height: 1.75; color: var(--secondary); margin-bottom: 22px; max-width: 520px; }
-    .offering-anchor .offering-title { font-size: 26px; }
     .offering-anchor .offering-body { max-width: 720px; }
-    @media (max-width: 768px) {
-      .offerings { grid-template-columns: 1fr; }
-      .offering-primary:first-child { border-right: none; border-bottom: 1px solid var(--border); }
-      .offering-primary { padding: 56px 32px; }
-      .offering-anchor { padding: 56px 32px; grid-column: 1; }
-    }
 
     /* ---- Home: teacher ---- */
     .teacher {
-      background: var(--bg-alt);
       border-top: 1px solid var(--border);
       display: grid;
-      grid-template-columns: 480px 1fr;
+      grid-template-columns: 2fr 3fr;
       gap: 72px;
-      align-items: center;
+      align-items: stretch;
     }
-    .teacher-img { position: relative; height: 520px; }
-    .teacher-text { padding: 64px 64px 64px 0; }
+    .teacher-img { position: relative; min-height: 520px; height: auto; }
+    .teacher-text { padding: 64px 64px 64px 0; display: flex; flex-direction: column; justify-content: center; }
     .teacher-quote {
       font-family: var(--serif);
       font-size: 30px;
       font-weight: 400;
       line-height: 1.45;
       color: var(--body);
-      max-width: 640px;
       margin-bottom: 24px;
       text-wrap: pretty;
     }
-    .teacher-meta { font-size: 14.5px; line-height: 1.7; color: var(--secondary); max-width: 560px; margin-bottom: 28px; }
+    .teacher-meta { font-size: 14.5px; line-height: 1.7; color: var(--secondary); margin-bottom: 28px; }
 
     /* ---- Home: testimonials ---- */
     .testimonials {
@@ -116,21 +136,62 @@
       border-top: 1px solid var(--border);
       background: var(--bg-alt);
     }
-    .testimonials-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
-    .testimonial-featured { max-width: 640px; }
+    .testimonials-inner { display: grid; grid-template-columns: 1fr 2.5fr; gap: 48px; }
     .testimonial-quote  { font-family: var(--serif); font-style: italic; font-size: 23px; line-height: 1.7; color: var(--body); margin-bottom: 24px; }
     .testimonial-attr   { display: flex; align-items: center; gap: 12px; }
     .testimonial-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--border); flex: none; }
     .testimonial-name   { font-size: 13px; color: var(--secondary); }
     .testimonial-name strong { color: var(--ink); }
 
+    /* ---- Responsive: tablet / small desktop (≤ 1149px) ---- */
+    @media (max-width: 1149px) {
+      /* Nav: hamburger replaces text links */
+      .nav { padding: 0 40px; }
+      .nav-menu-btn { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 40px 28px;
+        gap: 0;
+        z-index: 99;
+        box-shadow: 0 4px 16px rgba(34,30,25,.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links > a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        letter-spacing: .12em;
+      }
+      .nav-ctas { padding: 20px 0 0; }
+      .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
+      /* Teacher: compress spacing at tablet, portrait stays 2-column */
+      .teacher { gap: 48px; }
+      .teacher-img { min-height: 480px; }
+      .teacher-text { padding: 48px 48px 48px 0; }
+      .teacher-quote { font-size: 26px; }
+      /* Testimonials: compress spacing */
+      .testimonials { padding: 72px 48px; }
+      .testimonials-inner { gap: 36px; }
+      /* Strip: reduce column padding */
+      .strip-left, .strip-right { padding: 56px 48px; }
+      /* Offerings: reduce padding, keep 2-column */
+      .offering-primary { padding: 56px 48px; }
+      .offering-anchor { padding: 48px 48px; }
+    }
+
     /* ---- Home: perf + writing strip ---- */
-    .strip { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); }
-    .strip-left  { padding: 72px 64px; border-right: 1px solid var(--border); }
+    .strip { display: grid; grid-template-columns: 1fr 1fr; border-top: 2px solid rgba(34, 30, 25, 0.08); background: var(--bg-alt); }
+    .strip-left  { padding: 72px 64px; border-right: 2px solid rgba(34, 30, 25, 0.08); }
     .strip-right { padding: 72px 64px; }
     .strip-title { font-family: var(--serif); font-size: 26px; line-height: 1.4; margin-bottom: 16px; text-wrap: pretty; }
     .strip-posts { display: grid; gap: 14px; }
-    .strip-post  { font-family: var(--serif); font-size: 19px; border-bottom: 1px solid var(--border); padding-bottom: 13px; display: block; }
+    .strip-post  { font-family: var(--serif); font-size: 19px; border-bottom: 2px solid rgba(34, 30, 25, 0.08); padding-bottom: 13px; display: block; }
     .strip-post:last-child { border-bottom: none; padding-bottom: 0; }
 
     /* ---- Home: upcoming ---- */
@@ -139,11 +200,11 @@
     .upcoming-event { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 20px 0; border-bottom: 1px solid var(--border); }
     .upcoming-event:first-of-type { border-top: 1px solid var(--border); }
     .upcoming-event-info { display: grid; gap: 3px; }
-    .upcoming-event-role { font-size: 13px; font-weight: 500; color: var(--ink); letter-spacing: .02em; }
-    .upcoming-event-title { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--body); }
-    .upcoming-event-meta { font-size: 12.5px; color: var(--secondary); }
-    .btn-ticket { font-size: 10.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent); padding: 9px 20px; white-space: nowrap; flex: none; transition: background .15s, color .15s; }
-    .btn-ticket:hover { background: var(--accent); color: var(--bg); }
+    .upcoming-event-role { font-family: var(--sans); font-size: 14px; font-weight: 500; color: #1C1B1A; margin-bottom: 2px; }
+    .upcoming-event-title { font-family: var(--sans); font-style: italic; font-size: 16px; font-weight: 400; color: #1C1B1A; margin-bottom: 4px; }
+    .upcoming-event-meta { font-family: var(--sans); font-size: 13px; font-weight: 400; color: rgba(28, 27, 26, 0.65); }
+    .btn-ticket { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; background: #B35433; color: #F9F6F0; border: 1px solid #B35433; padding: 13px 20px; white-space: nowrap; flex: none; transition: background .15s, color .15s; }
+    .btn-ticket:hover { background: transparent; color: #B35433; border-color: #B35433; opacity: 1; }
 
     /* ---- Home: book band ---- */
     .home-book-band {
@@ -157,6 +218,69 @@
     }
     .home-book-band .kicker { color: var(--accent-md); margin-bottom: 16px; }
     .home-book-hl { font-family: var(--serif); font-weight: 300; font-size: 38px; font-style: italic; }
+
+    /* Book band CTA — cream on dark for contrast */
+    .home-book-band .btn-light {
+      font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+      padding: 13px 20px; background: #F9F6F0; color: #1C1B1A; border: 1px solid #F9F6F0;
+    }
+    .home-book-band .btn-light:hover { background: transparent; color: #F9F6F0; border-color: #F9F6F0; opacity: 1; }
+
+    /* ---- Responsive: mobile (≤ 767px) — all stacking ---- */
+    @media (max-width: 767px) {
+      /* Nav: tighten padding on phones */
+      .nav { padding: 0 24px; }
+      .nav-links { padding: 8px 24px 28px; }
+
+      /* Offerings: single column */
+      .offerings { grid-template-columns: 1fr; }
+      .offering-primary:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+      .offering-primary { padding: 48px 24px; }
+      .offering-anchor { padding: 48px 24px; grid-column: 1; }
+      .offering-body, .offering-anchor .offering-body { max-width: 100%; }
+
+      /* Teacher: stack image above text */
+      .teacher { grid-template-columns: 1fr; gap: 0; align-items: stretch; }
+      .teacher-img { height: 380px; min-height: unset; }
+      .teacher-text { padding: 48px 24px; width: 100%; }
+      .teacher-quote { font-size: 22px; }
+
+      /* Hero: banner image below text */
+      .hero { grid-template-columns: 1fr; min-height: unset; }
+      .hero-text { padding: 48px 24px 36px; }
+      .hero .img-slot { height: 300px; overflow: hidden; }
+      .hero-h1 { font-size: 38px; letter-spacing: -0.01em; margin-bottom: 18px; }
+      .hero-sub { font-size: 18px; margin-bottom: 28px; }
+      .hero-actions { flex-direction: column; align-items: flex-start; gap: 14px; }
+
+      /* Testimonials: single column */
+      .testimonials { padding: 56px 24px; }
+      .testimonials-inner { grid-template-columns: 1fr; gap: 24px; }
+      .testimonial-quote { font-size: 19px; line-height: 1.65; }
+
+      /* Credits / blog strip: single column */
+      .strip { grid-template-columns: 1fr; }
+      .strip-left { border-right: none; border-bottom: 2px solid rgba(34, 30, 25, 0.08); padding: 48px 24px; }
+      .strip-right { padding: 48px 24px; }
+      .strip-title { font-size: 20px; }
+      .strip-post { font-size: 16px; }
+
+      /* On Stage: single column, overflow-safe */
+      .upcoming { padding: 48px 24px; }
+      .upcoming-inner { grid-template-columns: 1fr; gap: 24px; }
+      .upcoming-event { flex-direction: column; align-items: flex-start; gap: 16px; width: 100%; box-sizing: border-box; }
+      .upcoming-event-info { width: 100%; box-sizing: border-box; overflow-wrap: break-word; }
+      .btn-ticket { display: block; width: 100%; text-align: center; white-space: normal; box-sizing: border-box; }
+
+      /* Book band: stack */
+      .home-book-band { flex-direction: column; align-items: flex-start; padding: 56px 24px; gap: 28px; }
+      .home-book-hl { font-size: 28px; }
+
+      /* Footer: stack and wrap */
+      .footer-main { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; }
+      .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
+      .footer-legal { flex-direction: column; gap: 12px; padding: 16px 24px; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
@@ -167,15 +291,15 @@
       <span class="nav-brand-name">Anthony Eversole</span>
       <span class="nav-brand-kicker">Voice &amp; Stage</span>
     </a>
-    <div class="nav-links">
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
       <a href="lessons.html">Lessons</a>
       <a href="about.html">About</a>
       <a href="on-stage.html">On Stage</a>
       <a href="organizations.html">For Organizations</a>
       <a href="blog.html">Blog</a>
       <div class="nav-ctas">
-        <a href="book.html#login" class="nav-login">Student Login</a>
-        <a href="book.html" class="nav-book">Book a Lesson</a>
+        <a href="book.html" class="nav-book">Book a Session</a>
       </div>
     </div>
   </nav>
@@ -183,11 +307,10 @@
   <!-- hero -->
   <section class="hero">
     <div class="hero-text">
-      <div class="kicker hero-kicker">Voice · Acting · Direction · Online &amp; Salt Lake City</div>
       <h1 class="hero-h1">Your voice, taken seriously.</h1>
       <p class="hero-sub">A voice and acting studio for singers who love this work, from first lessons to the roles you've always wanted to earn.</p>
       <div class="hero-actions">
-        <a href="book.html" class="btn-accent" style="padding: 16px 32px;">Book a Consultation</a>
+        <a href="book.html" class="hero-cta-primary">Book a Consultation</a>
         <a href="on-stage.html" class="hero-sec-link">Hear the Studio</a>
       </div>
     </div>
@@ -225,7 +348,7 @@
     </div>
     <div class="teacher-text">
       <div class="kicker" style="margin-bottom: 24px;">The Teacher</div>
-      <p class="teacher-quote">Dr. Anthony Eversole is a voice teacher, acting coach, and director, a former university voice professor who has performed musical theatre and opera with companies across the country.</p>
+      <p class="teacher-quote">Dr. Anthony Eversole is a voice teacher, stage director, acting coach, and former university voice professor who has performed musical theatre and opera with companies across the country.</p>
       <p class="teacher-meta">Doctor of Musical Arts, University of Maryland. Faculty experience at Oregon State University and the Crane School of Music. Baritone credits from Sweeney Todd to Don Giovanni.</p>
       <a href="about.html" class="link-arrow">Full Bio</a>
     </div>
@@ -304,6 +427,7 @@
     <span>Anthony Eversole, DMA</span>
     <div class="footer-main-links">
       <a href="lessons.html">Lessons</a>
+      <a href="about.html">About</a>
       <a href="organizations.html">For Organizations</a>
       <a href="on-stage.html">On Stage</a>
       <a href="blog.html">Blog</a>
@@ -322,5 +446,23 @@
     </div>
   </div>
 
+  <script>
+    (function () {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      btn.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+        btn.textContent = open ? 'Close' : 'Menu';
+      });
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('.nav')) {
+          links.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.textContent = 'Menu';
+        }
+      });
+    })();
+  </script>
 </body>
 </html>

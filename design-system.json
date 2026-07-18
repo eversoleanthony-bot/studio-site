@@ -1,0 +1,123 @@
+{
+  "name": "Eversole Studio",
+  "version": "1.0.0",
+  "description": "Design and infrastructure tokens for anthonyeversole.com",
+
+  "colors": {
+    "base-cream": {
+      "value": "#F9F6F0",
+      "role": "Primary page background"
+    },
+    "base-charcoal": {
+      "value": "#1C1B1A",
+      "role": "Primary text and dark section backgrounds"
+    },
+    "card-white": {
+      "value": "#FFFFFF",
+      "role": "Elevated card surfaces"
+    },
+    "brand-rust": {
+      "value": "#B35433",
+      "role": "Primary brand accent — CTAs, kickers, active nav states, rust fills"
+    },
+    "hairline-seam": {
+      "value": "rgba(34, 30, 25, 0.08)",
+      "width": "2px",
+      "role": "Structural grid seam between content columns"
+    }
+  },
+
+  "typography": {
+    "serif": {
+      "family": "Newsreader",
+      "fallback": ["Georgia", "serif"],
+      "weights": [300, 400, 500],
+      "role": "Editorial display headings, pull quotes, price callouts, large-body"
+    },
+    "sans": {
+      "family": "DM Sans",
+      "fallback": ["system-ui", "sans-serif"],
+      "weights": [400, 500, 600],
+      "role": "Navigation, kickers, labels, utility body copy, buttons"
+    },
+    "component-headings": {
+      "description": "Bold sans-serif for sharp, high-end component labels inside cards and grid columns — distinct from editorial serif display headings",
+      "gateway-card-headline": {
+        "family": "DM Sans",
+        "weight": 600,
+        "size": "16px",
+        "letter-spacing": "-0.01em",
+        "usage": "Session type labels inside 3-column booking gateway cards (Studio Session, Junior Session)"
+      },
+      "mechanics-headline": {
+        "family": "DM Sans",
+        "weight": 600,
+        "size": "18px",
+        "letter-spacing": "-0.01em",
+        "usage": "Section headings inside 2-column Studio Mechanics grid"
+      },
+      "pricing-table-session-name": {
+        "family": "DM Sans",
+        "weight": 600,
+        "size": "14px",
+        "letter-spacing": "-0.01em",
+        "usage": "Session title labels in the pricing matrix table left column, rendered on dark ink background"
+      }
+    }
+  },
+
+  "components": {
+    "cta-button-primary": {
+      "description": "Solid rust fill at rest; transparent outline on hover",
+      "default": {
+        "background": "#B35433",
+        "color": "#F9F6F0",
+        "border": "1px solid #B35433"
+      },
+      "hover": {
+        "background": "transparent",
+        "color": "#B35433",
+        "border": "1px solid #B35433"
+      },
+      "typography": {
+        "font-size": "11px",
+        "font-weight": 600,
+        "letter-spacing": "0.18em",
+        "text-transform": "uppercase"
+      },
+      "padding": "13px 20px"
+    }
+  },
+
+  "hardware": {
+    "remote-teaching-baseline": {
+      "standard": "Dr. Ian Howell vocal pedagogy remote audio parameters",
+
+      "primary-audio-device": {
+        "role": "Vocal microphone input — primary streaming device",
+        "type": "External USB or XLR condenser microphone",
+        "examples": ["Blue Yeti (USB)", "Shure SM7B via Focusrite Scarlett Solo (XLR/USB interface)"],
+        "connection": "Wired only — USB direct or XLR into USB audio interface",
+        "prohibited": "Built-in laptop or tablet microphone — not permitted under any circumstance"
+      },
+
+      "secondary-accompaniment-device": {
+        "role": "Dedicated accompaniment track playback — isolated from primary streaming device",
+        "requirement": "Must be a physically separate device from the machine running Zoom",
+        "rationale": "Running backing tracks through the same device as Zoom audio creates driver latency conflicts and triggers system-level audio ducking, which compresses or mutes the vocal signal in real time",
+        "acceptable-devices": ["Dedicated tablet", "Secondary phone", "Second laptop or desktop"]
+      },
+
+      "zoom-configuration": {
+        "mode": "Original Sound for Musicians / High-Fidelity Music Mode",
+        "headphones": "Wired only — Bluetooth prohibited due to codec-introduced latency",
+        "connection": "Ethernet preferred; minimum 25 Mbps upload for stable lossless audio",
+        "suppression-disabled": [
+          "Background noise suppression",
+          "Echo cancellation",
+          "Automatic gain control"
+        ]
+      }
+    }
+  }
+}

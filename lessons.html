@@ -17,7 +17,8 @@
     .page-hero { border-bottom: 1px solid var(--border); }
     .page-hero-text { padding: 88px 64px 48px; }
     .page-h1 { font-family: var(--serif); font-weight: 300; font-size: 68px; line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 24px; }
-    .page-sub { font-family: var(--serif); font-size: 21px; line-height: 1.65; color: #4A453C; max-width: 640px; }
+    .page-sub { font-family: var(--serif); font-size: 21px; line-height: 1.65; color: #4A453C; max-width: 840px; }
+    .page-sub + .page-sub { margin-top: 20px; }
     .page-hero-banner { height: 360px; overflow: hidden; background: var(--ink); }
     .page-hero-banner img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; display: block; }
 
@@ -27,10 +28,11 @@
       grid-template-columns: repeat(2, 1fr);
       border-bottom: 1px solid var(--border);
     }
-    .pillar { padding: 72px 64px; }
+    .pillar { padding: 72px 64px; display: flex; flex-direction: column; }
+    .pillar-tags { margin-top: auto; }
     .pillar:first-child { border-right: 1px solid var(--border); }
     .pillar-num   { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--meta); margin-bottom: 14px; }
-    .pillar-title { font-family: var(--serif); font-size: 34px; line-height: 1.1; margin-bottom: 20px; }
+    .pillar-title { font-family: var(--sans); font-weight: 600; font-size: 26px; letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 20px; }
     .pillar-body  { font-size: 14px; line-height: 1.75; color: var(--secondary); margin-bottom: 28px; max-width: 520px; }
     .pillar-tags  { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
     @media (max-width: 768px) {
@@ -47,31 +49,81 @@
     .policy.is-warm .kicker        { color: rgba(246,241,231,.65); }
     .policy.is-warm .policy-label  { color: rgba(246,241,231,.65); }
 
-    /* tier stack — gap:2px shows rust bg as the hairline seam between tiers */
-    .policy-tiers { display: grid; gap: 2px; }
-
-    /* pricing matrix — tier 1, on rust canvas */
-    .price-matrix { padding: 40px 48px 48px; }
-    .price-matrix .kicker { color: rgba(246,241,231,.65); margin-bottom: 20px; }
+    /* Pricing matrix + operational subcards */
+    .policy-tiers { display: grid; gap: 32px; }
+    .price-matrix { padding: 48px 48px 52px; }
+    .price-matrix .kicker { color: var(--accent-md); margin-bottom: 24px; }
     .price-table { width: 100%; border-collapse: collapse; }
     .price-table th,
-    .price-table td { padding: 18px 32px; border: 1px solid rgba(246,241,231,.08); text-align: left; vertical-align: middle; }
-    .price-table th { font-size: 10.5px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: rgba(246,241,231,.65); }
-    .expiry-label { display: block; margin-top: 5px; font-size: 10px; letter-spacing: .05em; color: rgba(246,241,231,.45); font-weight: 400; text-transform: none; }
-    .price-length { font-size: 13px; color: rgba(246,241,231,.55); font-weight: 500; letter-spacing: .04em; }
-    .price-val    { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--bg); }
+    .price-table td { padding: 24px 32px; border: 1px solid rgba(246,241,231,.08); text-align: left; vertical-align: bottom; }
+    .price-table th { font-size: 9.5px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; font-variant: small-caps; color: rgba(246,241,231,.65); padding-top: 28px; }
+    .price-off { display: block; margin-top: 5px; font-size: 10px; letter-spacing: .04em; color: rgba(246,241,231,.48); font-weight: 400; text-transform: none; font-variant: normal; }
+    .price-session-name { font-family: var(--sans); font-size: 14px; font-weight: 600; letter-spacing: -0.01em; color: rgba(246,241,231,.88); margin-bottom: 5px; line-height: 1.2; }
+    .price-length { font-size: 10.5px; color: rgba(246,241,231,.42); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+    .price-val { font-family: var(--serif); font-size: 32px; font-weight: 300; color: var(--bg); display: block; line-height: 1.05; }
+    /* Booking gateway */
+    .gateway-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
+    .gateway-card { background: var(--bg); padding: 48px 48px 40px; display: flex; flex-direction: column; }
+    .gateway-card .kicker { color: var(--accent); margin-bottom: 20px; }
+    .gateway-card-hl { font-family: var(--sans); font-size: 16px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 16px; line-height: 1.2; }
+    .gateway-card-body { font-size: 13px; line-height: 1.8; color: var(--secondary); margin-bottom: 32px; flex-grow: 1; }
+    .gateway-btn { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; background: var(--accent); color: var(--bg); border: 1px solid var(--accent); padding: 13px 20px; align-self: flex-start; }
+    .gateway-btn:hover { background: transparent; color: var(--accent); opacity: 1; }
+    .gateway-policy-lines { list-style: none; padding: 0; margin: 18px 0 0; }
+    .gateway-policy-lines li { font-size: 12px; line-height: 1.65; color: var(--muted); padding: 7px 0; border-top: 1px solid var(--border); }
 
-    /* light policy tiles — tier 2, cream canvas */
-    .policy-light-split { display: grid; grid-template-columns: repeat(2, 1fr); background: var(--bg); }
-    .policy-tile { padding: 56px 64px; background: var(--bg); }
-    .policy-tile:first-child { border-right: 1px solid rgba(34,30,25,.1); }
-    .policy-tile .kicker      { color: var(--accent); }
-    .policy-card-hl   { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--ink); margin: 14px 0 16px; line-height: 1.2; }
-    .policy-card-body { font-size: 13px; line-height: 1.8; color: var(--secondary); }
-    .policy-card-body li { list-style: none; padding: 6px 0; border-top: 1px solid var(--border); }
-    .policy-card-body li:first-child { border-top: none; }
-    .policy-card-body strong { color: var(--ink); font-weight: 600; }
-    .policy-card-body a { color: var(--accent); }
+    /* ---- Initial Consultation Block ---- */
+    .consult-block { padding: 80px 64px; border-bottom: 1px solid var(--border); background: var(--bg-alt); }
+    .consult-hl { font-family: var(--serif); font-size: 42px; font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; margin: 20px 0 24px; max-width: 700px; }
+    .consult-body { font-size: 14px; line-height: 1.8; color: var(--secondary); max-width: 600px; margin-bottom: 32px; }
+
+    /* ---- Studio Mechanics ---- */
+    .studio-mechanics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .mechanics-col { background: var(--bg); padding: 72px 64px; }
+    .mechanics-hl { font-family: var(--sans); font-size: 18px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; margin: 20px 0 18px; }
+    .mechanics-body { font-size: 13.5px; line-height: 1.8; color: var(--secondary); max-width: 480px; }
+
+    /* ---- FAQ Matrix ---- */
+    .faq-block { padding: 80px 64px; border-bottom: 1px solid var(--border); background: var(--bg-alt); }
+    .faq-header { margin-bottom: 48px; }
+    .faq-hl { font-family: var(--serif); font-size: 32px; font-weight: 300; line-height: 1.15; }
+    /* FAQ accordion */
+    .faq-details { border-bottom: 1px solid rgba(34,30,25,.08); }
+    .faq-details:first-child { border-top: 1px solid rgba(34,30,25,.08); }
+    .faq-summary {
+      list-style: none; display: block; position: relative;
+      font-family: var(--sans); font-size: 15px; font-weight: 600; letter-spacing: -0.01em;
+      color: var(--ink); padding: 22px 40px 22px 0; cursor: pointer; user-select: none;
+    }
+    .faq-summary::-webkit-details-marker { display: none; }
+    .faq-summary::marker { display: none; }
+    /* Horizontal bar */
+    .faq-summary::after { content: ''; position: absolute; right: 0; top: 50%; transform: translateY(-50%); width: 14px; height: 1.5px; background: var(--accent); transition: background .15s; }
+    /* Vertical bar — collapses on open */
+    .faq-summary::before { content: ''; position: absolute; right: 6.25px; top: 50%; transform: translateY(-50%); width: 1.5px; height: 14px; background: var(--accent); transition: opacity .15s; }
+    .faq-details[open] .faq-summary { color: var(--accent); }
+    .faq-details[open] .faq-summary::before { opacity: 0; }
+    .faq-details[open] .faq-summary::after { background: var(--ink); }
+    .faq-answer { padding: 0 40px 1.5rem 0; max-width: 720px; }
+    .faq-answer > p { font-size: 13px; line-height: 1.8; color: var(--secondary); }
+    .faq-list { list-style: none; padding: 0; margin: 12px 0 0; }
+    .faq-list li { font-size: 13px; line-height: 1.75; color: var(--secondary); padding: 7px 0; border-top: 1px solid var(--border); }
+    .faq-list li:first-child { border-top: none; }
+    .faq-list li strong { color: var(--ink); font-weight: 600; }
+
+    /* ---- Dark Intake Block ---- */
+    .intake-dark { background: var(--ink); color: var(--bg); padding: 96px 64px; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
+    .intake-dark .kicker { color: var(--accent-md); margin-bottom: 20px; }
+    .intake-dark-hl { font-family: var(--serif); font-size: 42px; font-weight: 300; line-height: 1.1; letter-spacing: -0.01em; color: var(--bg); margin-bottom: 20px; max-width: 680px; }
+    .intake-dark-sub { font-size: 14px; line-height: 1.8; color: var(--accent-lt); max-width: 560px; }
+
+    /* Offset anchor target below sticky nav */
+    #session-options { scroll-margin-top: 80px; }
+
+    /* ---- Back to top ---- */
+    .back-to-top { padding: 20px 64px; text-align: right; border-top: 1px solid var(--border); }
+    .back-to-top a { font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+    .back-to-top a:hover { color: var(--accent); opacity: 1; }
 
     /* ---- Light canvas CTA ---- */
     .cta-light {
@@ -91,6 +143,10 @@
       color: var(--ink);
       max-width: 600px;
     }
+
+    /* Intake dark block — cream button for contrast on dark background */
+    .intake-dark .gateway-btn { background: var(--bg); color: var(--ink); border-color: var(--bg); }
+    .intake-dark .gateway-btn:hover { background: transparent; color: var(--bg); border-color: var(--bg); }
   </style>
 </head>
 <body>
@@ -107,7 +163,6 @@
       <a href="organizations.html">For Organizations</a>
       <a href="blog.html">Blog</a>
       <div class="nav-ctas">
-        <a href="book.html#login" class="nav-login">Student Login</a>
         <a href="book.html" class="nav-book">Book a Lesson</a>
       </div>
     </div>
@@ -117,8 +172,9 @@
   <header class="page-hero">
     <div class="page-hero-text">
       <div class="kicker" style="margin-bottom: 20px;">The Studio</div>
-      <h1 class="page-h1">Lessons &amp; Coaching</h1>
-      <p class="page-sub">Private voice instruction, acting coaching, and audition preparation — in person in Salt Lake City and online worldwide. All ages, all levels, all three major traditions.</p>
+      <h1 class="page-h1">Technical Freedom Through Dramatic Vulnerability</h1>
+      <p class="page-sub">Private instruction grounded in modern voice science and realized through emotional truth. We believe technical mastery and character building cannot be separated; true artistic vulnerability is the key to releasing physical vocal strain.</p>
+      <p class="page-sub">Discover a safe, supportive, and casual space to explore your instrument, perfect your literature, and build a free voice completely prepared for the demands of live performance. Available in person or online.</p>
     </div>
     <div class="page-hero-banner">
       <img src="images/site/Student.jpeg" alt="A student rehearsing an audition piece under stage lighting" />
@@ -130,117 +186,236 @@
 
     <div class="pillar">
       <div class="pillar-num">01</div>
-      <div class="pillar-title">Voice &amp; Performance Technique</div>
-      <p class="pillar-body">One-on-one instruction built on evidence-based vocal technique: breath management, registration, resonance, and stylistic fluency across musical theatre, CCM, and classical repertoire. Acting coaching and singing-actor integration included as the work demands.</p>
+      <div class="pillar-title">Integrated Vocal Technique</div>
+      <p class="pillar-body">One-on-one lessons designed to unify physical mechanics with dramatic truth. Rooted in evidence-based voice science, we explore breath, registration, and resonance through the lens of emotional vulnerability—resolving physical vocal strain by connecting the mechanism directly to authentic character intent from day one.</p>
       <div class="pillar-tags">
         <span class="tag">Musical Theatre</span>
         <span class="tag">CCM</span>
         <span class="tag">Classical</span>
-        <span class="tag">Acting &amp; Text</span>
+        <span class="tag">Dramatic Text</span>
       </div>
-      <ul class="feature-list">
-        <li class="feature-list-item"><span class="feature-list-dot">•</span>Weekly 60- or 45-minute lessons, online or in person</li>
-        <li class="feature-list-item"><span class="feature-list-dot">•</span>Repertoire planning aligned to your goals and timeline</li>
-        <li class="feature-list-item"><span class="feature-list-dot">•</span>Practice recordings and written lesson notes after every session</li>
-      </ul>
-      <a href="book.html" class="offering-link">Book a Voice Lesson →</a>
+      <a href="book.html" class="offering-link" style="margin-top: 32px; display: inline-block;">Book a Technique Session →</a>
     </div>
 
     <div class="pillar">
       <div class="pillar-num">02</div>
-      <div class="pillar-title">Preparation &amp; Goal Work</div>
-      <p class="pillar-body">Targeted preparation for what is on your calendar. Bring the role, the audition, or the deadline. Work covers material selection, cuts, mock auditions, character research, and the specific demands of college programs, community productions, or professional houses.</p>
+      <div class="pillar-title">Role &amp; Audition Preparation</div>
+      <p class="pillar-body">Targeted preparation for upcoming deadlines, auditions, and theatrical runs. We dive deeply into score analysis, high-stakes cut selections, and text exploration, ensuring your integrated technique holds strong under pressure so you never have to think about mechanics while on stage.</p>
       <div class="pillar-tags">
         <span class="tag">Audition Prep</span>
         <span class="tag">Role Preparation</span>
-        <span class="tag">College Programs</span>
+        <span class="tag">College Auditions</span>
       </div>
-      <ul class="feature-list">
-        <li class="feature-list-item"><span class="feature-list-dot">•</span>Repertoire selection and cutting for the specific room</li>
-        <li class="feature-list-item"><span class="feature-list-dot">•</span>Mock auditions with structured, honest feedback</li>
-        <li class="feature-list-item"><span class="feature-list-dot">•</span>Character and score analysis for role and scene preparation</li>
-      </ul>
-      <a href="book.html" class="offering-link">Book a Prep Session →</a>
+      <a href="book.html" class="offering-link" style="margin-top: 32px; display: inline-block;">Book a Prep Session →</a>
     </div>
 
   </section>
 
+  <!-- initial consultation -->
+  <section class="consult-block">
+    <div class="kicker" style="margin-bottom: 20px;">New Students</div>
+    <h2 class="consult-hl">Finding Our Baseline: The Introductory Session</h2>
+    <p class="consult-body">No pressure, no formal audition. We'll spend some time getting to know your voice, breaking down your technical goals, and singing through some repertoire together.</p>
+    <a href="#" class="gateway-btn">Schedule a Consultation</a>
+  </section>
+
   <!-- policy & investment -->
-  <section class="policy is-warm">
+  <section class="policy">
     <div class="policy-header">
       <div class="kicker">Policy &amp; Investment</div>
       <p class="policy-label">Studio policies exist to protect the work. The terms below apply to all bookings and are confirmed at the time of scheduling.</p>
     </div>
     <div class="policy-tiers">
 
-      <!-- tier 1: pricing matrix on rust canvas -->
-      <div class="price-matrix">
+      <!-- Pricing matrix -->
+      <div class="price-matrix card-dark">
         <div class="kicker">Investment</div>
         <table class="price-table">
           <thead>
             <tr>
               <th>Lesson Length</th>
               <th>Single Session</th>
-              <th>4-Week Bundle<span class="expiry-label">~5% off · 5-wk expiry</span></th>
-              <th>8-Week Bundle<span class="expiry-label">~10% off · 10-wk expiry</span></th>
+              <th>4-Week Bundle<span class="price-off">~10% off · 60-day expiry</span></th>
+              <th>8-Week Bundle<span class="price-off">~12% off · 120-day expiry</span></th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td class="price-length">60 Minutes</td>
+              <td>
+                <div class="price-session-name">Studio Session</div>
+                <div class="price-length">60 Minutes</div>
+              </td>
               <td><span class="price-val">$100</span></td>
-              <td><span class="price-val">$380</span></td>
-              <td><span class="price-val">$720</span></td>
+              <td><span class="price-val">$360</span></td>
+              <td><span class="price-val">$700</span></td>
             </tr>
             <tr>
-              <td class="price-length">45 Minutes</td>
+              <td>
+                <div class="price-session-name">Studio Session</div>
+                <div class="price-length">45 Minutes</div>
+              </td>
               <td><span class="price-val">$80</span></td>
-              <td><span class="price-val">$305</span></td>
-              <td><span class="price-val">$580</span></td>
+              <td><span class="price-val">$290</span></td>
+              <td><span class="price-val">$565</span></td>
             </tr>
             <tr>
-              <td class="price-length">30 Minutes</td>
+              <td>
+                <div class="price-session-name">Junior Session</div>
+                <div class="price-length">30 Minutes</div>
+              </td>
               <td><span class="price-val">$55</span></td>
-              <td><span class="price-val">$210</span></td>
-              <td><span class="price-val">$400</span></td>
+              <td><span class="price-val">$200</span></td>
+              <td><span class="price-val">$390</span></td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <!-- tier 2: policy tiles on light canvas -->
-      <div class="policy-light-split">
+      <!-- Booking gateway -->
+      <div class="gateway-grid" id="session-options">
 
-        <div class="policy-tile">
-          <div class="kicker">Scheduling</div>
-          <div class="policy-card-hl">Cadence &amp; Cancellation</div>
-          <ul class="policy-card-body">
-            <li>Weekly lessons are the standard cadence for active studio students.</li>
-            <li>Reschedule with <strong>24 hours' notice</strong> at no charge.</li>
-            <li>Late cancellations and no-shows are charged at the full lesson rate.</li>
-            <li>Available online via Zoom and in person in Salt Lake City.</li>
-          </ul>
+        <div class="gateway-card">
+          <div class="kicker">60 Minutes</div>
+          <div class="gateway-card-hl">Studio Session</div>
+          <div class="gateway-card-body">
+            <p>Advanced technique, singing-actor integration, and audition coaching. Built for adults and serious students working toward a specific goal or deadline.</p>
+            <ul class="gateway-policy-lines">
+              <li>Includes comprehensive technique, literature selection &amp; audition strategy.</li>
+              <li>Ideal for advanced high school, collegiate, and professional artists.</li>
+              <li>Rescheduling or cancellation requires 24-hour advance notice.</li>
+              <li>Flexible scheduling via Cal.com (60-day expiration).</li>
+            </ul>
+          </div>
+          <a href="#" class="gateway-btn">Secure 60-Min Block</a>
         </div>
 
-        <div class="policy-tile">
-          <div class="kicker">Getting Started</div>
-          <div class="policy-card-hl">The First Step</div>
-          <ul class="policy-card-body">
-            <li>New students begin with a <strong>consultation lesson</strong> before committing to a package.</li>
-            <li>No prior experience required. Studio accepts ages 12 and up.</li>
-            <li>A parent or guardian attends the consultation for students under 18.</li>
-            <li>Full studio policies are available on the <a href="terms.html">Terms page</a>.</li>
-          </ul>
+        <div class="gateway-card">
+          <div class="kicker">45 Minutes</div>
+          <div class="gateway-card-hl">Studio Session</div>
+          <div class="gateway-card-body">
+            <p>Targeted vocal technique and intermediate development. Ideal for students building consistency between longer sessions or focusing on a defined skill area.</p>
+            <ul class="gateway-policy-lines">
+              <li>Focused vocal pacing, body mechanics &amp; technical development.</li>
+              <li>Recommended for intermediate singers building active consistency.</li>
+              <li>Cancellations inside the 24-hour window forfeit session credit.</li>
+              <li>Flexible scheduling via Cal.com (120-day expiration).</li>
+            </ul>
+          </div>
+          <a href="#" class="gateway-btn">Secure 45-Min Block</a>
+        </div>
+
+        <div class="gateway-card">
+          <div class="kicker">30 Minutes</div>
+          <div class="gateway-card-hl">Junior Session</div>
+          <div class="gateway-card-body">
+            <p>Tailored instruction for younger voices with shorter attention windows. Focused, structured, and paced for students building early technique.</p>
+            <ul class="gateway-policy-lines">
+              <li>Designed for younger voices, focusing on core musicianship, literacy, and sustainable vocal habits.</li>
+              <li>Formal technical training and rigorous vocal conditioning transition around age 12.</li>
+              <li>Parent or guardian confirmation required on initial booking.</li>
+            </ul>
+          </div>
+          <a href="#" class="gateway-btn">Secure 30-Min Block</a>
         </div>
 
       </div>
     </div>
+
   </section>
 
-  <!-- light canvas CTA -->
-  <section class="cta-light">
-    <p class="cta-light-hl">Schedule a consultation and find out what your voice can do.</p>
-    <a href="book.html" class="btn-dark">Book a Consultation</a>
+  <!-- studio mechanics -->
+  <section class="studio-mechanics">
+    <div class="mechanics-col">
+      <div class="kicker" style="margin-bottom: 20px;">Materials &amp; Technology</div>
+      <h3 class="mechanics-hl">Performance Materials &amp; Technology</h3>
+      <p class="mechanics-body">[Placeholder: Tech requirements for online sessions — Zoom link, audio/video setup recommendations. Sheet music sourcing, PDF distribution, and score annotation workflow. Backing track logistics and approved accompaniment resources.]</p>
+    </div>
+    <div class="mechanics-col">
+      <div class="kicker" style="margin-bottom: 20px;">Billing &amp; Cycles</div>
+      <h3 class="mechanics-hl">Tuition &amp; Billing Cycle</h3>
+      <p class="mechanics-body">[Placeholder: How ongoing billing cycles work for regular studio students. Bundle credit application timeline and expiration windows. Invoice timing, accepted payment methods, and scheduling portal access.]</p>
+    </div>
+  </section>
+
+  <!-- policy & package FAQ -->
+  <section class="faq-block">
+    <div class="faq-header">
+      <h3 class="faq-hl">Policy &amp; Package FAQ</h3>
+    </div>
+    <div class="faq-grid">
+
+      <details class="faq-details">
+        <summary class="faq-summary">Does the studio operate in person, online, or both?</summary>
+        <div class="faq-answer">
+          <p>The studio operates on a hybrid model. In-person sessions are held at Day Murray Music in Salt Lake City; remote lessons are available worldwide via Zoom or FaceTime. Session format is confirmed at scheduling and can vary week to week based on student location and availability.</p>
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">How do bundle credits work, and when do they expire?</summary>
+        <div class="faq-answer">
+          <p>Bundle credits are tracked and redeemed through Cal.com at the time of each booking. To maintain consistent vocal progress, bundles have a built-in shelf life (60 days for the 4-pack, 120 days for the 8-pack). Because studio space is limited, unused credits cannot be extended or transferred past their expiration date.</p>
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">What are the technical requirements for remote lessons?</summary>
+        <div class="faq-answer">
+          <p>Remote instruction follows Dr. Ian Howell's vocal pedagogy audio standards. All four requirements below are non-negotiable and must be in place before the first session.</p>
+          <ul class="faq-list">
+            <li><strong>Wired headphones.</strong> Bluetooth is not permitted — codec-introduced latency is unacceptable in a real-time vocal instruction context.</li>
+            <li><strong>External USB or XLR condenser microphone.</strong> Built-in laptop and tablet microphones are not permitted under any circumstance.</li>
+            <li><strong>High-speed internet via Ethernet.</strong> Wi-Fi introduces packet jitter that degrades the audio frequencies most critical to accurate vocal feedback.</li>
+            <li><strong>Zoom in Original Sound for Musicians / High-Fidelity Music Mode</strong> with background noise suppression, echo cancellation, and automatic gain control fully disabled.</li>
+            <li><strong>A secondary, independent device dedicated solely to accompaniment playback.</strong> See the next question for the critical hardware rationale.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">Why is a separate device required for accompaniment tracks?</summary>
+        <div class="faq-answer">
+          <p>Playing your backing tracks from the same laptop you use for Zoom causes audio lag and cuts off your voice when you start singing. To keep our audio clean and synchronized, you'll need to play your accompaniment from a separate secondary device—like a phone or tablet. For the best sound, I highly recommend plugging that device into a wired speaker or pairing it with a Bluetooth speaker, as just using a phone's built-in speaker can be a bit iffy.</p>
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">Can I alternate between in-person and online lessons?</summary>
+        <div class="faq-answer">
+          <p>Absolutely. The studio is built to be completely flexible. You can book an in-person session at Day Murray Music one week and switch to an optimized remote live-stream the next. All of your package credits redeem interchangeably when booking your next session.</p>
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">How do we handle sheet music and digital scores?</summary>
+        <div class="faq-answer">
+          <p>We keep our workflow entirely digital and seamless. You will have access to a shared workspace containing a comprehensive working PDF archive of studio exercises, public domain materials, and active repertoire. To ensure strict copyright compliance, if we dive into copyrighted contemporary or specialty repertoire, you may occasionally need to purchase an authorized digital or physical copy for your personal use.</p>
+        </div>
+      </details>
+
+      <details class="faq-details">
+        <summary class="faq-summary">What happens if I need to reschedule a session?</summary>
+        <div class="faq-answer">
+          <p>Life happens, especially when navigating performance schedules and rehearsals. You can easily modify your lesson time via your Cal.com confirmation email up to 24 hours in advance without losing your credit. Because studio space is carefully allocated, cancellations or no-shows within that 24-hour window cannot be refunded or rescheduled.</p>
+        </div>
+      </details>
+
+    </div>
+  </section>
+
+  <!-- back to top -->
+  <div class="back-to-top">
+    <a href="#session-options">↑ Back to Session Options</a>
+  </div>
+
+  <!-- intake block -->
+  <section class="intake-dark">
+    <div>
+      <div class="kicker" style="margin-bottom: 20px;">New Students</div>
+      <h2 class="intake-dark-hl">Let's open up the hood.</h2>
+      <p class="intake-dark-sub">Book an introductory session to map out your technical goals.</p>
+    </div>
+    <a href="#" class="gateway-btn">Schedule an Intro Session</a>
   </section>
 
   <footer class="footer-main">
