@@ -12,6 +12,7 @@
   --faint:     #8B8378;
   --meta:      #A89C88;
   --accent:    #7E3B2C;
+  --rust:      var(--accent);
   --accent-lt: #DDB9A6;
   --accent-md: #C9A48E;
   --border:    #E2DACB;
@@ -414,6 +415,7 @@ button { font-family: var(--sans); cursor: pointer; }
   padding: 64px 64px;
   text-align: center;
 }
+.accent-strip.is-warm { background: var(--rust); }
 .accent-strip .kicker { color: var(--accent-md); margin-bottom: 20px; }
 .accent-strip-text {
   font-family: var(--serif);
@@ -436,6 +438,7 @@ button { font-family: var(--sans); cursor: pointer; }
   color: var(--bg);
   padding: 40px 48px;
 }
+.card-dark.is-warm { background: var(--rust); }
 .card-dark .kicker       { color: var(--accent-md); }
 .card-dark .card-dark-hl { font-family: var(--serif); font-size: 36px; font-weight: 300; color: var(--bg); margin-bottom: 10px; line-height: 1.15; }
 .card-dark .card-dark-sub{ font-size: 13.5px; line-height: 1.7; color: var(--accent-lt); }
