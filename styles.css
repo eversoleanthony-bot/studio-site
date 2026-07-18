@@ -245,14 +245,25 @@ button { font-family: var(--sans); cursor: pointer; }
 }
 
 /* Feature bullet list */
-.feature-list { display: grid; gap: 0; max-width: 640px; margin-bottom: 28px; }
+.feature-list { display: grid; gap: 0; max-width: 640px; margin-bottom: 28px; counter-reset: feature-counter; }
 .feature-list-item {
-  display: flex; gap: 12px; align-items: baseline;
-  padding: 10px 0; border-top: 1px solid var(--border);
+  display: flex; gap: 14px; align-items: baseline;
+  padding: 11px 0; border-top: 1px solid var(--border);
   font-size: 14px; color: var(--secondary);
 }
+.feature-list-item::before {
+  counter-increment: feature-counter;
+  content: counter(feature-counter, decimal-leading-zero);
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--accent);
+  flex-shrink: 0;
+  line-height: 1.6;
+  min-width: 22px;
+}
 .feature-list-item:last-child { border-bottom: 1px solid var(--border); }
-.feature-list-dot { color: var(--meta); flex-shrink: 0; }
+.feature-list-dot { display: none; }
 
 /* Legal pages */
 .legal-body p,

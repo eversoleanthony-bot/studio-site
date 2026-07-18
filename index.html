@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anthony Eversole — Voice &amp; Acting Lessons in Salt Lake City</title>
-  <meta name="description" content="Private voice lessons, acting coaching, and audition prep with Dr. Anthony Eversole — online worldwide and in-studio in Salt Lake City." />
-  <meta property="og:title" content="Anthony Eversole — Voice &amp; Acting Lessons in Salt Lake City" />
-  <meta property="og:description" content="Private voice lessons, acting coaching, and audition prep with Dr. Anthony Eversole — online worldwide and in-studio in Salt Lake City." />
+  <title>Anthony Eversole — Voice Lessons &amp; Stage Direction | Salt Lake City</title>
+  <meta name="description" content="Private voice lessons and audition preparation with Dr. Anthony Eversole — online worldwide and in-studio in Salt Lake City." />
+  <meta property="og:title" content="Anthony Eversole — Voice Lessons in Salt Lake City" />
+  <meta property="og:description" content="Private voice lessons and audition preparation with Dr. Anthony Eversole — online worldwide and in-studio in Salt Lake City." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
@@ -28,7 +28,6 @@
       justify-content: center;
       padding: 80px 64px;
     }
-    .hero-kicker { margin-bottom: 28px; }
     .hero-h1 {
       font-family: var(--serif);
       font-weight: 300;
@@ -60,18 +59,6 @@
     }
     .hero-cta-primary:hover { background: transparent; color: #B35433; border-color: #B35433; opacity: 1; }
     .hero-actions { display: flex; gap: 24px; align-items: center; }
-    .hero-sec-link {
-      font-size: 12px;
-      font-weight: 500;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .hero-sec-link::before { content: ''; display: block; width: 24px; height: 1px; background: currentColor; }
-
     /* Nav hamburger (hidden on desktop) */
     .nav-menu-btn {
       display: none;
@@ -89,25 +76,96 @@
       gap: 8px;
     }
 
-    /* ---- Home: offerings ---- */
+    /* ---- Home: offerings (tab layout) ---- */
     .offerings {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 260px 1fr;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
+    }
+    .offerings-tabs {
       background: var(--bg-alt);
+      border-right: 2px solid rgba(34, 30, 25, 0.08);
+      display: flex;
+      flex-direction: column;
     }
-    .offering-primary { padding: 72px 64px; }
-    .offering-primary:first-child { border-right: 2px solid rgba(34, 30, 25, 0.08); }
-    .offering-anchor {
-      grid-column: 1 / -1;
+    .offering-tab {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 28px 32px;
+      background: none;
+      border: none;
+      border-bottom: 1px solid var(--border);
+      text-align: left;
+      cursor: pointer;
+      transition: background .18s;
+    }
+    .offering-tab:last-child { border-bottom: none; }
+    .offering-tab::after {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity .18s;
+    }
+    .offering-tab:hover { background: rgba(34, 30, 25, 0.025); }
+    .offering-tab:hover .offering-tab-title { color: var(--ink); }
+    .offering-tab.active { background: var(--bg); }
+    .offering-tab.active::after { opacity: 1; }
+    .offering-tab.active .offering-tab-num { color: var(--accent); }
+    .offering-tab.active .offering-tab-title { color: var(--ink); font-weight: 600; }
+    .offering-tab-num {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 12px;
+      color: var(--meta);
+      transition: color .18s;
+      line-height: 1;
+    }
+    .offering-tab-title {
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      line-height: 1.35;
+      transition: color .18s;
+    }
+    .offerings-panels { background: var(--bg); position: relative; }
+    .offering-panel {
+      display: none;
       padding: 64px 64px;
-      border-top: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
     }
-    .offering-num { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--meta); margin-bottom: 12px; }
-    .offering-title { font-family: var(--serif); font-weight: 400; font-size: 24px; line-height: 1.2; margin-bottom: 12px; }
-    .offering-body { font-size: 14px; line-height: 1.75; color: var(--secondary); margin-bottom: 22px; max-width: 520px; }
-    .offering-anchor .offering-body { max-width: 720px; }
+    .offering-panel.active {
+      display: block;
+      animation: panel-in .22s ease;
+    }
+    @keyframes panel-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .offering-panel::before {
+      content: attr(data-num);
+      position: absolute;
+      bottom: -16px;
+      right: 24px;
+      font-family: var(--serif);
+      font-style: italic;
+      font-weight: 400;
+      font-size: 160px;
+      line-height: 1;
+      color: rgba(34, 30, 25, 0.07);
+      pointer-events: none;
+      user-select: none;
+    }
+    .offering-title { font-family: var(--serif); font-weight: 400; font-size: 28px; line-height: 1.2; margin-bottom: 14px; }
+    .offering-body { font-size: 14px; line-height: 1.75; color: var(--secondary); margin-bottom: 24px; max-width: 560px; }
+    .offering-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
 
     /* ---- Home: teacher ---- */
     .teacher {
@@ -125,10 +183,11 @@
       font-weight: 400;
       line-height: 1.45;
       color: var(--body);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
       text-wrap: pretty;
     }
-    .teacher-meta { font-size: 14.5px; line-height: 1.7; color: var(--secondary); margin-bottom: 28px; }
+    .teacher-body { font-family: var(--serif); font-size: 16px; line-height: 1.8; color: var(--body); margin-bottom: 20px; }
+    .teacher-meta { font-family: var(--serif); font-size: 13.5px; line-height: 1.7; color: var(--muted); font-style: italic; margin-bottom: 28px; }
 
     /* ---- Home: testimonials ---- */
     .testimonials {
@@ -137,11 +196,57 @@
       background: var(--bg-alt);
     }
     .testimonials-inner { display: grid; grid-template-columns: 1fr 2.5fr; gap: 48px; }
+    .testimonial-featured { max-width: 720px; }
     .testimonial-quote  { font-family: var(--serif); font-style: italic; font-size: 23px; line-height: 1.7; color: var(--body); margin-bottom: 24px; }
-    .testimonial-attr   { display: flex; align-items: center; gap: 12px; }
-    .testimonial-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--border); flex: none; }
     .testimonial-name   { font-size: 13px; color: var(--secondary); }
     .testimonial-name strong { color: var(--ink); }
+
+    /* ---- Home: perf + writing strip ---- */
+    .strip { border-top: 2px solid rgba(34, 30, 25, 0.08); background: var(--bg-alt); padding: 72px 64px; }
+    .strip-posts { display: grid; grid-template-columns: 1fr 1fr; gap: 0 72px; }
+    .strip-col { display: grid; align-content: start; }
+    .strip-post  { display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-top: 1px solid var(--border); }
+    .strip-col > .strip-post:first-child { border-top: none; padding-top: 0; }
+    .strip-post-num { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--accent); }
+    .strip-post-title { font-family: var(--serif); font-size: 19px; line-height: 1.4; color: var(--body); transition: color .18s; }
+    .strip-post:hover .strip-post-title { color: var(--accent); }
+    .strip-all { display: inline-block; margin-top: 32px; }
+
+    /* ---- Home: upcoming ---- */
+    .upcoming { padding: 72px 64px; border-top: 1px solid var(--border); }
+    .upcoming-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: start; }
+    .upcoming-event { display: flex; align-items: center; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--border); }
+    .upcoming-event:first-of-type { border-top: 1px solid var(--border); }
+    .upcoming-event-img { width: 80px; height: 80px; object-fit: cover; flex-shrink: 0; }
+    .upcoming-event-info { display: grid; gap: 2px; flex: 1; }
+    .upcoming-event-badge { font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; margin-bottom: 3px; }
+    .badge-upcoming { color: var(--accent); }
+    .badge-recent { color: var(--muted); }
+    .upcoming-event-role { font-family: var(--sans); font-size: 14px; font-weight: 500; color: #1C1B1A; margin-bottom: 2px; }
+    .upcoming-event-title { font-family: var(--sans); font-style: italic; font-size: 16px; font-weight: 400; color: #1C1B1A; margin-bottom: 4px; }
+    .upcoming-event-meta { font-family: var(--sans); font-size: 13px; font-weight: 400; color: rgba(28, 27, 26, 0.65); }
+    .btn-ticket { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; background: transparent; color: var(--accent); border: 1px solid var(--accent); padding: 13px 20px; white-space: nowrap; flex: none; transition: background .15s, color .15s; }
+    .btn-ticket:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); opacity: 1; }
+
+    /* ---- Home: book band ---- */
+    .home-book-band {
+      background: var(--ink);
+      color: var(--bg);
+      padding: 72px 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .home-book-band .kicker { color: var(--accent-md); margin-bottom: 16px; }
+    .home-book-hl { font-family: var(--serif); font-weight: 300; font-size: 38px; font-style: italic; }
+
+    /* Book band CTA — cream on dark for contrast */
+    .home-book-band .btn-light {
+      font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
+      padding: 13px 20px; background: #F9F6F0; color: #1C1B1A; border: 1px solid #F9F6F0;
+    }
+    .home-book-band .btn-light:hover { background: transparent; color: #F9F6F0; border-color: #F9F6F0; opacity: 1; }
 
     /* ---- Responsive: tablet / small desktop (≤ 1149px) ---- */
     @media (max-width: 1149px) {
@@ -178,53 +283,14 @@
       /* Testimonials: compress spacing */
       .testimonials { padding: 72px 48px; }
       .testimonials-inner { gap: 36px; }
-      /* Strip: reduce column padding */
-      .strip-left, .strip-right { padding: 56px 48px; }
-      /* Offerings: reduce padding, keep 2-column */
-      .offering-primary { padding: 56px 48px; }
-      .offering-anchor { padding: 48px 48px; }
+      /* Strip: reduce padding and column gap */
+      .strip { padding: 56px 48px; }
+      .strip-posts { gap: 0 48px; }
+      /* Offerings: compress at tablet */
+      .offerings { grid-template-columns: 220px 1fr; }
+      .offering-tab { padding: 22px 24px; }
+      .offering-panel { padding: 56px 48px; }
     }
-
-    /* ---- Home: perf + writing strip ---- */
-    .strip { display: grid; grid-template-columns: 1fr 1fr; border-top: 2px solid rgba(34, 30, 25, 0.08); background: var(--bg-alt); }
-    .strip-left  { padding: 72px 64px; border-right: 2px solid rgba(34, 30, 25, 0.08); }
-    .strip-right { padding: 72px 64px; }
-    .strip-title { font-family: var(--serif); font-size: 26px; line-height: 1.4; margin-bottom: 16px; text-wrap: pretty; }
-    .strip-posts { display: grid; gap: 14px; }
-    .strip-post  { font-family: var(--serif); font-size: 19px; border-bottom: 2px solid rgba(34, 30, 25, 0.08); padding-bottom: 13px; display: block; }
-    .strip-post:last-child { border-bottom: none; padding-bottom: 0; }
-
-    /* ---- Home: upcoming ---- */
-    .upcoming { padding: 72px 64px; border-top: 1px solid var(--border); }
-    .upcoming-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: start; }
-    .upcoming-event { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 20px 0; border-bottom: 1px solid var(--border); }
-    .upcoming-event:first-of-type { border-top: 1px solid var(--border); }
-    .upcoming-event-info { display: grid; gap: 3px; }
-    .upcoming-event-role { font-family: var(--sans); font-size: 14px; font-weight: 500; color: #1C1B1A; margin-bottom: 2px; }
-    .upcoming-event-title { font-family: var(--sans); font-style: italic; font-size: 16px; font-weight: 400; color: #1C1B1A; margin-bottom: 4px; }
-    .upcoming-event-meta { font-family: var(--sans); font-size: 13px; font-weight: 400; color: rgba(28, 27, 26, 0.65); }
-    .btn-ticket { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; background: #B35433; color: #F9F6F0; border: 1px solid #B35433; padding: 13px 20px; white-space: nowrap; flex: none; transition: background .15s, color .15s; }
-    .btn-ticket:hover { background: transparent; color: #B35433; border-color: #B35433; opacity: 1; }
-
-    /* ---- Home: book band ---- */
-    .home-book-band {
-      background: var(--ink);
-      color: var(--bg);
-      padding: 72px 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 40px;
-    }
-    .home-book-band .kicker { color: var(--accent-md); margin-bottom: 16px; }
-    .home-book-hl { font-family: var(--serif); font-weight: 300; font-size: 38px; font-style: italic; }
-
-    /* Book band CTA — cream on dark for contrast */
-    .home-book-band .btn-light {
-      font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase;
-      padding: 13px 20px; background: #F9F6F0; color: #1C1B1A; border: 1px solid #F9F6F0;
-    }
-    .home-book-band .btn-light:hover { background: transparent; color: #F9F6F0; border-color: #F9F6F0; opacity: 1; }
 
     /* ---- Responsive: mobile (≤ 767px) — all stacking ---- */
     @media (max-width: 767px) {
@@ -232,12 +298,25 @@
       .nav { padding: 0 24px; }
       .nav-links { padding: 8px 24px 28px; }
 
-      /* Offerings: single column */
+      /* Offerings: 2×2 tab grid + stacked panel */
       .offerings { grid-template-columns: 1fr; }
-      .offering-primary:first-child { border-right: none; border-bottom: 1px solid var(--border); }
-      .offering-primary { padding: 48px 24px; }
-      .offering-anchor { padding: 48px 24px; grid-column: 1; }
-      .offering-body, .offering-anchor .offering-body { max-width: 100%; }
+      .offerings-tabs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        border-right: none;
+        border-bottom: 2px solid rgba(34, 30, 25, 0.08);
+      }
+      .offering-tab {
+        padding: 18px 20px;
+        border-bottom: 1px solid var(--border);
+        border-right: 1px solid var(--border);
+        white-space: normal;
+      }
+      .offering-tab:nth-child(even) { border-right: none; }
+      .offering-tab:nth-child(3),
+      .offering-tab:nth-child(4) { border-bottom: none; }
+      .offering-panel { padding: 40px 24px; }
+      .offering-body { max-width: 100%; }
 
       /* Teacher: stack image above text */
       .teacher { grid-template-columns: 1fr; gap: 0; align-items: stretch; }
@@ -258,17 +337,18 @@
       .testimonials-inner { grid-template-columns: 1fr; gap: 24px; }
       .testimonial-quote { font-size: 19px; line-height: 1.65; }
 
-      /* Credits / blog strip: single column */
-      .strip { grid-template-columns: 1fr; }
-      .strip-left { border-right: none; border-bottom: 2px solid rgba(34, 30, 25, 0.08); padding: 48px 24px; }
-      .strip-right { padding: 48px 24px; }
-      .strip-title { font-size: 20px; }
-      .strip-post { font-size: 16px; }
+      /* Blog strip: stack columns */
+      .strip { padding: 48px 24px; }
+      .strip-posts { grid-template-columns: 1fr; gap: 0; }
+      .strip-post { padding: 14px 0; }
+      .strip-post-title { font-size: 17px; }
+      .strip-col:last-child > .strip-post:first-child { border-top: 1px solid var(--border); padding-top: 14px; }
 
       /* On Stage: single column, overflow-safe */
       .upcoming { padding: 48px 24px; }
       .upcoming-inner { grid-template-columns: 1fr; gap: 24px; }
-      .upcoming-event { flex-direction: column; align-items: flex-start; gap: 16px; width: 100%; box-sizing: border-box; }
+      .upcoming-event { flex-direction: column; align-items: flex-start; gap: 12px; width: 100%; box-sizing: border-box; }
+      .upcoming-event-img { display: none; }
       .upcoming-event-info { width: 100%; box-sizing: border-box; overflow-wrap: break-word; }
       .btn-ticket { display: block; width: 100%; text-align: center; white-space: normal; box-sizing: border-box; }
 
@@ -307,11 +387,10 @@
   <!-- hero -->
   <section class="hero">
     <div class="hero-text">
-      <h1 class="hero-h1">Your voice, taken seriously.</h1>
-      <p class="hero-sub">A voice and acting studio for singers who love this work, from first lessons to the roles you've always wanted to earn.</p>
+      <h1 class="hero-h1">Purposeful training for the singing actor.</h1>
+      <p class="hero-sub">Develop the physical coordination needed to quiet the technical noise, allowing you to take real risks and bring genuine emotional honesty to the stage.</p>
       <div class="hero-actions">
-        <a href="book.html" class="hero-cta-primary">Book a Consultation</a>
-        <a href="on-stage.html" class="hero-sec-link">Hear the Studio</a>
+        <a href="book.html" class="hero-cta-primary">Book a Session</a>
       </div>
     </div>
     <div class="img-slot" style="position: relative;">
@@ -321,23 +400,132 @@
 
   <!-- offerings -->
   <section class="offerings">
-    <div class="offering-primary">
-      <div class="offering-num">01</div>
-      <div class="offering-title">The Private Studio</div>
-      <p class="offering-body">Long-term technical work rooted in voice as instrument. Students build range, registration, breath support, and stylistic fluency across musical theatre, CCM, and classical repertoire — at whatever pace the work demands.</p>
-      <a href="lessons.html" class="offering-link">Lessons &amp; Rates →</a>
+
+    <div class="offerings-tabs" role="tablist" aria-label="Services">
+      <button class="offering-tab active" role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1" data-tab="1">
+        <span class="offering-tab-num">01</span>
+        <span class="offering-tab-title">Private Voice Studio</span>
+      </button>
+      <button class="offering-tab" role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" data-tab="2">
+        <span class="offering-tab-num">02</span>
+        <span class="offering-tab-title">Role &amp; Audition Prep</span>
+      </button>
+      <button class="offering-tab" role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" data-tab="3">
+        <span class="offering-tab-num">03</span>
+        <span class="offering-tab-title">Production Creative Leadership</span>
+      </button>
+      <button class="offering-tab" role="tab" aria-selected="false" aria-controls="panel-4" id="tab-4" data-tab="4">
+        <span class="offering-tab-num">04</span>
+        <span class="offering-tab-title">Clinics &amp; Masterclasses</span>
+      </button>
     </div>
-    <div class="offering-primary">
-      <div class="offering-num">02</div>
-      <div class="offering-title">Strategic Audition &amp; Role Prep</div>
-      <p class="offering-body">Focused preparation for what's on your calendar. Bring the role, the cut, or the deadline — the work is targeted, practical, and built around walking into the room with clarity and intention.</p>
-      <a href="lessons.html" class="offering-link">Rates &amp; Availability →</a>
-    </div>
-    <div class="offering-anchor">
-      <div class="offering-num">03</div>
-      <div class="offering-title">Institutional &amp; Creative Engagements</div>
-      <p class="offering-body">Masterclasses, workshop residencies, and clinic programming for universities, conservatories, and companies. Also available for music direction, stage direction, and production work — from community programs to professional houses.</p>
-      <a href="organizations.html" class="offering-link">For Organizations →</a>
+
+    <div class="offerings-panels">
+
+      <div class="offering-panel active" role="tabpanel" id="panel-1" aria-labelledby="tab-1" data-num="01">
+        <div class="offering-title">Private Voice Studio</div>
+        <p class="offering-body">Individualized vocal training to stabilize technique, mitigate physical tension, and build a reliable, high-performance instrument.</p>
+        <div class="feature-list">
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Evidence-Based Mechanics</strong> Train the voice utilizing modern voice science and motor learning principles, replacing vague imagery with predictable, repeatable physical coordination.</span>
+          </div>
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Text-First Exploration</strong> Integrate mechanical development with text-first exploration, ensuring technical adjustments serve the communication of dramatic truth.</span>
+          </div>
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Technical Freedom</strong> Develop a deeply familiar physical coordination that reduces habitual tension and lowers the mental overhead of technique, creating space for genuine risk-taking and emotional honesty.</span>
+          </div>
+        </div>
+        <p style="font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin-bottom: 8px;">Specializing in</p>
+        <div class="offering-tags">
+          <span class="tag">Musical Theatre</span>
+          <span class="tag">CCM</span>
+          <span class="tag">Classical</span>
+        </div>
+        <a href="lessons.html" class="offering-link">Studio Details &amp; Rates →</a>
+      </div>
+
+      <div class="offering-panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" data-num="02">
+        <div class="offering-title">Role &amp; Audition Prep</div>
+        <p class="offering-body">Strategic artistic preparation for singers building a principal role or entering an audition — for local and regional productions, university programs, and conservatory applications.</p>
+        <div class="feature-list">
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Tactical Actioning</strong> Dissect script and score mechanics to unlock actionable dramatic intentions, moving past vague emotional choices into grounded storytelling.</span>
+          </div>
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Gesture Economy</strong> Eliminate physical fidgeting and nervous tension, developing a purposeful economy of movement and precise eye focus that commands the stage.</span>
+          </div>
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Stamina &amp; Repeatability</strong> Build a sustainable performance framework that ensures your technical coordination and artistic choices hold up under pressure — whether in an audition room or night eight of a run.</span>
+          </div>
+        </div>
+        <p style="font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin-bottom: 8px;">Specializing in</p>
+        <div class="offering-tags">
+          <span class="tag">Production Auditions</span>
+          <span class="tag">College Auditions</span>
+          <span class="tag">Musical Theatre</span>
+          <span class="tag">Opera / Oratorio</span>
+        </div>
+        <a href="book.html" class="offering-link">Book a Session →</a>
+      </div>
+
+      <div class="offering-panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" data-num="03">
+        <div class="offering-title">Production Creative Leadership</div>
+        <p class="offering-body">Professional artistic direction and musical leadership for mainstage theatrical productions, academic institutions, and professional companies — from concept development through opening night.</p>
+        <div class="feature-list">
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Music Direction</strong> Oversee all phases of musical preparation — from early cast vocal development through full ensemble shaping and final run-throughs.</span>
+          </div>
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Stage Direction</strong> Translate deep research and concept development into compelling stage pictures, collaborating with designers to elevate the storytelling far beyond basic blocking.</span>
+          </div>
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Vocal Direction</strong> Work directly with a production's cast on individual vocal technique and character voice, ensuring every performer's instrument serves the dramatic demands of the role.</span>
+          </div>
+        </div>
+        <div class="offering-tags">
+          <span class="tag">Music Direction</span>
+          <span class="tag">Stage Direction</span>
+          <span class="tag">Vocal Direction</span>
+        </div>
+        <a href="organizations.html" class="offering-link">Inquire About Bookings →</a>
+      </div>
+
+      <div class="offering-panel" role="tabpanel" id="panel-4" aria-labelledby="tab-4" data-num="04">
+        <div class="offering-title">Clinics &amp; Masterclasses</div>
+        <p class="offering-body">Single-session and extended intensive work for choirs, theatrical casts, collegiate programs, and professional companies — focused technique, artistry, and ensemble precision.</p>
+        <div class="feature-list">
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Ensemble Clinics</strong> Work with choirs, theatrical casts, and vocal ensembles on unified technique, blend, stylistic consistency, and repertoire-specific preparation.</span>
+          </div>
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Performance Masterclasses</strong> Lead individual singers through repertoire with direct, high-feedback attention in front of peers — building performance clarity and confidence under pressure.</span>
+          </div>
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Targeted Intensives</strong> Design a focused single-topic workshop — registration, resonance, text-driven phrasing — for programs looking to address a specific technical or artistic gap.</span>
+          </div>
+        </div>
+        <div class="offering-tags">
+          <span class="tag">Choirs</span>
+          <span class="tag">Collegiate Programs</span>
+          <span class="tag">Theatre Companies</span>
+          <span class="tag">Professional Ensembles</span>
+        </div>
+        <a href="organizations.html" class="offering-link">Inquire About Clinics →</a>
+      </div>
+
     </div>
   </section>
 
@@ -348,9 +536,10 @@
     </div>
     <div class="teacher-text">
       <div class="kicker" style="margin-bottom: 24px;">The Teacher</div>
-      <p class="teacher-quote">Dr. Anthony Eversole is a voice teacher, stage director, acting coach, and former university voice professor who has performed musical theatre and opera with companies across the country.</p>
-      <p class="teacher-meta">Doctor of Musical Arts, University of Maryland. Faculty experience at Oregon State University and the Crane School of Music. Baritone credits from Sweeney Todd to Don Giovanni.</p>
-      <a href="about.html" class="link-arrow">Full Bio</a>
+      <p class="teacher-quote">Dr. Anthony Eversole combines clinical vocal mechanics with real-world stage experience.</p>
+      <p class="teacher-body">With an established background in university voice teaching, stage direction, and professional performance, he builds reliable, evidence-based frameworks to help singers navigate the actual demands of the industry.</p>
+      <p class="teacher-meta">Doctor of Musical Arts, University of Maryland. Faculty experience at Oregon State University and the Crane School of Music.</p>
+      <a href="about.html" class="offering-link">Full Bio →</a>
     </div>
   </section>
 
@@ -359,30 +548,46 @@
     <div class="testimonials-inner">
       <div class="kicker">What Students Say</div>
       <div class="testimonial-featured">
-        <p class="testimonial-quote">"Dr. Eversole is a thoughtful teacher whose expertise is immediately apparent. He teaches both about the anatomical mechanism of the voice as well as the sensation the singer should feel, a combination that helps develop a better sense of proper technique and how to self-diagnose mistakes. His teaching style is forward and, in my experience, pushes me to do my best while not making me uncomfortable or placing unreachable expectations. Over the years I have studied with him I have experienced rapid progress and many personal breakthroughs."</p>
-        <div class="testimonial-attr">
-          <div class="testimonial-avatar"></div>
-          <div class="testimonial-name"><strong>Eli Nicholas</strong><br>Studio alumnus</div>
-        </div>
+        <p class="testimonial-quote">"Dr. Eversole is a thoughtful teacher whose expertise is immediately apparent. He teaches both about the anatomical mechanism of the voice as well as the sensation the singer should feel, a combination that helps develop a better sense of proper technique and how to self-diagnose mistakes. His teaching style is forward and, in my experience, pushes me to do my best while not making me uncomfortable or placing unreachable expectations. Over the years I have studied with him I have experienced <span style="color:var(--accent)">rapid progress and many personal breakthroughs</span>."</p>
+        <div class="testimonial-name"><strong>Eli Nicholas</strong><br>Studio alumnus</div>
       </div>
     </div>
   </section>
 
-  <!-- performance + writing strip -->
+  <!-- blog strip -->
   <section class="strip">
-    <div class="strip-left">
-      <div class="kicker" style="margin-bottom: 20px;">Credits</div>
-      <p class="strip-title">Recordings, résumé, and press, for casting and for the curious.</p>
-      <a href="on-stage.html" class="offering-link">On Stage →</a>
-    </div>
-    <div class="strip-right">
-      <div class="kicker" style="margin-bottom: 20px;">From the Blog</div>
-      <div class="strip-posts">
-        <a href="posts/singing-actor.html" class="strip-post">The Singing Actor: why the song is the scene</a>
-        <a href="posts/zaza-psychology.html" class="strip-post">Building Zaza: psychology of a music-hall star</a>
-        <a href="posts/amelie-vulnerability.html" class="strip-post">Vulnerability on stage: notes from Amélie</a>
+    <div class="kicker" style="margin-bottom: 28px;">From the Blog</div>
+    <div class="strip-posts">
+      <div class="strip-col">
+        <a href="posts/singing-actor.html" class="strip-post">
+          <span class="strip-post-num">01</span>
+          <span class="strip-post-title">The Singing Actor: why the song is the scene</span>
+        </a>
+        <a href="posts/zaza-psychology.html" class="strip-post">
+          <span class="strip-post-num">02</span>
+          <span class="strip-post-title">Building Zaza: psychology of a music-hall star</span>
+        </a>
+        <a href="posts/amelie-vulnerability.html" class="strip-post">
+          <span class="strip-post-num">03</span>
+          <span class="strip-post-title">Vulnerability on stage: notes from Amélie</span>
+        </a>
+      </div>
+      <div class="strip-col">
+        <a href="posts/motor-learning.html" class="strip-post">
+          <span class="strip-post-num">04</span>
+          <span class="strip-post-title">What motor learning science says about vocal practice</span>
+        </a>
+        <a href="posts/audition-cut.html" class="strip-post">
+          <span class="strip-post-num">05</span>
+          <span class="strip-post-title">The audition cut: what 32 bars can and can't tell a room</span>
+        </a>
+        <a href="posts/music-director-score.html" class="strip-post">
+          <span class="strip-post-num">06</span>
+          <span class="strip-post-title">Inside the music director's score</span>
+        </a>
       </div>
     </div>
+    <a href="blog.html" class="offering-link strip-all">All posts →</a>
   </section>
 
   <!-- upcoming -->
@@ -390,24 +595,27 @@
     <div class="upcoming-inner">
       <div>
         <div class="kicker" style="margin-bottom: 16px;">On Stage</div>
-        <p style="font-size: 14px; line-height: 1.7; color: var(--secondary);">Upcoming and recent performances.</p>
       </div>
       <div>
         <div class="upcoming-event">
+          <img class="upcoming-event-img" src="images/On%20Stage/Tuck.png" alt="Tuck Everlasting" />
           <div class="upcoming-event-info">
+            <span class="upcoming-event-badge badge-upcoming">Upcoming</span>
             <span class="upcoming-event-role">Angus Tuck</span>
             <span class="upcoming-event-title">Tuck Everlasting</span>
-            <span class="upcoming-event-meta">Sandy Arts · The Theater at Mount Jordan · 2026</span>
+            <span class="upcoming-event-meta">Sandy Arts · The Theater at Mount Jordan · October 2026</span>
           </div>
           <a href="https://www.sandyarts.com/tuck-everlasting" class="btn-ticket" target="_blank" rel="noopener">Get Tickets</a>
         </div>
         <div class="upcoming-event">
+          <img class="upcoming-event-img" src="images/On%20Stage/Fiddler.png" alt="Fiddler on the Roof" />
           <div class="upcoming-event-info">
+            <span class="upcoming-event-badge badge-recent">Recent</span>
             <span class="upcoming-event-role">Russian Soloist</span>
             <span class="upcoming-event-title">Fiddler on the Roof</span>
-            <span class="upcoming-event-meta">Centerpoint Theatre · 2026</span>
+            <span class="upcoming-event-meta">Centerpoint Theatre · May – June 2026</span>
           </div>
-          <a href="on-stage.html#credits" class="btn-ticket">View Credits</a>
+          <a href="on-stage.html#credits" class="offering-link">View Credits →</a>
         </div>
       </div>
     </div>
@@ -417,9 +625,9 @@
   <section class="home-book-band">
     <div>
       <div class="kicker" style="color: var(--accent-md); margin-bottom: 16px;">Now Enrolling</div>
-      <p class="home-book-hl">The consultation is a conversation, and a sing.</p>
+      <p class="home-book-hl">First we talk goals, then we make some noise.</p>
     </div>
-    <a href="book.html" class="btn-light">Book a Consultation</a>
+    <a href="book.html" class="btn-light">Book a Session</a>
   </section>
 
   <!-- footer -->
@@ -461,6 +669,23 @@
           btn.setAttribute('aria-expanded', 'false');
           btn.textContent = 'Menu';
         }
+      });
+    })();
+    (function () {
+      var tabs = document.querySelectorAll('.offering-tab');
+      var panels = document.querySelectorAll('.offering-panel');
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var target = tab.dataset.tab;
+          tabs.forEach(function (t) {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          panels.forEach(function (p) { p.classList.remove('active'); });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          document.getElementById('panel-' + target).classList.add('active');
+        });
       });
     })();
   </script>
