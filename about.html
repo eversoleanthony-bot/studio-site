@@ -45,6 +45,9 @@
     .cred-item:not(:last-child) { border-right: 1px solid var(--border); }
     .cred-title { font-family: var(--serif); font-size: 28px; margin-bottom: 8px; }
     .cred-detail { font-size: 13px; line-height: 1.6; color: var(--secondary); }
+    /* dark card overrides within the credentials strip */
+    .card-dark.cred-item:not(:last-child) { border-right-color: #3B362E; }
+    .card-dark .cred-detail { color: var(--accent-lt); }
 
     /* location */
     .location { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--border); }
@@ -105,7 +108,7 @@
 
   <!-- credentials strip -->
   <section class="credentials">
-    <div class="cred-item">
+    <div class="cred-item card-dark">
       <div class="cred-title">DMA</div>
       <p class="cred-detail">Doctor of Musical Arts,<br>University of Maryland</p>
     </div>

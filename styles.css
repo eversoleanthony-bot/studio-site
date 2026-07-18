@@ -402,3 +402,40 @@ button { font-family: var(--sans); cursor: pointer; }
   color: var(--bg); font-size: 22px; line-height: 1;
   cursor: pointer;
 }
+
+/* ============================================================
+   UTILITY: ACCENT STRIP
+   Full-width compact dark section for philosophy lines /
+   blockquotes between light content sections.
+   ============================================================ */
+.accent-strip {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 64px 64px;
+  text-align: center;
+}
+.accent-strip .kicker { color: var(--accent-md); margin-bottom: 20px; }
+.accent-strip-text {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: 34px;
+  line-height: 1.5;
+  max-width: 820px;
+  margin: 0 auto;
+  color: var(--bg);
+}
+
+/* ============================================================
+   UTILITY: DARK CARD
+   Component for dropping a high-contrast dark tile into any
+   light-background grid — credentials, highlights, callouts.
+   ============================================================ */
+.card-dark {
+  background: var(--ink);
+  color: var(--bg);
+  padding: 40px 48px;
+}
+.card-dark .kicker       { color: var(--accent-md); }
+.card-dark .card-dark-hl { font-family: var(--serif); font-size: 36px; font-weight: 300; color: var(--bg); margin-bottom: 10px; line-height: 1.15; }
+.card-dark .card-dark-sub{ font-size: 13.5px; line-height: 1.7; color: var(--accent-lt); }
