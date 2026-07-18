@@ -61,22 +61,30 @@
     .hero-sec-link::before { content: ''; display: block; width: 24px; height: 1px; background: currentColor; }
 
     /* ---- Home: offerings ---- */
-    .offerings { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .offerings-2col { display: grid; grid-template-columns: 1fr 1fr; }
-    .offering-primary { padding: 72px 64px; border-right: 1px solid var(--border); }
-    .offering-primary:last-child { border-right: none; }
-    .offerings-full { padding: 64px 64px; border-top: 1px solid var(--border); background: var(--bg-alt); }
+    .offerings {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .offering-primary { padding: 72px 64px; }
+    .offering-primary:first-child { border-right: 1px solid var(--border); }
+    .offering-anchor {
+      grid-column: 1 / -1;
+      padding: 64px 64px;
+      border-top: 1px solid var(--border);
+      background: var(--bg-alt);
+    }
     .offering-num { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--meta); margin-bottom: 12px; }
     .offering-title { font-family: var(--serif); font-size: 32px; line-height: 1.15; margin-bottom: 16px; }
     .offering-body { font-size: 14px; line-height: 1.75; color: var(--secondary); margin-bottom: 22px; max-width: 520px; }
-    .offering-link { font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
-    .offerings-full .offering-title { font-size: 26px; }
-    .offerings-full .offering-body { max-width: 720px; }
+    .offering-anchor .offering-title { font-size: 26px; }
+    .offering-anchor .offering-body { max-width: 720px; }
     @media (max-width: 768px) {
-      .offerings-2col { grid-template-columns: 1fr; }
-      .offering-primary { border-right: none; border-bottom: 1px solid var(--border); padding: 56px 32px; }
-      .offering-primary:last-child { border-bottom: none; }
-      .offerings-full { padding: 56px 32px; }
+      .offerings { grid-template-columns: 1fr; }
+      .offering-primary:first-child { border-right: none; border-bottom: 1px solid var(--border); }
+      .offering-primary { padding: 56px 32px; }
+      .offering-anchor { padding: 56px 32px; grid-column: 1; }
     }
 
     /* ---- Home: teacher ---- */
@@ -163,7 +171,6 @@
       <a href="lessons.html">Lessons</a>
       <a href="about.html">About</a>
       <a href="credits.html">Credits</a>
-      <a href="media.html">Media</a>
       <a href="organizations.html">For Organizations</a>
       <a href="blog.html">Blog</a>
       <div class="nav-ctas">
@@ -191,21 +198,19 @@
 
   <!-- offerings -->
   <section class="offerings">
-    <div class="offerings-2col">
-      <div class="offering-primary">
-        <div class="offering-num">01</div>
-        <div class="offering-title">The Private Studio</div>
-        <p class="offering-body">Long-term technical work rooted in voice as instrument. Students build range, registration, breath support, and stylistic fluency across musical theatre, CCM, and classical repertoire — at whatever pace the work demands.</p>
-        <a href="lessons.html" class="offering-link">Lessons &amp; Rates →</a>
-      </div>
-      <div class="offering-primary">
-        <div class="offering-num">02</div>
-        <div class="offering-title">Strategic Audition &amp; Role Prep</div>
-        <p class="offering-body">Focused preparation for what's on your calendar. Bring the role, the cut, or the deadline — the work is targeted, practical, and built around walking into the room with clarity and intention.</p>
-        <a href="lessons.html" class="offering-link">Rates &amp; Availability →</a>
-      </div>
+    <div class="offering-primary">
+      <div class="offering-num">01</div>
+      <div class="offering-title">The Private Studio</div>
+      <p class="offering-body">Long-term technical work rooted in voice as instrument. Students build range, registration, breath support, and stylistic fluency across musical theatre, CCM, and classical repertoire — at whatever pace the work demands.</p>
+      <a href="lessons.html" class="offering-link">Lessons &amp; Rates →</a>
     </div>
-    <div class="offerings-full">
+    <div class="offering-primary">
+      <div class="offering-num">02</div>
+      <div class="offering-title">Strategic Audition &amp; Role Prep</div>
+      <p class="offering-body">Focused preparation for what's on your calendar. Bring the role, the cut, or the deadline — the work is targeted, practical, and built around walking into the room with clarity and intention.</p>
+      <a href="lessons.html" class="offering-link">Rates &amp; Availability →</a>
+    </div>
+    <div class="offering-anchor">
       <div class="offering-num">03</div>
       <div class="offering-title">Institutional &amp; Creative Engagements</div>
       <p class="offering-body">Masterclasses, workshop residencies, and clinic programming for universities, conservatories, and companies. Also available for music direction, stage direction, and production work — from community programs to professional houses.</p>
