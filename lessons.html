@@ -41,23 +41,28 @@
 
     /* ---- Policy & Investment ---- */
     .policy { padding: 80px 64px; border-bottom: 1px solid var(--border); background: var(--bg-alt); }
+    .policy.is-warm { background: var(--rust); border-bottom-color: transparent; }
     .policy-header { display: grid; grid-template-columns: 280px 1fr; gap: 48px; margin-bottom: 48px; }
     .policy-label { font-size: 13.5px; line-height: 1.7; color: var(--secondary); max-width: 480px; }
+    .policy.is-warm .kicker        { color: rgba(246,241,231,.65); }
+    .policy.is-warm .policy-label  { color: rgba(246,241,231,.65); }
 
     /* two-tier stack */
     .policy-tiers { display: grid; gap: 2px; }
     .policy-split { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; }
 
-    /* pricing table (lives inside card-dark) */
+    /* pricing matrix — sits directly on the rust canvas */
+    .price-matrix { padding: 40px 48px 48px; }
+    .price-matrix .kicker { color: rgba(246,241,231,.65); margin-bottom: 20px; }
     .price-table { width: 100%; border-collapse: collapse; }
     .price-table th,
-    .price-table td { padding: 18px 32px; border: 1px solid rgba(246,241,231,.1); text-align: left; vertical-align: middle; }
-    .price-table th { font-size: 10.5px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-md); }
-    .price-expiry   { display: block; margin-top: 4px; font-size: 10px; letter-spacing: .06em; color: var(--accent-lt); font-weight: 400; text-transform: none; }
-    .price-length   { font-size: 13px; color: var(--accent-lt); font-weight: 500; letter-spacing: .04em; }
-    .price-val      { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--bg); }
+    .price-table td { padding: 18px 32px; border: 1px solid rgba(246,241,231,.08); text-align: left; vertical-align: middle; }
+    .price-table th { font-size: 10.5px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: rgba(246,241,231,.65); }
+    .expiry-label { display: block; margin-top: 5px; font-size: 10px; letter-spacing: .05em; color: rgba(246,241,231,.45); font-weight: 400; text-transform: none; }
+    .price-length { font-size: 13px; color: rgba(246,241,231,.55); font-weight: 500; letter-spacing: .04em; }
+    .price-val    { font-family: var(--serif); font-size: 30px; font-weight: 300; color: var(--bg); }
 
-    /* policy card body */
+    /* policy card body (inside .card-dark, ink background) */
     .policy-card-hl   { font-family: var(--serif); font-size: 22px; font-weight: 300; color: var(--bg); margin: 14px 0 16px; line-height: 1.2; }
     .policy-card-body { font-size: 13px; line-height: 1.8; color: var(--accent-lt); }
     .policy-card-body li { list-style: none; padding: 5px 0; border-top: 1px solid rgba(246,241,231,.1); }
@@ -141,23 +146,23 @@
   </section>
 
   <!-- policy & investment -->
-  <section class="policy">
+  <section class="policy is-warm">
     <div class="policy-header">
       <div class="kicker">Policy &amp; Investment</div>
       <p class="policy-label">Studio policies exist to protect the work. The terms below apply to all bookings and are confirmed at the time of scheduling.</p>
     </div>
     <div class="policy-tiers">
 
-      <!-- tier 1: pricing matrix -->
-      <div class="card-dark">
+      <!-- tier 1: pricing matrix on rust canvas -->
+      <div class="price-matrix">
         <div class="kicker">Investment</div>
         <table class="price-table">
           <thead>
             <tr>
               <th>Lesson Length</th>
               <th>Single Session</th>
-              <th>4-Week Bundle<span class="price-expiry">5-wk expiry</span></th>
-              <th>8-Week Bundle<span class="price-expiry">10-wk expiry</span></th>
+              <th>4-Week Bundle<span class="expiry-label">~5% off · 5-wk expiry</span></th>
+              <th>8-Week Bundle<span class="expiry-label">~10% off · 10-wk expiry</span></th>
             </tr>
           </thead>
           <tbody>
@@ -170,20 +175,20 @@
             <tr>
               <td class="price-length">45 Minutes</td>
               <td><span class="price-val">$80</span></td>
-              <td><span class="price-val">$304</span></td>
-              <td><span class="price-val">$576</span></td>
+              <td><span class="price-val">$305</span></td>
+              <td><span class="price-val">$580</span></td>
             </tr>
             <tr>
               <td class="price-length">30 Minutes</td>
               <td><span class="price-val">$55</span></td>
-              <td><span class="price-val">$209</span></td>
-              <td><span class="price-val">$396</span></td>
+              <td><span class="price-val">$210</span></td>
+              <td><span class="price-val">$400</span></td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <!-- tier 2: policy split -->
+      <!-- tier 2: policy split on ink cards -->
       <div class="policy-split">
 
         <div class="card-dark">
@@ -212,8 +217,8 @@
     </div>
   </section>
 
-  <!-- warm CTA strip -->
-  <section class="accent-strip is-warm">
+  <!-- dark ink CTA strip -->
+  <section class="accent-strip">
     <div class="kicker">Ready to Begin?</div>
     <p class="accent-strip-text">Schedule a consultation and find out what your voice can do.</p>
     <div class="accent-strip-actions">
