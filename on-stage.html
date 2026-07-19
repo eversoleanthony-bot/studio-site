@@ -78,9 +78,13 @@
       padding: 40px; backdrop-filter: blur(4px);
     }
     .lightbox-overlay.open { display: flex; }
+    .lightbox-frame {
+      display: flex; flex-direction: column;
+      width: 100%; max-width: 1040px;
+    }
     .lightbox-inner {
       position: relative; display: flex;
-      width: 100%; max-width: 1040px; max-height: 84vh; overflow: hidden;
+      width: 100%; max-height: 84vh; overflow: hidden;
       box-shadow: 0 32px 80px rgba(0,0,0,.55);
     }
     .lightbox-data {
@@ -108,6 +112,25 @@
       transition: background .15s, border-color .15s;
     }
     .lightbox-close:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+    .lightbox-nav {
+      display: flex; align-items: center; justify-content: center;
+      gap: 20px; padding-top: 16px;
+    }
+    .lb-arrow {
+      background: none; border: 1px solid rgba(246,241,231,.25);
+      color: rgba(246,241,231,.65); width: 36px; height: 36px;
+      border-radius: 50%; cursor: pointer; font-size: 14px; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s, border-color .15s, color .15s; flex-shrink: 0;
+    }
+    .lb-arrow:hover { background: rgba(246,241,231,.12); border-color: rgba(246,241,231,.5); color: var(--bg); }
+    .lb-dots { display: flex; gap: 8px; align-items: center; }
+    .lb-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(246,241,231,.2); border: none; padding: 0;
+      cursor: pointer; transition: background .2s, transform .2s;
+    }
+    .lb-dot.active { background: rgba(246,241,231,.75); transform: scale(1.4); }
 
     /* ---- Résumé tables ---- */
     .resume-section { padding: 72px 64px; border-bottom: 1px solid var(--border); }
@@ -266,10 +289,12 @@
 
       /* Lightbox */
       .lightbox-overlay { padding: 0; align-items: flex-end; }
+      .lightbox-frame { max-width: none; }
       .lightbox-inner { flex-direction: column; max-height: 95vh; }
       .lightbox-photo-wrap { min-height: 240px; flex: none; order: -1; }
       .lightbox-data { width: 100%; border-right: none; border-top: 1px solid #3B362E; padding: 32px 24px; max-height: 55vh; }
       .lightbox-production { font-size: 22px; }
+      .lightbox-nav { padding: 12px 0 20px; }
 
       /* Book band */
       .book-band { flex-direction: column; align-items: flex-start; gap: 24px; padding: 48px 24px; }
@@ -724,26 +749,33 @@
 
   <!-- Lightbox modal -->
   <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Production detail">
-    <div class="lightbox-inner">
-      <div class="lightbox-data">
-        <div class="lightbox-kicker">Character Study</div>
-        <h2 class="lightbox-production" id="lb-production"></h2>
-        <div class="lightbox-role" id="lb-role"></div>
-        <div class="lightbox-rule"></div>
-        <div class="lightbox-section">
-          <div class="lightbox-section-head">The Story</div>
-          <p class="lightbox-section-text" id="lb-plot"></p>
+    <div class="lightbox-frame">
+      <div class="lightbox-inner">
+        <div class="lightbox-data">
+          <div class="lightbox-kicker">Character Study</div>
+          <h2 class="lightbox-production" id="lb-production"></h2>
+          <div class="lightbox-role" id="lb-role"></div>
+          <div class="lightbox-rule"></div>
+          <div class="lightbox-section">
+            <div class="lightbox-section-head">The Story</div>
+            <p class="lightbox-section-text" id="lb-plot"></p>
+          </div>
+          <div class="lightbox-section">
+            <div class="lightbox-section-head">The Character</div>
+            <p class="lightbox-section-text" id="lb-char"></p>
+          </div>
+          <div class="lightbox-footer" id="lb-footer"></div>
         </div>
-        <div class="lightbox-section">
-          <div class="lightbox-section-head">The Character</div>
-          <p class="lightbox-section-text" id="lb-char"></p>
+        <div class="lightbox-photo-wrap">
+          <img class="lightbox-img" id="lb-img" src="" alt="" />
         </div>
-        <div class="lightbox-footer" id="lb-footer"></div>
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
       </div>
-      <div class="lightbox-photo-wrap">
-        <img class="lightbox-img" id="lb-img" src="" alt="" />
+      <div class="lightbox-nav">
+        <button class="lb-arrow" id="lb-prev" aria-label="Previous photo">&#8592;</button>
+        <div class="lb-dots" id="lb-dots"></div>
+        <button class="lb-arrow" id="lb-next" aria-label="Next photo">&#8594;</button>
       </div>
-      <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
     </div>
   </div>
 
@@ -802,16 +834,31 @@
 
   <script>
     (function () {
-      var overlay  = document.getElementById('lightbox');
-      var lbImg    = document.getElementById('lb-img');
-      var lbProd   = document.getElementById('lb-production');
-      var lbRole   = document.getElementById('lb-role');
-      var lbPlot   = document.getElementById('lb-plot');
-      var lbChar   = document.getElementById('lb-char');
-      var lbFooter = document.getElementById('lb-footer');
-      var closeBtn = document.getElementById('lightbox-close');
+      var overlay       = document.getElementById('lightbox');
+      var lbImg         = document.getElementById('lb-img');
+      var lbProd        = document.getElementById('lb-production');
+      var lbRole        = document.getElementById('lb-role');
+      var lbPlot        = document.getElementById('lb-plot');
+      var lbChar        = document.getElementById('lb-char');
+      var lbFooter      = document.getElementById('lb-footer');
+      var closeBtn      = document.getElementById('lightbox-close');
+      var prevBtn       = document.getElementById('lb-prev');
+      var nextBtn       = document.getElementById('lb-next');
+      var dotsContainer = document.getElementById('lb-dots');
 
-      function openLightbox(item) {
+      var items = Array.from(document.querySelectorAll('.still-item'));
+      var currentIndex = 0;
+
+      var dots = items.map(function (_, i) {
+        var dot = document.createElement('button');
+        dot.className = 'lb-dot';
+        dot.setAttribute('aria-label', 'Photo ' + (i + 1));
+        dot.addEventListener('click', function () { goTo(i); });
+        dotsContainer.appendChild(dot);
+        return dot;
+      });
+
+      function populate(item) {
         var img = item.querySelector('img');
         lbImg.src = img.src;
         lbImg.alt = img.alt;
@@ -820,6 +867,22 @@
         lbPlot.textContent   = item.dataset.plot;
         lbChar.textContent   = item.dataset.char;
         lbFooter.textContent = item.dataset.org + ' · ' + item.dataset.year;
+      }
+
+      function updateDots() {
+        dots.forEach(function (d, i) { d.classList.toggle('active', i === currentIndex); });
+      }
+
+      function goTo(index) {
+        currentIndex = (index + items.length) % items.length;
+        populate(items[currentIndex]);
+        updateDots();
+      }
+
+      function openLightbox(index) {
+        currentIndex = index;
+        populate(items[index]);
+        updateDots();
         overlay.classList.add('open');
         document.body.style.overflow = 'hidden';
         closeBtn.focus();
@@ -830,12 +893,21 @@
         document.body.style.overflow = '';
       }
 
-      document.querySelectorAll('.still-item').forEach(function (item) {
-        item.addEventListener('click', function () { openLightbox(item); });
+      items.forEach(function (item, i) {
+        item.addEventListener('click', function () { openLightbox(i); });
       });
+
+      prevBtn.addEventListener('click', function () { goTo(currentIndex - 1); });
+      nextBtn.addEventListener('click', function () { goTo(currentIndex + 1); });
+
       closeBtn.addEventListener('click', closeLightbox);
       overlay.addEventListener('click', function (e) { if (e.target === overlay) closeLightbox(); });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+      document.addEventListener('keydown', function (e) {
+        if (!overlay.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft')  goTo(currentIndex - 1);
+        if (e.key === 'ArrowRight') goTo(currentIndex + 1);
+      });
     })();
   </script>
 
