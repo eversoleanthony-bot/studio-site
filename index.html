@@ -176,6 +176,7 @@
       align-items: stretch;
     }
     .teacher-img { position: relative; min-height: 520px; height: auto; }
+    .teacher-img img { object-position: 50% 15%; }
     .teacher-text { padding: 64px 64px 64px 0; display: flex; flex-direction: column; justify-content: center; }
     .teacher-quote {
       font-family: var(--serif);
@@ -322,6 +323,7 @@
       /* Teacher: stack image above text */
       .teacher { grid-template-columns: 1fr; gap: 0; align-items: stretch; }
       .teacher-img { height: 380px; min-height: unset; }
+      .teacher-img img { object-position: 50% 28%; }
       .teacher-text { padding: 48px 24px; width: 100%; }
       .teacher-quote { font-size: 22px; }
 
@@ -531,7 +533,7 @@
   <!-- teacher -->
   <section class="teacher">
     <div class="img-slot teacher-img">
-      <img src="images/site/headshot-homepage.jpg" alt="Dr. Anthony Eversole" style="object-position: top;" />
+      <img src="images/site/headshot-homepage.jpg" alt="Dr. Anthony Eversole" />
     </div>
     <div class="teacher-text">
       <div class="kicker" style="margin-bottom: 24px;">The Teacher</div>
