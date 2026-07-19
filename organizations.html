@@ -34,69 +34,35 @@
     }
 
     /* ---- Hero ---- */
-    .org-hero {
-      position: relative;
-      min-height: 76vh;
-      display: flex;
-      align-items: flex-end;
+    .org-hero-text { padding: 88px 64px 48px; }
+    .org-hero-h1 {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 62px;
+      line-height: 1.02;
+      letter-spacing: -0.018em;
+      margin: 0 0 22px;
+    }
+    .org-hero-sub {
+      font-family: var(--serif);
+      font-size: 21px;
+      line-height: 1.65;
+      color: var(--body);
+      max-width: 600px;
+      margin-bottom: 32px;
+    }
+    .org-hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .org-hero-banner {
+      height: 420px;
       overflow: hidden;
       background: var(--ink);
     }
-    .org-hero-bg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
+    .org-hero-banner img {
+      width: 100%; height: 100%;
       object-fit: cover;
       object-position: center 35%;
       display: block;
     }
-    .org-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        rgba(34,30,25,.15) 0%,
-        rgba(34,30,25,.50) 45%,
-        rgba(34,30,25,.90) 100%
-      );
-    }
-    .org-hero-content {
-      position: relative;
-      z-index: 1;
-      padding: 0 64px 80px;
-      max-width: 860px;
-    }
-    .org-hero-h1 {
-      font-family: var(--serif);
-      font-weight: 300;
-      font-size: 76px;
-      line-height: 1.0;
-      letter-spacing: -0.02em;
-      color: var(--bg);
-      margin: 18px 0 22px;
-    }
-    .org-hero-sub {
-      font-family: var(--serif);
-      font-size: 20px;
-      line-height: 1.65;
-      color: rgba(246,241,231,.72);
-      max-width: 540px;
-      margin-bottom: 40px;
-    }
-    .org-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
-    .btn-outline-lt {
-      display: inline-block;
-      border: 1px solid rgba(246,241,231,.45);
-      color: rgba(246,241,231,.85);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      padding: 17px 30px;
-      white-space: nowrap;
-    }
-    .btn-outline-lt:hover { border-color: rgba(246,241,231,.8); color: var(--bg); opacity: 1; }
 
     /* ---- Services grid ---- */
     .org-services { background: var(--ink); }
@@ -276,10 +242,10 @@
       .nav-ctas { padding: 20px 0 0; }
       .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
 
-      .org-hero { min-height: 64vh; }
-      .org-hero-content { padding: 0 48px 72px; }
-      .org-hero-h1 { font-size: 58px; }
+      .org-hero-text { padding: 64px 48px 36px; }
+      .org-hero-h1 { font-size: 46px; }
       .org-hero-sub { font-size: 18px; }
+      .org-hero-banner { height: 340px; }
 
       .org-service-card { padding: 52px 44px; }
       .org-service-title { font-size: 34px; }
@@ -295,11 +261,11 @@
       .nav { padding: 0 24px; }
       .nav-links { padding: 8px 24px 28px; }
 
-      .org-hero { min-height: 72vh; }
-      .org-hero-content { padding: 0 24px 64px; }
-      .org-hero-h1 { font-size: 40px; margin-bottom: 16px; }
-      .org-hero-sub { font-size: 16px; max-width: none; }
+      .org-hero-text { padding: 48px 24px 32px; }
+      .org-hero-h1 { font-size: 36px; line-height: 1.1; }
+      .org-hero-sub { font-size: 17px; }
       .org-hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+      .org-hero-banner { height: 260px; }
 
       .org-services-grid { grid-template-columns: 1fr; }
       .org-service-card {
@@ -343,17 +309,18 @@
   </nav>
 
   <!-- hero -->
-  <header class="org-hero">
-    <img class="org-hero-bg" src="images/site/Stage.png" alt="Anthony Eversole directing a rehearsal, seated in the house with a script" />
-    <div class="org-hero-overlay"></div>
-    <div class="org-hero-content">
-      <div class="kicker kicker-lt">For Companies, Schools &amp; Programs</div>
-      <h1 class="org-hero-h1">Music &amp; Stage<br>Direction</h1>
+  <header>
+    <div class="org-hero-text">
+      <div class="kicker" style="margin-bottom: 18px;">For Companies, Schools &amp; Programs</div>
+      <h1 class="org-hero-h1">Music &amp; Stage Direction</h1>
       <p class="org-hero-sub">Production, workshops, and residencies for musical theatre and opera — from youth programs to professional casts.</p>
       <div class="org-hero-actions">
-        <a href="#credits" class="btn-light">View Credits</a>
-        <a href="#inquiry" class="btn-outline-lt">Get in Touch</a>
+        <a href="#credits" class="btn-dark">View Credits</a>
+        <a href="#inquiry" class="btn-outline">Get in Touch</a>
       </div>
+    </div>
+    <div class="org-hero-banner">
+      <img src="images/site/Stage.png" alt="Anthony Eversole directing a rehearsal, seated in the house with a script" />
     </div>
   </header>
 
