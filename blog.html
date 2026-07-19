@@ -77,6 +77,7 @@
       color: inherit;
       transition: opacity .15s;
     }
+    .post-featured.no-image { grid-template-columns: 1fr; }
     .post-featured:hover { opacity: 1; }
     .post-featured:hover .post-featured-text { background: var(--bg-alt); }
     .post-featured-text {
@@ -295,6 +296,7 @@
     })();
 
     const POSTS = [
+      { href: 'posts/daring-greatly.html',   category: 'Character Work', title: "Daring Greatly on Stage: A Blueprint for Vulnerable Performance",   excerpt: "Technique and vulnerability are not opposing forces. Drawing on Brené Brown and Stanislavski, a framework for building the courage to risk emotional exposure and shed the armor we carry into the room.",   image: 'images/blog/Daring%20Greatly%20on%20Stage/Spring%20Awakening.jpg', imageAlt: 'Performer on stage at SOPAC', date: 'Jul 2026' },
       {
         href: 'posts/singing-actor.html',
         category: 'Character Work',
@@ -302,8 +304,7 @@
         excerpt: "Eye focus must be planned with the same rigor as breath management or vowel modification. A director’s approach to one audition piece.",
         image: 'images/blog/First-Day-of-Court.jpg',
         imageAlt: 'Leo Frank Trial, Fulton County Courtroom, Atlanta 1913',
-        date: 'Apr 2026',
-        featured: true
+        date: 'Apr 2026'
       },
       { href: 'posts/amelie-vulnerability.html',  category: 'Character Work', title: 'Amélie: Navigating Neglect and Risking Vulnerability',   excerpt: "How Amélie’s character arc moves from the self-protective habits of childhood neglect toward the risk of genuine connection — and what that means for the actor and director.",   date: 'Jul 2022' },
       { href: 'posts/amelie-scenic.html',          category: 'Dramaturgy',    title: 'Amélie: Guimard, Art Nouveau, and the Scenic Aesthetic',   excerpt: "Hector Guimard’s Paris — its cast-iron entrances, riveted ornamentation, and democratic beauty — as the visual foundation for staging Amélie.",   date: 'Apr 2022' },
@@ -329,14 +330,14 @@
         return;
       }
 
-      const featured = visible.find(p => p.featured);
-      const regular  = visible.filter(p => !p.featured);
+      const featured = visible[0];
+      const regular  = visible.slice(1);
 
       let html = '';
 
       if (featured) {
         html += `
-          <a href="${featured.href}" class="post-featured">
+          <a href="${featured.href}" class="post-featured${featured.image ? '' : ' no-image'}">
             <div class="post-featured-text">
               <div class="post-featured-label">${featured.category}</div>
               <div class="post-featured-date">${featured.date}</div>
@@ -344,9 +345,7 @@
               <p class="post-featured-excerpt">${featured.excerpt}</p>
               <span class="post-featured-read">Read →</span>
             </div>
-            <div class="post-featured-img">
-              <img src="${featured.image}" alt="${featured.imageAlt}" loading="eager" />
-            </div>
+            ${featured.image ? `<div class="post-featured-img"><img src="${featured.image}" alt="${featured.imageAlt || ''}" loading="eager" /></div>` : ''}
           </a>`;
       }
 
