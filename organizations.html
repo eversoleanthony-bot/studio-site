@@ -338,7 +338,6 @@
         padding: 48px 24px;
         border-right: none;
       }
-      .org-service-card:nth-child(even) { border-top: 1px solid rgba(246,241,231,.1); }
       .org-service-title { font-size: 32px; }
 
       .resume-section { padding: 48px 24px; }
@@ -382,7 +381,7 @@
     <div class="org-hero-text">
       <div class="kicker" style="margin-bottom: 18px;">For Companies, Schools &amp; Programs</div>
       <h1 class="org-hero-h1">Music &amp; Stage Direction, Workshops &amp; Clinics</h1>
-      <p class="org-hero-sub">Production, workshops, and residencies for musical theatre and opera — from youth programs to professional casts.</p>
+      <p class="org-hero-sub">Production leadership, workshops, and residencies for musical theatre and opera — from youth programs to professional casts.</p>
       <div class="org-hero-actions">
         <a href="#credits" class="btn-dark">View Credits</a>
         <a href="#inquiry" class="btn-outline">Get in Touch</a>
@@ -399,7 +398,7 @@
 
       <div class="org-service-card">
         <div class="org-service-num">01</div>
-        <div class="org-service-title">Music Direction</div>
+        <h3 class="org-service-title">Music Direction</h3>
         <p class="org-service-body">Getting a cast to a sound that fits the show — regardless of style or experience level. The work is about helping singers understand what the music is asking them to do dramatically, not just what notes to sing. Ensemble nuance and the dramatic life inside the score.</p>
         <button class="org-service-toggle" aria-expanded="false">Areas of focus <span class="org-service-toggle-icon">+</span></button>
         <div class="org-service-accordion">
@@ -421,8 +420,8 @@
 
       <div class="org-service-card">
         <div class="org-service-num">02</div>
-        <div class="org-service-title">Stage Direction</div>
-        <p class="org-service-body">Direction built on specific choices — what each character wants, how that lives in the body, and when stillness does more than movement ever could. The work in rehearsal focuses on what characters are doing, not what they're feeling. Productions from Sondheim to Leoncavallo.</p>
+        <h3 class="org-service-title">Stage Direction</h3>
+        <p class="org-service-body">Direction built on specific choices — what each character wants, how that lives in the body, and when stillness does more than movement ever could. The work in rehearsal focuses on what characters are doing, not what they're feeling.</p>
         <button class="org-service-toggle" aria-expanded="false">Areas of focus <span class="org-service-toggle-icon">+</span></button>
         <div class="org-service-accordion">
           <div class="org-service-accordion-inner">
@@ -443,7 +442,7 @@
 
       <div class="org-service-card">
         <div class="org-service-num">03</div>
-        <div class="org-service-title">Workshops &amp; Clinics</div>
+        <h3 class="org-service-title">Workshops &amp; Clinics</h3>
         <p class="org-service-body">Workshops built around the whole performer — voice, body, and dramatic instinct. The room has to feel safe enough for real risk before any of the technique work lands. From there: style, audition craft, ensemble singing, and what it actually takes to perform in front of people.</p>
         <button class="org-service-toggle" aria-expanded="false">Areas of focus <span class="org-service-toggle-icon">+</span></button>
         <div class="org-service-accordion">
@@ -465,7 +464,7 @@
 
       <div class="org-service-card">
         <div class="org-service-num">04</div>
-        <div class="org-service-title">Music Production</div>
+        <h3 class="org-service-title">Music Production</h3>
         <p class="org-service-body">Home-studio production for singers and theatrical projects — quality demos and arrangements without commercial studio overhead. Also available to teach music production: DAW workflow, recording fundamentals, and notation from the ground up.</p>
         <button class="org-service-toggle" aria-expanded="false">Areas of focus <span class="org-service-toggle-icon">+</span></button>
         <div class="org-service-accordion">
@@ -494,7 +493,7 @@
       <div>
         <div class="kicker credits-eyebrow">Selected Credits</div>
         <h2 class="credits-h2">Directing &amp; Producing</h2>
-        <p class="credits-intro">Opera, musical theatre, and Shakespeare — for university programs, community stages, and professional opera ensembles.</p>
+        <p class="credits-intro">Opera and musical theatre — for university programs, community stages, and professional opera ensembles.</p>
       </div>
       <div>
         <table class="resume-table">
@@ -562,9 +561,9 @@
   <!-- production photo gallery modal -->
   <div class="gallery-modal" id="gallery-modal">
     <div class="gallery-modal-backdrop"></div>
-    <div class="gallery-modal-content">
+    <div class="gallery-modal-content" role="dialog" aria-modal="true" aria-labelledby="gallery-modal-title">
       <button class="gallery-modal-close" aria-label="Close">&times;</button>
-      <div class="gallery-modal-title" id="gallery-modal-title"></div>
+      <h2 class="gallery-modal-title" id="gallery-modal-title"></h2>
       <div class="gallery-modal-grid" id="gallery-modal-grid"></div>
     </div>
   </div>
