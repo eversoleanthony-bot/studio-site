@@ -120,6 +120,12 @@
     /* Offset anchor target below sticky nav */
     #session-options { scroll-margin-top: 80px; }
 
+    /* ---- Studio Mechanics list ---- */
+    .mechanics-list { list-style: none; padding: 0; margin: 16px 0 20px; }
+    .mechanics-list li { font-size: 13px; line-height: 1.7; color: var(--secondary); padding: 9px 0; border-top: 1px solid var(--border); }
+    .mechanics-list li:last-child { border-bottom: 1px solid var(--border); }
+    .mechanics-list li strong { color: var(--ink); font-weight: 600; }
+
     /* ---- Back to top ---- */
     .back-to-top { padding: 20px 64px; text-align: right; border-top: 1px solid var(--border); }
     .back-to-top a { font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
@@ -439,9 +445,18 @@
   <!-- studio mechanics -->
   <section class="studio-mechanics">
     <div class="mechanics-col">
-      <div class="kicker" style="margin-bottom: 20px;">Materials &amp; Technology</div>
-      <h3 class="mechanics-hl">Performance Materials &amp; Technology</h3>
-      <p class="mechanics-body">[Placeholder: Tech requirements for online sessions — Zoom link, audio/video setup recommendations. Sheet music sourcing, PDF distribution, and score annotation workflow. Backing track logistics and approved accompaniment resources.]</p>
+      <div class="kicker" style="margin-bottom: 20px;">Online Sessions</div>
+      <h3 class="mechanics-hl">Technology for Online Sessions</h3>
+      <p class="mechanics-body">A good remote session depends on good audio. A few things make a meaningful difference.</p>
+      <ul class="mechanics-list">
+        <li><strong>Wired headphones are strongly encouraged.</strong> Bluetooth codecs introduce latency that makes real-time vocal feedback unreliable.</li>
+        <li><strong>An external condenser microphone is highly recommended</strong> (USB or XLR). Built-in laptop and tablet mics are discouraged — they compress and color the sound in ways that make accurate feedback difficult.</li>
+        <li><strong>Ethernet over Wi-Fi when possible.</strong> Packet jitter on wireless connections can degrade the frequencies most important to pitch and tone feedback.</li>
+        <li><strong>Zoom in Original Sound / High-Fidelity Music Mode</strong> with noise suppression, echo cancellation, and automatic gain control disabled.</li>
+        <li><strong>A secondary device for accompaniment is highly encouraged.</strong> Running tracks from your lesson device causes sync issues and can cut your voice out when you begin singing.</li>
+      </ul>
+      <p class="mechanics-body">FaceTime and other mobile conferencing apps work in a pinch, but Zoom with proper audio settings will give us a noticeably better session.</p>
+      <p class="mechanics-body" style="margin-top: 16px;">All students receive access to a shared resource library containing studio exercises, public domain repertoire, and your active working scores. Copyrighted contemporary repertoire may require a licensed copy of your own.</p>
     </div>
     <div class="mechanics-col">
       <div class="kicker" style="margin-bottom: 20px;">Billing &amp; Cycles</div>
