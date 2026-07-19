@@ -17,13 +17,18 @@
     html { scroll-padding-top: 80px; }
 
     /* ---- Hero ---- */
-    .page-hero { border-bottom: 3px solid rgba(226,218,203,.1); }
+    .page-hero { }
     .page-hero-text { padding: 88px 64px 48px; }
     .page-h1 { font-family: var(--serif); font-weight: 300; font-size: 58px; line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 24px; }
     .page-sub { font-family: var(--serif); font-size: 21px; line-height: 1.65; color: #4A453C; max-width: 640px; margin-bottom: 36px; }
     .page-actions { display: flex; gap: 20px; flex-wrap: wrap; }
-    .page-hero-banner { height: 400px; overflow: hidden; background: var(--ink); }
+    .page-hero-banner { position: relative; height: 400px; overflow: hidden; background: var(--ink); }
     .page-hero-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block; }
+    .page-hero-banner::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+      height: 55%; background: linear-gradient(to bottom, transparent, var(--ink));
+      pointer-events: none;
+    }
 
     /* ---- Listening Room ---- */
     .listening-room { background: var(--ink); padding: 80px 64px; border-bottom: 3px solid rgba(226,218,203,.2); }
