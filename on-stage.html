@@ -23,28 +23,30 @@
     .page-hero-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block; }
 
     /* ---- Listening Room ---- */
-    .listening-room { background: var(--bg-alt); padding: 80px 64px; border-bottom: 1px solid var(--border); }
+    .listening-room { background: var(--ink); padding: 80px 64px; border-bottom: 3px solid rgba(226,218,203,.2); }
+    .listening-room .kicker { color: rgba(246,241,231,.55); }
     .listening-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
-    .listening-label { font-size: 13.5px; line-height: 1.7; color: var(--secondary); }
+    .listening-label { font-size: 13.5px; line-height: 1.7; color: rgba(246,241,231,.6); }
 
     .track-list { display: flex; flex-direction: column; }
-    .track-row { display: flex; align-items: center; gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+    .track-row { display: flex; align-items: center; gap: 18px; padding: 16px 0; border-bottom: 1px solid #3B362E; }
     .track-row:last-child { border-bottom: none; }
     .track-play {
       flex: none; width: 36px; height: 36px; border-radius: 50%;
-      border: 1px solid var(--accent); background: none; color: var(--accent);
+      border: 1px solid rgba(246,241,231,.35); background: none; color: var(--bg);
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; font-size: 13px; padding: 0; line-height: 1;
-      transition: background .15s, color .15s;
+      transition: background .15s, color .15s, border-color .15s;
     }
-    .track-play:hover, .track-play.playing { background: var(--accent); color: var(--bg); }
+    .track-play:hover, .track-play.playing { background: var(--accent); color: var(--bg); border-color: var(--accent); }
     .track-info { flex: 1; min-width: 0; }
-    .track-title { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--ink); margin-bottom: 3px; }
-    .track-meta { font-size: 12px; color: var(--secondary); letter-spacing: .02em; }
-    .track-time { flex: none; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; min-width: 34px; text-align: right; }
+    .track-title { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--bg); margin-bottom: 3px; }
+    .track-meta { font-size: 12px; color: var(--meta); letter-spacing: .02em; }
+    .track-time { flex: none; font-size: 11px; color: var(--faint); font-variant-numeric: tabular-nums; min-width: 34px; text-align: right; }
 
     /* ---- Production Photos ---- */
-    .stills-section { padding: 72px 64px; border-bottom: 1px solid var(--border); }
+    .stills-section { background: var(--ink); padding: 72px 64px; border-bottom: 1px solid #3B362E; }
+    .stills-section .kicker { color: rgba(246,241,231,.55); }
     .stills-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
     .stills-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
     .still-item { position: relative; aspect-ratio: 4/3; overflow: hidden; }
@@ -86,6 +88,7 @@
 
     .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
     .pill  { font-size: 12px; padding: 5px 12px; border: 1px solid var(--border); color: var(--secondary); letter-spacing: .03em; }
+    .resume-section.alt .pill { border-color: rgba(34,30,25,.28); }
     .resume-sublabel { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 24px 0 10px; }
 
     /* ---- Research ---- */
@@ -99,13 +102,130 @@
     /* ---- Distinctions ---- */
     .distinctions { columns: 2; column-gap: 40px; }
     .distinctions li { list-style: none; font-size: 13.5px; color: var(--secondary); line-height: 2; }
-    .distinctions li::before { content: "— "; color: var(--accent); }
+    .distinctions li::before { content: "·"; color: var(--accent); margin-right: 10px; font-size: 1.4em; vertical-align: middle; }
 
     /* ---- Artistic Affiliates ---- */
-    .aff-grid  { display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
-    .aff-item  { margin-bottom: 24px; }
-    .aff-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
-    .aff-names { font-size: 13.5px; color: var(--secondary); line-height: 1.8; }
+    .aff-grid  { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 32px; }
+    .aff-item  { }
+    .aff-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .aff-names { list-style: none; margin: 0; padding: 0; }
+    .aff-names li { font-size: 13px; color: var(--secondary); padding: 6px 0; border-bottom: 1px solid var(--border); line-height: 1.4; }
+    .aff-names li:last-child { border-bottom: none; }
+
+    /* ---- Nav hamburger (hidden on desktop) ---- */
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      padding: 8px 0;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ---- Responsive: tablet / small desktop (≤ 1149px) ---- */
+    @media (max-width: 1149px) {
+      .nav { padding: 0 40px; }
+      .nav-menu-btn { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 40px 28px;
+        gap: 0;
+        z-index: 99;
+        box-shadow: 0 4px 16px rgba(34,30,25,.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links > a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        letter-spacing: .12em;
+      }
+      .nav-ctas { padding: 20px 0 0; }
+      .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
+      .page-hero-text { padding: 64px 48px 36px; }
+      .page-h1 { font-size: 46px; }
+      .listening-room { padding: 64px 48px; }
+      .stills-section { padding: 56px 48px; }
+      .resume-section,
+      .resume-section-dark { padding: 56px 48px; }
+    }
+
+    /* ---- Responsive: mobile (≤ 767px) ---- */
+    @media (max-width: 767px) {
+      .nav { padding: 0 24px; }
+      .nav-links { padding: 8px 24px 28px; }
+
+      /* Hero */
+      .page-hero-text { padding: 48px 24px 32px; }
+      .page-h1 { font-size: 36px; line-height: 1.1; }
+      .page-sub { font-size: 18px; }
+      .page-hero-banner { height: 240px; }
+      .page-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+      /* Listening room */
+      .listening-room { padding: 48px 24px; }
+      .listening-inner { grid-template-columns: 1fr; gap: 24px; }
+
+      /* Production photos */
+      .stills-section { padding: 48px 24px; }
+      .stills-inner { grid-template-columns: 1fr; gap: 20px; }
+      .stills-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+
+      /* Resume sections */
+      .resume-section,
+      .resume-section-dark { padding: 48px 24px; }
+      .resume-inner { grid-template-columns: 1fr; gap: 16px; }
+
+      /* Resume tables: reflow to stacked cards */
+      .resume-table,
+      .resume-table tbody,
+      .resume-table tr,
+      .resume-table td { display: block; }
+      .resume-table tr {
+        padding: 14px 0;
+        border-top: 1px solid var(--border);
+        border-bottom: none !important;
+      }
+      .resume-table tr:first-child { border-top: none; }
+      .resume-table td { padding: 1px 0 !important; width: auto !important; padding-right: 0 !important; }
+      .r-role  { font-size: 13px; font-weight: 600; color: var(--ink); }
+      .r-title { font-size: 15px; padding-top: 2px !important; }
+      .r-org   { font-size: 12px; color: var(--muted); }
+      .r-yr    { font-size: 11px; text-align: left !important; color: var(--accent); padding-top: 3px !important; }
+      .resume-section-dark .resume-table tr { border-top-color: #3B362E; }
+      .resume-section-dark .r-role  { color: var(--bg); }
+      .resume-section-dark .r-title { color: rgba(246,241,231,.75); }
+      .resume-section-dark .r-org   { color: var(--faint); }
+
+      /* Distinctions: single column */
+      .distinctions { columns: 1; }
+
+      /* Affiliates: two columns on mobile */
+      .aff-grid { grid-template-columns: 1fr 1fr; gap: 24px 24px; }
+      .aff-item { margin-bottom: 0; }
+
+      /* Book band */
+      .book-band { flex-direction: column; align-items: flex-start; gap: 24px; padding: 48px 24px; }
+      .book-band-hl { font-size: 26px; }
+
+      /* Footer */
+      .footer-main { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; }
+      .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
+      .footer-legal { flex-direction: column; gap: 12px; padding: 16px 24px; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
@@ -115,7 +235,8 @@
       <span class="nav-brand-name">Anthony Eversole</span>
       <span class="nav-brand-kicker">Voice &amp; Stage</span>
     </a>
-    <div class="nav-links">
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
       <a href="lessons.html">Lessons</a>
       <a href="on-stage.html" class="active">On Stage</a>
       <a href="organizations.html">For Organizations</a>
@@ -234,7 +355,7 @@
     <div class="stills-inner">
       <div>
         <div class="kicker" style="margin-bottom: 16px;">Production Photos</div>
-        <p style="font-size: 14px; line-height: 1.8; color: var(--secondary);">Stills from selected productions.</p>
+        <p style="font-size: 14px; line-height: 1.8; color: rgba(246,241,231,.6);">Stills from selected productions.</p>
       </div>
       <div>
         <div class="stills-grid">
@@ -367,7 +488,7 @@
   </section>
 
   <!-- training & education (dark) -->
-  <section class="resume-section resume-section-dark">
+  <section class="resume-section alt">
     <div class="resume-inner">
       <div class="kicker kicker-md">Training &amp; Education</div>
       <div>
@@ -433,13 +554,70 @@
     <div class="resume-inner">
       <div class="kicker">Artistic Affiliates</div>
       <div class="aff-grid">
-        <div>
-          <div class="aff-item"><div class="aff-label">Coaches</div><p class="aff-names">Elizabeth Avery, Stephen Carey, David Hanlon, Miah Im, Lynn Jemison-Keisker, Benedicte Jourdois, Justina Lee, David Mayfield, Bradley Moore, Shelby Rhoades, Stephanie Rhodes, Lorne Richstone, Ben Salisbury</p></div>
-          <div class="aff-item"><div class="aff-label">Masterclasses</div><p class="aff-names">Colin Baldy, Deb Birnbaum, Marilyn Horne, Lauren Flanigan, Stephen King, Cynthia Lawrence, Stanford Olsen, Mark Padmore</p></div>
+        <div class="aff-item">
+          <div class="aff-label">Coaches</div>
+          <ul class="aff-names">
+            <li>Elizabeth Avery</li>
+            <li>Stephen Carey</li>
+            <li>David Hanlon</li>
+            <li>Miah Im</li>
+            <li>Lynn Jemison-Keisker</li>
+            <li>Benedicte Jourdois</li>
+            <li>Justina Lee</li>
+            <li>David Mayfield</li>
+            <li>Bradley Moore</li>
+            <li>Shelby Rhoades</li>
+            <li>Stephanie Rhodes</li>
+            <li>Lorne Richstone</li>
+            <li>Ben Salisbury</li>
+          </ul>
         </div>
-        <div>
-          <div class="aff-item"><div class="aff-label">Conductors</div><p class="aff-names">Andy Anderson, Sergio Bernal, Barbara Day-Turner, Nathan Fifeld, Steven Jarvi, Craig Jessop, Karen Keltner, Craig Kier, Bradley Moore, Jonathan Shames, Tim Sharp, Richard Zielinski</p></div>
-          <div class="aff-item"><div class="aff-label">Stage Directors</div><p class="aff-names">Colin Baldy, Amanda Consol, Andrea Dorf-McGray, Kevin Doyle, William Ferrara, Rachel Harris, Daniel Helfgot, James Marvel, Dan Rigazzi, Michael Shell, Jack Shouse, Tomer Zvulun</p></div>
+        <div class="aff-item">
+          <div class="aff-label">Conductors</div>
+          <ul class="aff-names">
+            <li>Andy Anderson</li>
+            <li>Sergio Bernal</li>
+            <li>Barbara Day-Turner</li>
+            <li>Nathan Fifeld</li>
+            <li>Steven Jarvi</li>
+            <li>Craig Jessop</li>
+            <li>Karen Keltner</li>
+            <li>Craig Kier</li>
+            <li>Bradley Moore</li>
+            <li>Jonathan Shames</li>
+            <li>Tim Sharp</li>
+            <li>Richard Zielinski</li>
+          </ul>
+        </div>
+        <div class="aff-item">
+          <div class="aff-label">Stage Directors</div>
+          <ul class="aff-names">
+            <li>Colin Baldy</li>
+            <li>Amanda Consol</li>
+            <li>Andrea Dorf-McGray</li>
+            <li>Kevin Doyle</li>
+            <li>William Ferrara</li>
+            <li>Rachel Harris</li>
+            <li>Daniel Helfgot</li>
+            <li>James Marvel</li>
+            <li>Dan Rigazzi</li>
+            <li>Michael Shell</li>
+            <li>Jack Shouse</li>
+            <li>Tomer Zvulun</li>
+          </ul>
+        </div>
+        <div class="aff-item">
+          <div class="aff-label">Masterclasses</div>
+          <ul class="aff-names">
+            <li>Colin Baldy</li>
+            <li>Deb Birnbaum</li>
+            <li>Lauren Flanigan</li>
+            <li>Marilyn Horne</li>
+            <li>Stephen King</li>
+            <li>Cynthia Lawrence</li>
+            <li>Stanford Olsen</li>
+            <li>Mark Padmore</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -467,8 +645,6 @@
     </div>
     <div class="footer-social-links">
       <a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
     </div>
   </div>
 
@@ -498,6 +674,25 @@
       audio.addEventListener('timeupdate',     function () { timeEl.textContent = formatTime(audio.duration - audio.currentTime); });
       audio.addEventListener('loadedmetadata', function () { timeEl.textContent = formatTime(audio.duration); });
     });
+  </script>
+
+  <script>
+    (function () {
+      var btn   = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      btn.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+        btn.textContent = open ? 'Close' : 'Menu';
+      });
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('.nav')) {
+          links.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.textContent = 'Menu';
+        }
+      });
+    })();
   </script>
 
 </body>
