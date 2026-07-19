@@ -219,11 +219,30 @@
       .consult-hl { font-size: 30px; }
       .policy { padding: 48px 24px; }
       .policy-header { grid-template-columns: 1fr; gap: 20px; margin-bottom: 32px; }
-      .price-matrix { padding: 32px 24px 36px; }
-      .price-table { min-width: 540px; }
-      .gateway-grid { grid-template-columns: 1fr; }
-      .gateway-card { padding: 36px 24px 32px; word-break: break-word; overflow-wrap: anywhere; }
-      .gateway-btn { align-self: stretch; text-align: center; }
+      .price-matrix { padding: 32px 24px 36px; min-width: 0; }
+      /* Pricing table: stack as labeled price list instead of 4-col table */
+      .price-table,
+      .price-table tbody,
+      .price-table tr,
+      .price-table td { display: block; }
+      .price-table thead { display: none; }
+      .price-table tr { padding: 20px 0; border-top: 1px solid rgba(246,241,231,.12); }
+      .price-table tr:last-child { border-bottom: 1px solid rgba(246,241,231,.12); }
+      .price-table td { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border: none; }
+      .price-table td:first-child { flex-direction: column; align-items: flex-start; gap: 2px; padding-bottom: 10px; }
+      .price-table td:nth-child(2)::before { content: "Single Session"; }
+      .price-table td:nth-child(3)::before { content: "4-Week Bundle  ·  ~10% off"; }
+      .price-table td:nth-child(4)::before { content: "8-Week Bundle  ·  ~12% off"; }
+      .price-table td:nth-child(2)::before,
+      .price-table td:nth-child(3)::before,
+      .price-table td:nth-child(4)::before {
+        font-size: 10px; font-weight: 600; letter-spacing: .1em;
+        text-transform: uppercase; color: rgba(246,241,231,.55);
+      }
+      .price-val { font-size: 24px; }
+      .gateway-grid { grid-template-columns: 1fr; min-width: 0; }
+      .gateway-card { padding: 36px 24px 32px; }
+      .gateway-btn { display: block; width: 100%; box-sizing: border-box; text-align: center; }
       .studio-mechanics { grid-template-columns: 1fr; }
       .mechanics-col { padding: 48px 24px; }
       .faq-block { padding: 48px 24px; }
