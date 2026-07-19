@@ -344,10 +344,13 @@
       .resume-section { padding: 48px 24px; }
       .resume-inner { grid-template-columns: 1fr; gap: 28px; }
       .credits-h2 { font-size: 24px; }
-      .r-org { display: none; }
-      .r-role { width: 38%; }
-      .r-title { width: 44%; }
-      .r-yr { width: 18%; }
+      .resume-table tr { display: flex; flex-wrap: wrap; padding: 10px 0; border-bottom: 1px solid var(--border); }
+      .resume-table tr:last-child { border-bottom: none; }
+      .resume-table td { padding: 0; width: auto; }
+      .r-role { order: 1; flex: 1; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); line-height: 1.4; }
+      .r-yr   { order: 2; text-align: right; }
+      .r-title { order: 3; width: 100%; padding: 4px 0 0; font-size: 15px; }
+      .r-org  { display: none; }
 
       .inquiry-band { padding: 56px 24px; grid-template-columns: 1fr; gap: 40px; }
       .inquiry-form-row { grid-template-columns: 1fr; }
@@ -538,8 +541,8 @@
     <span>Anthony Eversole, DMA</span>
     <div class="footer-main-links">
       <a href="lessons.html">Lessons</a>
-      <a href="organizations.html">For Organizations</a>
       <a href="on-stage.html">On Stage</a>
+      <a href="organizations.html">For Organizations</a>
       <a href="blog.html">Blog</a>
       <a href="book.html">Contact</a>
     </div>
