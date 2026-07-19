@@ -344,12 +344,12 @@
       .resume-section { padding: 48px 24px; }
       .resume-inner { grid-template-columns: 1fr; gap: 28px; }
       .credits-h2 { font-size: 24px; }
-      .resume-table tr { display: flex; flex-wrap: wrap; padding: 10px 0; border-bottom: 1px solid var(--border); }
+      .resume-table tr { display: block; position: relative; padding: 10px 0 10px; border-bottom: 1px solid var(--border); }
       .resume-table tr:last-child { border-bottom: none; }
-      .resume-table td { padding: 0; width: auto; }
-      .r-role { order: 1; flex: 1; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); line-height: 1.4; }
-      .r-yr   { order: 2; text-align: right; }
-      .r-title { order: 3; width: 100%; padding: 4px 0 0; font-size: 15px; }
+      .resume-table td { display: block; width: auto !important; padding: 0; }
+      .r-yr   { position: absolute; top: 10px; right: 0; width: auto !important; font-size: 12px; }
+      .r-role { font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); padding-right: 48px; line-height: 1.6; }
+      .r-title { font-size: 15px; padding: 2px 48px 0 0; }
       .r-org  { display: none; }
 
       .inquiry-band { padding: 56px 24px; grid-template-columns: 1fr; gap: 40px; }
