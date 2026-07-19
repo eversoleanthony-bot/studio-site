@@ -4,8 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Blog | Anthony Eversole</title>
-  <meta name="description" content="Where vulnerability meets artistic truth — a collection of production ideas, research, and pedagogic musings from Anthony Eversole." />
+  <meta name="description" content="Production research, dramaturgical writing, and teaching reflections from Anthony Eversole — director, music director, and educator." />
   <meta property="og:title" content="Cracks Where The Light Enters | Anthony Eversole" />
+  <meta property="og:description" content="Production research, dramaturgical writing, and teaching reflections from Anthony Eversole." />
   <meta property="og:type" content="website" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,58 +14,143 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    /* hero + chips */
-    .writing-hero { padding: 88px 64px 48px; border-bottom: 1px solid var(--border); }
-    .writing-h1   { font-family: var(--serif); font-weight: 300; font-size: 58px; line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 24px; }
-    .writing-sub  { font-family: var(--serif); font-size: 21px; line-height: 1.65; color: #4A453C; max-width: 640px; margin-bottom: 40px; }
+    /* nav — hamburger */
+    @media (max-width: 767px) {
+      .nav-links { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 22px; }
+      .nav-ctas { margin-top: 8px; }
+      .nav-menu-btn { display: flex; }
+    }
+
+    /* hero */
+    .writing-hero {
+      padding: 88px 64px 52px;
+      border-bottom: 1px solid var(--border);
+    }
+    .writing-h1 {
+      font-family: var(--serif); font-weight: 300; font-size: 58px;
+      line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 24px;
+    }
+    .writing-sub {
+      font-family: var(--serif); font-size: 21px; line-height: 1.65;
+      color: var(--secondary); max-width: 600px; margin-bottom: 40px;
+    }
     .chips { display: flex; gap: 10px; flex-wrap: wrap; }
     .chip {
       font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
-      border: 1px solid var(--accent-md); color: var(--muted); padding: 8px 16px; cursor: pointer;
-      background: none; transition: background .15s, color .15s;
+      border: 1px solid var(--accent-md); color: var(--muted); padding: 8px 16px;
+      cursor: pointer; background: none; transition: background .15s, color .15s;
     }
     .chip.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+    .chip:hover:not(.active) { background: var(--bg-alt); }
 
-    /* featured post */
-    .featured { display: grid; grid-template-columns: 1fr 520px; border-bottom: 1px solid var(--border); }
-    .featured-text { padding: 64px; display: flex; flex-direction: column; justify-content: center; }
-    .featured-meta { display: flex; gap: 14px; align-items: baseline; margin-bottom: 18px; }
-    .featured-cat  { font-size: 10.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
-    .featured-date { font-size: 12px; color: var(--meta); }
-    .featured-title {
-      font-family: var(--serif); font-weight: 400; font-size: 42px; line-height: 1.1;
-      margin-bottom: 18px; display: block;
-    }
-    .featured-excerpt {
-      font-family: var(--serif); font-style: italic; font-size: 18px; line-height: 1.7;
-      color: var(--secondary); max-width: 520px; margin-bottom: 24px;
-    }
-    .featured-read { font-size: 11.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
-    .featured-img  { position: relative; min-height: 420px; }
+    /* post grid section */
+    .post-section { padding: 0 64px 72px; }
 
-    /* post list */
-    .post-list { padding: 56px 64px 72px; }
-    .post-row {
-      display: grid; grid-template-columns: 140px 1fr auto; gap: 32px;
-      align-items: baseline; padding: 22px 0; border-bottom: 1px solid var(--border);
+    .post-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-top: none;
+    }
+
+    /* featured card */
+    .post-featured {
+      grid-column: 1 / -1;
+      background: var(--bg);
+      display: grid;
+      grid-template-columns: 1fr 440px;
       text-decoration: none;
+      color: inherit;
+      transition: opacity .15s;
     }
-    .post-row:hover { opacity: .8; }
-    .post-cat   { font-size: 10.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
-    .post-title { font-family: var(--serif); font-size: 24px; color: var(--ink); }
-    .post-date  { font-size: 12px; color: var(--meta); white-space: nowrap; }
-    .no-posts   { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--faint); padding: 32px 0; }
+    .post-featured:hover { opacity: 1; }
+    .post-featured:hover .post-featured-text { background: var(--bg-alt); }
+    .post-featured-text {
+      padding: 56px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transition: background .15s;
+    }
+    .post-featured-label {
+      font-size: 10.5px; font-weight: 600; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 6px;
+    }
+    .post-featured-date {
+      font-size: 12px; color: var(--meta); margin-bottom: 20px;
+    }
+    .post-featured-title {
+      font-family: var(--serif); font-weight: 400; font-size: 38px;
+      line-height: 1.1; color: var(--ink); margin-bottom: 18px; display: block;
+    }
+    .post-featured-excerpt {
+      font-family: var(--serif); font-style: italic; font-size: 18px;
+      line-height: 1.7; color: var(--secondary); margin-bottom: 28px;
+    }
+    .post-featured-read {
+      font-size: 11px; font-weight: 600; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--accent);
+    }
+    .post-featured-img {
+      position: relative;
+      min-height: 400px;
+      background: var(--ink);
+      overflow: hidden;
+    }
+    .post-featured-img img {
+      position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    }
+
+    /* regular post card */
+    .post-card {
+      background: var(--bg);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+      transition: background .15s;
+      min-height: 220px;
+    }
+    .post-card:hover { opacity: 1; background: var(--bg-alt); }
+    .post-card-cat {
+      font-size: 10.5px; font-weight: 600; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+    }
+    .post-card-title {
+      font-family: var(--serif); font-size: 22px; line-height: 1.32;
+      color: var(--ink); flex: 1;
+    }
+    .post-card-date {
+      font-size: 12px; color: var(--meta); margin-top: 24px;
+    }
+
+    /* empty state */
+    .no-posts {
+      grid-column: 1 / -1;
+      background: var(--bg);
+      font-family: var(--serif); font-style: italic; font-size: 18px;
+      color: var(--faint); padding: 56px;
+    }
 
     /* subscribe band */
     .subscribe-band {
       background: var(--ink); color: var(--bg);
-      padding: 56px 64px; display: flex; align-items: center; justify-content: space-between; gap: 40px;
+      padding: 56px 64px;
+      display: flex; align-items: center; justify-content: space-between; gap: 40px;
     }
-    .subscribe-hl { font-family: var(--serif); font-weight: 300; font-style: italic; font-size: 26px; }
+    .subscribe-hl {
+      font-family: var(--serif); font-weight: 300; font-style: italic; font-size: 26px;
+    }
     .subscribe-form { display: flex; gap: 0; }
     .subscribe-input {
       border: 1px solid #3B362E; border-right: none; background: transparent;
-      padding: 14px 20px; font-size: 13px; color: var(--bg); width: 260px; font-family: var(--sans);
+      padding: 14px 20px; font-size: 13px; color: var(--bg); width: 260px;
+      font-family: var(--sans);
     }
     .subscribe-input::placeholder { color: rgba(246,241,231,.5); }
     .subscribe-input:focus { outline: none; border-color: #5a544c; }
@@ -74,6 +160,35 @@
       border: none; cursor: pointer; font-family: var(--sans);
     }
     .subscribe-thanks { font-size: 13px; color: var(--accent-md); letter-spacing: .04em; }
+
+    /* tablet */
+    @media (max-width: 1149px) {
+      .writing-hero { padding: 72px 40px 44px; }
+      .writing-h1 { font-size: 46px; }
+      .writing-sub { font-size: 19px; }
+      .post-section { padding: 0 40px 60px; }
+      .post-featured-text { padding: 44px; }
+      .post-featured-title { font-size: 32px; }
+      .post-featured-img { min-height: 340px; }
+      .subscribe-band { padding: 48px 40px; }
+    }
+
+    /* mobile */
+    @media (max-width: 767px) {
+      .writing-hero { padding: 72px 24px 40px; scroll-padding-top: 72px; }
+      .writing-h1 { font-size: 36px; line-height: 1.12; }
+      .writing-sub { font-size: 17px; }
+      .post-section { padding: 0 0 48px; }
+      .post-grid { grid-template-columns: 1fr; border-left: none; border-right: none; }
+      .post-featured { grid-template-columns: 1fr; }
+      .post-featured-img { min-height: 240px; order: -1; }
+      .post-featured-text { padding: 32px 24px; }
+      .post-featured-title { font-size: 26px; line-height: 1.18; }
+      .post-featured-excerpt { font-size: 16px; }
+      .post-card { padding: 28px 24px; min-height: auto; }
+      .subscribe-band { flex-direction: column; align-items: flex-start; padding: 40px 24px; gap: 24px; }
+      .subscribe-input { width: 200px; }
+    }
   </style>
 </head>
 <body>
@@ -83,7 +198,8 @@
       <span class="nav-brand-name">Anthony Eversole</span>
       <span class="nav-brand-kicker">Voice &amp; Stage</span>
     </a>
-    <div class="nav-links">
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
       <a href="lessons.html">Lessons</a>
       <a href="on-stage.html">On Stage</a>
       <a href="organizations.html">For Organizations</a>
@@ -98,40 +214,20 @@
   <header class="writing-hero">
     <div class="kicker" style="margin-bottom: 20px;">The Studio Blog</div>
     <h1 class="writing-h1">Cracks Where The Light Enters</h1>
-    <p class="writing-sub">Where vulnerability meets artistic truth — a collection of production ideas, research, and pedagogic musings.</p>
+    <p class="writing-sub">Production research, dramaturgical writing, and teaching reflections.</p>
     <div class="chips" role="group" aria-label="Filter by category">
-      <button class="chip active" onclick="setFilter('All', this)">All</button>
-      <button class="chip" onclick="setFilter('Pedagogy', this)">Pedagogy</button>
-      <button class="chip" onclick="setFilter('Character Work', this)">Character Work</button>
-      <button class="chip" onclick="setFilter('Dramaturgy', this)">Dramaturgy</button>
-      <button class="chip" onclick="setFilter('Productions', this)">Productions</button>
+      <button class="chip active" data-filter="All">All</button>
+      <button class="chip" data-filter="Pedagogy">Pedagogy</button>
+      <button class="chip" data-filter="Character Work">Character Work</button>
+      <button class="chip" data-filter="Dramaturgy">Dramaturgy</button>
     </div>
   </header>
 
-  <!-- featured post -->
-  <section class="featured">
-    <div class="featured-text">
-      <div class="featured-meta">
-        <span class="featured-cat">Pedagogy</span>
-        <span class="featured-date">Featured · April 2026</span>
-      </div>
-      <a href="posts/singing-actor.html" class="featured-title">Preparing "It's Hard to Speak My Heart": A Framework for the Singing Actor</a>
-      <p class="featured-excerpt">Eye focus must be planned with the same rigor as breath management or vowel modification. A director's approach to one audition piece.</p>
-      <a href="posts/singing-actor.html" class="featured-read">Read →</a>
+  <!-- post grid — all JS-rendered -->
+  <div class="post-section">
+    <div class="post-grid" id="post-grid" aria-live="polite">
+      <!-- rendered by JS -->
     </div>
-    <div class="featured-img">
-      <img
-        src="images/blog/First-Day-of-Court.jpg"
-        alt="Leo Frank Trial, Fulton County Courtroom, Atlanta 1913"
-        loading="lazy"
-        style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;"
-      />
-    </div>
-  </section>
-
-  <!-- post list -->
-  <div class="post-list" id="post-list">
-    <!-- rendered by JS -->
   </div>
 
   <!-- subscribe band -->
@@ -139,8 +235,8 @@
     <p class="subscribe-hl">New posts land every few weeks. Get them by email.</p>
     <div id="subscribe-area">
       <div class="subscribe-form">
-        <input class="subscribe-input" type="email" id="subscribe-email" placeholder="you@email.com" />
-        <button class="subscribe-btn" onclick="handleSubscribe()">Subscribe</button>
+        <input class="subscribe-input" type="email" id="subscribe-email" placeholder="you@email.com" aria-label="Email address" />
+        <button class="subscribe-btn" id="subscribe-btn">Subscribe</button>
       </div>
     </div>
   </section>
@@ -162,59 +258,106 @@
     </div>
     <div class="footer-social-links">
       <a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">Instagram</a>
-      <a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a>
-      <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
     </div>
   </div>
 
   <script>
+    // nav toggle
+    (function() {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.textContent = expanded ? 'Menu' : 'Close';
+        links.classList.toggle('open', !expanded);
+      });
+    })();
+
     const POSTS = [
-      { href: 'posts/amelie-vulnerability.html',    category: 'Character Work', title: 'Amélie: Navigating Neglect and Risking Vulnerability',     date: 'Jul 2022' },
-      { href: 'posts/amelie-scenic.html',           category: 'Dramaturgy',    title: 'Amélie: Guimard, Art Nouveau, and the Scenic Aesthetic',     date: 'Apr 2022' },
-      { href: 'posts/amelie-color.html',            category: 'Dramaturgy',    title: "Amélie: La couleur de l'étrangeté",                          date: 'Mar 2022' },
-      { href: 'posts/zaza-psychology.html',         category: 'Character Work', title: 'Psychological Themes of Zazà',                               date: 'Mar 2022' },
-      { href: 'posts/zaza-visual.html',             category: 'Dramaturgy',    title: 'The Visual Language of Zazà',                                 date: 'Dec 2021' },
-      { href: 'posts/zaza-leoncavallo.html',        category: 'Dramaturgy',    title: 'Leoncavallo, Zazà & The Giovane Scuola',                      date: 'Dec 2021' },
-      { href: 'posts/mahagonny-medium.html',        category: 'Character Work', title: 'Mahagonny & Medium: The Search for Meaning',                  date: 'Sep 2021' },
-      { href: 'posts/medium-spiritualism.html',     category: 'Dramaturgy',    title: 'The Medium: A History of Spiritualism',                       date: 'Sep 2021' },
-      { href: 'posts/mahagonny-concept.html',       category: 'Dramaturgy',    title: 'Mahagonny Songspiel — A Concept',                             date: 'Aug 2021' },
+      {
+        href: 'posts/singing-actor.html',
+        category: 'Pedagogy',
+        title: "Preparing “It’s Hard to Speak My Heart”: A Framework for the Singing Actor",
+        excerpt: "Eye focus must be planned with the same rigor as breath management or vowel modification. A director’s approach to one audition piece.",
+        image: 'images/blog/First-Day-of-Court.jpg',
+        imageAlt: 'Leo Frank Trial, Fulton County Courtroom, Atlanta 1913',
+        date: 'Apr 2026',
+        featured: true
+      },
+      { href: 'posts/amelie-vulnerability.html',  category: 'Character Work', title: 'Amélie: Navigating Neglect and Risking Vulnerability',   date: 'Jul 2022' },
+      { href: 'posts/amelie-scenic.html',          category: 'Dramaturgy',    title: 'Amélie: Guimard, Art Nouveau, and the Scenic Aesthetic',   date: 'Apr 2022' },
+      { href: 'posts/amelie-color.html',           category: 'Dramaturgy',    title: 'Amélie: La couleur de l’étrangeté',         date: 'Mar 2022' },
+      { href: 'posts/zaza-psychology.html',        category: 'Character Work', title: 'Psychological Themes of Zazà',                            date: 'Mar 2022' },
+      { href: 'posts/zaza-visual.html',            category: 'Dramaturgy',    title: 'The Visual Language of Zazà',                              date: 'Dec 2021' },
+      { href: 'posts/zaza-leoncavallo.html',       category: 'Dramaturgy',    title: 'Leoncavallo, Zazà & The Giovane Scuola',              date: 'Dec 2021' },
+      { href: 'posts/mahagonny-medium.html',       category: 'Character Work', title: 'Mahagonny & Medium: The Search for Meaning',               date: 'Sep 2021' },
+      { href: 'posts/medium-spiritualism.html',    category: 'Dramaturgy',    title: 'The Medium: A History of Spiritualism',                        date: 'Sep 2021' },
+      { href: 'posts/mahagonny-concept.html',      category: 'Dramaturgy',    title: 'Mahagonny Songspiel — A Concept',                          date: 'Aug 2021' },
     ];
 
     let currentFilter = 'All';
 
-    function setFilter(filter, btn) {
-      currentFilter = filter;
-      document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-      btn.classList.add('active');
-      renderPosts();
-    }
-
     function renderPosts() {
-      const list = document.getElementById('post-list');
+      const grid = document.getElementById('post-grid');
       const visible = currentFilter === 'All'
         ? POSTS
         : POSTS.filter(p => p.category === currentFilter);
 
       if (visible.length === 0) {
-        list.innerHTML = '<p class="no-posts">No posts in this category yet.</p>';
+        grid.innerHTML = '<p class="no-posts">No posts in this category yet.</p>';
         return;
       }
 
-      list.innerHTML = visible.map(p => `
-        <a href="${p.href}" class="post-row">
-          <span class="post-cat">${p.category}</span>
-          <span class="post-title">${p.title}</span>
-          <span class="post-date">${p.date}</span>
-        </a>
-      `).join('');
+      const featured = visible.find(p => p.featured);
+      const regular  = visible.filter(p => !p.featured);
+
+      let html = '';
+
+      if (featured) {
+        html += `
+          <a href="${featured.href}" class="post-featured">
+            <div class="post-featured-text">
+              <div class="post-featured-label">${featured.category}</div>
+              <div class="post-featured-date">${featured.date}</div>
+              <span class="post-featured-title">${featured.title}</span>
+              <p class="post-featured-excerpt">${featured.excerpt}</p>
+              <span class="post-featured-read">Read →</span>
+            </div>
+            <div class="post-featured-img">
+              <img src="${featured.image}" alt="${featured.imageAlt}" loading="eager" />
+            </div>
+          </a>`;
+      }
+
+      html += regular.map(p => `
+        <a href="${p.href}" class="post-card">
+          <div class="post-card-cat">${p.category}</div>
+          <span class="post-card-title">${p.title}</span>
+          <div class="post-card-date">${p.date}</div>
+        </a>`).join('');
+
+      grid.innerHTML = html;
     }
 
-    function handleSubscribe() {
-      const email = document.getElementById('subscribe-email').value.trim();
+    // chip filters
+    document.querySelectorAll('.chip').forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        currentFilter = chip.dataset.filter;
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        renderPosts();
+      });
+    });
+
+    // subscribe
+    document.getElementById('subscribe-btn').addEventListener('click', function() {
+      var email = document.getElementById('subscribe-email').value.trim();
       if (!email) return;
       document.getElementById('subscribe-area').innerHTML =
-        '<p class="subscribe-thanks">Thanks — you\'re on the list.</p>';
-    }
+        '<p class="subscribe-thanks">Thanks — you’re on the list.</p>';
+    });
 
     renderPosts();
   </script>
