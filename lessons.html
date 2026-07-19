@@ -127,7 +127,7 @@
     .location-strip-text { padding: 64px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--border); }
     .location-name { font-family: var(--serif); font-size: 22px; line-height: 1.3; margin: 16px 0 10px; }
     .location-detail { font-size: 13.5px; line-height: 1.75; color: var(--secondary); }
-    .location-strip-map iframe { width: 100%; height: 100%; border: none; display: block; min-height: 320px; }
+    .location-strip-map iframe { width: 100%; height: 100%; border: none; display: block; min-height: 320px; filter: grayscale(1) sepia(0.15) contrast(0.88) brightness(1.1); }
 
     /* ---- Back to top ---- */
     .back-to-top { padding: 20px 64px; text-align: right; border-top: 1px solid var(--border); }
@@ -467,12 +467,12 @@
   <section class="location-strip">
     <div class="location-strip-text">
       <div class="kicker">In Person</div>
-      <p class="location-name">Day Murray Music<br>Salt Lake City, Utah</p>
-      <p class="location-detail">In-person lessons available by appointment. Exact address confirmed with your booking confirmation.</p>
+      <p class="location-name">Day Murray Music</p>
+      <p class="location-detail">4914 S State St · Murray, UT 84107</p>
     </div>
     <div class="location-strip-map">
       <iframe
-        src="https://maps.google.com/maps?q=Day+Murray+Music+Murray+Utah&output=embed&z=15"
+        src="https://maps.google.com/maps?q=4914+S+State+St+Murray+UT+84107&output=embed&z=15"
         title="Day Murray Music — studio location"
         loading="lazy"
         allowfullscreen
