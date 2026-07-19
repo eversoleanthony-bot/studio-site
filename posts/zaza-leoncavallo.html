@@ -17,14 +17,13 @@
     <span class="nav-brand-name">Anthony Eversole</span>
     <span class="nav-brand-kicker">Voice &amp; Stage</span>
   </a>
-  <div class="nav-links">
-    <a href="../lessons.html">Lessons</a>
-    <a href="../about.html">About</a>
-    <a href="../on-stage.html">On Stage</a>
+  <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
+    <a href="../lessons.html">Lessons</a>    <a href="../on-stage.html">On Stage</a>
     <a href="../organizations.html">For Organizations</a>
     <a href="../blog.html" class="active">Blog</a>
     <div class="nav-ctas">
-      <a href="../book.html" class="nav-book">Book a Lesson</a>
+      <a href="../book.html" class="nav-book">Book a Session</a>
     </div>
   </div>
 </nav>
@@ -132,7 +131,7 @@
 </article>
 
 <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
-  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <button class="lightbox-close" onclick="if(event.target===this)closeLightbox()">×</button>
   <img class="lightbox-img" id="lightbox-img" src="" alt="" />
 </div>
 
@@ -148,7 +147,7 @@
 </nav>
 
 <footer class="footer-main">
-  <span>Anthony Eversole &middot; Anthony Eversole, DMA</span>
+  <span>Anthony Eversole, DMA</span>
   <div class="footer-main-links">
     <a href="../lessons.html">Lessons</a>
     <a href="../organizations.html">For Organizations</a>
@@ -174,5 +173,19 @@
     img.addEventListener('click', function() { openLightbox(this.src); });
   });
 </script>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.textContent = expanded ? 'Menu' : 'Close';
+        links.classList.toggle('open', !expanded);
+      });
+    })();
+  </script>
 </body>
 </html>

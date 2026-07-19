@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daring Greatly on Stage — Anthony Eversole</title>
+  <title>Daring Greatly on Stage: A Blueprint for Vulnerable Performance — Anthony Eversole</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -130,6 +130,15 @@
       padding-left: 1.4em;
       text-indent: -1.4em;
     }
+  
+    /* nav — hamburger */
+    @media (max-width: 767px) {
+      .nav-links { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 22px; }
+      .nav-ctas { margin-top: 8px; }
+      .nav-menu-btn { display: flex; }
+    }
   </style>
 </head>
 <body>
@@ -139,7 +148,8 @@
       <span class="nav-brand-name">Anthony Eversole</span>
       <span class="nav-brand-kicker">Voice &amp; Stage</span>
     </a>
-    <div class="nav-links">
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
       <a href="../lessons.html">Lessons</a>
       <a href="../on-stage.html">On Stage</a>
       <a href="../organizations.html">For Organizations</a>
@@ -306,7 +316,7 @@
   </article>
 
   <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
-    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">&times;</button>
+    <button class="lightbox-close" onclick="if(event.target===this)closeLightbox()" aria-label="Close">&times;</button>
     <img class="lightbox-img" id="lightbox-img" src="" alt="" />
   </div>
 
@@ -355,5 +365,19 @@
     });
   </script>
 
+
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.textContent = expanded ? 'Menu' : 'Close';
+        links.classList.toggle('open', !expanded);
+      });
+    })();
+  </script>
 </body>
 </html>
