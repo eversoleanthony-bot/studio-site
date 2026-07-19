@@ -106,6 +106,64 @@
       color: rgba(246,241,231,.6);
       margin-bottom: 28px;
     }
+    .org-service-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: var(--sans);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: rgba(246,241,231,.45);
+      cursor: pointer;
+    }
+    .org-service-toggle:hover { color: rgba(246,241,231,.75); }
+    .org-service-toggle-icon {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1;
+      transition: transform .25s ease;
+    }
+    .org-service-toggle[aria-expanded="true"] .org-service-toggle-icon { transform: rotate(45deg); }
+
+    .org-service-accordion {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .3s ease;
+    }
+    .org-service-accordion.open { grid-template-rows: 1fr; }
+    .org-service-accordion-inner { overflow: hidden; }
+    .org-service-list {
+      list-style: none;
+      padding: 16px 0 0;
+      margin: 16px 0 0;
+      border-top: 1px solid rgba(246,241,231,.1);
+    }
+    .org-service-list li {
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(246,241,231,.5);
+      padding: 5px 0 5px 18px;
+      position: relative;
+    }
+    .org-service-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent-md);
+      font-size: 11px;
+      top: 7px;
+    }
+
+    .org-service-links {
+      display: flex;
+      gap: 24px;
+      margin-top: 28px;
+    }
     .org-service-link {
       font-size: 11.5px;
       font-weight: 600;
@@ -340,28 +398,86 @@
         <div class="org-service-num">01</div>
         <div class="org-service-title">Music Direction</div>
         <p class="org-service-body">Score preparation, cast vocal development, rehearsal leadership, and conducting for musical theatre and opera. Experienced with singers at every level, from first-timers to professional casts.</p>
-        <a href="#inquiry" class="org-service-link">Inquire →</a>
+        <button class="org-service-toggle" aria-expanded="false">What's included <span class="org-service-toggle-icon">+</span></button>
+        <div class="org-service-accordion">
+          <div class="org-service-accordion-inner">
+            <ul class="org-service-list">
+              <li>Score preparation and vocal arrangement</li>
+              <li>Rehearsal leadership and cast vocal coaching</li>
+              <li>Conducting for performances</li>
+              <li>Audition planning and support</li>
+            </ul>
+          </div>
+        </div>
+        <div class="org-service-links">
+          <a href="#credits" class="org-service-link">View Credits →</a>
+          <a href="#inquiry" class="org-service-link">Inquire →</a>
+        </div>
       </div>
 
       <div class="org-service-card">
         <div class="org-service-num">02</div>
         <div class="org-service-title">Stage Direction</div>
         <p class="org-service-body">Concept-to-curtain direction for musical theatre and opera. Past productions include musical theatre from Sondheim to Strouse, and opera from Leoncavallo to Weill.</p>
-        <a href="#inquiry" class="org-service-link">Inquire →</a>
+        <button class="org-service-toggle" aria-expanded="false">What's included <span class="org-service-toggle-icon">+</span></button>
+        <div class="org-service-accordion">
+          <div class="org-service-accordion-inner">
+            <ul class="org-service-list">
+              <li>Concept development and production planning</li>
+              <li>Full staging and blocking</li>
+              <li>Character coaching and scene work</li>
+              <li>Collaboration with music direction and design teams</li>
+            </ul>
+          </div>
+        </div>
+        <div class="org-service-links">
+          <a href="#credits" class="org-service-link">View Credits →</a>
+          <a href="#inquiry" class="org-service-link">Inquire →</a>
+        </div>
       </div>
 
       <div class="org-service-card">
         <div class="org-service-num">03</div>
         <div class="org-service-title">Workshops &amp; Clinics</div>
         <p class="org-service-body">Vocal health, audition technique, stage presence, and musical theatre performance — for schools, studios, and companies. Single sessions or multi-week residencies.</p>
-        <a href="#inquiry" class="org-service-link">Inquire →</a>
+        <button class="org-service-toggle" aria-expanded="false">What's included <span class="org-service-toggle-icon">+</span></button>
+        <div class="org-service-accordion">
+          <div class="org-service-accordion-inner">
+            <ul class="org-service-list">
+              <li>Vocal health and technique fundamentals</li>
+              <li>Audition prep and repertoire coaching</li>
+              <li>Stage presence and physical awareness</li>
+              <li>Musical theatre style and performance practice</li>
+              <li>Available as single sessions or multi-week residencies</li>
+            </ul>
+          </div>
+        </div>
+        <div class="org-service-links">
+          <a href="#credits" class="org-service-link">View Credits →</a>
+          <a href="#inquiry" class="org-service-link">Inquire →</a>
+        </div>
       </div>
 
       <div class="org-service-card">
         <div class="org-service-num">04</div>
         <div class="org-service-title">Music Production</div>
         <p class="org-service-body">Recording, arranging, and production for vocalists, ensembles, and theatrical projects. Demo tracks, cast recordings, and original scores for film and stage.</p>
-        <a href="#inquiry" class="org-service-link">Inquire →</a>
+        <button class="org-service-toggle" aria-expanded="false">What's included <span class="org-service-toggle-icon">+</span></button>
+        <div class="org-service-accordion">
+          <div class="org-service-accordion-inner">
+            <ul class="org-service-list">
+              <li>Vocal recording, editing, and production</li>
+              <li>Arranging for voice, piano, and ensemble</li>
+              <li>Audition demos and submission reels</li>
+              <li>Cast album and archival recording</li>
+              <li>Original scoring for stage and film</li>
+            </ul>
+          </div>
+        </div>
+        <div class="org-service-links">
+          <a href="#credits" class="org-service-link">View Credits →</a>
+          <a href="#inquiry" class="org-service-link">Inquire →</a>
+        </div>
       </div>
 
     </div>
@@ -449,6 +565,15 @@
   </div>
 
   <script>
+    // Service card accordions
+    document.querySelectorAll('.org-service-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.nextElementSibling.classList.toggle('open', !expanded);
+      });
+    });
+
     // Nav hamburger
     (function () {
       var btn   = document.getElementById('nav-menu-btn');
