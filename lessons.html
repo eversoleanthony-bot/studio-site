@@ -122,6 +122,13 @@
     .mechanics-list li:last-child { border-bottom: 1px solid var(--border); }
     .mechanics-list li strong { color: var(--ink); font-weight: 600; }
 
+    /* ---- Location strip ---- */
+    .location-strip { display: grid; grid-template-columns: 360px 1fr; border-bottom: 1px solid var(--border); }
+    .location-strip-text { padding: 64px; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--border); }
+    .location-name { font-family: var(--serif); font-size: 22px; line-height: 1.3; margin: 16px 0 10px; }
+    .location-detail { font-size: 13.5px; line-height: 1.75; color: var(--secondary); }
+    .location-strip-map iframe { width: 100%; height: 100%; border: none; display: block; min-height: 320px; }
+
     /* ---- Back to top ---- */
     .back-to-top { padding: 20px 64px; text-align: right; border-top: 1px solid var(--border); }
     .back-to-top a { font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
@@ -186,6 +193,8 @@
       .intake-dark { padding: 72px 48px; }
       .back-to-top { padding: 20px 48px; }
       .mechanics-col { padding: 56px 48px; }
+      .location-strip { grid-template-columns: 280px 1fr; }
+      .location-strip-text { padding: 48px; }
     }
 
     /* ---- Responsive: mobile (≤ 767px) ---- */
@@ -227,6 +236,9 @@
       .gateway-btn { display: block; width: 100%; box-sizing: border-box; text-align: center; }
       .studio-mechanics { grid-template-columns: 1fr; }
       .mechanics-col { padding: 48px 24px; }
+      .location-strip { grid-template-columns: 1fr; }
+      .location-strip-text { padding: 40px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+      .location-strip-map iframe { min-height: 260px; }
       .faq-block { padding: 48px 24px; }
       .intake-dark { padding: 56px 24px; grid-template-columns: 1fr; gap: 32px; }
       .intake-dark-hl { font-size: 32px; }
@@ -448,6 +460,24 @@
         <li><strong>Record and transcribe your lessons.</strong> Logging sessions in a dedicated lesson journal is one of the highest-value habits you can build — nothing slips through the cracks.</li>
       </ul>
       <p class="mechanics-body">Students are encouraged to text with questions, breakthroughs, and concerns between sessions — that's what I'm here for. And if you're performing, I want to know about it. Showing up and cheering students on is genuinely one of my favorite parts of this work.</p>
+    </div>
+  </section>
+
+  <!-- in-person location -->
+  <section class="location-strip">
+    <div class="location-strip-text">
+      <div class="kicker">In Person</div>
+      <p class="location-name">Day Murray Music<br>Salt Lake City, Utah</p>
+      <p class="location-detail">In-person lessons available by appointment. Exact address confirmed with your booking confirmation.</p>
+    </div>
+    <div class="location-strip-map">
+      <iframe
+        src="https://maps.google.com/maps?q=Day+Murray+Music+Murray+Utah&output=embed&z=15"
+        title="Day Murray Music — studio location"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
   </section>
 
