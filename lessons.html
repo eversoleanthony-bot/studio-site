@@ -29,13 +29,12 @@
       border-bottom: 1px solid var(--border);
     }
     .pillar { padding: 72px 64px; display: flex; flex-direction: column; }
-    .pillar-tags { margin-top: auto; }
     .pillar:first-child { border-right: 1px solid var(--border); }
     .pillar-num   { font-family: var(--serif); font-style: italic; font-size: 15px; color: var(--meta); margin-bottom: 14px; }
     .pillar-title { font-family: var(--sans); font-weight: 600; font-size: 26px; letter-spacing: -0.01em; line-height: 1.15; margin-bottom: 20px; }
     .pillar-body  { font-size: 14px; line-height: 1.75; color: var(--secondary); margin-bottom: 28px; max-width: 520px; }
-    .pillar-tags  { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 32px; }
-    @media (max-width: 768px) {
+    .pillar-tags  { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; margin-bottom: 32px; }
+    @media (max-width: 767px) {
       .pillars { grid-template-columns: 1fr; }
       .pillar:first-child { border-right: none; border-bottom: 1px solid var(--border); }
       .pillar { padding: 56px 32px; }
@@ -43,11 +42,8 @@
 
     /* ---- Policy & Investment ---- */
     .policy { padding: 80px 64px; border-bottom: 1px solid var(--border); background: var(--bg-alt); }
-    .policy.is-warm { background: var(--rust); border-bottom-color: transparent; }
     .policy-header { display: grid; grid-template-columns: 280px 1fr; gap: 48px; margin-bottom: 48px; }
     .policy-label { font-size: 13.5px; line-height: 1.7; color: var(--secondary); max-width: 480px; }
-    .policy.is-warm .kicker        { color: rgba(246,241,231,.65); }
-    .policy.is-warm .policy-label  { color: rgba(246,241,231,.65); }
 
     /* Pricing matrix + operational subcards */
     .policy-tiers { display: grid; gap: 32px; }
@@ -131,25 +127,6 @@
     .back-to-top a { font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
     .back-to-top a:hover { color: var(--accent); opacity: 1; }
 
-    /* ---- Light canvas CTA ---- */
-    .cta-light {
-      padding: 80px 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 48px;
-      border-top: 1px solid var(--border);
-    }
-    .cta-light-hl {
-      font-family: var(--serif);
-      font-weight: 300;
-      font-style: italic;
-      font-size: 32px;
-      line-height: 1.4;
-      color: var(--ink);
-      max-width: 600px;
-    }
-
     /* Intake dark block — cream button for contrast on dark background */
     .intake-dark .gateway-btn { background: var(--bg); color: var(--ink); border-color: var(--bg); }
     .intake-dark .gateway-btn:hover { background: transparent; color: var(--bg); border-color: var(--bg); }
@@ -207,7 +184,6 @@
       .consult-block { padding: 64px 48px; }
       .faq-block { padding: 64px 48px; }
       .intake-dark { padding: 72px 48px; }
-      .cta-light { padding: 64px 48px; }
       .back-to-top { padding: 20px 48px; }
       .mechanics-col { padding: 56px 48px; }
     }
@@ -255,8 +231,6 @@
       .intake-dark { padding: 56px 24px; grid-template-columns: 1fr; gap: 32px; }
       .intake-dark-hl { font-size: 32px; }
       .intake-dark .gateway-btn { align-self: flex-start; }
-      .cta-light { flex-direction: column; align-items: flex-start; gap: 24px; padding: 48px 24px; }
-      .cta-light-hl { font-size: 24px; }
       .back-to-top { padding: 20px 24px; }
       .footer-main { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; }
       .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
@@ -513,9 +487,9 @@
       </details>
 
       <details class="faq-details">
-        <summary class="faq-summary">Why is a separate device required for accompaniment tracks?</summary>
+        <summary class="faq-summary">Why is a separate device recommended for accompaniment tracks?</summary>
         <div class="faq-answer">
-          <p>Playing your backing tracks from the same laptop you use for Zoom causes audio lag and cuts off your voice when you start singing. To keep our audio clean and synchronized, you'll need to play your accompaniment from a separate secondary device—like a phone or tablet. For the best sound, I highly recommend plugging that device into a wired speaker or pairing it with a Bluetooth speaker, as just using a phone's built-in speaker can be a bit iffy.</p>
+          <p>Running accompaniment tracks from your lesson device causes audio lag and interrupts your vocal signal when you begin singing — Zoom interprets the track as background noise and gates your mic. Running tracks from a separate phone or tablet keeps the audio clean and synchronized. A wired speaker gives the most reliable playback; a Bluetooth speaker works well in most rooms.</p>
         </div>
       </details>
 
