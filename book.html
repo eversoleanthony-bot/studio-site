@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Book a Lesson | Anthony Eversole</title>
+  <title>Book a Session | Anthony Eversole</title>
   <meta name="description" content="Book a voice lesson or audition preparation session with Anthony Eversole, online or in Salt Lake City." />
-  <meta property="og:title" content="Book a Lesson | Anthony Eversole" />
+  <meta property="og:title" content="Book a Session | Anthony Eversole" />
   <meta property="og:type" content="website" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -25,6 +25,7 @@
     .book-session:last-of-type { border-bottom: 1px solid var(--border); }
     .book-session-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
     .book-session-dur { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--meta); margin-left: 6px; font-weight: 400; }
+    .book-session-free { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-left: 6px; }
     .book-session-detail { font-size: 13px; line-height: 1.6; color: var(--secondary); }
 
     .book-policies {
@@ -36,22 +37,41 @@
     /* right: embed area */
     .book-content { padding: 48px; }
 
-    /* sign-up / login toggle */
-    .book-gateway { display: grid; grid-template-columns: 1fr 1fr; border: 1px solid var(--border); margin-bottom: 0; }
-    .book-toggle-btn { padding: 22px 28px; background: var(--bg); border: none; border-right: 1px solid var(--border); text-align: left; cursor: pointer; font-family: var(--sans); transition: background .15s; }
-    .book-toggle-btn:last-child { border-right: none; }
-    .book-toggle-btn.active { background: var(--ink); color: var(--bg); }
-    .book-toggle-label { font-size: 13px; font-weight: 600; margin-bottom: 4px; color: inherit; }
-    .book-toggle-sub { font-size: 12px; color: var(--secondary); }
-    .book-toggle-btn.active .book-toggle-sub { color: #B8AC9A; }
-    .book-panel { display: none; border: 1px solid var(--border); border-top: none; padding: 32px 28px; }
-    .book-panel.active { display: block; }
+    .book-cal-placeholder {
+      border: 1px solid var(--border);
+      padding: 64px 48px;
+      text-align: center;
+      background: var(--bg-alt);
+      color: var(--secondary);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .book-cal-placeholder strong { display: block; font-size: 16px; color: var(--ink); margin-bottom: 8px; }
 
-    /* book page footer override — no border-top on primary footer */
+    /* book page footer */
     .book-footer-top { padding: 28px 64px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .book-footer-note { font-size: 12.5px; color: var(--secondary); }
     .book-footer-note a { color: var(--accent); font-weight: 600; }
     .book-footer-brand { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+
+    /* responsive */
+    @media (max-width: 1149px) {
+      .book-layout { grid-template-columns: 380px 1fr; }
+      .book-rail { padding: 60px 40px 60px 48px; }
+    }
+
+    @media (max-width: 767px) {
+      .book-layout { grid-template-columns: 1fr; }
+      .book-rail { padding: 40px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+      .book-h1 { font-size: 34px; }
+      .book-content { padding: 32px 24px; }
+      .book-footer-top { flex-direction: column; gap: 12px; padding: 24px; text-align: center; }
+      .nav-links { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 22px; }
+      .nav-ctas { margin-top: 8px; }
+      .nav-menu-btn { display: flex; }
+    }
   </style>
 </head>
 <body>
@@ -61,7 +81,8 @@
       <span class="nav-brand-name">Anthony Eversole</span>
       <span class="nav-brand-kicker">Voice &amp; Stage</span>
     </a>
-    <div class="nav-links">
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
       <a href="lessons.html">Lessons</a>
       <a href="on-stage.html">On Stage</a>
       <a href="organizations.html">For Organizations</a>
@@ -77,48 +98,39 @@
     <div class="book-rail">
       <div class="kicker" style="margin-bottom: 20px;">Book</div>
       <h1 class="book-h1">Pick a time. Come sing.</h1>
-      <p class="book-intro">Choose a lesson type, pick a time that works, and pay securely when you book. You'll get a confirmation with the Zoom link or studio address, plus your own student portal to track lessons and invoices.</p>
+      <p class="book-intro">Choose a session type and pick a time that works. You'll get a confirmation with the Zoom link or studio address.</p>
 
       <div class="book-sessions">
         <div class="book-session">
-          <div class="book-session-title">Consultation <span class="book-session-dur">60 min</span></div>
-          <p class="book-session-detail">A first meeting — we talk goals, I hear your voice, and we map a plan together.</p>
+          <div class="book-session-title">Consultation <span class="book-session-free">free</span><span class="book-session-dur">60 min</span></div>
+          <p class="book-session-detail">A first meeting: we talk through your goals, hear your voice, and map out a direction together.</p>
         </div>
         <div class="book-session">
-          <div class="book-session-title">Voice <span class="book-session-dur">60 min</span></div>
-          <p class="book-session-detail">Private singing lesson: technique and repertoire, classical, MT, or CCM.</p>
+          <div class="book-session-title">Studio Session <span class="book-session-dur">60 min</span></div>
+          <p class="book-session-detail">Advanced technique, singing-actor integration, and audition preparation. For adults and serious students working toward a specific goal.</p>
         </div>
         <div class="book-session">
-          <div class="book-session-title">Role &amp; Audition Prep <span class="book-session-dur">60 min</span></div>
-          <p class="book-session-detail">Scene and monologue work, text analysis, and character development.</p>
+          <div class="book-session-title">Studio Session <span class="book-session-dur">45 min</span></div>
+          <p class="book-session-detail">Targeted vocal technique and intermediate development. Ideal for students building consistency or focusing on a defined skill area.</p>
         </div>
         <div class="book-session">
-          <div class="book-session-title">Audition Prep <span class="book-session-dur">45 min</span></div>
-          <p class="book-session-detail">Targeted work for a specific audition: cuts, material, and a mock round.</p>
+          <div class="book-session-title">Junior Session <span class="book-session-dur">30 min</span></div>
+          <p class="book-session-detail">Focused instruction for younger voices: core musicianship, healthy habits, and early technique.</p>
+        </div>
+        <div class="book-session">
+          <div class="book-session-title">Audition Prep <span class="book-session-dur">60 min</span></div>
+          <p class="book-session-detail">Role and audition coaching: scene work, text analysis, repertoire strategy, and preparation for the room.</p>
         </div>
       </div>
 
-      <p class="book-policies"><em>Studio policies:</em> 24-hour rescheduling window · packages expire after six months · a parent attends the consultation for students under 18.</p>
+      <p class="book-policies"><em>Studio policies:</em> 24-hour rescheduling window &middot; 4-week bundles expire in 60 days; 8-week bundles in 120 &middot; parent or guardian confirmation required for students under 18.</p>
     </div>
 
-    <!-- right: sign up / login -->
+    <!-- right: Cal.com embed -->
     <div class="book-content">
-      <!-- sign-up / login toggle -->
-      <div class="book-gateway">
-        <button class="book-toggle-btn active" onclick="showBookPanel('panel-new', this)">
-          <div class="book-toggle-label">New to the studio</div>
-          <div class="book-toggle-sub">Create your student account</div>
-        </button>
-        <button class="book-toggle-btn" onclick="showBookPanel('panel-return', this)">
-          <div class="book-toggle-label">Current student</div>
-          <div class="book-toggle-sub">Log in to your portal</div>
-        </button>
-      </div>
-      <div class="book-panel active" id="panel-new">
-        <script src="https://app.mymusicstaff.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9QYnhKYiIsIldlYnNpdGVJRCI6Indic190cTFKdyIsIldlYnNpdGVCbG9ja0lEIjoid2JiX3ozcmg5SkgifQ=="></script>
-      </div>
-      <div class="book-panel" id="panel-return">
-        <script data-src="https://app.mymusicstaff.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9QYnhKYiIsIldlYnNpdGVJRCI6Indic190cTFKdyIsIldlYnNpdGVCbG9ja0lEIjoid2JiX3ozclZoSk4ifQ=="></script>
+      <div class="book-cal-placeholder">
+        <strong>Online Booking Coming Soon</strong>
+        Cal.com booking embed will appear here. To schedule now, reach out directly.
       </div>
     </div>
   </div>
@@ -126,9 +138,7 @@
   <!-- book page footer -->
   <div class="book-footer-top">
     <p class="book-footer-note">
-      Already a student? <a href="book.html#panel-return" onclick="showBookPanel('panel-return', document.querySelectorAll('.book-toggle-btn')[1]); return false;">Log in to your portal →</a>
-      &nbsp;·&nbsp;
-      Booking for an organization: direction, workshops, clinics? <a href="organizations.html">Send an inquiry instead →</a>
+      Booking for an organization: direction, workshops, or clinics? <a href="organizations.html">Send an inquiry instead &rarr;</a>
     </p>
     <span class="book-footer-brand">Anthony Eversole</span>
   </div>
@@ -145,21 +155,17 @@
   </div>
 
   <script>
-    function showBookPanel(id, btn) {
-      document.querySelectorAll('.book-panel').forEach(function(p) { p.classList.remove('active'); });
-      document.querySelectorAll('.book-toggle-btn').forEach(function(b) { b.classList.remove('active'); });
-      var panel = document.getElementById(id);
-      panel.classList.add('active');
-      btn.classList.add('active');
-      panel.querySelectorAll('script[data-src]').forEach(function(placeholder) {
-        var s = document.createElement('script');
-        s.src = placeholder.getAttribute('data-src');
-        placeholder.replaceWith(s);
+    (function() {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.textContent = expanded ? 'Menu' : 'Close';
+        links.classList.toggle('open', !expanded);
       });
-    }
-    if (window.location.hash === '#login') {
-      showBookPanel('panel-return', document.querySelectorAll('.book-toggle-btn')[1]);
-    }
+    })();
   </script>
 
 </body>
