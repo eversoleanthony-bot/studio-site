@@ -14,6 +14,13 @@
     .legal-page { max-width: 720px; margin: 0 auto; padding: 88px 24px 96px; }
     .legal-date { font-size: 13px; color: var(--faint); margin: 0 0 40px; }
     .legal-h1   { font-family: var(--serif); font-weight: 300; font-size: 44px; line-height: 1.05; margin: 0 0 12px; }
+    @media (max-width: 767px) {
+      .nav-links { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 22px; }
+      .nav-ctas { margin-top: 8px; }
+      .nav-menu-btn { display: flex; }
+    }
   </style>
 </head>
 <body>
@@ -23,7 +30,8 @@
       <span class="nav-brand-name">Anthony Eversole</span>
       <span class="nav-brand-kicker">Voice &amp; Stage</span>
     </a>
-    <div class="nav-links">
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
       <a href="lessons.html">Lessons</a>
       <a href="on-stage.html">On Stage</a>
       <a href="organizations.html">For Organizations</a>
@@ -37,24 +45,25 @@
   <div class="legal-page">
     <div class="kicker" style="margin-bottom: 20px;">Legal</div>
     <h1 class="legal-h1">Privacy Policy</h1>
-    <p class="legal-date">Last updated: July 2026 · Placeholder text — replace with your studio's actual policy before publishing.</p>
+    <p class="legal-date">Last updated: July 2026</p>
 
     <div class="legal-body">
-      <p>Anthony Eversole ("we," "us") respects your privacy. This page explains, in plain terms, what information we collect when you visit this site or book a lesson, and how we use it.</p>
+      <p>Anthony Eversole ("we," "us") respects your privacy. This page explains, in plain terms, what information we collect when you visit this site or book a session, and how we use it.</p>
 
       <h2>Information We Collect</h2>
-      <p>When you book a lesson or send an inquiry, we collect your name, email, and any details you share about your goals or production. Payment is processed by our booking provider (currently My Music Staff); we do not store your card details ourselves.</p>
+      <p>When you book a session or send an inquiry, we collect your name, email, and any details you share about your goals or production. Individual session payments are processed by Cal.com. Bundle payments are processed by Stripe. We do not store your card details.</p>
 
       <h2>How We Use It</h2>
       <ul>
-        <li>To schedule and run your lessons or sessions</li>
-        <li>To send confirmations, reminders, and invoices</li>
+        <li>To schedule and run your sessions</li>
+        <li>To process payments and send confirmations</li>
+        <li>To send reminders and follow-ups related to your booking</li>
         <li>To reply to inquiries about direction, workshops, or clinics</li>
-        <li>To send occasional studio-journal emails, only if you subscribe</li>
+        <li>To send occasional studio updates, only if you subscribe</li>
       </ul>
 
       <h2>What We Don't Do</h2>
-      <p>We don't sell your information, and we don't share it beyond the tools that run the studio (booking and payment processing, email).</p>
+      <p>We don't sell your information, and we don't share it beyond the tools that run the studio: Cal.com (scheduling), Stripe (payments), and email.</p>
 
       <h2>Contact</h2>
       <p>Questions about this policy? Reach out through the <a href="organizations.html">inquiry form</a> or at the email address on your booking confirmation.</p>
@@ -83,5 +92,18 @@
     </div>
   </div>
 
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.textContent = expanded ? 'Menu' : 'Close';
+        links.classList.toggle('open', !expanded);
+      });
+    })();
+  </script>
 </body>
 </html>
