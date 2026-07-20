@@ -3,10 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — Anthony Eversole</title>
+  <title>Contact | Anthony Eversole</title>
+  <meta name="description" content="Get in touch with Anthony Eversole: questions, collaboration inquiries, and general outreach." />
+  <meta property="og:title" content="Contact | Anthony Eversole" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
     .contact-wrap {
@@ -54,11 +58,11 @@
       font-weight: 600;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--faint);
     }
     .contact-meta-value {
       font-size: 14px;
-      color: var(--body);
+      color: var(--ink);
     }
     .contact-meta-value a {
       color: var(--accent);
@@ -95,7 +99,7 @@
       font-weight: 600;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--faint);
     }
     .form-label-opt {
       font-weight: 400;
@@ -168,7 +172,7 @@
     .btn-send:hover { opacity: .8; }
     .form-note {
       font-size: 13px;
-      color: var(--muted);
+      color: var(--faint);
     }
 
     /* Success / Error state */
@@ -178,7 +182,7 @@
       background: var(--bg-alt);
       border-left: 3px solid var(--accent);
       font-size: 14px;
-      color: var(--body);
+      color: var(--ink);
       line-height: 1.6;
       margin-top: 28px;
     }
@@ -192,6 +196,14 @@
     @media (max-width: 480px) {
       .contact-wrap { padding: 48px 24px; }
     }
+
+    @media (max-width: 767px) {
+      .nav-links { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 22px; }
+      .nav-ctas { margin-top: 8px; }
+      .nav-menu-btn { display: flex; }
+    }
   </style>
 </head>
 <body>
@@ -201,7 +213,8 @@
       <span class="nav-brand-name">Anthony Eversole</span>
       <span class="nav-brand-kicker">Voice &amp; Stage</span>
     </a>
-    <div class="nav-links">
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
       <a href="lessons.html">Lessons</a>
       <a href="on-stage.html">On Stage</a>
       <a href="organizations.html">For Organizations</a>
@@ -244,7 +257,7 @@
     <div>
       <div class="contact-form-head">
         <div class="kicker">Send a Message</div>
-        <p>New students are always welcome. For lesson availability, use the booking page — this form is best for questions, collaboration inquiries, or anything else.</p>
+        <p>New students are always welcome. For lesson availability, use the <a href="book.html">booking page</a> — this form is best for questions, collaboration inquiries, or anything else.</p>
       </div>
 
       <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
@@ -279,7 +292,6 @@
           <select id="service" name="service" required>
             <option value="" disabled selected>Select a service</option>
             <option value="Private Voice Lessons">Private Voice Lessons</option>
-            <option value="Role &amp; Audition Prep">Role &amp; Audition Prep</option>
             <option value="Audition Prep">Audition Prep</option>
             <option value="Workshop or Group Clinic">Workshop or Group Clinic</option>
             <option value="Stage Direction">Stage Direction</option>
@@ -313,7 +325,7 @@
       <a href="on-stage.html">On Stage</a>
       <a href="organizations.html">For Organizations</a>
       <a href="blog.html">Blog</a>
-      <a href="book.html">Book</a>
+      <a href="book.html">Book a Session</a>
     </div>
   </footer>
   <div class="footer-legal">
@@ -354,5 +366,18 @@
     });
   </script>
 
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.textContent = expanded ? 'Menu' : 'Close';
+        links.classList.toggle('open', !expanded);
+      });
+    })();
+  </script>
 </body>
 </html>
