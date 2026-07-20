@@ -96,6 +96,7 @@ button { font-family: var(--sans); cursor: pointer; }
 }
 .nav-book:hover { opacity: .85; }
 .nav-book.active { background: var(--ink); }
+.nav-menu-btn { display: none; }
 
 /* ============================================================
    FOOTER
