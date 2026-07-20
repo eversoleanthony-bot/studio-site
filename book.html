@@ -18,23 +18,48 @@
     .book-hero-kicker { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-lt); margin-bottom: 14px; }
     .book-hero-h1 { font-family: var(--serif); font-weight: 300; font-size: 48px; line-height: 1.05; color: #F6F1E7; margin: 0; }
 
-    /* session list */
-    .book-list-section { padding: 48px 64px 0; }
-    .book-list { max-width: 680px; margin: 0 auto; }
+    /* shared column */
+    .book-col { max-width: 680px; margin: 0 auto; }
 
-    .book-item { display: flex; align-items: center; gap: 24px; padding: 22px 0; border-top: 1px solid var(--border); }
+    /* individual sessions */
+    .book-sessions-section { padding: 48px 64px 0; }
+    .book-section-label { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin-bottom: 0; }
+
+    .book-item { display: flex; align-items: center; gap: 24px; padding: 20px 0; border-top: 1px solid var(--border); }
     .book-item:last-of-type { border-bottom: 1px solid var(--border); }
     .book-item-info { flex: 1; min-width: 0; }
     .book-item-title { font-size: 14.5px; font-weight: 600; color: var(--accent); }
     .book-item-dur { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--meta); margin-left: 8px; font-weight: 400; }
-    .book-item-price { font-size: 13px; color: var(--secondary); margin-left: 6px; }
     .book-item-free { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent-md); padding: 2px 5px; margin-left: 8px; vertical-align: middle; }
+    .book-item-price { font-size: 13px; color: var(--secondary); margin-left: 6px; }
     .book-item-desc { font-size: 13px; line-height: 1.55; color: var(--secondary); margin-top: 4px; }
-    .book-item-btn { flex-shrink: 0; padding: 10px 18px; background: transparent; border: 1.5px solid var(--accent); color: var(--accent); font-family: var(--sans); font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: .04em; transition: background .15s, color .15s; white-space: nowrap; }
+    .book-item-btn { flex-shrink: 0; padding: 10px 18px; background: transparent; border: 1.5px solid var(--accent); color: var(--accent); font-family: var(--sans); font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: .04em; transition: background .15s, color .15s; white-space: nowrap; text-decoration: none; display: inline-block; }
     .book-item-btn:hover { background: var(--accent); color: #F6F1E7; }
 
+    /* bundles section */
+    .book-bundles-section { padding: 40px 64px 0; }
+    .book-bundles-divider { display: flex; align-items: baseline; gap: 16px; margin-bottom: 0; }
+    .book-bundles-divider-label { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); white-space: nowrap; }
+    .book-bundles-divider-sub { font-size: 12.5px; color: var(--faint); }
+
+    .bundle-group { margin-top: 0; }
+    .bundle-group-label { font-size: 11.5px; font-weight: 600; color: var(--ink); letter-spacing: .04em; text-transform: uppercase; padding: 18px 0 0; border-top: 1px solid var(--border); margin-top: 0; }
+
+    .bundle-item { display: flex; align-items: center; gap: 24px; padding: 12px 0 12px 0; border-top: 1px solid var(--border); }
+    .bundle-item:first-of-type { margin-top: 10px; }
+    .bundle-group:last-child .bundle-item:last-child { border-bottom: 1px solid var(--border); }
+    .bundle-item-info { flex: 1; min-width: 0; }
+    .bundle-item-tier { font-size: 13.5px; font-weight: 600; color: var(--ink); }
+    .bundle-item-meta { font-size: 12px; color: var(--secondary); margin-left: 6px; }
+    .bundle-item-price { font-size: 13.5px; font-weight: 600; color: var(--ink); margin-left: 8px; }
+    .bundle-item-saving { font-size: 12px; color: var(--accent); margin-left: 6px; }
+    .bundle-purchase-btn { flex-shrink: 0; padding: 9px 18px; background: var(--accent); border: 1.5px solid var(--accent); color: #F6F1E7; font-family: var(--sans); font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: .04em; transition: background .15s, border-color .15s; white-space: nowrap; text-decoration: none; display: inline-block; }
+    .bundle-purchase-btn:hover { background: #6A3124; border-color: #6A3124; }
+
+    .bundle-note { margin-top: 16px; font-size: 12.5px; color: var(--faint); line-height: 1.6; }
+
     /* audition note + policies */
-    .book-meta { max-width: 680px; margin: 0 auto; padding: 32px 64px 48px; }
+    .book-meta { padding: 32px 64px 48px; }
     .book-audition-note { font-size: 13px; color: var(--secondary); margin-bottom: 20px; }
     .book-audition-note strong { color: var(--ink); }
     .book-policies { font-size: 12.5px; line-height: 1.7; color: var(--faint); }
@@ -50,9 +75,12 @@
     @media (max-width: 767px) {
       .book-hero { padding: 44px 24px 36px; }
       .book-hero-h1 { font-size: 36px; }
-      .book-list-section { padding: 36px 24px 0; }
+      .book-sessions-section { padding: 36px 24px 0; }
+      .book-bundles-section { padding: 32px 24px 0; }
       .book-item { flex-wrap: wrap; }
       .book-item-btn { width: 100%; text-align: center; }
+      .bundle-item { flex-wrap: wrap; }
+      .bundle-purchase-btn { width: 100%; text-align: center; }
       .book-meta { padding: 24px 24px 40px; }
       .book-footer-top { flex-direction: column; gap: 12px; padding: 24px; text-align: center; }
       .nav-links { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
@@ -88,52 +116,120 @@
     <h1 class="book-hero-h1">Pick a time. Come sing.</h1>
   </section>
 
-  <!-- session list -->
-  <section class="book-list-section">
-    <div class="book-list">
+  <!-- individual sessions -->
+  <section class="book-sessions-section">
+    <div class="book-col">
+      <p class="book-section-label">Individual Sessions</p>
+      <div>
 
-      <div class="book-item">
-        <div class="book-item-info">
-          <div class="book-item-title">Consultation <span class="book-item-free">Free</span><span class="book-item-dur">30 min</span></div>
-          <div class="book-item-desc">A first meeting: we talk through your goals, hear your voice, and map out a direction together.</div>
+        <div class="book-item">
+          <div class="book-item-info">
+            <div class="book-item-title">Consultation <span class="book-item-free">Free</span><span class="book-item-dur">30 min</span></div>
+            <div class="book-item-desc">A first meeting: we talk through your goals, hear your voice, and map out a direction together.</div>
+          </div>
+          <button class="book-item-btn"
+            data-cal-link="anthony-eversole-voice/consultation"
+            data-cal-namespace="consultation"
+            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book &rarr;</button>
         </div>
-        <button class="book-item-btn"
-          data-cal-link="anthony-eversole-voice/consultation"
-          data-cal-namespace="consultation"
-          data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book &rarr;</button>
+
+        <div class="book-item">
+          <div class="book-item-info">
+            <div class="book-item-title">Studio Session <span class="book-item-dur">60 min</span><span class="book-item-price">&middot; $100</span></div>
+            <div class="book-item-desc">Advanced technique, singing-actor integration, and audition preparation. For adults and serious students.</div>
+          </div>
+          <button class="book-item-btn"
+            data-cal-link="anthony-eversole-voice/voice-lesson-60-min"
+            data-cal-namespace="voice-lesson-60-min"
+            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book &rarr;</button>
+        </div>
+
+        <div class="book-item">
+          <div class="book-item-info">
+            <div class="book-item-title">Studio Session <span class="book-item-dur">45 min</span><span class="book-item-price">&middot; $80</span></div>
+            <div class="book-item-desc">Targeted vocal technique and intermediate development. Ideal for building consistency in a defined skill area.</div>
+          </div>
+          <button class="book-item-btn"
+            data-cal-link="anthony-eversole-voice/studio-session-45-min"
+            data-cal-namespace="studio-session-45-min"
+            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book &rarr;</button>
+        </div>
+
+        <div class="book-item">
+          <div class="book-item-info">
+            <div class="book-item-title">Junior Session <span class="book-item-dur">30 min</span><span class="book-item-price">&middot; $55</span></div>
+            <div class="book-item-desc">Focused instruction for younger voices: core musicianship, healthy habits, and early technique.</div>
+          </div>
+          <button class="book-item-btn"
+            data-cal-link="anthony-eversole-voice/junior-session-30-min"
+            data-cal-namespace="junior-session-30-min"
+            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book &rarr;</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- bundles -->
+  <section class="book-bundles-section">
+    <div class="book-col">
+      <div class="book-bundles-divider">
+        <span class="book-bundles-divider-label">Bundles</span>
+        <span class="book-bundles-divider-sub">Prepay a block of sessions and save. Scheduling link sent by email after purchase.</span>
       </div>
 
-      <div class="book-item">
-        <div class="book-item-info">
-          <div class="book-item-title">Studio Session <span class="book-item-dur">60 min</span><span class="book-item-price">&middot; $100</span></div>
-          <div class="book-item-desc">Advanced technique, singing-actor integration, and audition preparation. For adults and serious students.</div>
+      <div class="bundle-group">
+        <div class="bundle-group-label">Studio Session &middot; 60 min</div>
+        <div class="bundle-item">
+          <div class="bundle-item-info">
+            <span class="bundle-item-tier">4-Week</span><span class="bundle-item-meta">4 sessions &middot; expires in 60 days</span>
+            <span class="bundle-item-price">$360</span><span class="bundle-item-saving">~10% off</span>
+          </div>
+          <a href="#" class="bundle-purchase-btn">Purchase &rarr;</a>
         </div>
-        <button class="book-item-btn"
-          data-cal-link="anthony-eversole-voice/voice-lesson-60-min"
-          data-cal-namespace="voice-lesson-60-min"
-          data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book &rarr;</button>
+        <div class="bundle-item">
+          <div class="bundle-item-info">
+            <span class="bundle-item-tier">8-Week</span><span class="bundle-item-meta">8 sessions &middot; expires in 120 days</span>
+            <span class="bundle-item-price">$700</span><span class="bundle-item-saving">~12% off</span>
+          </div>
+          <a href="#" class="bundle-purchase-btn">Purchase &rarr;</a>
+        </div>
       </div>
 
-      <div class="book-item">
-        <div class="book-item-info">
-          <div class="book-item-title">Studio Session <span class="book-item-dur">45 min</span><span class="book-item-price">&middot; $80</span></div>
-          <div class="book-item-desc">Targeted vocal technique and intermediate development. Ideal for building consistency in a defined skill area.</div>
+      <div class="bundle-group">
+        <div class="bundle-group-label">Studio Session &middot; 45 min</div>
+        <div class="bundle-item">
+          <div class="bundle-item-info">
+            <span class="bundle-item-tier">4-Week</span><span class="bundle-item-meta">4 sessions &middot; expires in 60 days</span>
+            <span class="bundle-item-price">$290</span><span class="bundle-item-saving">~10% off</span>
+          </div>
+          <a href="#" class="bundle-purchase-btn">Purchase &rarr;</a>
         </div>
-        <button class="book-item-btn"
-          data-cal-link="anthony-eversole-voice/studio-session-45-min"
-          data-cal-namespace="studio-session-45-min"
-          data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book &rarr;</button>
+        <div class="bundle-item">
+          <div class="bundle-item-info">
+            <span class="bundle-item-tier">8-Week</span><span class="bundle-item-meta">8 sessions &middot; expires in 120 days</span>
+            <span class="bundle-item-price">$565</span><span class="bundle-item-saving">~12% off</span>
+          </div>
+          <a href="#" class="bundle-purchase-btn">Purchase &rarr;</a>
+        </div>
       </div>
 
-      <div class="book-item">
-        <div class="book-item-info">
-          <div class="book-item-title">Junior Session <span class="book-item-dur">30 min</span><span class="book-item-price">&middot; $55</span></div>
-          <div class="book-item-desc">Focused instruction for younger voices: core musicianship, healthy habits, and early technique.</div>
+      <div class="bundle-group">
+        <div class="bundle-group-label">Junior Session &middot; 30 min</div>
+        <div class="bundle-item">
+          <div class="bundle-item-info">
+            <span class="bundle-item-tier">4-Week</span><span class="bundle-item-meta">4 sessions &middot; expires in 60 days</span>
+            <span class="bundle-item-price">$200</span><span class="bundle-item-saving">~10% off</span>
+          </div>
+          <a href="#" class="bundle-purchase-btn">Purchase &rarr;</a>
         </div>
-        <button class="book-item-btn"
-          data-cal-link="anthony-eversole-voice/junior-session-30-min"
-          data-cal-namespace="junior-session-30-min"
-          data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book &rarr;</button>
+        <div class="bundle-item">
+          <div class="bundle-item-info">
+            <span class="bundle-item-tier">8-Week</span><span class="bundle-item-meta">8 sessions &middot; expires in 120 days</span>
+            <span class="bundle-item-price">$390</span><span class="bundle-item-saving">~12% off</span>
+          </div>
+          <a href="#" class="bundle-purchase-btn">Purchase &rarr;</a>
+        </div>
       </div>
 
     </div>
@@ -141,8 +237,10 @@
 
   <!-- meta -->
   <div class="book-meta">
-    <p class="book-audition-note"><strong>Audition Prep</strong> is covered within any Studio Session. Select your session focus in the booking form.</p>
-    <p class="book-policies"><em>Studio policies:</em> 24-hour rescheduling window &middot; 4-week bundles expire in 60 days; 8-week bundles in 120 &middot; parent or guardian confirmation required for students under 18.</p>
+    <div class="book-col">
+      <p class="book-audition-note"><strong>Audition Prep</strong> is covered within any Studio Session. Select your session focus in the booking form.</p>
+      <p class="book-policies"><em>Studio policies:</em> 24-hour rescheduling window &middot; bundle sessions expire as noted above &middot; parent or guardian confirmation required for students under 18.</p>
+    </div>
   </div>
 
   <!-- footer -->
