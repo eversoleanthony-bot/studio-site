@@ -23,7 +23,7 @@
     .book-sessions { display: grid; gap: 0; }
     .book-session { padding: 18px 0; border-top: 1px solid var(--border); }
     .book-session:last-of-type { border-bottom: 1px solid var(--border); }
-    .book-session-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .book-session-title { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
     .book-session-dur { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--meta); margin-left: 6px; font-weight: 400; }
     .book-session-free { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-left: 6px; }
     .book-session-detail { font-size: 13px; line-height: 1.6; color: var(--secondary); }
@@ -35,18 +35,18 @@
     .book-policies em { font-family: var(--serif); font-size: 14px; }
 
     /* right: embed area */
-    .book-content { padding: 48px; }
+    .book-content { padding: 48px; background: var(--ink); }
 
     .book-cal-placeholder {
-      border: 1px solid var(--border);
+      border: 1px solid rgba(255,255,255,0.1);
       padding: 64px 48px;
       text-align: center;
-      background: var(--bg-alt);
-      color: var(--secondary);
+      background: transparent;
+      color: rgba(246,241,231,0.5);
       font-size: 14px;
       line-height: 1.7;
     }
-    .book-cal-placeholder strong { display: block; font-size: 16px; color: var(--ink); margin-bottom: 8px; }
+    .book-cal-placeholder strong { display: block; font-size: 16px; color: #F6F1E7; margin-bottom: 8px; }
 
     /* book page footer */
     .book-footer-top { padding: 28px 64px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
