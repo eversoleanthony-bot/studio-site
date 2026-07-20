@@ -65,11 +65,6 @@
     .book-policies { font-size: 12.5px; line-height: 1.7; color: var(--faint); }
     .book-policies em { font-family: var(--serif); font-size: 14px; }
 
-    /* footer */
-    .book-footer-top { padding: 28px 64px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-    .book-footer-note { font-size: 12.5px; color: var(--secondary); }
-    .book-footer-note a { color: var(--accent); font-weight: 600; }
-    .book-footer-brand { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
 
     /* responsive */
     @media (max-width: 767px) {
@@ -82,7 +77,7 @@
       .bundle-item { flex-wrap: wrap; }
       .bundle-purchase-btn { width: 100%; text-align: center; }
       .book-meta { padding: 24px 24px 40px; }
-      .book-footer-top { flex-direction: column; gap: 12px; padding: 24px; text-align: center; }
+
       .nav-links { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
       .nav-links.open { display: flex; }
       .nav-links a { font-size: 22px; }
@@ -243,13 +238,16 @@
     </div>
   </div>
 
-  <!-- footer -->
-  <div class="book-footer-top">
-    <p class="book-footer-note">
-      Booking for an organization: music direction, stage direction, workshops, or clinics? <a href="organizations.html">Send an inquiry instead &rarr;</a>
-    </p>
-    <span class="book-footer-brand">Anthony Eversole</span>
-  </div>
+  <footer class="footer-main">
+    <span>Anthony Eversole, DMA</span>
+    <div class="footer-main-links">
+      <a href="lessons.html">Lessons</a>
+      <a href="on-stage.html">On Stage</a>
+      <a href="organizations.html">For Organizations</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
   <div class="footer-legal">
     <div class="footer-legal-links">
       <a href="privacy.html">Privacy Policy</a>
