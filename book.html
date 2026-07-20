@@ -13,55 +13,53 @@
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <style>
-    .book-layout { display: grid; grid-template-columns: 460px 1fr; gap: 0; }
+    /* hero strip */
+    .book-hero { background: var(--ink); padding: 72px 64px 64px; text-align: center; }
+    .book-hero-kicker { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-lt); margin-bottom: 18px; }
+    .book-hero-h1 { font-family: var(--serif); font-weight: 300; font-size: 52px; line-height: 1.05; color: #F6F1E7; margin: 0 0 18px; }
+    .book-hero-sub { font-size: 15px; line-height: 1.7; color: rgba(246,241,231,0.5); max-width: 440px; margin: 0 auto; }
 
-    /* left rail */
-    .book-rail { padding: 80px 56px 80px 64px; border-right: 1px solid var(--border); }
-    .book-h1   { font-family: var(--serif); font-weight: 300; font-size: 46px; line-height: 1.05; margin: 0 0 24px; }
-    .book-intro { font-size: 14.5px; line-height: 1.75; color: var(--secondary); margin-bottom: 36px; }
+    /* cards grid */
+    .book-cards-section { padding: 64px 64px 0; }
+    .book-cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1040px; margin: 0 auto; }
 
-    .book-sessions { display: grid; gap: 0; }
-    .book-session { padding: 18px 0; border-top: 1px solid var(--border); }
-    .book-session:last-of-type { border-bottom: 1px solid var(--border); }
-    .book-session-title { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
-    .book-session-dur { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--meta); margin-left: 6px; font-weight: 400; }
-    .book-session-free { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-left: 6px; }
-    .book-session-detail { font-size: 13px; line-height: 1.6; color: var(--secondary); margin-bottom: 10px; }
-    .book-session-link { font-size: 12px; font-weight: 600; color: var(--accent); text-decoration: none; letter-spacing: .02em; cursor: pointer; background: none; border: none; padding: 0; font-family: var(--sans); }
-    .book-session-link:hover { text-decoration: underline; }
-    .book-session-note { font-size: 12px; color: var(--faint); font-style: italic; }
+    .session-card { border: 1px solid var(--border); padding: 36px; background: var(--bg); display: flex; flex-direction: column; }
+    .card-duration { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--meta); margin-bottom: 6px; }
+    .card-title { font-size: 17px; font-weight: 600; color: var(--accent); margin-bottom: 14px; line-height: 1.2; }
+    .card-free { font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent-md); padding: 2px 6px; margin-left: 8px; vertical-align: middle; }
+    .card-body { font-size: 13.5px; line-height: 1.7; color: var(--secondary); margin: 0; flex: 1; }
+    .card-btn { display: block; margin-top: 28px; padding: 13px 20px; background: transparent; border: 1.5px solid var(--accent); color: var(--accent); font-family: var(--sans); font-size: 12.5px; font-weight: 600; cursor: pointer; text-align: center; letter-spacing: .04em; transition: background .15s, color .15s; }
+    .card-btn:hover { background: var(--accent); color: #F6F1E7; }
 
-    .book-policies {
-      margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
-      font-size: 12.5px; line-height: 1.7; color: var(--faint);
-    }
+    /* audition prep note */
+    .book-audition-note { max-width: 1040px; margin: 20px auto 0; padding: 18px 0; border-top: 1px solid var(--border); font-size: 13px; color: var(--secondary); }
+    .book-audition-note strong { color: var(--ink); }
+
+    /* policies */
+    .book-policies-section { padding: 48px 64px 56px; }
+    .book-policies { max-width: 1040px; margin: 0 auto; font-size: 12.5px; line-height: 1.7; color: var(--faint); }
     .book-policies em { font-family: var(--serif); font-size: 14px; }
 
-    /* right: info panel */
-    .book-content { padding: 64px 56px; background: var(--ink); display: flex; flex-direction: column; justify-content: center; }
-    .book-right-hl { font-family: var(--serif); font-weight: 300; font-size: 28px; color: #F6F1E7; margin: 0 0 20px; line-height: 1.2; }
-    .book-right-body { font-size: 14px; line-height: 1.8; color: rgba(246,241,231,0.55); }
-    .book-right-body p { margin: 0 0 16px; }
-    .book-right-body p:last-child { margin-bottom: 0; }
-
-    /* book page footer */
+    /* footer */
     .book-footer-top { padding: 28px 64px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
     .book-footer-note { font-size: 12.5px; color: var(--secondary); }
     .book-footer-note a { color: var(--accent); font-weight: 600; }
     .book-footer-brand { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
 
     /* responsive */
-    @media (max-width: 1149px) {
-      .book-layout { grid-template-columns: 380px 1fr; }
-      .book-rail { padding: 60px 40px 60px 48px; }
-      .book-content { padding: 48px 40px; }
+    @media (max-width: 900px) {
+      .book-cards-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .book-cards-section { padding: 48px 32px 0; }
+      .book-policies-section { padding: 40px 32px 48px; }
+      .book-footer-top { padding: 28px 32px; }
     }
 
     @media (max-width: 767px) {
-      .book-layout { grid-template-columns: 1fr; }
-      .book-rail { padding: 40px 24px; border-right: none; border-bottom: 1px solid var(--border); }
-      .book-h1 { font-size: 34px; }
-      .book-content { padding: 40px 24px; }
+      .book-hero { padding: 56px 24px 48px; }
+      .book-hero-h1 { font-size: 36px; }
+      .book-cards-grid { grid-template-columns: 1fr; }
+      .book-cards-section { padding: 40px 24px 0; }
+      .book-policies-section { padding: 32px 24px 40px; }
       .book-footer-top { flex-direction: column; gap: 12px; padding: 24px; text-align: center; }
       .nav-links { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
       .nav-links.open { display: flex; }
@@ -90,74 +88,68 @@
     </div>
   </nav>
 
-  <div class="book-layout">
-    <!-- left rail -->
-    <div class="book-rail">
-      <div class="kicker" style="margin-bottom: 20px;">Book</div>
-      <h1 class="book-h1">Pick a time. Come sing.</h1>
-      <p class="book-intro">Choose a session type and pick a time that works. You'll get a confirmation with the Zoom link or studio address.</p>
+  <!-- page hero -->
+  <section class="book-hero">
+    <div class="book-hero-kicker">Book</div>
+    <h1 class="book-hero-h1">Pick a time. Come sing.</h1>
+    <p class="book-hero-sub">Sessions available online via Zoom and in-studio in Salt Lake City. You'll get a confirmation with your link or address after booking.</p>
+  </section>
 
-      <div class="book-sessions">
+  <!-- session cards -->
+  <section class="book-cards-section">
+    <div class="book-cards-grid">
 
-        <div class="book-session">
-          <div class="book-session-title">Consultation <span class="book-session-free">free</span><span class="book-session-dur">30 min</span></div>
-          <p class="book-session-detail">A first meeting: we talk through your goals, hear your voice, and map out a direction together.</p>
-          <button class="book-session-link"
-            data-cal-link="anthony-eversole-voice/consultation"
-            data-cal-namespace="consultation"
-            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Check Availability &rarr;</button>
-        </div>
-
-        <div class="book-session">
-          <div class="book-session-title">Studio Session <span class="book-session-dur">60 min</span></div>
-          <p class="book-session-detail">Advanced technique, singing-actor integration, and audition preparation. For adults and serious students working toward a specific goal.</p>
-          <button class="book-session-link"
-            data-cal-link="anthony-eversole-voice/voice-lesson-60-min"
-            data-cal-namespace="voice-lesson-60-min"
-            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Check Availability &rarr;</button>
-        </div>
-
-        <div class="book-session">
-          <div class="book-session-title">Studio Session <span class="book-session-dur">45 min</span></div>
-          <p class="book-session-detail">Targeted vocal technique and intermediate development. Ideal for students building consistency or focusing on a defined skill area.</p>
-          <button class="book-session-link"
-            data-cal-link="anthony-eversole-voice/studio-session-45-min"
-            data-cal-namespace="studio-session-45-min"
-            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Check Availability &rarr;</button>
-        </div>
-
-        <div class="book-session">
-          <div class="book-session-title">Junior Session <span class="book-session-dur">30 min</span></div>
-          <p class="book-session-detail">Focused instruction for younger voices: core musicianship, healthy habits, and early technique.</p>
-          <button class="book-session-link"
-            data-cal-link="anthony-eversole-voice/junior-session-30-min"
-            data-cal-namespace="junior-session-30-min"
-            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Check Availability &rarr;</button>
-        </div>
-
-        <div class="book-session">
-          <div class="book-session-title">Audition Prep <span class="book-session-dur">60 min</span></div>
-          <p class="book-session-detail">Role and audition coaching: scene work, text analysis, repertoire strategy, and preparation for the room.</p>
-          <span class="book-session-note">Select Studio Session 60 min to book; choose your focus in the form.</span>
-        </div>
-
+      <div class="session-card">
+        <div class="card-duration">30 min</div>
+        <div class="card-title">Consultation <span class="card-free">Free</span></div>
+        <p class="card-body">A first meeting: we talk through your goals, hear your voice, and map out a direction together. No pressure, no formal audition.</p>
+        <button class="card-btn"
+          data-cal-link="anthony-eversole-voice/consultation"
+          data-cal-namespace="consultation"
+          data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Check Availability</button>
       </div>
 
-      <p class="book-policies"><em>Studio policies:</em> 24-hour rescheduling window &middot; 4-week bundles expire in 60 days; 8-week bundles in 120 &middot; parent or guardian confirmation required for students under 18.</p>
-    </div>
-
-    <!-- right: studio info -->
-    <div class="book-content">
-      <h2 class="book-right-hl">Sessions are available online via Zoom and in-studio in Salt Lake City.</h2>
-      <div class="book-right-body">
-        <p>After booking, you'll receive a confirmation with your Zoom link or studio address.</p>
-        <p>New students: start with the free consultation. We'll spend 30 minutes getting to know your voice and goals before committing to a session plan.</p>
-        <p>For organizations, group workshops, or direction inquiries, use the link below instead.</p>
+      <div class="session-card">
+        <div class="card-duration">60 min</div>
+        <div class="card-title">Studio Session</div>
+        <p class="card-body">Advanced technique, singing-actor integration, and audition preparation. For adults and serious students working toward a specific goal or deadline.</p>
+        <button class="card-btn"
+          data-cal-link="anthony-eversole-voice/voice-lesson-60-min"
+          data-cal-namespace="voice-lesson-60-min"
+          data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Check Availability</button>
       </div>
-    </div>
-  </div>
 
-  <!-- book page footer -->
+      <div class="session-card">
+        <div class="card-duration">45 min</div>
+        <div class="card-title">Studio Session</div>
+        <p class="card-body">Targeted vocal technique and intermediate development. Ideal for students building consistency or focusing on a defined skill area.</p>
+        <button class="card-btn"
+          data-cal-link="anthony-eversole-voice/studio-session-45-min"
+          data-cal-namespace="studio-session-45-min"
+          data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Check Availability</button>
+      </div>
+
+      <div class="session-card">
+        <div class="card-duration">30 min</div>
+        <div class="card-title">Junior Session</div>
+        <p class="card-body">Focused instruction for younger voices: core musicianship, healthy habits, and early technique. Students typically move to 45-minute sessions around age 12.</p>
+        <button class="card-btn"
+          data-cal-link="anthony-eversole-voice/junior-session-30-min"
+          data-cal-namespace="junior-session-30-min"
+          data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Check Availability</button>
+      </div>
+
+    </div>
+
+    <p class="book-audition-note"><strong>Audition Prep</strong> is covered within any Studio Session. Select your session focus in the booking form.</p>
+  </section>
+
+  <!-- policies -->
+  <section class="book-policies-section">
+    <p class="book-policies"><em>Studio policies:</em> 24-hour rescheduling window &middot; 4-week bundles expire in 60 days; 8-week bundles in 120 &middot; parent or guardian confirmation required for students under 18.</p>
+  </section>
+
+  <!-- footer -->
   <div class="book-footer-top">
     <p class="book-footer-note">
       Booking for an organization: music direction, stage direction, workshops, or clinics? <a href="organizations.html">Send an inquiry instead &rarr;</a>
