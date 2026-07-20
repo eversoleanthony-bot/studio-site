@@ -26,7 +26,10 @@
     .book-session-title { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
     .book-session-dur { font-family: var(--serif); font-style: italic; font-size: 13px; color: var(--meta); margin-left: 6px; font-weight: 400; }
     .book-session-free { font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-left: 6px; }
-    .book-session-detail { font-size: 13px; line-height: 1.6; color: var(--secondary); }
+    .book-session-detail { font-size: 13px; line-height: 1.6; color: var(--secondary); margin-bottom: 10px; }
+    .book-session-link { font-size: 12px; font-weight: 600; color: var(--accent); text-decoration: none; letter-spacing: .02em; cursor: pointer; background: none; border: none; padding: 0; font-family: var(--sans); }
+    .book-session-link:hover { text-decoration: underline; }
+    .book-session-note { font-size: 12px; color: var(--faint); font-style: italic; }
 
     .book-policies {
       margin-top: 40px; padding-top: 24px; border-top: 1px solid var(--border);
@@ -34,19 +37,12 @@
     }
     .book-policies em { font-family: var(--serif); font-size: 14px; }
 
-    /* right: embed area */
-    .book-content { padding: 48px; background: var(--ink); }
-
-    .book-cal-placeholder {
-      border: 1px solid rgba(255,255,255,0.1);
-      padding: 64px 48px;
-      text-align: center;
-      background: transparent;
-      color: rgba(246,241,231,0.5);
-      font-size: 14px;
-      line-height: 1.7;
-    }
-    .book-cal-placeholder strong { display: block; font-size: 16px; color: #F6F1E7; margin-bottom: 8px; }
+    /* right: info panel */
+    .book-content { padding: 64px 56px; background: var(--ink); display: flex; flex-direction: column; justify-content: center; }
+    .book-right-hl { font-family: var(--serif); font-weight: 300; font-size: 28px; color: #F6F1E7; margin: 0 0 20px; line-height: 1.2; }
+    .book-right-body { font-size: 14px; line-height: 1.8; color: rgba(246,241,231,0.55); }
+    .book-right-body p { margin: 0 0 16px; }
+    .book-right-body p:last-child { margin-bottom: 0; }
 
     /* book page footer */
     .book-footer-top { padding: 28px 64px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
@@ -58,13 +54,14 @@
     @media (max-width: 1149px) {
       .book-layout { grid-template-columns: 380px 1fr; }
       .book-rail { padding: 60px 40px 60px 48px; }
+      .book-content { padding: 48px 40px; }
     }
 
     @media (max-width: 767px) {
       .book-layout { grid-template-columns: 1fr; }
       .book-rail { padding: 40px 24px; border-right: none; border-bottom: 1px solid var(--border); }
       .book-h1 { font-size: 34px; }
-      .book-content { padding: 32px 24px; }
+      .book-content { padding: 40px 24px; }
       .book-footer-top { flex-direction: column; gap: 12px; padding: 24px; text-align: center; }
       .nav-links { display: none; position: fixed; inset: 0; background: var(--bg); z-index: 200; flex-direction: column; align-items: center; justify-content: center; gap: 36px; }
       .nav-links.open { display: flex; }
@@ -101,36 +98,61 @@
       <p class="book-intro">Choose a session type and pick a time that works. You'll get a confirmation with the Zoom link or studio address.</p>
 
       <div class="book-sessions">
+
         <div class="book-session">
           <div class="book-session-title">Consultation <span class="book-session-free">free</span><span class="book-session-dur">30 min</span></div>
           <p class="book-session-detail">A first meeting: we talk through your goals, hear your voice, and map out a direction together.</p>
+          <button class="book-session-link"
+            data-cal-link="anthony-eversole-voice/consultation"
+            data-cal-namespace="consultation"
+            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Check Availability &rarr;</button>
         </div>
+
         <div class="book-session">
           <div class="book-session-title">Studio Session <span class="book-session-dur">60 min</span></div>
           <p class="book-session-detail">Advanced technique, singing-actor integration, and audition preparation. For adults and serious students working toward a specific goal.</p>
+          <button class="book-session-link"
+            data-cal-link="anthony-eversole-voice/voice-lesson-60-min"
+            data-cal-namespace="voice-lesson-60-min"
+            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Check Availability &rarr;</button>
         </div>
+
         <div class="book-session">
           <div class="book-session-title">Studio Session <span class="book-session-dur">45 min</span></div>
           <p class="book-session-detail">Targeted vocal technique and intermediate development. Ideal for students building consistency or focusing on a defined skill area.</p>
+          <button class="book-session-link"
+            data-cal-link="anthony-eversole-voice/studio-session-45-min"
+            data-cal-namespace="studio-session-45-min"
+            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Check Availability &rarr;</button>
         </div>
+
         <div class="book-session">
           <div class="book-session-title">Junior Session <span class="book-session-dur">30 min</span></div>
           <p class="book-session-detail">Focused instruction for younger voices: core musicianship, healthy habits, and early technique.</p>
+          <button class="book-session-link"
+            data-cal-link="anthony-eversole-voice/junior-session-30-min"
+            data-cal-namespace="junior-session-30-min"
+            data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Check Availability &rarr;</button>
         </div>
+
         <div class="book-session">
           <div class="book-session-title">Audition Prep <span class="book-session-dur">60 min</span></div>
           <p class="book-session-detail">Role and audition coaching: scene work, text analysis, repertoire strategy, and preparation for the room.</p>
+          <span class="book-session-note">Select Studio Session 60 min to book; choose your focus in the form.</span>
         </div>
+
       </div>
 
       <p class="book-policies"><em>Studio policies:</em> 24-hour rescheduling window &middot; 4-week bundles expire in 60 days; 8-week bundles in 120 &middot; parent or guardian confirmation required for students under 18.</p>
     </div>
 
-    <!-- right: Cal.com embed -->
+    <!-- right: studio info -->
     <div class="book-content">
-      <div class="book-cal-placeholder">
-        <strong>Online Booking Coming Soon</strong>
-        Cal.com booking embed will appear here. To schedule now, reach out directly.
+      <h2 class="book-right-hl">Sessions are available online via Zoom and in-studio in Salt Lake City.</h2>
+      <div class="book-right-body">
+        <p>After booking, you'll receive a confirmation with your Zoom link or studio address.</p>
+        <p>New students: start with the free consultation. We'll spend 30 minutes getting to know your voice and goals before committing to a session plan.</p>
+        <p>For organizations, group workshops, or direction inquiries, use the link below instead.</p>
       </div>
     </div>
   </div>
@@ -153,6 +175,24 @@
       <a href="https://facebook.com" target="_blank" rel="noopener">Facebook</a>
     </div>
   </div>
+
+  <!-- Cal.com element-click embeds -->
+  <script type="text/javascript">
+    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    Cal("init", "consultation", {origin:"https://app.cal.com"});
+    Cal("init", "voice-lesson-60-min", {origin:"https://app.cal.com"});
+    Cal("init", "studio-session-45-min", {origin:"https://app.cal.com"});
+    Cal("init", "junior-session-30-min", {origin:"https://app.cal.com"});
+
+    Cal.config = Cal.config || {};
+    Cal.config.forwardQueryParams = true;
+
+    Cal.ns.consultation("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    Cal.ns["voice-lesson-60-min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    Cal.ns["studio-session-45-min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    Cal.ns["junior-session-30-min"]("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+  </script>
 
   <script>
     (function() {
