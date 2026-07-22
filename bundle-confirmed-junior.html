@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule Your Sessions | Anthony Eversole</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Nav hamburger (hidden on desktop) */
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      padding: 8px 0;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media (max-width: 1149px) {
+      .nav { padding: 0 40px; }
+      .nav-menu-btn { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 40px 28px;
+        gap: 0;
+        z-index: 99;
+        box-shadow: 0 4px 16px rgba(34,30,25,.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links > a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        letter-spacing: .12em;
+      }
+      .nav-ctas { padding: 20px 0 0; }
+      .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
+    }
+
+    /* confirmation header */
+    .confirm-hero { background: var(--ink); padding: 52px 64px 40px; text-align: center; }
+    .confirm-kicker { font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-lt); margin-bottom: 14px; }
+    .confirm-h1 { font-family: var(--serif); font-weight: 300; font-size: 40px; line-height: 1.1; color: #F6F1E7; margin: 0 0 14px; }
+    .confirm-sub { font-family: var(--serif); font-size: 17px; line-height: 1.6; color: var(--accent-lt); max-width: 560px; margin: 0 auto; }
+    .confirm-sub strong { color: #F6F1E7; }
+
+    /* scheduling section */
+    .schedule-section { max-width: 900px; margin: 0 auto; padding: 48px 24px 72px; }
+    .schedule-note { font-size: 13px; color: var(--faint); text-align: center; margin-bottom: 24px; }
+
+    @media (max-width: 767px) {
+      .nav { padding: 0 24px; }
+      .nav-links { padding: 8px 24px 28px; }
+      .confirm-hero { padding: 40px 24px 32px; }
+      .confirm-h1 { font-size: 30px; }
+      .schedule-section { padding: 36px 16px 56px; }
+
+      /* Footer: stack and wrap */
+      .footer-main { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; }
+      .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
+      .footer-legal { flex-direction: column; gap: 12px; padding: 16px 24px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">Anthony Eversole</span>
+      <span class="nav-brand-kicker">Voice &amp; Stage</span>
+    </a>
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
+      <a href="lessons.html">Lessons</a>
+      <a href="on-stage.html">On Stage</a>
+      <a href="organizations.html">For Organizations</a>
+      <a href="blog.html">Blog</a>
+      <div class="nav-ctas">
+        <a href="book.html" class="nav-book">Book a Session</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="confirm-hero">
+    <div class="confirm-kicker">Bundle Confirmed</div>
+    <h1 class="confirm-h1">You're in. Let's get you on the calendar.</h1>
+    <p class="confirm-sub">Your 30-minute Junior Session bundle is confirmed for <strong id="session-count">your sessions</strong>. Book the first session below, then come back to this page any time to schedule the rest.</p>
+  </section>
+
+  <section class="schedule-section">
+    <p class="schedule-note">Each booking below reserves one session. Repeat as many times as you have sessions remaining in your bundle.</p>
+    <div id="scheduler-root" class="scheduler-root"></div>
+  </section>
+
+  <footer class="footer-main">
+    <a href="index.html" class="footer-brand-link">Anthony Eversole, DMA</a>
+    <div class="footer-main-links">
+      <a href="lessons.html">Lessons</a>
+      <a href="on-stage.html">On Stage</a>
+      <a href="organizations.html">For Organizations</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+  <div class="footer-legal">
+    <div class="footer-legal-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-social-links">
+      <a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var count = params.get('count');
+      if (count) {
+        document.getElementById('session-count').textContent = count + ' sessions';
+      }
+    })();
+  </script>
+
+  <!-- Custom scheduler (Cal.com API via the Cloudflare Worker, not the embed) -->
+  <script>window.SCHEDULER_CONFIG = { eventType: 'junior' };</script>
+  <script src="scheduler.js"></script>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.textContent = expanded ? 'Menu' : 'Close';
+        links.classList.toggle('open', !expanded);
+      });
+    })();
+  </script>
+</body>
+</html>
