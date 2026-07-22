@@ -14,6 +14,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="posts-data.js"></script>
   <style>
     /* ---- Home: hero ---- */
     .hero {
@@ -553,47 +554,32 @@
     </div>
   </section>
 
-  <!-- blog strip -->
+  <!-- blog strip — rendered from posts-data.js, always shows the 6 latest posts -->
   <section class="strip">
     <div class="kicker" style="margin-bottom: 28px;">From the Blog</div>
-    <div class="strip-posts">
-      <div class="strip-col">
-        <a href="posts/singing-actor.html" class="strip-post">
-          <span class="strip-post-num">01</span>
-          <span class="strip-post-title">Preparing "It's Hard to Speak My Heart"</span>
-          <span class="strip-post-excerpt">Eye focus must be planned with the same rigor as breath management. A director's approach to one audition piece.</span>
-        </a>
-        <a href="posts/amelie-vulnerability.html" class="strip-post">
-          <span class="strip-post-num">02</span>
-          <span class="strip-post-title">Amélie: Navigating Neglect and Risking Vulnerability</span>
-          <span class="strip-post-excerpt">How Amélie's arc moves from self-protective habits toward genuine connection, and what that asks of the actor.</span>
-        </a>
-        <a href="posts/zaza-psychology.html" class="strip-post">
-          <span class="strip-post-num">03</span>
-          <span class="strip-post-title">Psychological Themes of Zazà</span>
-          <span class="strip-post-excerpt">Addiction, attachment, and infidelity: the psychological architecture underlying Leoncavallo's opera.</span>
-        </a>
-      </div>
-      <div class="strip-col">
-        <a href="posts/mahagonny-medium.html" class="strip-post">
-          <span class="strip-post-num">04</span>
-          <span class="strip-post-title">Mahagonny &amp; Medium: The Search for Meaning</span>
-          <span class="strip-post-excerpt">How grief, belonging, and the courage to drop our armor connect Weill/Brecht and Menotti across seventy years.</span>
-        </a>
-        <a href="posts/zaza-visual.html" class="strip-post">
-          <span class="strip-post-num">05</span>
-          <span class="strip-post-title">The Visual Language of Zazà</span>
-          <span class="strip-post-excerpt">Mucha and Leyendecker: how fin-de-siècle illustration shapes the visual world of this production.</span>
-        </a>
-        <a href="posts/medium-spiritualism.html" class="strip-post">
-          <span class="strip-post-num">06</span>
-          <span class="strip-post-title">The Medium: A History of Spiritualism</span>
-          <span class="strip-post-excerpt">The origins of American Spiritualism and what Menotti's opera illuminates about grief and belief.</span>
-        </a>
-      </div>
-    </div>
+    <div class="strip-posts" id="strip-posts"></div>
     <a href="blog.html" class="offering-link strip-all">All posts →</a>
   </section>
+
+  <script>
+    (function() {
+      var container = document.getElementById('strip-posts');
+      if (!container || typeof POSTS === 'undefined') return;
+      var latest = POSTS.slice(0, 6);
+      var cols = [latest.slice(0, 3), latest.slice(3, 6)];
+      container.innerHTML = cols.map(function(col) {
+        return '<div class="strip-col">' + col.map(function(p, i) {
+          var num = String(latest.indexOf(p) + 1).padStart(2, '0');
+          var excerpt = p.homeExcerpt || p.excerpt;
+          return '<a href="' + p.href + '" class="strip-post">' +
+            '<span class="strip-post-num">' + num + '</span>' +
+            '<span class="strip-post-title">' + p.title + '</span>' +
+            '<span class="strip-post-excerpt">' + excerpt + '</span>' +
+            '</a>';
+        }).join('') + '</div>';
+      }).join('');
+    })();
+  </script>
 
   <!-- upcoming -->
   <section class="upcoming">
@@ -637,7 +623,7 @@
 
   <!-- footer -->
   <footer class="footer-main">
-    <span>Anthony Eversole, DMA</span>
+    <a href="index.html" class="footer-brand-link">Anthony Eversole, DMA</a>
     <div class="footer-main-links">
       <a href="lessons.html">Lessons</a>
       <a href="on-stage.html">On Stage</a>
