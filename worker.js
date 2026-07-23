@@ -111,17 +111,6 @@ export default {
     const url = new URL(request.url);
     const path = url.pathname;
 
-    if (path === "/api/debug-key" && request.method === "GET") {
-      const k = env.CAL_API_KEY || "";
-      return jsonResponse({
-        length: k.length,
-        prefix: k.slice(0, 9),
-        suffix: k.slice(-4),
-        hasLeadingWhitespace: /^\s/.test(k),
-        hasTrailingWhitespace: /\s$/.test(k),
-        hasAnyWhitespace: /\s/.test(k),
-      });
-    }
     if (path === "/api/availability" && request.method === "GET") {
       return handleAvailability(request, env);
     }
