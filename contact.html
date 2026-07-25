@@ -14,62 +14,68 @@
   <link rel="stylesheet" href="styles.css" />
   <style>
     .contact-wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 80px 72px;
       display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 80px;
-      align-items: start;
+      grid-template-columns: 420px 1fr;
+      align-items: stretch;
     }
 
-    /* Sidebar */
+    /* Sidebar (full-bleed duotone panel) */
     .contact-sidebar {
+      background: var(--ink);
+    }
+    .contact-sidebar-inner {
       position: sticky;
-      top: 88px;
+      top: 68px;
+      padding: 88px 56px;
     }
     .contact-sidebar h1 {
       font-family: var(--serif);
       font-weight: 300;
       font-size: clamp(1.8rem, 3vw, 2.4rem);
       line-height: 1.2;
+      color: var(--bg);
       margin-bottom: 20px;
     }
     .contact-sidebar p {
       font-size: 15px;
       line-height: 1.75;
-      color: var(--secondary);
+      color: var(--accent-lt);
       margin-bottom: 36px;
     }
     .contact-meta {
       display: flex;
       flex-direction: column;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid rgba(246,241,231,.15);
     }
     .contact-meta-row {
       display: flex;
       flex-direction: column;
       gap: 3px;
       padding: 14px 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(246,241,231,.15);
     }
     .contact-meta-label {
       font-size: 10px;
       font-weight: 600;
       letter-spacing: .14em;
       text-transform: uppercase;
-      color: var(--faint);
+      color: var(--accent-lt);
     }
     .contact-meta-value {
       font-size: 14px;
-      color: var(--ink);
+      color: var(--bg);
     }
     .contact-meta-value a {
-      color: var(--accent);
+      color: var(--bg);
     }
     .contact-meta-value a:hover { opacity: .75; }
 
     /* Form */
+    .contact-form-col { background: var(--bg); }
+    .contact-form-inner {
+      max-width: 640px;
+      padding: 88px 72px;
+    }
     .contact-form-head {
       margin-bottom: 36px;
     }
@@ -229,16 +235,21 @@
       }
       .nav-ctas { padding: 20px 0 0; }
       .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
+      .contact-wrap { grid-template-columns: 320px 1fr; }
+      .contact-sidebar-inner { padding: 64px 40px; }
+      .contact-form-inner { padding: 64px 48px; }
     }
 
     @media (max-width: 860px) {
-      .contact-wrap { grid-template-columns: 1fr; gap: 48px; padding: 56px 32px; }
-      .contact-sidebar { position: static; }
+      .contact-wrap { grid-template-columns: 1fr; }
+      .contact-sidebar-inner { position: static; padding: 56px 32px; }
+      .contact-form-inner { padding: 56px 32px; max-width: none; }
       .form-row { grid-template-columns: 1fr; gap: 0; }
       .form-row .form-group { margin-bottom: 28px; }
     }
     @media (max-width: 480px) {
-      .contact-wrap { padding: 48px 24px; }
+      .contact-sidebar-inner { padding: 48px 24px; }
+      .contact-form-inner { padding: 48px 24px; }
     }
 
     @media (max-width: 767px) {
@@ -274,33 +285,36 @@
   <div class="contact-wrap">
 
     <aside class="contact-sidebar">
-      <h1>Get in touch.</h1>
-      <p>Whether you're a new student or a working performer, Anthony would love to hear what you're working toward. Lesson inquiries, project collaboration, or general questions — all welcome.</p>
-      <div class="contact-meta">
-        <div class="contact-meta-row">
-          <span class="contact-meta-label">Location</span>
-          <span class="contact-meta-value">Salt Lake City, Utah</span>
-        </div>
-        <div class="contact-meta-row">
-          <span class="contact-meta-label">Online Lessons</span>
-          <span class="contact-meta-value">Available via Zoom</span>
-        </div>
-        <div class="contact-meta-row">
-          <span class="contact-meta-label">Response Time</span>
-          <span class="contact-meta-value">Within 48 hours</span>
-        </div>
-        <div class="contact-meta-row">
-          <span class="contact-meta-label">Instagram</span>
-          <span class="contact-meta-value"><a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">@eversole_voice</a></span>
-        </div>
-        <div class="contact-meta-row">
-          <span class="contact-meta-label">LinkedIn</span>
-          <span class="contact-meta-value"><a href="https://www.linkedin.com/in/anthony-eversole-dma-6b85b052" target="_blank" rel="noopener">Anthony Eversole, DMA</a></span>
+      <div class="contact-sidebar-inner">
+        <h1>Get in touch.</h1>
+        <p>Whether you're a new student or a working performer, Anthony would love to hear what you're working toward. Lesson inquiries, project collaboration, or general questions — all welcome.</p>
+        <div class="contact-meta">
+          <div class="contact-meta-row">
+            <span class="contact-meta-label">Location</span>
+            <span class="contact-meta-value">Salt Lake City, Utah</span>
+          </div>
+          <div class="contact-meta-row">
+            <span class="contact-meta-label">Online Lessons</span>
+            <span class="contact-meta-value">Available via Zoom</span>
+          </div>
+          <div class="contact-meta-row">
+            <span class="contact-meta-label">Response Time</span>
+            <span class="contact-meta-value">Within 48 hours</span>
+          </div>
+          <div class="contact-meta-row">
+            <span class="contact-meta-label">Instagram</span>
+            <span class="contact-meta-value"><a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">@eversole_voice</a></span>
+          </div>
+          <div class="contact-meta-row">
+            <span class="contact-meta-label">LinkedIn</span>
+            <span class="contact-meta-value"><a href="https://www.linkedin.com/in/anthony-eversole-dma-6b85b052" target="_blank" rel="noopener">Anthony Eversole, DMA</a></span>
+          </div>
         </div>
       </div>
     </aside>
 
-    <div>
+    <div class="contact-form-col">
+     <div class="contact-form-inner">
       <div class="contact-form-head">
         <div class="kicker">Send a Message</div>
         <p>New students are always welcome. For lesson availability, use the <a href="book.html">booking page</a> — this form is best for questions, collaboration inquiries, or anything else.</p>
@@ -360,6 +374,7 @@
           Message sent — thank you. Anthony will be in touch within 48 hours.
         </div>
       </form>
+     </div>
     </div>
 
   </div>
