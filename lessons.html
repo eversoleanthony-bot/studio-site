@@ -70,10 +70,48 @@
 
 
     /* ---- Studio Mechanics ---- */
-    .studio-mechanics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-    .mechanics-col { background: var(--bg); padding: 72px 64px; }
-    .mechanics-hl { font-family: var(--sans); font-size: 18px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.2; margin: 20px 0 18px; }
-    .mechanics-body { font-size: 13.5px; line-height: 1.8; color: var(--secondary); max-width: 480px; }
+    /* ---- Practice expectations (dark accordion grid) ---- */
+    .practice-block { background: var(--ink); padding: 96px 64px; }
+    .practice-header { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+    .practice-header .kicker { color: var(--accent-md); }
+    .practice-hl { font-family: var(--serif); font-weight: 300; font-size: 36px; color: var(--bg); margin: 16px 0 20px; }
+    .practice-intro { font-family: var(--serif); font-size: 16px; line-height: 1.75; color: var(--accent-lt); }
+    .practice-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: rgba(246,241,231,.14);
+      max-width: 920px;
+      margin: 0 auto;
+      border: 1px solid rgba(246,241,231,.14);
+    }
+    .practice-item { background: var(--ink); }
+    .practice-item:last-child { grid-column: 1 / -1; }
+    .practice-summary {
+      list-style: none;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      padding: 26px 32px;
+      font-family: var(--sans);
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--bg);
+      position: relative;
+    }
+    .practice-summary::-webkit-details-marker { display: none; }
+    .practice-summary::marker { display: none; }
+    .practice-num { font-family: var(--serif); font-style: italic; font-weight: 300; font-size: 20px; color: var(--accent-lt); flex-shrink: 0; }
+    /* plus / minus indicator */
+    .practice-summary::after { content: ''; position: absolute; right: 32px; top: 50%; transform: translateY(-50%); width: 12px; height: 1.5px; background: var(--accent-lt); }
+    .practice-summary::before { content: ''; position: absolute; right: 37.25px; top: 50%; transform: translateY(-50%); width: 1.5px; height: 12px; background: var(--accent-lt); transition: opacity .15s; }
+    .practice-item[open] .practice-summary::before { opacity: 0; }
+    .practice-item[open] .practice-summary { color: var(--accent-lt); }
+    .practice-answer { padding: 0 32px 26px 66px; font-size: 13.5px; line-height: 1.75; color: var(--accent-lt); margin: 0; max-width: 480px; }
+    .practice-footer { max-width: 640px; margin: 48px auto 0; text-align: center; font-size: 13.5px; line-height: 1.75; color: var(--accent-lt); }
 
     /* ---- FAQ Matrix ---- */
     .faq-block { padding: 80px 64px; border-bottom: 1px solid var(--border); background: var(--bg-alt); }
@@ -112,11 +150,6 @@
     /* Offset anchor target below sticky nav */
     #session-options { scroll-margin-top: 80px; }
 
-    /* ---- Studio Mechanics list ---- */
-    .mechanics-list { list-style: none; padding: 0; margin: 16px 0 20px; }
-    .mechanics-list li { font-size: 13px; line-height: 1.7; color: var(--secondary); padding: 9px 0; border-top: 1px solid var(--border); }
-    .mechanics-list li:last-child { border-bottom: 1px solid var(--border); }
-    .mechanics-list li strong { color: var(--ink); font-weight: 600; }
 
     /* ---- Location strip ---- */
     .location-strip { display: grid; grid-template-columns: 360px 1fr; border-bottom: 1px solid var(--border); }
@@ -187,7 +220,7 @@
       .faq-block { padding: 64px 48px; }
       .intake-dark { padding: 72px 48px; }
       .back-to-top { padding: 20px 48px; }
-      .mechanics-col { padding: 56px 48px; }
+      .practice-block { padding: 72px 48px; }
       .location-strip { grid-template-columns: 280px 1fr; }
       .location-strip-text { padding: 48px; }
     }
@@ -227,8 +260,9 @@
       .gateway-grid { grid-template-columns: 1fr; min-width: 0; }
       .gateway-card { padding: 36px 24px 32px; }
       .gateway-btn { display: block; width: 100%; box-sizing: border-box; text-align: center; }
-      .studio-mechanics { grid-template-columns: 1fr; }
-      .mechanics-col { padding: 48px 24px; }
+      .practice-block { padding: 56px 24px; }
+      .practice-grid { grid-template-columns: 1fr; }
+      .practice-hl { font-size: 28px; }
       .location-strip { grid-template-columns: 1fr; }
       .location-strip-text { padding: 40px 24px; border-right: none; border-bottom: 1px solid var(--border); }
       .location-strip-map iframe { min-height: 260px; }
@@ -411,37 +445,44 @@
 
   </section>
 
-  <!-- studio mechanics -->
-  <section class="studio-mechanics">
-    <div class="mechanics-col">
-      <div class="kicker" style="margin-bottom: 20px;">Online Sessions</div>
-      <h3 class="mechanics-hl">Technology for Online Sessions</h3>
-      <p class="mechanics-body">A good remote session depends on good audio. A few things make a meaningful difference.</p>
-      <ul class="mechanics-list">
-        <li><strong>Wired headphones are strongly encouraged.</strong> Bluetooth codecs introduce latency that makes real-time vocal feedback unreliable.</li>
-        <li><strong>An external condenser microphone is highly recommended</strong> (USB or XLR). Built-in laptop and tablet mics are discouraged — they compress and color the sound in ways that make accurate feedback difficult.</li>
-        <li><strong>Ethernet over Wi-Fi when possible.</strong> Packet jitter on wireless connections can degrade the frequencies most important to pitch and tone feedback.</li>
-        <li><strong>Zoom in Original Sound / High-Fidelity Music Mode</strong> with noise suppression, echo cancellation, and automatic gain control disabled.</li>
-        <li><strong>A secondary device for accompaniment is highly encouraged.</strong> Running tracks from your lesson device causes sync issues and can cut your voice out when you begin singing.</li>
-      </ul>
-      <p class="mechanics-body">FaceTime and other mobile conferencing apps work in a pinch, but Zoom with proper audio settings will give us a noticeably better session.</p>
-      <p class="mechanics-body" style="margin-top: 16px;">All students receive access to a shared resource library containing studio exercises, public domain repertoire, and your active working scores. Copyrighted contemporary repertoire may require a licensed copy of your own.</p>
+  <!-- practice expectations -->
+  <section class="practice-block">
+    <div class="practice-header">
+      <div class="kicker">Between Sessions</div>
+      <h3 class="practice-hl">The Work Between Lessons</h3>
+      <p class="practice-intro">Sessions are a starting point. The real integration happens between them, in the practice room, in rehearsal, on stage, and everywhere else. Practice doesn't always mean vocalizing. Tap each one.</p>
     </div>
-    <div class="mechanics-col">
-      <div class="kicker" style="margin-bottom: 20px;">Between Sessions</div>
-      <h3 class="mechanics-hl">The Work Between Lessons</h3>
-      <p class="mechanics-body">Sessions are a starting point. The real integration happens between them — in the practice room, in rehearsal, on stage, and everywhere else. Practice doesn't always mean vocalizing. It looks like a lot of different things.</p>
-      <ul class="mechanics-list">
-        <li><strong>Daily vocal work.</strong> A short, consistent warmup and maintenance routine tailored to where you are technically.</li>
-        <li><strong>Custom drills.</strong> Targeted exercises from our sessions designed to address your specific technical focus areas.</li>
-        <li><strong>Learning and memorizing repertoire.</strong> Score study, text memorization, and getting material into the body.</li>
-        <li><strong>Text and character work.</strong> Digging into who you're playing, what they want, and how that lives physically.</li>
-        <li><strong>Listening.</strong> Cast recordings, recitals, live performance — active listening with intention is real practice.</li>
-        <li><strong>Going to shows.</strong> Watching other performers work is one of the most underrated forms of development.</li>
-        <li><strong>Record and transcribe your lessons.</strong> Logging sessions in a dedicated lesson journal is one of the highest-value habits you can build — nothing slips through the cracks.</li>
-      </ul>
-      <p class="mechanics-body">Students are encouraged to text with questions, breakthroughs, and concerns between sessions — that's what I'm here for. And if you're performing, I want to know about it. Showing up and cheering students on is genuinely one of my favorite parts of this work.</p>
+    <div class="practice-grid">
+      <details class="practice-item">
+        <summary class="practice-summary"><span class="practice-num">01</span> Daily Vocal Work</summary>
+        <p class="practice-answer">A short, consistent warmup and maintenance routine tailored to where you are technically.</p>
+      </details>
+      <details class="practice-item">
+        <summary class="practice-summary"><span class="practice-num">02</span> Custom Drills</summary>
+        <p class="practice-answer">Targeted exercises from our sessions designed to address your specific technical focus areas.</p>
+      </details>
+      <details class="practice-item">
+        <summary class="practice-summary"><span class="practice-num">03</span> Learning Repertoire</summary>
+        <p class="practice-answer">Score study, text memorization, and getting material into the body.</p>
+      </details>
+      <details class="practice-item">
+        <summary class="practice-summary"><span class="practice-num">04</span> Text &amp; Character Work</summary>
+        <p class="practice-answer">Digging into who you're playing, what they want, and how that lives physically.</p>
+      </details>
+      <details class="practice-item">
+        <summary class="practice-summary"><span class="practice-num">05</span> Listening</summary>
+        <p class="practice-answer">Cast recordings, recitals, live performance: active listening with intention is real practice.</p>
+      </details>
+      <details class="practice-item">
+        <summary class="practice-summary"><span class="practice-num">06</span> Going to Shows</summary>
+        <p class="practice-answer">Watching other performers work is one of the most underrated forms of development.</p>
+      </details>
+      <details class="practice-item">
+        <summary class="practice-summary"><span class="practice-num">07</span> Record &amp; Transcribe</summary>
+        <p class="practice-answer">Logging sessions in a dedicated lesson journal is one of the highest-value habits you can build. Nothing slips through the cracks.</p>
+      </details>
     </div>
+    <p class="practice-footer">Students are encouraged to text with questions, breakthroughs, and concerns between sessions, that's what I'm here for. And if you're performing, I want to know about it. Showing up and cheering students on is genuinely one of my favorite parts of this work.</p>
   </section>
 
   <!-- in-person location -->
