@@ -82,6 +82,8 @@
       padding: 64px 56px;
       border-top: 1px solid rgba(246,241,231,.1);
       border-right: 1px solid rgba(246,241,231,.1);
+      display: flex;
+      flex-direction: column;
     }
     .org-service-card:nth-child(even) { border-right: none; }
     .org-service-num {
@@ -105,6 +107,7 @@
       line-height: 1.78;
       color: rgba(246,241,231,.6);
       margin-bottom: 28px;
+      min-height: 110px;
     }
     .org-service-toggle {
       display: flex;
@@ -334,6 +337,7 @@
       .org-hero-banner { height: 260px; }
 
       .org-services-grid { grid-template-columns: 1fr; }
+      .org-service-body { min-height: 0; }
       .org-service-card {
         padding: 48px 24px;
         border-right: none;
