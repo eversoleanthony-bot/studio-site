@@ -132,11 +132,26 @@
     }
     .lb-dot.active { background: rgba(246,241,231,.75); transform: scale(1.4); }
 
-    /* ---- Résumé tables ---- */
-    .resume-section { padding: 72px 64px; border-bottom: 1px solid var(--border); }
+    /* ---- Résumé accordions ---- */
+    .resume-section { border-bottom: 1px solid var(--border); }
     .resume-section:last-of-type { border-bottom: none; }
     .resume-section.alt { background: var(--bg-alt); }
-    .resume-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
+    .resume-section > summary {
+      list-style: none;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      padding: 32px 64px;
+      position: relative;
+    }
+    .resume-section > summary::-webkit-details-marker { display: none; }
+    .resume-section > summary::marker { display: none; }
+    .resume-section > summary::after { content: ''; position: absolute; right: 64px; top: 50%; transform: translateY(-50%); width: 12px; height: 1.5px; background: var(--accent); }
+    .resume-section > summary::before { content: ''; position: absolute; right: 69.25px; top: 50%; transform: translateY(-50%); width: 1.5px; height: 12px; background: var(--accent); transition: opacity .15s; }
+    .resume-section[open] > summary::before { opacity: 0; }
+    .resume-section[open] > summary { border-bottom: 1px solid var(--border); }
+    .resume-inner { padding: 40px 64px 56px; }
     .resume-table { width: 100%; border-collapse: collapse; font-size: 14px; }
     .resume-table tr { border-bottom: 1px solid var(--border); }
     .resume-table tr:last-child { border-bottom: none; }
@@ -220,7 +235,8 @@
       .page-h1 { font-size: 46px; }
       .listening-room { padding: 64px 48px; }
       .stills-section { padding: 56px 48px; }
-      .resume-section { padding: 56px 48px; }
+      .resume-section > summary { padding: 28px 48px; }
+      .resume-inner { padding: 32px 48px 44px; }
     }
 
     /* ---- Responsive: mobile (≤ 767px) ---- */
@@ -245,8 +261,8 @@
       .stills-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
 
       /* Resume sections */
-      .resume-section { padding: 48px 24px; }
-      .resume-inner { grid-template-columns: 1fr; gap: 16px; }
+      .resume-section > summary { padding: 24px; }
+      .resume-inner { padding: 24px 24px 36px; }
 
       /* Resume tables: reflow to stacked cards */
       .resume-table,
@@ -510,9 +526,56 @@
   </section>
 
   <!-- credits: musical theatre -->
-  <section id="credits" class="resume-section alt">
+  <!-- credits: directing & producing -->
+  <details id="credits" class="resume-section alt" open>
+    <summary class="kicker">Directing &amp; Producing</summary>
     <div class="resume-inner">
-      <div class="kicker">Musical Theatre</div>
+      <table class="resume-table">
+        <tr><td class="r-role">Stage Director</td><td class="r-title">Zazà</td><td class="r-org">The Crane Opera Ensemble</td><td class="r-yr">2022</td></tr>
+        <tr><td class="r-role">Producer / Vocal Director</td><td class="r-title">Once Upon a Mattress</td><td class="r-org">Community Performance Series</td><td class="r-yr">2022</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">The Medium</td><td class="r-org">The Crane Opera Ensemble</td><td class="r-yr">2021</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">Mahagonny Songspiel</td><td class="r-org">The Crane Opera Ensemble</td><td class="r-yr">2021</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">L'elisir d'amore</td><td class="r-org">Oregon State University</td><td class="r-yr">2021</td></tr>
+        <tr><td class="r-role">Music Director</td><td class="r-title">Romeo and Juliet</td><td class="r-org">OSU Bard in the Quad</td><td class="r-yr">2021</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">The Secret Garden</td><td class="r-org">Oregon State University</td><td class="r-yr">2020</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">La rondine</td><td class="r-org">Oregon State University</td><td class="r-yr">2019</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">Mozartistry</td><td class="r-org">Oregon State University</td><td class="r-yr">2019</td></tr>
+        <tr><td class="r-role">Music Director</td><td class="r-title">Shakespeare in Love</td><td class="r-org">Oregon State University</td><td class="r-yr">2019</td></tr>
+        <tr><td class="r-role">Music Director</td><td class="r-title">Guys and Dolls</td><td class="r-org">Providence Hall H.S.</td><td class="r-yr">2017</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">So Many Possibilities</td><td class="r-org">Oregon State University</td><td class="r-yr">2017</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">Mozart Scenes Program</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2011</td></tr>
+      </table>
+    </div>
+  </details>
+
+  <!-- training & education -->
+  <details class="resume-section">
+    <summary class="kicker">Training &amp; Education</summary>
+    <div class="resume-inner">
+      <div>
+        <table class="resume-table" style="margin-bottom: 28px;">
+          <tr><td class="r-role">Doctor of Musical Arts</td><td class="r-title">Opera and Voice Pedagogy</td><td class="r-org">University of Maryland</td><td class="r-yr">2016</td></tr>
+          <tr><td class="r-role">Master of Music</td><td class="r-title">Voice</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2013</td></tr>
+          <tr><td class="r-role">Bachelor of Music</td><td class="r-title">Vocal Performance</td><td class="r-org">Utah State University</td><td class="r-yr">2010</td></tr>
+          <tr><td class="r-role">Bachelor of Music</td><td class="r-title">Choral Music Education</td><td class="r-org">Utah State University</td><td class="r-yr">2011</td></tr>
+        </table>
+        <div class="resume-sublabel">Artist Training</div>
+        <div class="pills">
+          <span class="pill">Maryland Opera Studio</span>
+          <span class="pill">Charlottesville Opera</span>
+          <span class="pill">Castleton Festival</span>
+          <span class="pill">Wolf Trap Opera</span>
+          <span class="pill">NYC Audition Boot Camp</span>
+          <span class="pill">Utah Festival Opera &amp; Musical Theatre</span>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- credits: musical theatre -->
+  <details class="resume-section alt">
+    <summary class="kicker">Musical Theatre · Performer</summary>
+    <div class="resume-inner">
       <table class="resume-table">
         <tr><td class="r-role">Angus Tuck <span class="tag-upcoming">upcoming</span></td><td class="r-title">Tuck Everlasting</td><td class="r-org">Sandy Arts</td><td class="r-yr">2026</td></tr>
         <tr><td class="r-role">Russian Soloist</td><td class="r-title">Fiddler on the Roof</td><td class="r-org">Centerpoint Theatre</td><td class="r-yr">2026</td></tr>
@@ -526,12 +589,12 @@
         <tr><td class="r-role">Officer Krupke</td><td class="r-title">West Side Story</td><td class="r-org">Utah Festival Opera &amp; Musical Theatre</td><td class="r-yr">2007</td></tr>
       </table>
     </div>
-  </section>
+  </details>
 
   <!-- credits: operatic roles -->
-  <section class="resume-section">
+  <details class="resume-section">
+    <summary class="kicker">Opera · Performer</summary>
     <div class="resume-inner">
-      <div class="kicker">Operatic Roles</div>
       <table class="resume-table">
         <tr><td class="r-role">Oscar Hubbard</td><td class="r-title">Regina</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2016</td></tr>
         <tr><td class="r-role">Papageno</td><td class="r-title">Die Zauberflöte</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2016</td></tr>
@@ -552,12 +615,12 @@
         <tr><td class="r-role">Top</td><td class="r-title">The Tender Land</td><td class="r-org">Utah State University</td><td class="r-yr">2006</td></tr>
       </table>
     </div>
-  </section>
+  </details>
 
   <!-- credits: concert & oratorio -->
-  <section class="resume-section alt">
+  <details class="resume-section alt">
+    <summary class="kicker">Concert &amp; Oratorio · Performer</summary>
     <div class="resume-inner">
-      <div class="kicker">Concert &amp; Oratorio</div>
       <table class="resume-table">
         <tr><td class="r-role">Haydn</td><td class="r-title">The Creation</td><td class="r-org">Corvallis Repertory Singers</td><td class="r-yr">2019</td></tr>
         <tr><td class="r-role">Brahms</td><td class="r-title">Ein Deutsches Requiem</td><td class="r-org">University of Maryland</td><td class="r-yr">2015</td></tr>
@@ -572,58 +635,12 @@
         <tr><td class="r-role">Beethoven</td><td class="r-title">Symphony No. 9</td><td class="r-org">Utah State University</td><td class="r-yr">2009</td></tr>
       </table>
     </div>
-  </section>
-
-  <!-- credits: directing & producing -->
-  <section class="resume-section">
-    <div class="resume-inner">
-      <div class="kicker">Directing &amp; Producing</div>
-      <table class="resume-table">
-        <tr><td class="r-role">Stage Director</td><td class="r-title">Zazà</td><td class="r-org">The Crane Opera Ensemble</td><td class="r-yr">2022</td></tr>
-        <tr><td class="r-role">Producer / Vocal Director</td><td class="r-title">Once Upon a Mattress</td><td class="r-org">Community Performance Series</td><td class="r-yr">2022</td></tr>
-        <tr><td class="r-role">Stage Director</td><td class="r-title">The Medium</td><td class="r-org">The Crane Opera Ensemble</td><td class="r-yr">2021</td></tr>
-        <tr><td class="r-role">Stage Director</td><td class="r-title">Mahagonny Songspiel</td><td class="r-org">The Crane Opera Ensemble</td><td class="r-yr">2021</td></tr>
-        <tr><td class="r-role">Stage Director</td><td class="r-title">L'elisir d'amore</td><td class="r-org">Oregon State University</td><td class="r-yr">2021</td></tr>
-        <tr><td class="r-role">Music Director</td><td class="r-title">Romeo and Juliet</td><td class="r-org">OSU Bard in the Quad</td><td class="r-yr">2021</td></tr>
-        <tr><td class="r-role">Stage Director</td><td class="r-title">The Secret Garden</td><td class="r-org">Oregon State University</td><td class="r-yr">2020</td></tr>
-        <tr><td class="r-role">Stage Director</td><td class="r-title">La rondine</td><td class="r-org">Oregon State University</td><td class="r-yr">2019</td></tr>
-        <tr><td class="r-role">Stage Director</td><td class="r-title">Mozartistry</td><td class="r-org">Oregon State University</td><td class="r-yr">2019</td></tr>
-        <tr><td class="r-role">Music Director</td><td class="r-title">Shakespeare in Love</td><td class="r-org">Oregon State University</td><td class="r-yr">2019</td></tr>
-        <tr><td class="r-role">Music Director</td><td class="r-title">Guys and Dolls</td><td class="r-org">Providence Hall H.S.</td><td class="r-yr">2017</td></tr>
-        <tr><td class="r-role">Stage Director</td><td class="r-title">So Many Possibilities</td><td class="r-org">Oregon State University</td><td class="r-yr">2017</td></tr>
-        <tr><td class="r-role">Stage Director</td><td class="r-title">Mozart Scenes Program</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2011</td></tr>
-      </table>
-    </div>
-  </section>
-
-  <!-- training & education (dark) -->
-  <section class="resume-section alt">
-    <div class="resume-inner">
-      <div class="kicker">Training &amp; Education</div>
-      <div>
-        <table class="resume-table" style="margin-bottom: 28px;">
-          <tr><td class="r-role">Doctor of Musical Arts</td><td class="r-title">Opera and Voice Pedagogy</td><td class="r-org">University of Maryland</td><td class="r-yr">2016</td></tr>
-          <tr><td class="r-role">Master of Music</td><td class="r-title">Voice</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2013</td></tr>
-          <tr><td class="r-role">Bachelor of Music</td><td class="r-title">Vocal Performance</td><td class="r-org">Utah State University</td><td class="r-yr">2010</td></tr>
-          <tr><td class="r-role">Bachelor of Music</td><td class="r-title">Choral Music Education</td><td class="r-org">Utah State University</td><td class="r-yr">2011</td></tr>
-        </table>
-        <div class="resume-sublabel">Artist Training</div>
-        <div class="pills">
-          <span class="pill">Maryland Opera Studio</span>
-          <span class="pill">Charlottesville Opera</span>
-          <span class="pill">Castleton Festival</span>
-          <span class="pill">Wolf Trap Opera</span>
-          <span class="pill">NYC Audition Boot Camp</span>
-          <span class="pill">Utah Festival Opera &amp; Musical Theatre</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  </details>
 
   <!-- research & writing -->
-  <section class="resume-section">
+  <details class="resume-section">
+    <summary class="kicker">Research &amp; Writing</summary>
     <div class="resume-inner">
-      <div class="kicker">Research &amp; Writing</div>
       <div>
         <div class="research-item">
           <p class="research-title"><a href="research/eversole-dissertation.pdf" target="_blank" rel="noopener"><em>Sexism and Imperialism in Mozart's Don Giovanni, Puccini's Madama Butterfly, and Blitzstein's Regina: A Performance Study</em></a></p>
@@ -639,12 +656,12 @@
         </div>
       </div>
     </div>
-  </section>
+  </details>
 
   <!-- distinctions -->
-  <section class="resume-section alt">
+  <details class="resume-section alt">
+    <summary class="kicker">Distinctions</summary>
     <div class="resume-inner">
-      <div class="kicker">Distinctions</div>
       <ul class="distinctions">
         <li>1st Place, Classical Singer University Competition, 2011</li>
         <li>1st Place, NATS Student Auditions, Advanced, 2009 &amp; 2010</li>
@@ -656,12 +673,12 @@
         <li>Marie Eccles Caine Opera Quartet Scholarship</li>
       </ul>
     </div>
-  </section>
+  </details>
 
   <!-- artistic affiliates -->
-  <section class="resume-section">
+  <details class="resume-section">
+    <summary class="kicker">Artistic Affiliates</summary>
     <div class="resume-inner">
-      <div class="kicker">Artistic Affiliates</div>
       <div class="aff-grid">
         <div class="aff-item">
           <div class="aff-label">Coaches</div>
@@ -730,7 +747,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </details>
 
   <!-- Lightbox modal -->
   <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Production detail">
