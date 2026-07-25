@@ -31,6 +31,9 @@
     }
     .hero-tagline-bar {
       margin-top: auto;
+      margin-left: -64px;
+      margin-right: -64px;
+      margin-bottom: -80px;
       background: var(--border);
       padding: 16px 24px;
       text-align: center;
@@ -123,7 +126,7 @@
       position: absolute;
       left: 0; right: 0; top: 0;
       height: 3px;
-      background: var(--border);
+      background: var(--accent);
       opacity: 0;
       transition: opacity .18s;
     }
@@ -347,6 +350,7 @@
       /* Hero: banner image below text */
       .hero { grid-template-columns: 1fr; min-height: unset; }
       .hero-text { padding: 48px 24px 36px; }
+      .hero-tagline-bar { margin-left: -24px; margin-right: -24px; margin-bottom: -36px; }
       .hero .img-slot { height: 300px; overflow: hidden; }
       .hero-h1 { font-size: 38px; line-height: 1.18; letter-spacing: -0.01em; margin-bottom: 18px; }
       .hero-sub { font-size: 18px; margin-bottom: 28px; }
