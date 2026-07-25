@@ -23,9 +23,16 @@
       min-height: 680px;
       border-bottom: 1px solid var(--border);
     }
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 64px;
+    }
     .hero-tagline-bar {
-      background: var(--faint);
-      padding: 18px 24px;
+      margin-top: auto;
+      background: var(--border);
+      padding: 16px 24px;
       text-align: center;
     }
     .hero-tagline-text {
@@ -34,13 +41,7 @@
       font-weight: 600;
       letter-spacing: .22em;
       text-transform: uppercase;
-      color: var(--bg);
-    }
-    .hero-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 80px 64px;
+      color: var(--accent);
     }
     .hero-h1 {
       font-family: var(--serif);
@@ -122,7 +123,7 @@
       position: absolute;
       left: 0; right: 0; top: 0;
       height: 3px;
-      background: var(--accent);
+      background: var(--border);
       opacity: 0;
       transition: opacity .18s;
     }
@@ -410,15 +411,14 @@
       <div class="hero-actions">
         <a href="book.html" class="hero-cta-primary">Book a Session</a>
       </div>
+      <div class="hero-tagline-bar">
+        <span class="hero-tagline-text">Voice Lessons &middot; Audition Prep &middot; Stage Direction</span>
+      </div>
     </div>
     <div class="img-slot" style="position: relative;">
       <img src="images/site/stage-chair.jpeg" alt="A spotlit chair on an empty stage" />
     </div>
   </section>
-
-  <div class="hero-tagline-bar">
-    <span class="hero-tagline-text">Voice Lessons &middot; Audition Prep &middot; Stage Direction</span>
-  </div>
 
   <!-- offerings -->
   <section class="offerings">
