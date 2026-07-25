@@ -42,7 +42,7 @@ button { font-family: var(--sans); cursor: pointer; }
   padding: 0 64px;
   height: 68px;
   border-bottom: 1px solid var(--border);
-  background: var(--bg);
+  background: var(--bg-alt);
   position: sticky;
   top: 0;
   z-index: 100;
