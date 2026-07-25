@@ -16,16 +16,18 @@
     .contact-wrap {
       display: grid;
       grid-template-columns: 420px 1fr;
-      align-items: stretch;
+      align-items: start;
     }
 
-    /* Sidebar (full-bleed duotone panel) */
+    /* Sidebar (full-bleed width; sticks to its own content height, not
+       stretched to chase the form's height, so it reliably releases
+       before the footer instead of overlapping it) */
     .contact-sidebar {
       background: var(--ink);
-    }
-    .contact-sidebar-inner {
       position: sticky;
       top: 68px;
+    }
+    .contact-sidebar-inner {
       padding: 88px 56px;
     }
     .contact-sidebar h1 {
@@ -242,7 +244,8 @@
 
     @media (max-width: 860px) {
       .contact-wrap { grid-template-columns: 1fr; }
-      .contact-sidebar-inner { position: static; padding: 56px 32px; }
+      .contact-sidebar { position: static; }
+      .contact-sidebar-inner { padding: 56px 32px; }
       .contact-form-inner { padding: 56px 32px; max-width: none; }
       .form-row { grid-template-columns: 1fr; gap: 0; }
       .form-row .form-group { margin-bottom: 28px; }
@@ -292,6 +295,10 @@
           <div class="contact-meta-row">
             <span class="contact-meta-label">Location</span>
             <span class="contact-meta-value">Salt Lake City, Utah</span>
+          </div>
+          <div class="contact-meta-row">
+            <span class="contact-meta-label">In-Person Lessons</span>
+            <span class="contact-meta-value">Day Murray Music, Murray, UT</span>
           </div>
           <div class="contact-meta-row">
             <span class="contact-meta-label">Online Lessons</span>
