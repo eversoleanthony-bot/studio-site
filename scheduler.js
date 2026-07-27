@@ -208,6 +208,10 @@
       </div>
       <button type="submit" class="scheduler-btn scheduler-btn-submit">Confirm Session</button>
       <p id="scheduler-error" class="scheduler-form-error" hidden role="alert" aria-live="assertive" tabindex="-1"></p>
+    `;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
       const submitBtn = form.querySelector(".scheduler-btn-submit");
       const errorEl = form.querySelector(".scheduler-form-error");
       errorEl.hidden = true;
