@@ -42,13 +42,18 @@
   }
 
   function renderLoading() {
-    render(`<p class="scheduler-status">Loading available times…</p>`);
+    root.setAttribute("aria-busy", "true");
+    render(`<p class="scheduler-status" role="status" aria-live="polite">Loading available times…</p>`);
+    root.removeAttribute("aria-busy");
   }
 
   function renderError(msg, retry) {
     root.innerHTML = "";
     const p = document.createElement("p");
     p.className = "scheduler-status scheduler-error";
+    p.setAttribute("role", "alert");
+    p.setAttribute("aria-live", "assertive");
+    p.tabIndex = -1;
     p.textContent = msg;
     root.appendChild(p);
     if (retry) {
@@ -58,6 +63,7 @@
       btn.addEventListener("click", retry);
       root.appendChild(btn);
     }
+    p.focus();
   }
 
   async function loadAvailability() {
@@ -173,28 +179,35 @@
     form.className = "scheduler-form";
     form.innerHTML = `
       <div class="scheduler-form-row">
-        <label>Name<input type="text" name="name" required /></label>
-        <label>Email<input type="email" name="email" required /></label>
+        <div>
+          <label class="scheduler-label" for="scheduler-name">Name</label>
+          <input id="scheduler-name" type="text" name="name" required />
+        </div>
+        <div>
+          <label class="scheduler-label" for="scheduler-email">Email</label>
+          <input id="scheduler-email" type="email" name="email" required />
+        </div>
       </div>
-      <label>Session Focus
-        <select name="sessionFocus" required>
+      <div class="scheduler-form-group">
+        <label class="scheduler-label" for="scheduler-session-focus">Session Focus</label>
+        <select id="scheduler-session-focus" name="sessionFocus" required>
           <option value="" disabled selected>Select one</option>
           ${SESSION_FOCUS_OPTIONS.map((o) => `<option value="${o}">${o}</option>`).join("")}
         </select>
-      </label>
-      <label>Experience Level
-        <select name="experienceLevel" required>
+      </div>
+      <div class="scheduler-form-group">
+        <label class="scheduler-label" for="scheduler-experience-level">Experience Level</label>
+        <select id="scheduler-experience-level" name="experienceLevel" required>
           <option value="" disabled selected>Select one</option>
           ${EXPERIENCE_LEVEL_OPTIONS.map((o) => `<option value="${o}">${o}</option>`).join("")}
         </select>
-      </label>
-      <label>Notes (optional)<textarea name="notes" rows="2"></textarea></label>
+      </div>
+      <div class="scheduler-form-group">
+        <label class="scheduler-label" for="scheduler-notes">Notes (optional)</label>
+        <textarea id="scheduler-notes" name="notes" rows="2"></textarea>
+      </div>
       <button type="submit" class="scheduler-btn scheduler-btn-submit">Confirm Session</button>
-      <p class="scheduler-form-error" hidden></p>
-    `;
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+      <p id="scheduler-error" class="scheduler-form-error" hidden role="alert" aria-live="assertive" tabindex="-1"></p>
       const submitBtn = form.querySelector(".scheduler-btn-submit");
       const errorEl = form.querySelector(".scheduler-form-error");
       errorEl.hidden = true;
@@ -222,6 +235,10 @@
           if (res.status === 409) {
             errorEl.textContent = "That time was just booked by someone else. Please pick another.";
             errorEl.hidden = false;
+            errorEl.setAttribute("role", "alert");
+            errorEl.setAttribute("aria-live", "assertive");
+            errorEl.tabIndex = -1;
+            errorEl.focus();
             submitBtn.disabled = false;
             submitBtn.textContent = "Confirm Session";
             setTimeout(loadAvailability, 1500);
@@ -234,6 +251,10 @@
       } catch (err) {
         errorEl.textContent = "Something went wrong booking that session. Please try again.";
         errorEl.hidden = false;
+        errorEl.setAttribute("role", "alert");
+        errorEl.setAttribute("aria-live", "assertive");
+        errorEl.tabIndex = -1;
+        errorEl.focus();
         submitBtn.disabled = false;
         submitBtn.textContent = "Confirm Session";
       }
@@ -257,6 +278,15 @@
     msg.className = "scheduler-label";
     msg.textContent = `Booked — ${fmtDateHeading(dateStr)} at ${fmtTime(startIso)}`;
     wrap.appendChild(msg);
+
+    const success = document.createElement("p");
+    success.className = "scheduler-status scheduler-success";
+    success.setAttribute("role", "status");
+    success.setAttribute("aria-live", "polite");
+    success.tabIndex = -1;
+    success.textContent = "Your session is confirmed. You’ll get an email confirmation shortly.";
+    wrap.appendChild(success);
+    success.focus();
 
     const done = totalSessions && bookedCount >= totalSessions;
 

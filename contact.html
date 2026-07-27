@@ -268,6 +268,8 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <nav class="nav">
     <a href="index.html" class="nav-brand">
       <span class="nav-brand-name">Anthony Eversole</span>
@@ -284,6 +286,8 @@
       </div>
     </div>
   </nav>
+
+  <main id="main-content" tabindex="-1">
 
   <div class="contact-wrap">
 
@@ -377,7 +381,8 @@
           <span class="form-note">Anthony will be in touch within 48 hours.</span>
         </div>
 
-        <div class="form-success" id="form-success">
+        <div class="form-error" id="form-error" role="alert" aria-live="assertive" hidden></div>
+        <div class="form-success" id="form-success" role="status" aria-live="polite" tabindex="-1">
           Message sent — thank you. Anthony will be in touch within 48 hours.
         </div>
       </form>
@@ -385,6 +390,8 @@
     </div>
 
   </div>
+
+  </main>
 
   <footer class="footer-main">
     <a href="index.html" class="footer-brand-link">Anthony Eversole, DMA</a>
@@ -411,6 +418,10 @@
       e.preventDefault();
       var form = this;
       var btn = form.querySelector('.btn-send');
+      var successEl = document.getElementById('form-success');
+      var errorEl = document.getElementById('form-error');
+      successEl.style.display = 'none';
+      errorEl.hidden = true;
       btn.textContent = 'Sending…';
       btn.disabled = true;
       fetch('https://api.web3forms.com/submit', {
@@ -419,17 +430,22 @@
       }).then(function(r) { return r.json(); }).then(function(data) {
         if (data.success) {
           form.reset();
-          document.getElementById('form-success').style.display = 'block';
+          successEl.style.display = 'block';
+          successEl.focus();
           btn.textContent = 'Sent';
         } else {
           btn.textContent = 'Send Message';
           btn.disabled = false;
-          alert('Something went wrong. Please try again or email directly.');
+          errorEl.textContent = 'Something went wrong. Please try again or email directly.';
+          errorEl.hidden = false;
+          errorEl.focus();
         }
       }).catch(function() {
         btn.textContent = 'Send Message';
         btn.disabled = false;
-        alert('Something went wrong. Please try again or email directly.');
+        errorEl.textContent = 'Something went wrong. Please try again or email directly.';
+        errorEl.hidden = false;
+        errorEl.focus();
       });
     });
   </script>

@@ -26,13 +26,17 @@
     .hero-text {
       display: flex;
       flex-direction: column;
-      padding: 80px 64px;
+      position: relative;
+      padding: 80px 64px 0;
+    }
+    .hero-content {
+      margin-bottom: 32px;
     }
     .hero-tagline-bar {
       margin-top: auto;
       margin-left: -64px;
       margin-right: -64px;
-      margin-bottom: -80px;
+      margin-bottom: 0;
       background: var(--border);
       padding: 16px 24px;
       text-align: center;
@@ -44,6 +48,9 @@
       letter-spacing: .22em;
       text-transform: uppercase;
       color: var(--accent);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .hero-h1 {
       font-family: var(--serif);
@@ -296,6 +303,16 @@
       }
       .nav-ctas { padding: 20px 0 0; }
       .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
+      /* Hero: keep tagline bar separate from CTA at tablet */
+      .hero-text { padding-bottom: 0; }
+      .hero-content { margin-bottom: 24px; }
+      .hero-tagline-bar {
+        position: relative;
+        margin-left: -64px;
+        margin-right: -64px;
+        margin-top: auto;
+        margin-bottom: 0;
+      }
       /* Teacher: compress spacing at tablet, portrait stays 2-column */
       .teacher { gap: 48px; }
       .teacher-img { min-height: 480px; }
@@ -348,8 +365,21 @@
 
       /* Hero: banner image below text */
       .hero { grid-template-columns: 1fr; min-height: unset; }
-      .hero-text { padding: 48px 24px 36px; }
-      .hero-tagline-bar { margin-left: -24px; margin-right: -24px; margin-bottom: -36px; }
+      .hero-text { padding: 48px 24px 0; }
+      .hero-content { margin-bottom: 26px; }
+      .hero-tagline-bar {
+        margin-left: -24px;
+        margin-right: -24px;
+        margin-top: auto;
+        margin-bottom: 0;
+        padding: 12px 20px;
+      }
+      .hero-tagline-text {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 10px;
+      }
       .hero .img-slot { height: 300px; overflow: hidden; }
       .hero-h1 { font-size: 38px; line-height: 1.18; letter-spacing: -0.01em; margin-bottom: 18px; }
       .hero-sub { font-size: 18px; margin-bottom: 28px; }
@@ -388,6 +418,8 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <!-- nav -->
   <nav class="nav">
     <a href="index.html" class="nav-brand">
@@ -405,6 +437,8 @@
       </div>
     </div>
   </nav>
+
+  <main id="main-content" tabindex="-1">
 
   <!-- hero -->
   <section class="hero">
@@ -621,6 +655,8 @@
   </section>
 
   <!-- footer -->
+  </main>
+
   <footer class="footer-main">
     <a href="index.html" class="footer-brand-link">Anthony Eversole, DMA</a>
     <div class="footer-main-links">

@@ -35,6 +35,17 @@
     .book-item-desc { font-size: 13px; line-height: 1.55; color: var(--secondary); margin-top: 4px; }
     .book-item-btn { flex-shrink: 0; padding: 10px 18px; background: transparent; border: 1.5px solid var(--accent); color: var(--accent); font-family: var(--sans); font-size: 12px; font-weight: 600; cursor: pointer; letter-spacing: .04em; transition: background .15s, color .15s; white-space: nowrap; text-decoration: none; display: inline-block; }
     .book-item-btn:hover { background: var(--accent); color: #F6F1E7; }
+    .book-noscript {
+      padding: 22px 24px;
+      margin: 24px 0 0;
+      border-left: 3px solid var(--accent);
+      background: var(--bg-alt);
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .book-noscript ul { margin: 12px 0 0 1.4em; }
+    .book-noscript a { color: var(--accent); text-decoration: underline; }
 
     /* bundles section */
     .book-bundles-section { padding: 40px 64px 0; }
@@ -133,6 +144,8 @@
 </head>
 <body>
 
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <nav class="nav">
     <a href="index.html" class="nav-brand">
       <span class="nav-brand-name">Anthony Eversole</span>
@@ -149,6 +162,8 @@
       </div>
     </div>
   </nav>
+
+  <main id="main-content" tabindex="-1">
 
   <!-- page hero -->
   <section class="book-hero">
@@ -167,7 +182,9 @@
             <div class="book-item-title">Consultation <span class="book-item-free">Free</span><span class="book-item-dur">30 min</span></div>
             <div class="book-item-desc">A first meeting: we talk through your goals, hear your voice, and map out a direction together.</div>
           </div>
-          <button class="book-item-btn"
+          <button type="button" class="book-item-btn"
+            aria-haspopup="dialog"
+            aria-label="Book a free 30-minute consultation"
             data-cal-link="anthony-eversole-voice/consultation"
             data-cal-namespace="consultation"
             data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book &rarr;</button>
@@ -178,7 +195,9 @@
             <div class="book-item-title">Studio Session <span class="book-item-dur">60 min</span><span class="book-item-price">&middot; $100</span></div>
             <div class="book-item-desc">Advanced technique, singing-actor integration, and audition preparation. For adults and serious students.</div>
           </div>
-          <button class="book-item-btn"
+          <button type="button" class="book-item-btn"
+            aria-haspopup="dialog"
+            aria-label="Book a 60-minute studio session"
             data-cal-link="anthony-eversole-voice/voice-lesson-60-min"
             data-cal-namespace="voice-lesson-60-min"
             data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book &rarr;</button>
@@ -189,7 +208,9 @@
             <div class="book-item-title">Studio Session <span class="book-item-dur">45 min</span><span class="book-item-price">&middot; $80</span></div>
             <div class="book-item-desc">Targeted vocal technique and intermediate development. Ideal for building consistency in a defined skill area.</div>
           </div>
-          <button class="book-item-btn"
+          <button type="button" class="book-item-btn"
+            aria-haspopup="dialog"
+            aria-label="Book a 45-minute studio session"
             data-cal-link="anthony-eversole-voice/studio-session-45-min"
             data-cal-namespace="studio-session-45-min"
             data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book &rarr;</button>
@@ -200,7 +221,9 @@
             <div class="book-item-title">Junior Session <span class="book-item-dur">30 min</span><span class="book-item-price">&middot; $55</span></div>
             <div class="book-item-desc">Focused instruction for younger voices: core musicianship, healthy habits, and early technique.</div>
           </div>
-          <button class="book-item-btn"
+          <button type="button" class="book-item-btn"
+            aria-haspopup="dialog"
+            aria-label="Book a 30-minute junior session"
             data-cal-link="anthony-eversole-voice/junior-session-30-min"
             data-cal-namespace="junior-session-30-min"
             data-cal-config='{"layout":"month_view","useSlotsViewOnSmallScreen":"true"}'>Book &rarr;</button>
@@ -282,6 +305,8 @@
       <p class="book-policies"><em>Studio policies:</em> 24-hour rescheduling window &middot; bundle sessions expire as noted above &middot; parent or guardian confirmation required for students under 18.</p>
     </div>
   </div>
+
+  </main>
 
   <footer class="footer-main">
     <a href="index.html" class="footer-brand-link">Anthony Eversole, DMA</a>
