@@ -177,6 +177,14 @@
     }
     .org-service-link:hover { color: var(--bg); opacity: 1; }
 
+    /* ---- In the Room ---- */
+    .in-the-room { background: var(--ink); padding: 72px 64px; border-bottom: 1px solid rgba(246,241,231,.1); }
+    .in-the-room .kicker { color: var(--accent-md); margin-bottom: 16px; }
+    .in-the-room-inner { display: grid; grid-template-columns: 280px 1fr; gap: 56px; }
+    .in-the-room-label { font-family: var(--serif); font-size: 15px; line-height: 1.72; color: rgba(246,241,231,.6); }
+    .video-embed { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; }
+    .video-embed iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
     /* ---- Directing credits ---- */
     .resume-section { padding: 80px 64px; border-bottom: 1px solid var(--border); }
     .resume-section.alt { background: var(--bg-alt); }
@@ -322,6 +330,9 @@
       .resume-section { padding: 64px 48px; }
       .resume-inner { grid-template-columns: 220px 1fr; gap: 40px; }
 
+      .in-the-room { padding: 56px 48px; }
+      .in-the-room-inner { grid-template-columns: 220px 1fr; gap: 40px; }
+
       .inquiry-band { padding: 72px 48px; grid-template-columns: 1fr; gap: 48px; }
     }
 
@@ -347,6 +358,9 @@
       .resume-section { padding: 48px 24px; }
       .resume-inner { grid-template-columns: 1fr; gap: 28px; }
       .credits-h2 { font-size: 24px; }
+
+      .in-the-room { padding: 40px 24px; }
+      .in-the-room-inner { grid-template-columns: 1fr; gap: 20px; }
       .resume-table tr { display: block; position: relative; padding: 10px 0 10px; border-bottom: 1px solid var(--border); }
       .resume-table tr:last-child { border-bottom: none; }
       .resume-table td { display: block; width: auto !important; padding: 0; }
@@ -496,6 +510,22 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- in the room -->
+  <section class="in-the-room" id="in-the-room">
+    <div class="in-the-room-inner">
+      <div>
+        <div class="kicker">In the Room</div>
+        <p class="in-the-room-label">It's Quiet Uptown, from Hamilton. Rehearsed for So Many Possibilities (a musical theatre and opera scenes program), OSU Lyric Stage (Corvallis, Oregon), Fall 2018.</p>
+        <p class="in-the-room-label" style="margin-top: 14px;">Early in the process here, working toward stillness in the performance and the vulnerability underneath the scene's conflict.</p>
+      </div>
+      <div>
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/ZoLxllwwxWM" title="It's Quiet Uptown rehearsal, Hamilton, OSU Lyric Stage (Corvallis, Oregon), Fall 2018" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
     </div>
   </section>
 

@@ -100,6 +100,9 @@
       font-size: 10.5px; font-weight: 600; letter-spacing: .16em;
       text-transform: uppercase; color: var(--accent-lt); margin-bottom: 6px;
     }
+    .post-featured-show {
+      color: rgba(246,241,231,.55); text-transform: none; letter-spacing: .04em; font-weight: 500;
+    }
     .post-featured-date {
       font-size: 12px; color: rgba(246,241,231,.6); margin-bottom: 20px;
     }
@@ -140,6 +143,9 @@
     .post-card-cat {
       font-size: 10.5px; font-weight: 600; letter-spacing: .16em;
       text-transform: uppercase; color: var(--accent); margin-bottom: 16px;
+    }
+    .post-card-show {
+      color: var(--meta); text-transform: none; letter-spacing: .04em; font-weight: 500;
     }
     .post-card-title {
       font-family: var(--serif); font-size: 22px; line-height: 1.32;
@@ -365,7 +371,7 @@
         html += `
           <a href="${featured.href}" class="post-featured${featured.image ? '' : ' no-image'}">
             <div class="post-featured-text">
-              <div class="post-featured-label">${featured.category}</div>
+              <div class="post-featured-label">${featured.category}${featured.show ? ` <span class="post-featured-show">&middot; ${featured.show}</span>` : ''}</div>
               <div class="post-featured-date">${featured.date}</div>
               <span class="post-featured-title">${featured.title}</span>
               <p class="post-featured-excerpt">${featured.excerpt}</p>
@@ -377,7 +383,7 @@
 
       html += regular.map(p => `
         <a href="${p.href}" class="post-card">
-          <div class="post-card-cat">${p.category}</div>
+          <div class="post-card-cat">${p.category}${p.show ? ` <span class="post-card-show">&middot; ${p.show}</span>` : ''}</div>
           <span class="post-card-title">${p.title}</span>
           ${p.excerpt ? `<p class="post-card-excerpt">${p.excerpt}</p>` : ''}
           <div class="post-card-date">${p.date}</div>

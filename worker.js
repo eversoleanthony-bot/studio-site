@@ -123,6 +123,15 @@ export default {
       return env.ASSETS.fetch(new Request(new URL("/index.html", url), request));
     }
 
+    // Short, shareable alias for the larynx explorer lab tool.
+    // Must be a real redirect, not a transparent asset fetch: the page's own
+    // script tag and the JS's GLB load are both plain relative paths resolved
+    // against whatever URL is in the address bar, so the browser needs to
+    // actually land on /lab/larynx-explorer.html for those to resolve right.
+    if (path === "/larynx" || path === "/larynx/") {
+      return Response.redirect(new URL("/lab/larynx-explorer.html", url), 302);
+    }
+
     if (!path.includes(".") && !path.endsWith("/")) {
       return env.ASSETS.fetch(new Request(new URL(path + ".html", url), request));
     }

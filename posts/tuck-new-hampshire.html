@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Angus Tuck has been alive since 1763. A documented historical world-build for the character, from colonial New Hampshire farm life to the family&#8217;s first decade keeping the secret." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>New Hampshire, 1763: Building Angus Tuck&#8217;s World | Anthony Eversole</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .post-series-badge {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--bg-alt);
+      border: 1px solid var(--accent-lt);
+      padding: 4px 10px;
+      margin-left: 10px;
+    }
+
+    .post-series-nav {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 3em 0;
+      padding: 1.6em 0;
+    }
+    .post-series-nav h2 {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1em;
+    }
+    .post-series-nav ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: series;
+    }
+    .post-series-nav li {
+      counter-increment: series;
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.6;
+      margin-bottom: .6em;
+      padding-left: 1.6em;
+      position: relative;
+    }
+    .post-series-nav li::before {
+      content: counter(series) ".";
+      position: absolute;
+      left: 0;
+      font-family: var(--sans);
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .post-series-nav li.current { color: var(--muted); }
+    .post-series-nav a { color: var(--accent); text-decoration: none; }
+    .post-series-nav a:hover { text-decoration: underline; }
+
+    .post-img-row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 32px 0; }
+    .post-img-row figure.post-img { margin: 0; }
+    @media (max-width: 700px) {
+      .post-img-row { grid-template-columns: 1fr; }
+    }
+
+    /* Nav hamburger (hidden on desktop) */
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      padding: 8px 0;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media (max-width: 1149px) {
+      .nav { padding: 0 40px; }
+      .nav-menu-btn { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 40px 28px;
+        gap: 0;
+        z-index: 99;
+        box-shadow: 0 4px 16px rgba(34,30,25,.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links > a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        letter-spacing: .12em;
+      }
+      .nav-ctas { padding: 20px 0 0; }
+      .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
+    }
+
+    @media (max-width: 767px) {
+      .nav { padding: 0 24px; }
+      .nav-links { padding: 8px 24px 28px; }
+
+      /* Footer: stack and wrap */
+      .footer-main { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; }
+      .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
+      .footer-legal { flex-direction: column; gap: 12px; padding: 16px 24px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="../index.html" class="nav-brand">
+      <span class="nav-brand-name">Anthony Eversole</span>
+      <span class="nav-brand-kicker">Voice &amp; Stage</span>
+    </a>
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
+      <a href="../lessons.html">Lessons</a>
+      <a href="../on-stage.html">On Stage</a>
+      <a href="../organizations.html">For Organizations</a>
+      <a href="../blog.html" class="active">Blog</a>
+      <div class="nav-ctas">
+        <a href="../book.html" class="nav-book">Book a Session</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="post-header">
+    <a class="post-back" href="../blog.html">&#8592; All Posts</a>
+    <div class="post-header-meta">
+      <span class="post-header-category">Dramaturgy</span>
+      <span class="post-header-date">July 2026</span>
+      <span class="post-series-badge">Part 1 of 3</span>
+    </div>
+    <h1>New Hampshire, 1763: Building Angus Tuck&#8217;s World</h1>
+    <p class="post-lede"><em>Tuck Everlasting</em> is a musical by Chris Miller (music), Nathan Tysen (lyrics), and Claudia Shear and Tim Federle (book), based on the 1975 novel by Natalie Babbitt. It tells the story of Winnie Foster, an eleven-year-old girl who stumbles onto the Tuck family&#8217;s secret in the woods outside her town: a spring that stops anyone who drinks from it from ever aging or dying again. Winnie has to decide what to do with that secret, and whether to drink from the spring herself, while a stranger looking to exploit the spring for his own profit closes in on the family.</p>
+  </header>
+
+  <article class="post-body">
+
+    <p>This is the first of three posts exploring the social, political, and economic pressures that shaped Angus Tuck (my role for an October 2026 production with Sandy Arts Guild) and his family through their extraordinary situation, the specific given circumstances laid out scene by scene in both Natalie Babbitt&#8217;s novel and the stage adaptation, the real nuances of the family&#8217;s relationships, and the risk and stakes of never staying anonymous long enough to be safe. I&#8217;m making my process public mostly as a form of accountability, but who knows? Maybe it will help another actor, director, or dramaturg at some point down the line. It&#8217;s a wheel, after all.</p>
+
+    <h2>Born 1763, forty-five when it happens</h2>
+
+    <p>Though the source material never gives an exact birth year, it&#8217;s clear Angus was somewhere in his forties when he and his family drank from the spring in Treegap wood. I&#8217;m forty-five this year, so I built this character study around the assumption that Angus was my exact age when he drank and stopped aging for good. That puts his birth year at 1763, forty-five years before 1808.</p>
+
+    <p>Working from that year, Angus is born the same year the French and Indian War ends, into a rural New Hampshire farming family under British rule, Congregationalist church shaping nearly every local institution. Colonial resentment builds through his entire boyhood, absorbed secondhand through his father, his church, and town meeting rather than anything he understands firsthand yet.</p>
+
+    <h2>A young boy&#8217;s world</h2>
+
+    <p>His childhood runs through a decade of rising British taxes and trade restrictions, on sugar and molasses, on the paper behind every deed and will, on glass and paint and tea, each one landing on a family that already stretches its own labor to cover as much of its own needs as it can. It shows up as higher prices, scarcer coin, and a steady, close-to-the-ground resentment of a government an ocean away that keeps taxing without asking. By the time he&#8217;s eleven, Portsmouth has its own answer to the Boston Tea Party, patriots turning tea ships away rather than let them unload, proof to a household like his that this kind of resistance isn&#8217;t only a Massachusetts thing, and that it can work.</p>
+
+    <p>A boy raised on that particular, steady drip of resentment learns something specific from it: that distant authority and the paperwork it runs on are things to fear and avoid rather than trust. That lesson outlives the Revolution by a long way. It&#8217;s the same instinct, decades later, that has a man with an impossible secret to keep steering clear of every form, record, and official who might ask a question he can&#8217;t safely answer.</p>
+
+    <p>Day to day at this age means waking before dawn to chores, milking, feeding stock, hauling water and firewood, before a breakfast of cornmeal mush, brown bread, and maybe salt pork or eggs, but the chores are only part of what actually shapes him. A boy his age spends most of his working hours under his father&#8217;s eye rather than his mother&#8217;s, learning to handle tools, tend livestock, and read weather and soil years before he&#8217;s trusted with anything that actually matters to the farm&#8217;s survival. What schooling he gets comes in short winter terms at a one-room schoolhouse, a hornbook and the Bible for textbooks, squeezed into the weeks when the heaviest field labor lets up. Church shapes just as much of him: a two or three hour Sunday service, catechism drilled at home in between, family prayer and a chapter of scripture most evenings before bed. Play is whatever time is left over, other children at meeting and at the husking bees and quilting bees, swimming in summer, sledding in winter. Respect for elders isn&#8217;t an abstraction. It&#8217;s enforced daily, at the table, at meeting, in how a boy is expected to address his own father.</p>
+
+    <p>The house he grows up in is a one or two room farmhouse built around a single hearth, the only heat and the only stove the household has, walls chinked with clay and moss against the cold. Medicine is home remedies and prayer, a doctor only for the direst emergencies if one is even reachable. Childhood illness is a constant, quiet threat, and losing a sibling in infancy is common rather than exceptional. Light after dark comes from the fire and a few rationed tallow candles, so the whole household&#8217;s rhythm bends to daylight.</p>
+
+    <div class="post-img-row">
+      <figure class="post-img">
+        <img src="../images/blog/Angus%20Tuck%20Character%20Journal/Kendall%20Cottage%201798.jpg" alt="A small, unpainted one-story Cape cottage typical of a modest New England farm" loading="lazy" />
+        <figcaption>Kendall Cottage (built 1798), Harrisville, New Hampshire. Photo: Magicpiano, CC BY-SA 4.0, via Wikimedia Commons.</figcaption>
+      </figure>
+      <figure class="post-img">
+        <img src="../images/blog/Angus%20Tuck%20Character%20Journal/New%20England%20Kitchen%20Hearth%201750.jpg" alt="A reconstructed 1750 New England kitchen with open hearth and spinning wheel" loading="lazy" />
+        <figcaption>New England Kitchen (1750), Museum of the Essex Institute, Salem, Massachusetts. Public domain, via New York Public Library / Wikimedia Commons.</figcaption>
+      </figure>
+    </div>
+
+    <h2>A childhood inside the empire&#8217;s collapse</h2>
+
+    <p>He&#8217;s twelve when the Revolutionary War starts and twenty when it ends, so he can&#8217;t remember a world without it. New Hampshire militia under General John Stark fought decisively at Bennington in 1777, when he&#8217;s fourteen, an event he would have heard about in vivid detail long before he was old enough to be called up himself.</p>
+
+    <p>Wartime pressure tightens daily life through these years. With older men and some of the community&#8217;s young men away with the militia or the Continental Army, more of the farm work falls to boys his age, alongside women and grandfathers. Manufactured goods, cloth, tea, sugar, gunpowder, iron tools, grow scarce and expensive as British trade is cut off, so homespun cloth and a diet made almost entirely of what the farm itself produces become necessity rather than custom. Salt, essential for preserving meat through the winter, is in particularly short supply. Continental paper currency loses value fast, so much of daily trade reverts to barter, an item or a day&#8217;s labor exchanged directly for goods. News of the war, a battle won or lost, a treaty, a British raid somewhere on the coast, travels by post rider and hand-copied newspaper and reaches a farm this far inland weeks after the fact, so the war is lived through rumor and anxious waiting nearly as much as through direct experience.</p>
+
+    <h2>Coming of age in a new country</h2>
+
+    <p>By the time the country is inventing its own government, he&#8217;s a young man building a household of his own, coming of age at twenty into postwar depression across New England. Shays&#8217; Rebellion breaks out in neighboring Massachusetts in 1786 and 1787, when he&#8217;s twenty-three and twenty-four. The Constitutional Convention meets in 1787, the year he turns twenty-four. New Hampshire ratifies the Constitution as the ninth state in June 1788, the vote that puts the federal government into effect, when he&#8217;s twenty-five. Washington&#8217;s presidency begins the following year.</p>
+
+    <p>This is the likely window for meeting and marrying Mae and for Miles and Jesse&#8217;s births, a young family built inside the first uncertain years of the American experiment. Courtship runs through the same communal events he grew up watching from the sidelines, barn dances, huskings, church socials. He marries Mae sometime in the 1780s. Miles and Jesse are born not long after. Building an independent household in this period means physical construction from nothing: clearing timber, building a cabin by hand, breaking new ground with an ox or horse-drawn plow, and putting in years of labor before a farm can properly support a family. Marriage means an immediate and total division of labor. He works the fields, fences, and livestock. Mae runs the house, the garden, the spinning and weaving, the dairying, and the enormous seasonal task of preserving enough food to survive a New Hampshire winter: salting, smoking, drying, pickling, plus making the family&#8217;s own soap and candles from rendered fat.</p>
+
+    <p>New Hampshire land is limited and gets divided thinner with every generation, which is exactly why so many farming families of Angus&#8217;s generation eventually go looking for new ground elsewhere, north or west, in search of better farmland, the regional norm for a man his age and station. Rumors of families packing up for Ohio, for Vermont, for the empty land further north and west, what contemporaries actually called Ohio fever, would have been a familiar dinner-table topic in exactly the circles the Tucks moved in. That pressure is the entire reason the Tucks are moving through the woods in 1808 looking for a fresh start when they find the spring, the very action that opens the show. (Natalie Babbitt&#8217;s novel sets this thirteen years earlier, in 1793. This production moves the whole timeline forward, so every date in this post is built around the stage version, not the book.)</p>
+
+    <p>The national backdrop to Angus&#8217;s forties is Jefferson&#8217;s presidency (1801 to 1809), the Louisiana Purchase in 1803, and the Lewis and Clark expedition from 1804 to 1806. The Embargo Act of 1807 devastates New England&#8217;s shipping economy the year before the family drinks, driving up the price and scarcity of the manufactured goods a farm household still depends on, salt and iron chief among them, while making the farm&#8217;s own self-sufficiency more valuable and more necessary than ever, another factor pushing the Tucks toward the search for new opportunity and a new life.</p>
+
+    <h2>What little art there was</h2>
+
+    <p>Formal art is nearly out of reach for a family like this, but it isn&#8217;t absent. Hymn singing is rooted in the New England singing school tradition and shape-note hymnody, including the Revolutionary anthem &#8220;Chester&#8221; by William Billings, written and popularized during Angus&#8217;s own childhood and adolescence. Fiddle music carries barn dances, alongside ballads brought over from England, Scotland, and Ireland, and work songs sung to pace out labor. Gravestone carving is a genuine American folk art form of exactly this period and place, alongside itinerant portrait painters, tavern signs, and needlework samplers. Woodcarving, the hobby that follows Angus through the rest of his life, sits inside this same real regional tradition of practical, hand-worked craft, the primary creative outlet available to a man of his class and place across his entire lived life.</p>
+
+    <p>The show itself sits inside that same lineage, whether or not that was ever the explicit intent. Chris Miller and Nathan Tysen have both spoken about writing from a love of American folk music, and reviewers consistently describe the score as folk-pop or bluegrass-and-ballad rather than conventional Broadway, orchestrated to foreground guitar and strings alongside the more expected horns and reeds. &#8220;The Wheel,&#8221; the number built around Angus&#8217;s own philosophy of mortality, gets singled out in reviews as folksy and almost Celtic, and the full-company numbers around it carry a driving, foot-pounding quality close to the camp-meeting and revival singing that grew out of the same shape-note tradition as &#8220;Chester.&#8221;</p>
+
+    <p>Literature means the Bible and the almanac first. Sentimental novels like <em>Charlotte Temple</em>, published in 1791 when he&#8217;s twenty-eight, circulate but likely draw suspicion in a plain farming household. Theater is essentially absent, both from Puritan-descended wariness and from simple lack of access in rural New Hampshire.</p>
+
+    <h2>Miles, Thomas, and the mistake that changes everything</h2>
+
+    <p>About a decade after the family drinks, before anyone can tell yet that something&#8217;s wrong, Miles marries and has a son, Thomas. Aging is slow enough at first that a wife might not consciously register the gap season to season. But eventually it becomes impossible to ignore: she&#8217;s aging, and Miles isn&#8217;t. In a period where anything medically unexplained was still read through a religious lens, an ageless husband doesn&#8217;t register as merely odd. He registers as frightening: witchcraft worked against him, a bargain struck with the devil, an unclean possession, the kinds of explanations a God-fearing New Hampshire household reaches for when nothing else accounts for what it&#8217;s seeing. And it isn&#8217;t only Miles. Once she&#8217;s looking for it, she sees the same thing in Angus, Mae, and Jesse: an entire family that doesn&#8217;t age. She lands on possession. She takes Thomas and leaves, and for a time she and Thomas stay with a friend, a woman who listens to the whole story and believes it. Miles doesn&#8217;t talk about him. He doesn&#8217;t know if Thomas is even still alive. (The novel gives Miles a longer marriage and more children, including a daughter, Anna, before the same fear drives his wife off, implied to have gone west on the Oregon Trail.)</p>
+
+    <p>What he also doesn&#8217;t know is that the story doesn&#8217;t die with his marriage. That friend repeats it years later to her own grandson as a bedtime tale, too strange to be anything but true, about a family who never got old. That boy grows up to be the man in the yellow suit.</p>
+
+    <h2>Splitting up to survive</h2>
+
+    <p>That loss becomes the hard lesson that reshapes how the whole family survives from that point forward, and it cements a rift between the brothers that never fully heals. Staying visible as a group of four people who never age is its own slow-motion exposure risk, so a new rule takes hold: Angus and Mae stay together as a pair, the one constant partnership in the family, while Miles and Jesse each go their own way instead of traveling together. Part of that is the same practical logic, fewer ageless people moving as a recognizable unit. Part of it is that the two brothers genuinely don&#8217;t get along well enough to want the company: Jesse&#8217;s restlessness grates against Miles&#8217;s guardedness, and eighty-five years is a long time to carry that kind of friction at close range.</p>
+
+    <p>All four reconvene on a fixed schedule: exactly once a decade, always the first week of August, always at the spring outside Treegap. It&#8217;s the one unmovable point in an otherwise scattered, undocumented life. It also means Angus experiences fatherhood almost entirely in fragments. He doesn&#8217;t get the ordinary texture of a decade with either son, a bad winter, a good harvest, a friendship, a heartbreak. He gets a few compressed days once every ten years, and then they scatter again until the next first week of August.</p>
+
+    <p>The toll lands differently on each of them. Miles comes out of his loss guarded and quiet in a way that doesn&#8217;t fully surface until much later, the grief calcified rather than processed, since there&#8217;s rarely enough uninterrupted time with his parents to actually work through it. Angus watches his son harden across decades of these brief reunions without ever being able to intervene in the moment it would have mattered, only able to offer comfort in short, scheduled windows before having to let him go again. Mae carries her own guilt about the rule itself, wondering whether splitting the boys up for decades at a stretch, in the name of staying hidden, cost Miles the parents nearby who might have actually helped him carry the loss. Jesse copes in the opposite direction: refusing to look backward, chasing recklessness and forward motion, treating immortality as an adventure rather than a wound, partly genuine temperament and partly a reaction against watching his older brother be flattened by grief.</p>
+
+    <p>That absence is where the next post picks up.</p>
+
+    <div class="post-references">
+      <h2>Further Watching</h2>
+      <ul>
+        <li><a href="https://awakemysoul.com/" target="_blank" rel="noopener"><em>Awake, My Soul: The Story of the Sacred Harp</em></a> (Matt &amp; Erica Hinton, 2006), a feature documentary on the shape-note singing-school tradition Angus would have grown up inside.</li>
+      </ul>
+    </div>
+
+    <div class="post-series-nav">
+      <h2>Angus Tuck: A Character Journal</h2>
+      <ol>
+        <li class="current">New Hampshire, 1763: Building Angus Tuck&#8217;s World <em>(you are here)</em></li>
+        <li><a href="tuck-immortality.html">The Cost of Immortality</a></li>
+        <li><a href="tuck-nine-questions.html">Building Angus Tuck: The Nine Questions</a></li>
+      </ol>
+    </div>
+
+  </article>
+
+  <div class="lightbox" id="lightbox" onclick="if(event.target===this)closeLightbox()">
+    <button class="lightbox-close" onclick="if(event.target===this)closeLightbox()" aria-label="Close">&times;</button>
+    <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+  </div>
+
+  <nav class="post-nav">
+    <div></div>
+    <a class="post-nav-item next" href="tuck-immortality.html">
+      <span class="post-nav-label">Next &#8594;</span>
+      <span class="post-nav-title">The Cost of Immortality</span>
+    </a>
+  </nav>
+
+  <footer class="footer-main">
+    <a href="../index.html" class="footer-brand-link">Anthony Eversole, DMA</a>
+    <div class="footer-main-links">
+      <a href="../lessons.html">Lessons</a>
+      <a href="../on-stage.html">On Stage</a>
+      <a href="../organizations.html">For Organizations</a>
+      <a href="../blog.html">Blog</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </footer>
+  <div class="footer-legal">
+    <div class="footer-legal-links">
+      <a href="../privacy.html">Privacy Policy</a>
+      <a href="../terms.html">Terms</a>
+    </div>
+    <div class="footer-social-links">
+      <a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.getElementById('lightbox-img').src = '';
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLightbox(); });
+    document.querySelectorAll('.post-img img').forEach(function(img) {
+      img.addEventListener('click', function() { openLightbox(this.src); });
+    });
+  </script>
+
+
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.textContent = expanded ? 'Menu' : 'Close';
+        links.classList.toggle('open', !expanded);
+      });
+    })();
+  </script>
+</body>
+</html>

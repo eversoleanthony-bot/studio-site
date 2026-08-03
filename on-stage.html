@@ -37,8 +37,9 @@
     .listening-label { font-size: 13.5px; line-height: 1.7; color: rgba(246,241,231,.6); }
 
     .track-list { display: flex; flex-direction: column; }
-    .track-row { display: flex; align-items: center; gap: 18px; padding: 16px 0; border-bottom: 1px solid #3B362E; }
+    .track-row { display: flex; flex-direction: column; gap: 8px; padding: 16px 0; border-bottom: 1px solid #3B362E; }
     .track-row:last-child { border-bottom: none; }
+    .track-top { display: flex; align-items: center; gap: 18px; }
     .track-play {
       flex: none; width: 36px; height: 36px; border-radius: 50%;
       border: 1px solid rgba(246,241,231,.35); background: none; color: var(--bg);
@@ -51,6 +52,23 @@
     .track-title { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--bg); margin-bottom: 3px; }
     .track-meta { font-size: 12px; color: var(--meta); letter-spacing: .02em; }
     .track-time { flex: none; font-size: 11px; color: var(--faint); font-variant-numeric: tabular-nums; min-width: 34px; text-align: right; }
+
+    .track-seek {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; height: 3px; margin: 0 0 0 54px; padding: 0;
+      background: #3B362E; border-radius: 2px; cursor: pointer;
+    }
+    .track-seek:disabled { cursor: default; opacity: .6; }
+    .track-seek::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--accent); border: none;
+      margin-top: -4.5px;
+    }
+    .track-seek::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: none; }
+    .track-seek::-webkit-slider-runnable-track { height: 3px; border-radius: 2px; background: transparent; }
+    .track-seek::-moz-range-track { height: 3px; border-radius: 2px; background: #3B362E; }
+    .track-seek::-moz-range-progress { height: 3px; border-radius: 2px; background: var(--accent); }
 
     /* ---- Production Photos ---- */
     .stills-section { background: var(--ink); padding: 72px 64px; border-bottom: 1px solid #3B362E; }
@@ -353,80 +371,104 @@
     <div class="listening-inner">
       <div>
         <div class="kicker" style="margin-bottom: 16px;">The Listening Room</div>
-        <p class="listening-label">Selected recordings from recital, opera, and concert. All are live recordings, not studio takes.</p>
+        <p class="listening-label">Selected live recordings from recital, opera, and concert.</p>
       </div>
       <div>
         <div class="track-list">
           <div class="track-row">
-            <button class="track-play" aria-label="Play">▶</button>
-            <div class="track-info">
-              <div class="track-title">Litany</div>
-              <div class="track-meta">John Musto</div>
+            <div class="track-top">
+              <button class="track-play" aria-label="Play">▶</button>
+              <div class="track-info">
+                <div class="track-title">Litany</div>
+                <div class="track-meta">John Musto</div>
+              </div>
+              <div class="track-time">0:00</div>
             </div>
-            <div class="track-time">0:00</div>
+            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Litany" disabled>
             <audio class="track-audio" preload="none" src="audio/litany.m4a"></audio>
           </div>
           <div class="track-row">
-            <button class="track-play" aria-label="Play">▶</button>
-            <div class="track-info">
-              <div class="track-title">Pretty Women</div>
-              <div class="track-meta">Stephen Sondheim · Sweeney Todd</div>
+            <div class="track-top">
+              <button class="track-play" aria-label="Play">▶</button>
+              <div class="track-info">
+                <div class="track-title">Pretty Women</div>
+                <div class="track-meta">Stephen Sondheim · Sweeney Todd</div>
+              </div>
+              <div class="track-time">0:00</div>
             </div>
-            <div class="track-time">0:00</div>
+            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Pretty Women" disabled>
             <audio class="track-audio" preload="none" src="audio/pretty-women.mp3"></audio>
           </div>
           <div class="track-row">
-            <button class="track-play" aria-label="Play">▶</button>
-            <div class="track-info">
-              <div class="track-title">The Phantom</div>
-              <div class="track-meta">Gerald Finzi · Earth and Air and Rain (Thomas Hardy)</div>
+            <div class="track-top">
+              <button class="track-play" aria-label="Play">▶</button>
+              <div class="track-info">
+                <div class="track-title">The Phantom</div>
+                <div class="track-meta">Gerald Finzi · Earth and Air and Rain (Thomas Hardy)</div>
+              </div>
+              <div class="track-time">0:00</div>
             </div>
-            <div class="track-time">0:00</div>
+            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: The Phantom" disabled>
             <audio class="track-audio" preload="none" src="audio/the-phantom.mp3"></audio>
           </div>
           <div class="track-row">
-            <button class="track-play" aria-label="Play">▶</button>
-            <div class="track-info">
-              <div class="track-title">Ein deutsches Requiem — Mvt. VI</div>
-              <div class="track-meta">Johannes Brahms · University of Maryland, cond. Edward Maclary</div>
+            <div class="track-top">
+              <button class="track-play" aria-label="Play">▶</button>
+              <div class="track-info">
+                <div class="track-title">Ein deutsches Requiem — Mvt. VI</div>
+                <div class="track-meta">Johannes Brahms · University of Maryland, cond. Edward Maclary</div>
+              </div>
+              <div class="track-time">0:00</div>
             </div>
-            <div class="track-time">0:00</div>
+            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Ein deutsches Requiem — Mvt. VI" disabled>
             <audio class="track-audio" preload="none" src="audio/brahms-requiem-vi.mp3"></audio>
           </div>
           <div class="track-row">
-            <button class="track-play" aria-label="Play">▶</button>
-            <div class="track-info">
-              <div class="track-title">Die zwei blauen Augen von meinem Schatz</div>
-              <div class="track-meta">Gustav Mahler · Lieder eines fahrenden Gesellen, No. IV</div>
+            <div class="track-top">
+              <button class="track-play" aria-label="Play">▶</button>
+              <div class="track-info">
+                <div class="track-title">Die zwei blauen Augen von meinem Schatz</div>
+                <div class="track-meta">Gustav Mahler · Lieder eines fahrenden Gesellen, No. IV</div>
+              </div>
+              <div class="track-time">0:00</div>
             </div>
-            <div class="track-time">0:00</div>
+            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Die zwei blauen Augen von meinem Schatz" disabled>
             <audio class="track-audio" preload="none" src="audio/die-zwei-blauen-augen.m4a"></audio>
           </div>
           <div class="track-row">
-            <button class="track-play" aria-label="Play">▶</button>
-            <div class="track-info">
-              <div class="track-title">Madama Butterfly — Act III Trio</div>
-              <div class="track-meta">Giacomo Puccini · Castleton Festival</div>
+            <div class="track-top">
+              <button class="track-play" aria-label="Play">▶</button>
+              <div class="track-info">
+                <div class="track-title">Madama Butterfly — Act III Trio</div>
+                <div class="track-meta">Giacomo Puccini · Castleton Festival</div>
+              </div>
+              <div class="track-time">0:00</div>
             </div>
-            <div class="track-time">0:00</div>
+            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Madama Butterfly — Act III Trio" disabled>
             <audio class="track-audio" preload="none" src="audio/butterfly-act3-trio.mp3"></audio>
           </div>
           <div class="track-row">
-            <button class="track-play" aria-label="Play">▶</button>
-            <div class="track-info">
-              <div class="track-title">L'assiolo canta</div>
-              <div class="track-meta">Francesco Santoliquido · I canti della sera</div>
+            <div class="track-top">
+              <button class="track-play" aria-label="Play">▶</button>
+              <div class="track-info">
+                <div class="track-title">L'assiolo canta</div>
+                <div class="track-meta">Francesco Santoliquido · I canti della sera</div>
+              </div>
+              <div class="track-time">0:00</div>
             </div>
-            <div class="track-time">0:00</div>
+            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: L'assiolo canta" disabled>
             <audio class="track-audio" preload="none" src="audio/lassiolo-canta.m4a"></audio>
           </div>
           <div class="track-row">
-            <button class="track-play" aria-label="Play">▶</button>
-            <div class="track-info">
-              <div class="track-title">La Coccinelle</div>
-              <div class="track-meta">Camille Saint-Saëns</div>
+            <div class="track-top">
+              <button class="track-play" aria-label="Play">▶</button>
+              <div class="track-info">
+                <div class="track-title">La Coccinelle</div>
+                <div class="track-meta">Camille Saint-Saëns</div>
+              </div>
+              <div class="track-time">0:00</div>
             </div>
-            <div class="track-time">0:00</div>
+            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: La Coccinelle" disabled>
             <audio class="track-audio" preload="none" src="audio/la-coccinelle.m4a"></audio>
           </div>
         </div>
@@ -819,24 +861,112 @@
       var s = Math.floor(seconds % 60);
       return m + ':' + (s < 10 ? '0' : '') + s;
     }
+
+    var POS_PREFIX = 'eversole-track-pos:';
+    var activeAudio = null;
+
+    function savePosition(audio) {
+      var key = POS_PREFIX + audio.getAttribute('src');
+      try { localStorage.setItem(key, audio.currentTime); } catch (e) {}
+    }
+    function readSavedPosition(audio) {
+      var key = POS_PREFIX + audio.getAttribute('src');
+      var v;
+      try { v = parseFloat(localStorage.getItem(key)); } catch (e) { v = NaN; }
+      return isFinite(v) ? v : 0;
+    }
+    function clearPosition(audio) {
+      var key = POS_PREFIX + audio.getAttribute('src');
+      try { localStorage.removeItem(key); } catch (e) {}
+    }
+
     document.querySelectorAll('.track-row').forEach(function (row) {
-      var btn   = row.querySelector('.track-play');
-      var audio = row.querySelector('.track-audio');
+      var btn    = row.querySelector('.track-play');
+      var audio  = row.querySelector('.track-audio');
       var timeEl = row.querySelector('.track-time');
+      var seek   = row.querySelector('.track-seek');
+      var title  = row.querySelector('.track-title').textContent.trim();
+      var artist = row.querySelector('.track-meta').textContent.trim();
+      var userSeeking = false;
+      var lastSave = 0;
+
+      function fillSeek() {
+        var pct = seek.max > 0 ? (seek.value / seek.max) * 100 : 0;
+        seek.style.background = 'linear-gradient(to right, var(--accent) ' + pct + '%, #3B362E ' + pct + '%)';
+      }
+
       btn.addEventListener('click', function () {
         if (audio.paused) {
           document.querySelectorAll('.track-audio').forEach(function (a) { if (a !== audio) a.pause(); });
           audio.play();
         } else { audio.pause(); }
       });
+
       audio.addEventListener('play', function () {
         document.querySelectorAll('.track-play').forEach(function (b) { b.classList.remove('playing'); b.textContent = '▶'; });
         btn.classList.add('playing'); btn.textContent = '❚❚';
+        activeAudio = audio;
+        if ('mediaSession' in navigator) {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: title, artist: artist, album: 'Anthony Eversole — On Stage'
+          });
+          navigator.mediaSession.playbackState = 'playing';
+        }
       });
-      audio.addEventListener('pause',   function () { btn.classList.remove('playing'); btn.textContent = '▶'; });
-      audio.addEventListener('ended',   function () { btn.classList.remove('playing'); btn.textContent = '▶'; timeEl.textContent = formatTime(audio.duration || 0); });
-      audio.addEventListener('timeupdate',     function () { timeEl.textContent = formatTime(audio.duration - audio.currentTime); });
-      audio.addEventListener('loadedmetadata', function () { timeEl.textContent = formatTime(audio.duration); });
+      audio.addEventListener('pause', function () {
+        btn.classList.remove('playing'); btn.textContent = '▶';
+        savePosition(audio);
+        if ('mediaSession' in navigator && activeAudio === audio) navigator.mediaSession.playbackState = 'paused';
+      });
+      audio.addEventListener('ended', function () {
+        btn.classList.remove('playing'); btn.textContent = '▶';
+        timeEl.textContent = formatTime(audio.duration || 0);
+        clearPosition(audio);
+        seek.value = 0; fillSeek();
+      });
+      audio.addEventListener('loadedmetadata', function () {
+        seek.max = audio.duration;
+        seek.disabled = false;
+        var saved = readSavedPosition(audio);
+        if (saved > 0 && saved < audio.duration - 1) audio.currentTime = saved;
+        seek.value = audio.currentTime;
+        fillSeek();
+        timeEl.textContent = formatTime(audio.duration - audio.currentTime);
+      });
+      audio.addEventListener('timeupdate', function () {
+        timeEl.textContent = formatTime(audio.duration - audio.currentTime);
+        if (!userSeeking) { seek.value = audio.currentTime; fillSeek(); }
+        var now = Date.now();
+        if (now - lastSave > 2000) { savePosition(audio); lastSave = now; }
+      });
+
+      seek.addEventListener('pointerdown', function () { userSeeking = true; });
+      seek.addEventListener('input', function () {
+        audio.currentTime = parseFloat(seek.value);
+        fillSeek();
+      });
+      seek.addEventListener('change', function () {
+        userSeeking = false;
+        savePosition(audio);
+      });
+    });
+
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('play',  function () { if (activeAudio) activeAudio.play(); });
+      navigator.mediaSession.setActionHandler('pause', function () { if (activeAudio) activeAudio.pause(); });
+      navigator.mediaSession.setActionHandler('seekto', function (details) {
+        if (activeAudio && details.seekTime != null) activeAudio.currentTime = details.seekTime;
+      });
+      navigator.mediaSession.setActionHandler('seekbackward', function (details) {
+        if (activeAudio) activeAudio.currentTime = Math.max(0, activeAudio.currentTime - (details.seekOffset || 10));
+      });
+      navigator.mediaSession.setActionHandler('seekforward', function (details) {
+        if (activeAudio) activeAudio.currentTime = Math.min(activeAudio.duration, activeAudio.currentTime + (details.seekOffset || 10));
+      });
+    }
+
+    window.addEventListener('pagehide', function () {
+      document.querySelectorAll('.track-audio').forEach(function (a) { if (!a.paused) savePosition(a); });
     });
   </script>
 

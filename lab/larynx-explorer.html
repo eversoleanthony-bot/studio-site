@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Larynx Model — Landmark Explorer &middot; Eversole Studio Lab</title>
+<meta name="robots" content="noindex, nofollow" />
+
+<style>
+  :root {
+    --cream: #F9F6F0;
+    --charcoal: #1C1B1A;
+    --rust: #B35433;
+    --seam: rgba(34, 30, 25, 0.12);
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; width: 100%; height: 100%;
+    background: var(--charcoal);
+    color: var(--cream);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    overflow: hidden;
+  }
+  #app { position: relative; width: 100%; height: 100%; }
+  canvas#scene { display: block; width: 100%; height: 100%; touch-action: none; }
+
+  .lab-topbar {
+    position: fixed; top: 14px; left: 14px; right: 14px; z-index: 20;
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    pointer-events: none;
+  }
+  .lab-home-link {
+    pointer-events: auto;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(249,246,240,0.55);
+    text-decoration: none;
+    border: 1px solid rgba(249,246,240,0.18);
+    border-radius: 999px;
+    padding: 6px 12px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .lab-home-link:hover { color: var(--cream); border-color: rgba(249,246,240,0.4); }
+  .lab-badge {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(249,246,240,0.4);
+    border: 1px solid rgba(249,246,240,0.18);
+    border-radius: 999px;
+    padding: 6px 12px;
+    pointer-events: none;
+  }
+
+  .boot-error {
+    display: none;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+    background: #4a1010; color: #ffdede;
+    border-bottom: 2px solid #ff5c5c;
+    padding: 14px 20px;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 13px; line-height: 1.6;
+    white-space: pre-wrap;
+  }
+
+  .landmark-panel {
+    position: fixed; top: 0; right: 0; height: 100%;
+    width: 280px; padding: 84px 18px 18px;
+    background: rgba(28, 27, 26, 0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-left: 1px solid var(--seam);
+    z-index: 15;
+    display: flex; flex-direction: column; gap: 4px;
+    overflow-y: auto;
+  }
+  .panel-category-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    color: rgba(249,246,240,0.4);
+    margin: 14px 0 6px;
+  }
+  .panel-category-label:first-child { margin-top: 0; }
+  .landmark-btn {
+    display: flex; align-items: center; gap: 10px;
+    width: 100%; text-align: left;
+    background: rgba(249,246,240,0.04);
+    border: 1px solid rgba(249,246,240,0.1);
+    border-radius: 10px;
+    padding: 10px 12px;
+    color: var(--cream);
+    font-family: inherit; font-size: 12.5px; font-weight: 500; letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    margin-bottom: 4px;
+  }
+  .landmark-btn:hover { background: rgba(249,246,240,0.08); }
+  .landmark-btn.active { border-color: var(--swatch, var(--rust)); background: rgba(249,246,240,0.1); }
+  .landmark-swatch {
+    width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0;
+    background: var(--swatch, var(--rust));
+  }
+  .landmark-btn-name { flex: 1; }
+
+  .overview-btn {
+    margin: 12px 0 0;
+    background: none; border: 1px solid rgba(249,246,240,0.18); border-radius: 10px;
+    padding: 10px 14px; color: rgba(249,246,240,0.6);
+    font-family: inherit; font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+    cursor: pointer;
+  }
+  .overview-btn:hover { color: var(--cream); border-color: rgba(249,246,240,0.35); }
+  .ghost-toggle { margin-top: 8px; }
+  .ghost-toggle.is-on { color: var(--cream); border-color: rgba(249,246,240,0.4); }
+
+  .caption-card {
+    position: fixed; left: 20px; bottom: 20px; z-index: 15;
+    max-width: 440px;
+    background: rgba(28, 27, 26, 0.82);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--seam);
+    border-left: 3px solid var(--swatch, var(--rust));
+    border-radius: 4px 12px 12px 4px;
+    padding: 18px 22px;
+    opacity: 0; transform: translateY(12px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+  }
+  .caption-card.visible { opacity: 1; transform: none; }
+  .caption-card-name {
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 20px; font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+  .caption-card-category {
+    font-size: 11px; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(249,246,240,0.4);
+    display: block; margin-bottom: 2px;
+  }
+  .caption-card-description {
+    font-size: 14px; line-height: 1.6;
+    color: rgba(249,246,240,0.75);
+  }
+
+  .loading-note {
+    position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    z-index: 16; font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(249,246,240,0.4);
+  }
+
+  .landmark-select { display: none; }
+
+  /* Below this, the button-list sidebar (fine on a hover-capable desktop
+     pointer) gets swapped for a single dropdown, plus compact Overview/
+     Ghosting buttons, all in one slim row pinned to the bottom. A row of
+     20 individual buttons doesn't collapse cleanly at phone width no
+     matter how it's sized; a native <select> is the one control that's
+     guaranteed a fixed, small height regardless of how many landmarks
+     there are or how long their names run.
+     Triggers on real touch hardware (pointer:coarse + hover:none) as well
+     as narrow width, since a phone in "Request Desktop Website" mode
+     reports a wider viewport but can't fake its actual input hardware. */
+  @media (max-width: 720px), (pointer: coarse) and (hover: none) {
+    .landmark-panel {
+      position: fixed; left: 0; right: 0; bottom: 0; top: auto; width: 100%;
+      height: auto;
+      flex-direction: row; align-items: center; flex-wrap: nowrap;
+      padding: 12px 14px; gap: 8px;
+      border-left: none; border-top: 1px solid var(--seam);
+    }
+    .panel-category-label, #landmark-list { display: none; }
+    .landmark-select {
+      display: block; flex: 1 1 auto; min-width: 0;
+      background: rgba(249,246,240,0.08); color: var(--cream);
+      border: 1px solid rgba(249,246,240,0.18); border-radius: 8px;
+      padding: 10px 10px; font-family: inherit; font-size: 13px;
+    }
+    .overview-btn { flex: 0 0 auto; margin: 0; padding: 10px 12px; font-size: 9.5px; white-space: nowrap; }
+    .caption-card { left: 12px; right: 12px; bottom: 74px; max-width: none; }
+  }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <div class="boot-error" id="boot-error"></div>
+  <canvas id="scene"></canvas>
+  <div class="lab-topbar">
+    <a href="/" class="lab-home-link">&#8592; Eversole Studio</a>
+    <div class="lab-badge">Larynx Explorer &middot; Landmark Mode</div>
+  </div>
+  <div class="loading-note" id="loading-note">Loading model&hellip;</div>
+
+  <nav class="landmark-panel" aria-label="Laryngeal landmarks">
+    <div id="landmark-list"></div>
+    <select id="landmark-select" class="landmark-select" aria-label="Choose a landmark">
+      <option value="">Select a landmark&hellip;</option>
+    </select>
+    <button class="overview-btn" id="overview-btn" type="button">Overview</button>
+    <button class="overview-btn ghost-toggle is-on" id="ghost-btn" type="button">Ghosting &middot; On</button>
+  </nav>
+
+  <div class="caption-card" id="caption-card">
+    <div class="caption-card-name">
+      <span class="caption-card-category" id="caption-category"></span>
+      <span id="caption-name"></span>
+    </div>
+    <div class="caption-card-description" id="caption-description"></div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    var el = document.getElementById('boot-error');
+    function show(msg) { el.textContent = msg; el.style.display = 'block'; }
+
+    if (location.protocol === 'file:') {
+      show(
+        'This page uses ES modules and must be served over http(s) — it cannot run opened directly ' +
+        'as a file:// path (the browser blocks module loading for CORS reasons).\n\n' +
+        'From the Studio Site folder, run:\n  python3 -m http.server 8743\n' +
+        'then open:\n  http://localhost:8743/lab/larynx-explorer.html'
+      );
+      return;
+    }
+
+    window.addEventListener('error', function (e) {
+      show('Script error: ' + (e.message || 'unknown') + (e.filename ? '\nat ' + e.filename + ':' + e.lineno : '') +
+        '\n\nOpen the browser console (Cmd+Option+J / F12) for the full stack trace.');
+    }, true);
+    window.addEventListener('unhandledrejection', function (e) {
+      var reason = e.reason && e.reason.message ? e.reason.message : e.reason;
+      show('Unhandled promise rejection: ' + reason + '\n\nOpen the browser console for details.');
+    });
+  })();
+</script>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.169.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.169.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module" src="./larynx-explorer.js"></script>
+
+</body>
+</html>
