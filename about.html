@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Anthony Eversole</title>
+  <meta name="description" content="Anthony Eversole is a baritone, voice pedagogue, and director. Biography, credentials, and teaching philosophy." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Nav hamburger (hidden on desktop) */
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      padding: 8px 0;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media (max-width: 1149px) {
+      .nav { padding: 0 40px; }
+      .nav-menu-btn { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 40px 28px;
+        gap: 0;
+        z-index: 99;
+        box-shadow: 0 4px 16px rgba(34,30,25,.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links > a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        letter-spacing: .12em;
+      }
+      .nav-ctas { padding: 20px 0 0; }
+      .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
+    }
+
+
+    /* about: bio block */
+    .about-bio { display: grid; grid-template-columns: 2fr 3fr; gap: 72px; padding: 88px 64px; align-items: start; }
+    .about-portrait { aspect-ratio: 4/5; overflow: hidden; background: var(--border); }
+    .about-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 15%; }
+    .about-h1 { font-family: var(--serif); font-weight: 300; font-size: 58px; line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 14px; }
+    .about-role { font-size: 12px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 28px; }
+    .about-text p { font-family: var(--serif); font-size: 19px; line-height: 1.8; color: var(--body); margin-bottom: 20px; }
+    .about-meta { font-style: italic; color: var(--muted); font-size: 15px !important; }
+    .about-phil { border-top: 1px solid var(--border); }
+    @media (max-width: 1149px) { .about-bio { gap: 48px; padding: 72px 48px; } }
+    @media (max-width: 767px) { .about-bio { grid-template-columns: 1fr; gap: 32px; padding: 48px 24px; } .about-h1 { font-size: 40px; } }
+
+    /* philosophy header (reuses post-header/post-body typography) */
+    .philosophy-header { max-width: 860px; margin: 0 auto; padding: 88px 24px 48px; }
+    .philosophy-kicker { font-size: 12px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .philosophy-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; margin: 0 0 20px; color: var(--ink); }
+
+    @media (max-width: 767px) {
+      .nav { padding: 0 24px; }
+      .nav-links { padding: 8px 24px 28px; }
+      .philosophy-header { padding: 56px 24px 32px; }
+
+      /* Footer: stack and wrap */
+      .footer-main { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; }
+      .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
+      .footer-legal { flex-direction: column; gap: 12px; padding: 16px 24px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">Anthony Eversole</span>
+    </a>
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
+      <a href="about.html" class="active">About</a>
+      <a href="performance.html">Performance</a>
+      <a href="directing.html">Directing</a>
+      <a href="research.html">Research</a>
+      <a href="lessons.html">Studio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <div class="nav-ctas">
+        <a href="book.html" class="nav-book">Book a Session</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" tabindex="-1">
+
+  <section class="about-bio">
+    <div class="about-portrait">
+      <img src="images/site/headshot-homepage.jpg" alt="Anthony Eversole" />
+    </div>
+    <div class="about-text">
+      <h1 class="about-h1">Anthony Eversole</h1>
+      <div class="about-role">Baritone &middot; Voice Pedagogue &middot; Director</div>
+      <p>Anthony Eversole is a baritone, voice pedagogue, and director whose work joins vocal science, motor learning, and actor training for the singing actor.</p>
+      <p>He has taught applied voice for more than fifteen years, in private studios, K-12 choral and musical theatre classrooms, and university voice, musical theatre, and opera programs. He has directed for The Crane Opera Ensemble, Oregon State University, and the University of Oklahoma, and has performed with Maryland Opera Studio, Charlottesville Opera, Castleton Festival, and Utah Festival Opera &amp; Musical Theatre.</p>
+      <p>His work centers on evidence-based, motor learning-driven vocal technique, paired with vulnerability and shame resilience as the guiding lens for tactical, action-driven acting work, applied across classical and contemporary styles.</p>
+      <p class="about-meta">Doctor of Musical Arts, University of Maryland &nbsp;&bull;&nbsp; Master of Music, University of Oklahoma &nbsp;&bull;&nbsp; Bachelor of Music, Utah State University</p>
+    </div>
+  </section>
+
+  <div class="about-phil">
+  <header class="philosophy-header">
+    <div class="philosophy-kicker">Teaching Philosophy</div>
+    <h2 style="font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; margin: 0 0 20px; color: var(--ink);">On Teaching the Singing Actor</h2>
+  </header>
+
+  <article class="post-body">
+    <p>Eversole&#8217;s work with performers splits two ways: nurturing a flexible voice toward optimal coordination, and forging in each performer an interpretive instinct, an understanding of the human condition, and an awareness of what contributes to powerful stage presence. He does both across private lessons, masterclasses, clinics, and the productions he directs.</p>
+
+    <p>With any new student or group of students, Eversole spends the first session talking about vulnerability and shame resilience. Singing and acting ask a person to shed the walls they&#8217;ve built and let themselves be seen in public. That&#8217;s a courageous thing to ask, one people can&#8217;t do all at once.</p>
+
+    <p>His job is to build a space where an artist can feel safe taking bold risks, get used to making character choices, and succeed at failing. He wants students able to exist uncomfortably in public solitude, developing shame resilience and leaning into fear. Every person, and thereby every stage character, makes fear-based choices every day. Sitting with one&#8217;s own fear-based choices, and being willing to risk imperfection while working through them, is a practice, revisited and rebuilt with every role.</p>
+
+    <p>He believes in cross-training head and chest dominant voice production, putting students on an intentional trajectory toward a flexible, well-coordinated instrument that can excel in any genre or style.</p>
+
+    <p>His teaching leans heavily into motor learning and exercise physiology. He isolates one physical coordination at a time, trains it until it holds up under different conditions, then unites it back into the full instrument. This is athletic training aimed at coordination: ask the voice for a little more than it&#8217;s used to, always gradually, and keep training that gain once it&#8217;s earned, or it fades. It&#8217;s unglamorous, daily work, but it&#8217;s incredibly reliable: a student who puts in coordination work will see real improvement, often faster than they expect.</p>
+
+    <p>Eversole spends real time on tactical actioning: assigning an active, transitive verb to every beat change in a song or scene. Most young performers arrive with a habit of playing the general emotion directly. Emotion isn&#8217;t something an actor can play. It can&#8217;t be directed toward another person the way a verb can. Assigning an action shifts the work from attempting to feel something to truthfully pursuing something. Naming the action behind the emotion opens up options and makes the performance land harder. Often the emotion is the obstacle, the very thing a character has to fight through to reach what they want. When it doesn&#8217;t show up strong enough, the answer is never to reach for more feeling. It&#8217;s to raise what&#8217;s actually at stake. Confront the obstacle honestly, and the emotion arrives on its own.</p>
+
+    <p>He also draws on Michael Chekhov&#8217;s psychological gesture technique. Students fully physicalize a beat with their whole body first, then strip the movement away until only the impulse remains internally. Held in the mind that way, the gesture still shifts something physiological, visible even in complete stillness.</p>
+
+    <p>Small physical choices carry real weight onstage. He trains toward economy of gesture and eye focus. He never wants to stifle a real impulse, but it&#8217;s common for a young singer to gesture without meaning, a nervous need to be doing something with their hands. Discomfort with stillness is usually what drives the habit. Restraint clarifies subtext, and without deliberate choices about movement and where the eyes land, the work underneath on tactical actioning gets hidden. Economy of gesture and eye focus is what makes a performance believable: a body reacting the way people actually move.</p>
+
+    <p>For non-classical students, Eversole believes in helping students adjust to the technology they will use in their careers. His musical theatre workshop courses consist of on-mic rehearsals from day one. The nuance and vocal adaptation needed to succeed with amplified performance require much more practice than most young performers get with just a few opportunities during tech week. When coaching genres that are traditionally amplified, he makes sure students get comfortable with the conventions, technique, and dramatic possibilities that come with amplification. Time with the technology in rehearsal is what lets a performer take real risks on stage.</p>
+
+    <p>Ultimately, developing a complete performer is about cultivating the technical freedom and emotional courage to be entirely human on stage. By bridging the gap between vocal science, dramatic craft, and psychological safety, Eversole empowers artists to step past fear and embrace the power of vulnerability. When physical coordination meets clear tactical purpose, students have developed a system they can rely on. They become resilient, adaptable, and compelling storytellers who possess both the vocal skill to meet any artistic demand and the presence to truly connect with each other within a scene.</p>
+  </article>
+  </div>
+
+  </main>
+
+  <footer class="footer-main">
+    <a href="index.html" class="footer-brand-link">Anthony Eversole, DMA</a>
+    <div class="footer-main-links">
+      <a href="about.html" class="active">About</a>
+      <a href="performance.html">Performance</a>
+      <a href="directing.html">Directing</a>
+      <a href="research.html">Research</a>
+      <a href="lessons.html">Studio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+  <div class="footer-legal">
+    <div class="footer-legal-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-social-links">
+      <a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.textContent = expanded ? 'Menu' : 'Close';
+        links.classList.toggle('open', !expanded);
+      });
+    })();
+  </script>
+</body>
+</html>

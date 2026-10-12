@@ -118,6 +118,18 @@ export default {
       return handleBook(request, env);
     }
 
+    // Retired page paths: permanent redirects to their new homes.
+    // Fragments (e.g. #credits) survive because the Location has none.
+    const MOVED = {
+      "/on-stage": "/performance.html",
+      "/on-stage.html": "/performance.html",
+      "/philosophy": "/about.html",
+      "/philosophy.html": "/about.html",
+    };
+    if (MOVED[path]) {
+      return Response.redirect(new URL(MOVED[path], url), 301);
+    }
+
     // Rewrite bare paths to .html files
     if (path === "/" || path === "") {
       return env.ASSETS.fetch(new Request(new URL("/index.html", url), request));

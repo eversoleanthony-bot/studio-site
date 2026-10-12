@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Directing | Anthony Eversole</title>
+  <meta name="description" content="Stage, vocal, and music direction for opera, musical theatre, and concert programs by Anthony Eversole." />
+  <meta property="og:title" content="Directing | Anthony Eversole" />
+  <meta property="og:description" content="Stage, vocal, and music direction for opera, musical theatre, and concert programs by Anthony Eversole." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ---- Anchor scroll offset for sticky nav ---- */
+    html { scroll-padding-top: 80px; }
+
+    /* ---- Hero ---- */
+    .page-hero-text { padding: 88px 64px 48px; }
+    .page-h1 { font-family: var(--serif); font-weight: 300; font-size: 58px; line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 24px; }
+    .page-sub { font-family: var(--serif); font-size: 21px; line-height: 1.65; color: #4A453C; max-width: 640px; margin-bottom: 36px; }
+    .page-actions { display: flex; gap: 20px; flex-wrap: wrap; }
+    .page-hero-banner { position: relative; height: 400px; overflow: hidden; background: var(--ink); }
+    .page-hero-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block; }
+    .page-hero-banner::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+      height: 55%; background: linear-gradient(to bottom, transparent, var(--ink));
+      pointer-events: none;
+    }
+
+    /* ---- Listening Room ---- */
+    .listening-room { background: var(--ink); padding: 80px 64px; border-bottom: 3px solid rgba(226,218,203,.2); }
+    .listening-room .kicker { color: rgba(246,241,231,.55); }
+    .listening-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
+    .listening-label { font-size: 13.5px; line-height: 1.7; color: rgba(246,241,231,.6); }
+
+    .track-list { display: flex; flex-direction: column; }
+    .track-row { display: flex; flex-direction: column; gap: 8px; padding: 16px 0; border-bottom: 1px solid #3B362E; }
+    .track-row:last-child { border-bottom: none; }
+    .track-top { display: flex; align-items: center; gap: 18px; }
+    .track-play {
+      flex: none; width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(246,241,231,.35); background: none; color: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 13px; padding: 0; line-height: 1;
+      transition: background .15s, color .15s, border-color .15s;
+    }
+    .track-play:hover, .track-play.playing { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+    .track-info { flex: 1; min-width: 0; }
+    .track-title { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--bg); margin-bottom: 3px; }
+    .track-meta { font-size: 12px; color: var(--meta); letter-spacing: .02em; }
+    .track-time { flex: none; font-size: 11px; color: var(--faint); font-variant-numeric: tabular-nums; min-width: 34px; text-align: right; }
+
+    .track-seek {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; height: 3px; margin: 0 0 0 54px; padding: 0;
+      background: #3B362E; border-radius: 2px; cursor: pointer;
+    }
+    .track-seek:disabled { cursor: default; opacity: .6; }
+    .track-seek::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--accent); border: none;
+      margin-top: -4.5px;
+    }
+    .track-seek::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: none; }
+    .track-seek::-webkit-slider-runnable-track { height: 3px; border-radius: 2px; background: transparent; }
+    .track-seek::-moz-range-track { height: 3px; border-radius: 2px; background: #3B362E; }
+    .track-seek::-moz-range-progress { height: 3px; border-radius: 2px; background: var(--accent); }
+
+    /* ---- Production Photos ---- */
+    .stills-section { background: var(--ink); padding: 72px 64px; border-bottom: 1px solid #3B362E; }
+    .stills-section .kicker { color: rgba(246,241,231,.55); }
+    .stills-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
+    .stills-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+    .still-item { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+    .still-item img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; transition: transform .3s ease; }
+    .still-item:hover img { transform: scale(1.03); }
+    .still-caption {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 10px 14px;
+      background: rgba(34, 30, 25, .38);
+      backdrop-filter: blur(10px) saturate(140%);
+      -webkit-backdrop-filter: blur(10px) saturate(140%);
+      border-top: 1px solid rgba(246, 241, 231, .15);
+      color: var(--bg); font-size: 11px; letter-spacing: .03em; line-height: 1.4;
+    }
+
+    /* ---- Lightbox ---- */
+    .lightbox-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(34,30,25,.88); z-index: 200;
+      align-items: center; justify-content: center;
+      padding: 40px; backdrop-filter: blur(4px);
+    }
+    .lightbox-overlay.open { display: flex; }
+    .lightbox-frame {
+      display: flex; flex-direction: column;
+      width: 100%; max-width: 1040px;
+    }
+    .lightbox-inner {
+      position: relative; display: flex;
+      width: 100%; height: 580px; max-height: 84vh; overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,.55);
+    }
+    .lightbox-data {
+      flex: none; width: 300px; background: var(--ink);
+      padding: 48px 40px; overflow-y: auto; display: flex; flex-direction: column;
+      border-right: 1px solid #3B362E;
+    }
+    .lightbox-kicker { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--accent-md); margin-bottom: 20px; }
+    .lightbox-production { font-family: var(--serif); font-weight: 300; font-style: italic; font-size: 26px; line-height: 1.25; color: var(--bg); margin: 0 0 10px; }
+    .lightbox-role { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--meta); margin-bottom: 32px; }
+    .lightbox-rule { height: 1px; background: #3B362E; margin-bottom: 28px; }
+    .lightbox-section { margin-bottom: 24px; }
+    .lightbox-section-head { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent-md); margin-bottom: 8px; }
+    .lightbox-section-text { font-size: 13px; line-height: 1.75; color: rgba(246,241,231,.72); margin: 0; }
+    .lightbox-footer { margin-top: auto; padding-top: 28px; font-size: 11px; color: rgba(246,241,231,.35); letter-spacing: .04em; }
+    .lightbox-photo-wrap { flex: 1; overflow: hidden; background: #111; min-height: 400px; }
+    .lightbox-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .lightbox-close {
+      position: absolute; top: 14px; right: 14px;
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 1px solid rgba(246,241,231,.25); background: rgba(34,30,25,.7);
+      backdrop-filter: blur(8px); color: rgba(246,241,231,.8);
+      font-size: 11px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s, border-color .15s;
+    }
+    .lightbox-close:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+    .lightbox-nav {
+      display: flex; align-items: center; justify-content: center;
+      gap: 20px; padding-top: 16px;
+    }
+    .lb-arrow {
+      background: none; border: 1px solid rgba(246,241,231,.25);
+      color: rgba(246,241,231,.65); width: 36px; height: 36px;
+      border-radius: 50%; cursor: pointer; font-size: 14px; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s, border-color .15s, color .15s; flex-shrink: 0;
+    }
+    .lb-arrow:hover { background: rgba(246,241,231,.12); border-color: rgba(246,241,231,.5); color: var(--bg); }
+    .lb-dots { display: flex; gap: 8px; align-items: center; }
+    .lb-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(246,241,231,.2); border: none; padding: 0;
+      cursor: pointer; transition: background .2s, transform .2s;
+    }
+    .lb-dot.active { background: rgba(246,241,231,.75); transform: scale(1.4); }
+
+    /* ---- Résumé accordions ---- */
+    .resume-section { border-bottom: 1px solid var(--border); }
+    .resume-section:last-of-type { border-bottom: none; }
+    .resume-section.alt { background: var(--bg-alt); }
+    .resume-section > summary {
+      list-style: none;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      padding: 32px 64px;
+      position: relative;
+    }
+    .resume-section > summary::-webkit-details-marker { display: none; }
+    .resume-section > summary::marker { display: none; }
+    .resume-section > summary::after { content: ''; position: absolute; right: 64px; top: 50%; transform: translateY(-50%); width: 12px; height: 1.5px; background: var(--accent); }
+    .resume-section > summary::before { content: ''; position: absolute; right: 69.25px; top: 50%; transform: translateY(-50%); width: 1.5px; height: 12px; background: var(--accent); transition: opacity .15s; }
+    .resume-section[open] > summary::before { opacity: 0; }
+    .resume-section[open] > summary { border-bottom: 1px solid var(--border); }
+    .resume-inner { padding: 40px 64px 56px; }
+    .resume-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .resume-table tr { border-bottom: 1px solid var(--border); }
+    .resume-table tr:last-child { border-bottom: none; }
+    .resume-table td { padding: 10px 0; vertical-align: top; line-height: 1.45; }
+    .r-role  { color: var(--ink); width: 24%; padding-right: 16px; }
+    .r-title { color: var(--secondary); font-family: var(--serif); font-style: italic; font-size: 16px; width: 30%; padding-right: 16px; }
+    .r-org   { color: var(--secondary); width: 32%; padding-right: 16px; font-size: 13px; }
+    .r-yr    { color: var(--accent); text-align: right; width: 14%; font-size: 12px; letter-spacing: .08em; white-space: nowrap; padding-top: 1px; }
+    .tag-upcoming { font-size: 9px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; border: 1px solid var(--accent); color: var(--accent); padding: 1px 5px; vertical-align: middle; margin-left: 7px; opacity: .8; }
+
+    .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+    .pill  { font-size: 12px; padding: 5px 12px; border: 1px solid var(--border); color: var(--secondary); letter-spacing: .03em; }
+    .resume-section.alt .pill { border-color: rgba(34,30,25,.28); }
+    .resume-sublabel { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 24px 0 10px; }
+
+    /* ---- Research ---- */
+    .research-item { padding: 16px 0; border-top: 1px solid var(--border); }
+    .research-item:last-child { border-bottom: 1px solid var(--border); }
+    .research-title { font-family: var(--serif); font-size: 16px; line-height: 1.5; margin-bottom: 6px; }
+    .research-title a { color: var(--ink); }
+    .research-title a:hover { color: var(--accent); opacity: 1; }
+    .research-meta { font-size: 12px; color: var(--muted); letter-spacing: .04em; }
+
+    /* ---- Distinctions ---- */
+    .distinctions { columns: 2; column-gap: 40px; }
+    .distinctions li { list-style: none; font-size: 13.5px; color: var(--secondary); line-height: 2; }
+    .distinctions li::before { content: "·"; color: var(--accent); margin-right: 10px; font-size: 1.4em; vertical-align: middle; }
+
+    /* ---- Artistic Affiliates ---- */
+    .aff-grid  { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 32px; }
+    .aff-item  { }
+    .aff-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .aff-names { list-style: none; margin: 0; padding: 0; }
+    .aff-names li { font-size: 13px; color: var(--secondary); padding: 6px 0; border-bottom: 1px solid var(--border); line-height: 1.4; }
+    .aff-names li:last-child { border-bottom: none; }
+
+    /* ---- Nav hamburger (hidden on desktop) ---- */
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      padding: 8px 0;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ---- Responsive: tablet / small desktop (≤ 1149px) ---- */
+    @media (max-width: 1149px) {
+      .nav { padding: 0 40px; }
+      .nav-menu-btn { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 40px 28px;
+        gap: 0;
+        z-index: 99;
+        box-shadow: 0 4px 16px rgba(34,30,25,.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links > a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        letter-spacing: .12em;
+      }
+      .nav-ctas { padding: 20px 0 0; }
+      .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
+      .page-hero-text { padding: 64px 48px 36px; }
+      .page-h1 { font-size: 46px; }
+      .listening-room { padding: 64px 48px; }
+      .stills-section { padding: 56px 48px; }
+      .resume-section > summary { padding: 28px 48px; }
+      .resume-inner { padding: 32px 48px 44px; }
+    }
+
+    /* ---- Responsive: mobile (≤ 767px) ---- */
+    @media (max-width: 767px) {
+      .nav { padding: 0 24px; }
+      .nav-links { padding: 8px 24px 28px; }
+
+      /* Hero */
+      .page-hero-text { padding: 48px 24px 32px; }
+      .page-h1 { font-size: 36px; line-height: 1.1; }
+      .page-sub { font-size: 18px; }
+      .page-hero-banner { height: 240px; }
+      .page-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+      /* Listening room */
+      .listening-room { padding: 48px 24px; }
+      .listening-inner { grid-template-columns: 1fr; gap: 24px; }
+
+      /* Production photos */
+      .stills-section { padding: 48px 24px; }
+      .stills-inner { grid-template-columns: 1fr; gap: 20px; }
+      .stills-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+
+      /* Resume sections */
+      .resume-section > summary { padding: 24px; }
+      .resume-inner { padding: 24px 24px 36px; }
+
+      /* Resume tables: reflow to stacked cards */
+      .resume-table,
+      .resume-table tbody,
+      .resume-table tr,
+      .resume-table td { display: block; }
+      .resume-table tr {
+        padding: 14px 0;
+        border-top: 1px solid var(--border);
+        border-bottom: none !important;
+      }
+      .resume-table tr:first-child { border-top: none; }
+      .resume-table td { padding: 1px 0 !important; width: auto !important; padding-right: 0 !important; }
+      .r-role  { font-size: 13px; font-weight: 600; color: var(--ink); }
+      .r-title { font-size: 15px; padding-top: 2px !important; }
+      .r-org   { font-size: 12px; color: var(--muted); }
+      .r-yr    { font-size: 11px; text-align: left !important; color: var(--accent); padding-top: 3px !important; }
+
+      /* Distinctions: single column */
+      .distinctions { columns: 1; }
+
+      /* Affiliates: two columns on mobile */
+      .aff-grid { grid-template-columns: 1fr 1fr; gap: 24px 24px; }
+      .aff-item { margin-bottom: 0; }
+
+      /* Lightbox */
+      .lightbox-overlay { padding: 0; align-items: flex-end; }
+      .lightbox-frame { max-width: none; }
+      .lightbox-inner { flex-direction: column; height: auto; max-height: 95vh; }
+      .lightbox-photo-wrap { height: 260px; min-height: unset; flex: none; order: -1; }
+      .lightbox-data { width: 100%; border-right: none; border-top: 1px solid #3B362E; padding: 32px 24px; max-height: 55vh; }
+      .lightbox-production { font-size: 22px; }
+      .lightbox-nav { padding: 12px 0 20px; }
+
+      /* Book band */
+      .book-band { flex-direction: column; align-items: flex-start; gap: 24px; padding: 48px 24px; }
+      .book-band-hl { font-size: 26px; }
+
+      /* Footer */
+      .footer-main { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; }
+      .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
+      .footer-legal { flex-direction: column; gap: 12px; padding: 16px 24px; align-items: flex-start; }
+    }
+      .still-item img { cursor: default; }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">Anthony Eversole</span>
+    </a>
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
+      <a href="about.html">About</a>
+      <a href="performance.html">Performance</a>
+      <a href="directing.html" class="active">Directing</a>
+      <a href="research.html">Research</a>
+      <a href="lessons.html">Studio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+      <div class="nav-ctas">
+        <a href="book.html" class="nav-book">Book a Session</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" tabindex="-1">
+
+  <!-- hero (dark) -->
+  <header class="band band-dark" style="padding-top: 96px; padding-bottom: 88px;">
+    <div class="kicker" style="margin-bottom: 20px;">Stage Director &middot; Vocal Director &middot; Music Director</div>
+    <h1 class="page-h1" style="color: var(--bg);">Directing</h1>
+    <p class="page-sub" style="color: rgba(246,241,231,.78); margin-bottom: 0;">Anthony Eversole directs opera, musical theatre, and concert programs for mainstage productions, schools, and professional companies. His productions have been staged for The Crane Opera Ensemble, Oregon State University, and the University of Oklahoma.</p>
+  </header>
+
+  <!-- approach -->
+  <section class="band">
+    <div style="max-width: 760px;">
+      <div class="kicker" style="margin-bottom: 20px;">Approach</div>
+      <p style="font-family: var(--serif); font-size: 21px; line-height: 1.75; color: var(--body); margin-bottom: 22px;">Direction begins with the text. Each beat of a scene or song is given an active, transitive verb, so performers pursue something instead of playing a general emotion. Eye focus and economy of gesture follow from those choices, and the physical and vocal coordination underneath is trained so it holds up under the pressure of performance.</p>
+      <a href="organizations.html" class="offering-link">Inquire About Directing &amp; Clinics &rarr;</a>
+    </div>
+  </section>
+
+  <!-- production photos -->
+  <section class="band band-alt" id="photos">
+    <div class="kicker" style="margin-bottom: 28px;">Production Photos</div>
+    <div class="stills-grid">
+          <div class="still-item">
+            <img src="images/directing/zaza/14601B3E-EAE8-4805-9787-8449FDA7595B.jpeg" alt="Zazà, The Crane Opera Ensemble, 2022" loading="lazy" />
+            <div class="still-caption">Zazà · Stage Director</div>
+          </div>
+          <div class="still-item">
+            <img src="images/directing/medium/5B1C72A6-5B56-43A0-8737-F78285A51B85.jpeg" alt="The Medium, The Crane Opera Ensemble, 2021" loading="lazy" />
+            <div class="still-caption">The Medium · Stage Director</div>
+          </div>
+          <div class="still-item">
+            <img src="images/directing/mahagonny/29813E99-D873-4E14-B136-397930E1AABE.jpeg" alt="Mahagonny Songspiel, The Crane Opera Ensemble, 2021" loading="lazy" />
+            <div class="still-caption">Mahagonny Songspiel · Stage Director</div>
+          </div>
+          <div class="still-item">
+            <img src="images/directing/elisir/13BC2EC2-6151-44A1-B9F1-94DF7E569DEA.jpg" alt="L&#8217;elisir d&#8217;amore, Oregon State University, 2021" loading="lazy" />
+            <div class="still-caption">L&#8217;elisir d&#8217;amore · Stage Director</div>
+          </div>
+          <div class="still-item">
+            <img src="images/directing/romeo-juliet/RomJul1.jpeg" alt="Romeo and Juliet, OSU Bard in the Quad, 2021" loading="lazy" />
+            <div class="still-caption">Romeo and Juliet · Music Director</div>
+          </div>
+          <div class="still-item">
+            <img src="images/directing/secret-garden/43F11A72-9A31-452A-8F26-AA48DFD360CD.jpg" alt="The Secret Garden, Oregon State University, 2020" loading="lazy" />
+            <div class="still-caption">The Secret Garden · Stage Director</div>
+          </div>
+          <div class="still-item">
+            <img src="images/directing/la-rondine/D7D2A722-5AE8-41F3-8B03-37C34EE9988D_1_201_a.jpeg" alt="La rondine, Oregon State University, 2019" loading="lazy" />
+            <div class="still-caption">La rondine · Stage Director</div>
+          </div>
+          <div class="still-item">
+            <img src="images/directing/shakespeare-in-love/Shakeslove1.jpeg" alt="Shakespeare in Love, Oregon State University, 2019" loading="lazy" />
+            <div class="still-caption">Shakespeare in Love · Music Director</div>
+          </div>
+          <div class="still-item">
+            <img src="images/directing/so-many-possibilities/IMG_0261.JPG" alt="So Many Possibilities, Oregon State University, 2017" loading="lazy" />
+            <div class="still-caption">So Many Possibilities · Stage Director</div>
+          </div>
+    </div>
+  </section>
+
+  <!-- credits -->
+  <!-- credits: directing & producing -->
+  <details id="credits" class="resume-section" open>
+    <summary class="kicker">Directing &amp; Producing</summary>
+    <div class="resume-inner">
+      <table class="resume-table">
+        <tr><td class="r-role">Stage Director</td><td class="r-title">Zazà</td><td class="r-org">The Crane Opera Ensemble</td><td class="r-yr">2022</td></tr>
+        <tr><td class="r-role">Producer / Vocal Director</td><td class="r-title">Once Upon a Mattress</td><td class="r-org">Community Performance Series</td><td class="r-yr">2022</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">The Medium</td><td class="r-org">The Crane Opera Ensemble</td><td class="r-yr">2021</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">Mahagonny Songspiel</td><td class="r-org">The Crane Opera Ensemble</td><td class="r-yr">2021</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">L'elisir d'amore</td><td class="r-org">Oregon State University</td><td class="r-yr">2021</td></tr>
+        <tr><td class="r-role">Music Director</td><td class="r-title">Romeo and Juliet</td><td class="r-org">OSU Bard in the Quad</td><td class="r-yr">2021</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">The Secret Garden</td><td class="r-org">Oregon State University</td><td class="r-yr">2020</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">La rondine</td><td class="r-org">Oregon State University</td><td class="r-yr">2019</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">Mozartistry</td><td class="r-org">Oregon State University</td><td class="r-yr">2019</td></tr>
+        <tr><td class="r-role">Music Director</td><td class="r-title">Shakespeare in Love</td><td class="r-org">Oregon State University</td><td class="r-yr">2019</td></tr>
+        <tr><td class="r-role">Music Director</td><td class="r-title">Guys and Dolls</td><td class="r-org">Providence Hall H.S.</td><td class="r-yr">2017</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">So Many Possibilities</td><td class="r-org">Oregon State University</td><td class="r-yr">2017</td></tr>
+        <tr><td class="r-role">Stage Director</td><td class="r-title">Mozart Scenes Program</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2011</td></tr>
+      </table>
+    </div>
+  </details>
+
+  </main>
+
+  <footer class="footer-main">
+    <a href="index.html" class="footer-brand-link">Anthony Eversole, DMA</a>
+    <div class="footer-main-links">
+      <a href="about.html">About</a>
+      <a href="performance.html">Performance</a>
+      <a href="directing.html">Directing</a>
+      <a href="research.html">Research</a>
+      <a href="lessons.html">Studio</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+  <div class="footer-legal">
+    <div class="footer-legal-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-social-links">
+      <a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+        btn.textContent = open ? 'Close' : 'Menu';
+      });
+    })();
+  </script>
+</body>
+</html>
