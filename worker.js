@@ -1,5 +1,13 @@
 const CAL_API_BASE = "https://api.cal.com/v2";
 
+// Under-construction gate. While UNDER_CONSTRUCTION is true, visitors to any
+// page see /construction.html (HTTP 503). Static files (images, PDFs, CSS)
+// and the lab explorer stay reachable so existing links keep working.
+// To preview the real site, visit any page once with ?preview=PREVIEW_KEY;
+// that sets a 30-day cookie. Set UNDER_CONSTRUCTION to false to go live.
+const UNDER_CONSTRUCTION = true;
+const PREVIEW_KEY = "9d526efcf1";
+
 // Event types are looked up server-side by a short code so the client
 // never needs to know (or be able to tamper with) raw Cal.com IDs.
 const EVENT_TYPES = {
@@ -116,6 +124,37 @@ export default {
     }
     if (path === "/api/book" && request.method === "POST") {
       return handleBook(request, env);
+    }
+
+    if (UNDER_CONSTRUCTION) {
+      const isPage = path === "/" || path.endsWith(".html") || !path.includes(".");
+      const isLab = path === "/larynx" || path === "/larynx/" || path.startsWith("/lab/");
+      if (isPage && !isLab && path !== "/construction.html") {
+        if (url.searchParams.get("preview") === PREVIEW_KEY) {
+          url.searchParams.delete("preview");
+          return new Response(null, {
+            status: 302,
+            headers: {
+              Location: url.toString(),
+              "Set-Cookie": `preview=${PREVIEW_KEY}; Path=/; Max-Age=2592000; Secure; HttpOnly; SameSite=Lax`,
+              "Cache-Control": "no-store",
+            },
+          });
+        }
+        const cookie = request.headers.get("Cookie") || "";
+        if (!cookie.split(/;\s*/).includes(`preview=${PREVIEW_KEY}`)) {
+          const page = await env.ASSETS.fetch(new Request(new URL("/construction.html", url), { method: "GET" }));
+          return new Response(page.body, {
+            status: 503,
+            headers: {
+              "Content-Type": "text/html; charset=utf-8",
+              "Retry-After": "86400",
+              "Cache-Control": "no-store",
+              "X-Robots-Tag": "noindex",
+            },
+          });
+        }
+      }
     }
 
     // Retired page paths: permanent redirects to their new homes.
