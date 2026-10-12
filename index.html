@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anthony Eversole Studio | Voice - Acting - Audition Coaching</title>
-  <meta name="description" content="Voice lessons and audition preparation with Dr. Anthony Eversole, online worldwide and in-studio in Salt Lake City." />
-  <meta property="og:title" content="Anthony Eversole Studio | Voice - Acting - Audition Coaching" />
-  <meta property="og:description" content="Voice lessons and audition preparation with Dr. Anthony Eversole, online worldwide and in-studio in Salt Lake City." />
+  <title>Anthony Eversole | Baritone, Stage Director, Voice Pedagogue</title>
+  <meta name="description" content="Dr. Anthony Eversole is a baritone, stage director, and voice teacher. Performance, directing, research, and teaching in opera and musical theatre." />
+  <meta property="og:title" content="Anthony Eversole | Baritone, Stage Director, Voice Pedagogue" />
+  <meta property="og:description" content="Dr. Anthony Eversole is a baritone, stage director, and voice teacher. Performance, directing, research, and teaching in opera and musical theatre." />
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary" />
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
@@ -414,6 +414,22 @@
       .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
       .footer-legal { flex-direction: column; gap: 12px; padding: 16px 24px; align-items: flex-start; }
     }
+
+    /* Research collaboration feature */
+    .opbot-feature { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--border); background: var(--bg); }
+    .opbot-photo { min-height: 420px; background: var(--border); }
+    .opbot-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+    .opbot-text { padding: 72px 64px; display: flex; flex-direction: column; justify-content: center; }
+    .opbot-text .kicker { margin-bottom: 16px; }
+    .opbot-h2 { font-family: var(--serif); font-weight: 400; font-size: 36px; line-height: 1.15; margin-bottom: 20px; color: var(--ink); }
+    .opbot-body { font-family: var(--serif); font-size: 18px; line-height: 1.75; color: var(--body); margin-bottom: 28px; max-width: 560px; }
+    .opbot-links { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-actions .offering-link { align-self: center; }
+    @media (max-width: 899px) {
+      .opbot-feature { grid-template-columns: 1fr; }
+      .opbot-photo { min-height: 320px; }
+      .opbot-text { padding: 48px 24px; }
+    }
   </style>
 </head>
 <body>
@@ -446,14 +462,15 @@
   <section class="hero">
     <div class="hero-text">
       <div class="hero-content">
-        <h1 class="hero-h1">Intentional training for the singing actor</h1>
-        <p class="hero-sub">Systematic training in vocal coordination and authentic acting</p>
+        <h1 class="hero-h1">Directing and teaching the singing actor</h1>
+        <p class="hero-sub">Baritone, stage director, and voice pedagogue. Dr. Anthony Eversole joins vocal coordination, tactical actioning, and opera and musical theatre production.</p>
         <div class="hero-actions">
-          <a href="book.html" class="hero-cta-primary">Book a Session</a>
+          <a href="cv.html" class="hero-cta-primary">Curriculum Vitae</a>
+          <a href="research.html" class="offering-link">Research &amp; Papers &rarr;</a>
         </div>
       </div>
       <div class="hero-tagline-bar">
-        <span class="hero-tagline-text">Voice Training &middot; Audition Prep &middot; Vocal &amp; Stage Direction</span>
+        <span class="hero-tagline-text">Performance &middot; Directing &middot; Research &middot; Teaching</span>
       </div>
     </div>
     <div class="img-slot" style="position: relative;">
@@ -464,101 +481,146 @@
   <!-- offerings -->
   <section class="offerings">
 
-    <div class="offerings-tabs" role="tablist" aria-label="Services">
+    <div class="offerings-tabs" role="tablist" aria-label="Areas of work">
       <button class="offering-tab active" role="tab" aria-selected="true" aria-controls="panel-1" id="tab-1" data-tab="1">
         <span class="offering-tab-num">01</span>
-        <span class="offering-tab-title">Voice Studio</span>
+        <span class="offering-tab-title">Performance</span>
       </button>
       <button class="offering-tab" role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" data-tab="2">
         <span class="offering-tab-num">02</span>
-        <span class="offering-tab-title">Role &amp; Audition Prep</span>
+        <span class="offering-tab-title">Directing</span>
       </button>
       <button class="offering-tab" role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" data-tab="3">
         <span class="offering-tab-num">03</span>
-        <span class="offering-tab-title">Vocal &amp; Stage Direction</span>
+        <span class="offering-tab-title">Research</span>
       </button>
       <button class="offering-tab" role="tab" aria-selected="false" aria-controls="panel-4" id="tab-4" data-tab="4">
         <span class="offering-tab-num">04</span>
-        <span class="offering-tab-title">Clinics &amp; Masterclasses</span>
+        <span class="offering-tab-title">Teaching &amp; Studio</span>
       </button>
     </div>
 
     <div class="offerings-panels">
 
       <div class="offering-panel active" role="tabpanel" id="panel-1" aria-labelledby="tab-1" data-num="01">
-        <div class="offering-title">Voice Studio</div>
-        <p class="offering-body">Individualized vocal training to stabilize technique, reduce physical tension, and build a voice you can rely on.</p>
+        <div class="offering-title">Performance</div>
+        <p class="offering-body">A baritone in opera, musical theatre, and concert, with roles at the Maryland Opera Studio, Charlottesville Opera, the Castleton Festival, and Utah Festival Opera.</p>
         <div class="feature-list">
           <div class="feature-list-item">
             <span class="feature-list-dot">—</span>
-            <span><strong>Evidence-Based Mechanics</strong> Train with a motor learning approach grounded in voice science, so coordination becomes predictable and repeatable.</span>
+            <span><strong>Opera</strong> Don Giovanni, Falstaff, Gianni Schicchi, Papageno, and Sharpless in <em>Madama Butterfly</em>.</span>
           </div>
           <div class="feature-list-item">
             <span class="feature-list-dot">—</span>
-            <span><strong>Text-First Exploration</strong> Work from the text outward, shaping technique and character together so both serve the storytelling.</span>
+            <span><strong>Musical theatre</strong> Angus Tuck in <em>Tuck Everlasting</em>, Harry Bright in <em>Mamma Mia!</em>, and Sir Harry in <em>Once Upon a Mattress</em>.</span>
           </div>
           <div class="feature-list-item">
             <span class="feature-list-dot">—</span>
-            <span><strong>Built to Disappear</strong> Establish coordination that's wired in, freeing your attention for character and artistry.</span>
+            <span><strong>Concert and oratorio</strong> Brahms&rsquo;s <em>Ein deutsches Requiem</em>, Haydn&rsquo;s <em>The Creation</em>, and Beethoven&rsquo;s Ninth.</span>
           </div>
         </div>
         <div class="offering-tags">
+          <span class="tag">Opera</span>
           <span class="tag">Musical Theatre</span>
-          <span class="tag">Pop &amp; Rock</span>
-          <span class="tag">Classical</span>
+          <span class="tag">Concert &amp; Oratorio</span>
         </div>
-        <a href="lessons.html" class="offering-link">Studio Details &amp; Rates →</a>
+        <a href="performances.html" class="offering-link">Recordings &amp; Credits →</a>
       </div>
 
       <div class="offering-panel" role="tabpanel" id="panel-2" aria-labelledby="tab-2" data-num="02">
-        <div class="offering-title">Role &amp; Audition Prep</div>
-        <p class="offering-body">Focused prep for singers building a role or preparing for an audition.</p>
+        <div class="offering-title">Directing</div>
+        <p class="offering-body">Stage and vocal direction for opera and musical theatre at universities and professional ensembles.</p>
         <div class="feature-list">
           <div class="feature-list-item">
             <span class="feature-list-dot">—</span>
-            <span><strong>Clear Choices</strong> Break down the script and score line by line, so every moment has a reason behind it instead of a vague feeling.</span>
+            <span><strong>Specific, playable choices</strong> Staging built on what each character wants and how that lives in the body, with stillness used to clarify subtext.</span>
           </div>
           <div class="feature-list-item">
             <span class="feature-list-dot">—</span>
-            <span><strong>Beat-by-Beat Focus</strong> Trade fidgeting and nervous habits for eye focus and gesture shaped by what your character is thinking, beat by beat.</span>
+            <span><strong>University seasons</strong> Led opera and musical theatre seasons at Oregon State University and the Crane School of Music.</span>
           </div>
           <div class="feature-list-item">
             <span class="feature-list-dot">—</span>
-            <span><strong>Rooted, Not Rote</strong> Line and phrase choices built from your character's wants and obstacles, so they stay fresh even on repeat.</span>
+            <span><strong>Production dramaturgy</strong> Each production begins with written research on history, psychology, and visual world.</span>
           </div>
         </div>
         <div class="offering-tags">
-          <span class="tag">Production Auditions</span>
-          <span class="tag">College Auditions</span>
+          <span class="tag">Opera</span>
           <span class="tag">Musical Theatre</span>
-          <span class="tag">Opera / Oratorio</span>
+          <span class="tag">Scenes Programs</span>
         </div>
-        <a href="book.html" class="offering-link">Book a Session →</a>
+        <a href="directing.html" class="offering-link">Credits &amp; Dramaturgy →</a>
       </div>
 
       <div class="offering-panel" role="tabpanel" id="panel-3" aria-labelledby="tab-3" data-num="03">
-        <div class="offering-title">Vocal &amp; Stage Direction</div>
-        <p class="offering-body">Vocal direction and stage direction for mainstage productions, schools, and professional companies.</p>
-        <div class="offering-tags">
-          <span class="tag">Vocal Direction</span>
-          <span class="tag">Stage Direction</span>
+        <div class="offering-title">Research</div>
+        <p class="offering-body">Scholarship on opera and performance, the singing actor, musical analysis, and the meeting of theatre and technology.</p>
+        <div class="feature-list">
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Opera &amp; performance studies</strong> A dissertation on sexism and imperialism in <em>Don Giovanni</em>, <em>Madama Butterfly</em>, and <em>Regina</em>.</span>
+          </div>
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Pedagogy of the singing actor</strong> Tactical actioning, eye focus, vulnerability, and motor learning.</span>
+          </div>
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Performance &amp; technology</strong> Directed a robot in a Mozart scene, a collaboration published at ICSR+AI 2025.</span>
+          </div>
         </div>
-        <a href="directing.html#inquiry" class="offering-link">Inquire About Bookings →</a>
+        <div class="offering-tags">
+          <span class="tag">Dissertation</span>
+          <span class="tag">Papers</span>
+          <span class="tag">Pedagogy</span>
+          <span class="tag">Robotics Collaboration</span>
+        </div>
+        <a href="research.html" class="offering-link">Research &amp; Papers →</a>
       </div>
 
       <div class="offering-panel" role="tabpanel" id="panel-4" aria-labelledby="tab-4" data-num="04">
-        <div class="offering-title">Clinics &amp; Masterclasses</div>
-        <p class="offering-body">Single-session and extended intensive work for choirs, theatrical casts, collegiate programs, and professional companies.</p>
-        <p class="offering-highlights">Ensemble Clinics &middot; Performance Masterclasses &middot; Targeted Intensives</p>
-        <div class="offering-tags">
-          <span class="tag">Choirs</span>
-          <span class="tag">Collegiate Programs</span>
-          <span class="tag">Theatre Companies</span>
-          <span class="tag">Professional Ensembles</span>
+        <div class="offering-title">Teaching &amp; Studio</div>
+        <p class="offering-body">University teaching, workshops and masterclasses, and a private voice and acting studio.</p>
+        <div class="feature-list">
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Evidence-based mechanics</strong> A motor learning approach grounded in voice science, so coordination becomes predictable and repeatable.</span>
+          </div>
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Text-first exploration</strong> Technique and character shaped together, so both serve the storytelling.</span>
+          </div>
+          <div class="feature-list-item">
+            <span class="feature-list-dot">—</span>
+            <span><strong>Private studio</strong> Online worldwide and in Salt Lake City, since 2014.</span>
+          </div>
         </div>
-        <a href="teaching.html#workshops" class="offering-link">Inquire About Clinics →</a>
+        <div class="offering-tags">
+          <span class="tag">Applied Voice</span>
+          <span class="tag">Acting for Singers</span>
+          <span class="tag">Opera Workshop</span>
+          <span class="tag">Masterclasses</span>
+        </div>
+        <a href="teaching.html" class="offering-link">Teaching →</a>
+        <a href="lessons.html" class="offering-link" style="margin-top: 10px;">Private Studio &amp; Rates →</a>
       </div>
 
+    </div>
+  </section>
+
+  <!-- research collaboration: OperaBot -->
+  <section class="opbot-feature">
+    <div class="opbot-photo">
+      <img src="images/directing/mozartistry/73541626_517793125619594_2196023362629664768_n.jpeg" alt="A robot costumed as the Commendatore, a stone knight in chainmail, a black fur cloak, and a silver shield, seated in a rehearsal room" loading="lazy" />
+    </div>
+    <div class="opbot-text">
+      <div class="kicker">Research Collaboration</div>
+      <h2 class="opbot-h2">Casting a robot as the Commendatore</h2>
+      <p class="opbot-body">In 2019 I directed a robot in the graveyard scene from <em>Don Giovanni</em>, operated it, and sang its voice live. The roboticists who built it published the collaboration at ICSR+AI 2025 in Naples.</p>
+      <div class="opbot-links">
+        <a href="operabot.html" class="btn-dark">Read the Story</a>
+        <a href="research.html" class="btn-outline">All Research</a>
+      </div>
     </div>
   </section>
 
@@ -568,13 +630,13 @@
       <img src="images/site/headshot-homepage.jpg" alt="Dr. Anthony Eversole" />
     </div>
     <div class="teacher-text">
-      <div class="kicker" style="margin-bottom: 24px;">The Teacher</div>
+      <div class="kicker" style="margin-bottom: 24px;">About</div>
       <p class="teacher-quote">Dr. Anthony Eversole teaches evidence-based technique and integrated application for the stage.</p>
       <p class="teacher-body">Teaching credits include 15+ years of applied studio teaching, K-12 choral and musical theatre classroom teaching, and university voice, musical theatre, and opera programs. He has directed for institutions such as The Crane Opera Ensemble, Oregon State University, the University of Oklahoma, and performed with Maryland Opera Studio, Charlottesville Opera, Castleton Festival, Utah Festival Opera & Musical Theatre, and more.</p>
       <p class="teacher-body">His work centers on evidence-based, motor learning-driven vocal technique, paired with vulnerability and shame resilience as the guiding lens for tactical, action-driven acting work, applied across classical and contemporary styles.</p>
       <p class="teacher-meta">Doctor of Musical Arts, University of Maryland &nbsp;•&nbsp; Master of Music, University of Oklahoma &nbsp;•&nbsp; Bachelor of Music, Utah State University.</p>
       <a href="philosophy.html" class="offering-link">Read the Full Teaching Philosophy →</a>
-      <a href="performances.html#credits" class="offering-link" style="margin-top: 10px;">See Full Credits →</a>
+      <a href="cv.html" class="offering-link" style="margin-top: 10px;">Curriculum Vitae →</a>
     </div>
   </section>
 
@@ -591,9 +653,9 @@
 
   <!-- blog strip — rendered from posts-data.js, always shows the 6 latest posts -->
   <section class="strip">
-    <div class="kicker" style="margin-bottom: 28px;">From the Blog</div>
+    <div class="kicker" style="margin-bottom: 28px;">Recent Writing</div>
     <div class="strip-posts" id="strip-posts"></div>
-    <a href="blog.html" class="offering-link strip-all">All posts →</a>
+    <a href="blog.html" class="offering-link strip-all">All writing →</a>
   </section>
 
   <script>
@@ -620,18 +682,18 @@
   <section class="upcoming">
     <div class="upcoming-inner">
       <div>
-        <div class="kicker" style="margin-bottom: 16px;">On Stage</div>
+        <div class="kicker" style="margin-bottom: 16px;">Recent Performances</div>
       </div>
       <div>
         <div class="upcoming-event">
           <img class="upcoming-event-img" src="images/On%20Stage/Tuck.png" alt="Tuck Everlasting" />
           <div class="upcoming-event-info">
-            <span class="upcoming-event-badge badge-upcoming">Upcoming</span>
+            <span class="upcoming-event-badge badge-recent">Recent</span>
             <span class="upcoming-event-role">Angus Tuck</span>
             <span class="upcoming-event-title">Tuck Everlasting</span>
             <span class="upcoming-event-meta">Sandy Arts · The Theater at Mount Jordan · October 2026</span>
           </div>
-          <a href="https://www.sandyarts.com/tuck-everlasting" class="btn-ticket" target="_blank" rel="noopener">Get Tickets</a>
+          <a href="performances.html#credits" class="offering-link">View Credits →</a>
         </div>
         <div class="upcoming-event">
           <img class="upcoming-event-img" src="images/On%20Stage/Fiddler.png" alt="Fiddler on the Roof" />
@@ -650,7 +712,7 @@
   <!-- book band -->
   <section class="home-book-band">
     <div>
-      <div class="kicker" style="color: var(--accent-md); margin-bottom: 16px;">Now Enrolling New Students</div>
+      <div class="kicker" style="color: var(--accent-md); margin-bottom: 16px;">Private Studio, Now Enrolling</div>
       <p class="home-book-hl">First we talk goals, then we make some noise.</p>
     </div>
     <a href="book.html" class="btn-light">Book a Free Consultation</a>
