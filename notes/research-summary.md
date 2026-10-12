@@ -80,4 +80,4 @@ Vulnerability and risk-taking for the singing actor; eye focus and physical move
 - The CV lists no peer-reviewed publications authored by Dr. Eversole. His authored scholarship is the dissertation and the three research papers above, all from his doctoral studies at the University of Maryland.
 - OperaBot is a collaboration he is credited in, not a publication he wrote.
 - "Planned" items have not been completed. Do not list them as research outputs.
-- Three paper titles differ between the CV and the website. Confirm with Dr. Eversole before using them.
+- Two paper titles (Butterfly, Finzi) differ between the CV and the website, and the Beethoven title may need rewording. Confirm with Dr. Eversole before using them.
