@@ -7,3 +7,4 @@ lab/*
 !lab/larynx-styled.glb
 blog-drafts/
 .gitignore
+notes/
