@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | Anthony Eversole</title>
+  <meta name="description" content="Dr. Anthony Eversole is a baritone, stage director, and voice teacher whose work centers on the singing actor. Former Director of Opera and Musical Theatre Studies at Oregon State University." />
+  <meta property="og:title" content="About | Anthony Eversole" />
+  <meta property="og:description" content="Dr. Anthony Eversole is a baritone, stage director, and voice teacher whose work centers on the singing actor. Former Director of Opera and Musical Theatre Studies at Oregon State University." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Nav hamburger (hidden on desktop) */
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      padding: 8px 0;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media (max-width: 1149px) {
+      .nav { padding: 0 40px; }
+      .nav-menu-btn { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 40px 28px;
+        gap: 0;
+        z-index: 99;
+        box-shadow: 0 4px 16px rgba(34,30,25,.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links > a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        letter-spacing: .12em;
+      }
+      .nav-ctas { padding: 20px 0 0; }
+      .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
+    }
+
+    /* philosophy header (reuses post-header/post-body typography) */
+    .philosophy-header { max-width: 860px; margin: 0 auto; padding: 88px 24px 48px; }
+    .philosophy-kicker { font-size: 12px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .philosophy-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; margin: 0 0 20px; color: var(--ink); }
+
+    @media (max-width: 767px) {
+      .nav { padding: 0 24px; }
+      .nav-links { padding: 8px 24px 28px; }
+      .philosophy-header { padding: 56px 24px 32px; }
+
+      /* Footer: stack and wrap */
+      .footer-main { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; }
+      .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
+      .footer-legal { flex-direction: column; gap: 12px; padding: 16px 24px; align-items: flex-start; }
+    }
+  
+    /* page header */
+    .pg-header { max-width: 860px; margin: 0 auto; padding: 88px 24px 48px; }
+    .pg-kicker { font-size: 12px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .pg-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; margin: 0 0 20px; color: var(--ink); }
+    .pg-lede { font-family: var(--serif); font-size: clamp(17px, 2.2vw, 21px); line-height: 1.7; color: var(--secondary); margin: 0; }
+    .pg-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+    @media (max-width: 767px) { .pg-header { padding: 56px 24px 32px; } }
+
+    .pg-header { max-width: 1100px; }
+    .ab-wrap { max-width: 1100px; margin: 0 auto; padding: 24px 24px 72px; display: grid; grid-template-columns: 340px 1fr; gap: 56px; align-items: start; }
+    .ab-photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border: 1px solid var(--border); }
+    .ab-bio p { font-family: var(--serif); font-size: 19px; line-height: 1.8; color: var(--body); margin: 0 0 22px; }
+    .ab-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+    .ab-links { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--border); background: var(--bg-alt); }
+    .ab-card { padding: 40px 32px; border-right: 1px solid var(--border); display: block; }
+    .ab-card:last-child { border-right: none; }
+    .ab-card .kicker { margin-bottom: 12px; }
+    .ab-card p { font-family: var(--serif); font-size: 16px; line-height: 1.6; color: var(--secondary); }
+    .ab-card:hover { background: var(--bg); opacity: 1; }
+    @media (max-width: 1023px) { .ab-links { grid-template-columns: repeat(2, 1fr); } .ab-card:nth-child(2) { border-right: none; } .ab-card:nth-child(-n+2) { border-bottom: 1px solid var(--border); } }
+    @media (max-width: 899px) { .ab-wrap { grid-template-columns: 1fr; gap: 32px; } .ab-photo { max-width: 340px; } }
+    @media (max-width: 599px) { .ab-links { grid-template-columns: 1fr; } .ab-card { border-right: none; border-bottom: 1px solid var(--border); } }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">Anthony Eversole</span>
+      <span class="nav-brand-kicker">Voice &amp; Stage</span>
+    </a>
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
+      <a href="about.html" class="active">About</a>
+      <a href="performances.html">Performances</a>
+      <a href="directing.html">Directing</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="contact.html">Contact</a>
+      <div class="nav-ctas">
+        <a href="book.html" class="nav-book">Book a Lesson</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" tabindex="-1">
+
+  <header class="pg-header">
+    <div class="pg-kicker">About</div>
+    <h1>Anthony Eversole, DMA</h1>
+    <p class="pg-lede">Baritone, stage director, and voice teacher. I teach singers to act and direct opera and musical theatre through specific, playable choices.</p>
+  </header>
+
+  <section class="ab-wrap">
+    <div class="ab-photo"><img src="images/site/headshot-homepage.jpg" alt="Dr. Anthony Eversole" /></div>
+    <div class="ab-bio">
+      <p>Dr. Anthony Eversole is a baritone, stage director, and voice teacher whose work centers on the singing actor. He holds a Doctor of Musical Arts in Opera and Voice from the University of Maryland, where he sang with the Maryland Opera Studio, a Master of Music in Voice from the University of Oklahoma, and two Bachelor of Music degrees from Utah State University.</p>
+      <p>In higher education, he served as Director of Opera and Musical Theatre Studies and Artistic Director of OSU Lyric at Oregon State University (2018 to 2021), then as Visiting Assistant Professor of Opera and Musical Theatre at the Crane School of Music, SUNY Potsdam (2021 to 2022). His courses have included applied voice, acting for singers, opera workshop, musical theatre workshop, performance practices, and lyric diction. He has directed or produced more than a dozen operas, musicals, and scenes programs, and he founded the Overture Series, which brought opera and musical theatre to bars and coffee shops in Corvallis.</p>
+      <p>As a performer, he has sung roles including Don Giovanni and Papageno with the Maryland Opera Studio, Sharpless with Charlottesville Opera and the Castleton Festival, and Falstaff at the University of Oklahoma, alongside musical theatre roles and concert and oratorio engagements. His research covers performance studies of opera, the pedagogy of the singing actor, song and text, and the intersection of performance and technology. He has taught a private voice studio since 2014 and is based in Salt Lake City.</p>
+      <div class="ab-actions">
+        <a href="cv.html" class="btn-dark">Curriculum Vitae</a>
+        <a href="philosophy.html" class="btn-outline">Teaching Philosophy</a>
+        <a href="contact.html" class="btn-outline">Contact</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ab-links">
+    <a href="performances.html" class="ab-card"><div class="kicker">Performances</div><p>Recordings, photos, and credits in opera, musical theatre, and concert.</p></a>
+    <a href="directing.html" class="ab-card"><div class="kicker">Directing</div><p>Stage and vocal direction at universities and opera companies.</p></a>
+    <a href="research.html" class="ab-card"><div class="kicker">Research</div><p>Opera studies, pedagogy, song and text, and performance and technology.</p></a>
+    <a href="teaching.html" class="ab-card"><div class="kicker">Teaching</div><p>University courses, private studio, workshops, and masterclasses.</p></a>
+  </section>
+
+  </main>
+
+  <footer class="footer-main">
+    <a href="index.html" class="footer-brand-link">Anthony Eversole, DMA</a>
+    <div class="footer-main-links">
+      <a href="about.html">About</a>
+      <a href="performances.html">Performances</a>
+      <a href="directing.html">Directing</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog.html">Writing</a>
+    </div>
+  </footer>
+  <div class="footer-legal">
+    <div class="footer-legal-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-social-links">
+      <a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.textContent = expanded ? 'Menu' : 'Close';
+        links.classList.toggle('open', !expanded);
+      });
+    })();
+  </script>
+</body>
+</html>

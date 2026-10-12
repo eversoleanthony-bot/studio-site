@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Teaching | Anthony Eversole</title>
+  <meta name="description" content="University teaching, teaching philosophy, private voice studio, and workshops from Dr. Anthony Eversole, with experience in applied voice, acting for singers, opera workshop, and lyric diction." />
+  <meta property="og:title" content="Teaching | Anthony Eversole" />
+  <meta property="og:description" content="University teaching, teaching philosophy, private voice studio, and workshops from Dr. Anthony Eversole, with experience in applied voice, acting for singers, opera workshop, and lyric diction." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Nav hamburger (hidden on desktop) */
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      padding: 8px 0;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media (max-width: 1149px) {
+      .nav { padding: 0 40px; }
+      .nav-menu-btn { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 40px 28px;
+        gap: 0;
+        z-index: 99;
+        box-shadow: 0 4px 16px rgba(34,30,25,.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links > a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        letter-spacing: .12em;
+      }
+      .nav-ctas { padding: 20px 0 0; }
+      .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
+    }
+
+    /* philosophy header (reuses post-header/post-body typography) */
+    .philosophy-header { max-width: 860px; margin: 0 auto; padding: 88px 24px 48px; }
+    .philosophy-kicker { font-size: 12px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .philosophy-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; margin: 0 0 20px; color: var(--ink); }
+
+    @media (max-width: 767px) {
+      .nav { padding: 0 24px; }
+      .nav-links { padding: 8px 24px 28px; }
+      .philosophy-header { padding: 56px 24px 32px; }
+
+      /* Footer: stack and wrap */
+      .footer-main { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; }
+      .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
+      .footer-legal { flex-direction: column; gap: 12px; padding: 16px 24px; align-items: flex-start; }
+    }
+  
+    /* page header */
+    .pg-header { max-width: 860px; margin: 0 auto; padding: 88px 24px 48px; }
+    .pg-kicker { font-size: 12px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .pg-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; margin: 0 0 20px; color: var(--ink); }
+    .pg-lede { font-family: var(--serif); font-size: clamp(17px, 2.2vw, 21px); line-height: 1.7; color: var(--secondary); margin: 0; }
+    .pg-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+    @media (max-width: 767px) { .pg-header { padding: 56px 24px 32px; } }
+
+    .service-row { padding: 64px 24px; max-width: none; }
+    .service-row > div:first-child { max-width: 420px; }
+    .service-row > div { max-width: 1100px; }
+    .service-row.alt { background: var(--bg-alt); }
+    .service-title { font-size: 34px; }
+    .t-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    @media (min-width: 900px) { .service-row { padding: 72px 64px; } }
+    @media (max-width: 899px) { .service-row { grid-template-columns: 1fr; gap: 20px; } }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">Anthony Eversole</span>
+      <span class="nav-brand-kicker">Voice &amp; Stage</span>
+    </a>
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
+      <a href="about.html">About</a>
+      <a href="performances.html">Performances</a>
+      <a href="directing.html">Directing</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html" class="active">Teaching</a>
+      <a href="contact.html">Contact</a>
+      <div class="nav-ctas">
+        <a href="book.html" class="nav-book">Book a Lesson</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" tabindex="-1">
+
+  <header class="pg-header">
+    <div class="pg-kicker">Teaching</div>
+    <h1>Teaching the singing actor</h1>
+    <p class="pg-lede">I teach voice, acting for singers, and opera and musical theatre production in universities, in a private studio, and in workshops. The approach stays the same: train one coordination at a time, and give every moment a playable action.</p>
+  </header>
+
+  <section class="service-row" id="university">
+    <div>
+      <div class="service-num">01</div>
+      <h2 class="service-title">University Teaching</h2>
+    </div>
+    <div>
+      <p class="service-body">Experience teaching applied voice, acting for singers, opera and musical theatre workshop, performance practices, lyric diction, and group voice, and leading university opera and musical theatre seasons as director and producer.</p><div class="feature-list"><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>Applied Studio Voice Instruction</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>Acting for Singers</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>Opera Workshop and Production</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>Musical Theatre Workshop and Directing Musical Theatre</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>Performance Practices for Singers</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>Lyric Diction: French, Italian, German, English</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>Group Voice and Voice Minor Series; Aural Skills</span></div></div>
+      <a href="cv.html#teaching" class="offering-link">Teaching positions on the CV &rarr;</a>
+    </div>
+  </section>
+
+  <section class="service-row alt" id="philosophy">
+    <div>
+      <div class="service-num">02</div>
+      <h2 class="service-title">Teaching Philosophy</h2>
+    </div>
+    <div>
+      <p class="service-body">My work with performers splits two ways: nurturing a flexible voice toward optimal coordination, and forging in each performer an interpretive instinct, an understanding of the human condition, and an awareness of what contributes to powerful stage presence.</p><div class="feature-list"><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span><strong>Safety first.</strong> Every new group starts with vulnerability and shame resilience, because singing and acting ask people to be seen.</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span><strong>Motor learning.</strong> Isolate one coordination, train it under different conditions, then unite it back into the whole instrument.</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span><strong>Tactical actioning.</strong> A transitive verb for every beat change, so the work shifts from feeling to pursuing.</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span><strong>Economy of gesture and eye focus.</strong> Restraint clarifies subtext.</span></div></div>
+      <a href="philosophy.html" class="offering-link">Read the full philosophy &rarr;</a>
+    </div>
+  </section>
+
+  <section class="service-row" id="studio">
+    <div>
+      <div class="service-num">03</div>
+      <h2 class="service-title">Private Studio</h2>
+    </div>
+    <div>
+      <p class="service-body">Independent voice and acting instruction since 2014, in Salt Lake City and online worldwide. One-on-one sessions in vocal technique, audition preparation, and character work for singers of all backgrounds, from teenagers to working professionals.</p>
+      <div class="t-actions"><a href="lessons.html" class="btn-dark">About the Studio</a><a href="book.html" class="btn-outline">Book a Lesson</a></div>
+    </div>
+  </section>
+
+  <section class="service-row alt" id="workshops">
+    <div>
+      <div class="service-num">04</div>
+      <h2 class="service-title">Workshops, Masterclasses &amp; Clinics</h2>
+    </div>
+    <div>
+      <p class="service-body">Workshops built around the whole performer: voice, body, and dramatic instinct. The room has to feel safe enough for real risk before any of the technique work lands. From there: style, audition craft, ensemble singing, and what it actually takes to perform in front of people.</p><div class="feature-list"><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>Choral technique and ensemble singing</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>Vocal health and cross-genre technique</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>Audition prep and repertoire selection</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>Mic technique and amplified performance for musical theatre</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>Stage presence, stillness, and economy of movement</span></div></div>
+      <a href="contact.html" class="offering-link">Inquire about a visit &rarr;</a>
+    </div>
+  </section>
+
+  <section class="service-row no-border" id="production">
+    <div>
+      <div class="service-num">05</div>
+      <h2 class="service-title">Music Production</h2>
+    </div>
+    <div>
+      <p class="service-body">Home-studio production for singers and theatrical projects: demos, self-tape sessions, and arrangements, without commercial studio overhead. Also available to teach music production, from DAW workflow to score typesetting and engraving.</p><div class="feature-list"><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>Vocal demo and self-tape recording and production</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>Choral composing and arranging</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>Original scoring for stage and screen</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>DAW workflow instruction in Logic and Cubase</span></div><div class="feature-list-item"><span class="feature-list-dot">&mdash;</span><span>Typesetting and engraving services</span></div></div>
+      <a href="contact.html" class="offering-link">Inquire &rarr;</a>
+    </div>
+  </section>
+
+  </main>
+
+  <footer class="footer-main">
+    <a href="index.html" class="footer-brand-link">Anthony Eversole, DMA</a>
+    <div class="footer-main-links">
+      <a href="about.html">About</a>
+      <a href="performances.html">Performances</a>
+      <a href="directing.html">Directing</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog.html">Writing</a>
+    </div>
+  </footer>
+  <div class="footer-legal">
+    <div class="footer-legal-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-social-links">
+      <a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.textContent = expanded ? 'Menu' : 'Close';
+        links.classList.toggle('open', !expanded);
+      });
+    })();
+  </script>
+</body>
+</html>

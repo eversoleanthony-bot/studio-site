@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OperaBot: Directing a Robot | Anthony Eversole</title>
+  <meta name="description" content="Dr. Anthony Eversole directed a robot as the Commendatore in the graveyard scene from Don Giovanni at Oregon State in 2019. The collaboration was published at ICSR+AI 2025." />
+  <meta property="og:title" content="OperaBot: Directing a Robot | Anthony Eversole" />
+  <meta property="og:description" content="Dr. Anthony Eversole directed a robot as the Commendatore in the graveyard scene from Don Giovanni at Oregon State in 2019. The collaboration was published at ICSR+AI 2025." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Nav hamburger (hidden on desktop) */
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      padding: 8px 0;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media (max-width: 1149px) {
+      .nav { padding: 0 40px; }
+      .nav-menu-btn { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 40px 28px;
+        gap: 0;
+        z-index: 99;
+        box-shadow: 0 4px 16px rgba(34,30,25,.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links > a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        letter-spacing: .12em;
+      }
+      .nav-ctas { padding: 20px 0 0; }
+      .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
+    }
+
+    /* philosophy header (reuses post-header/post-body typography) */
+    .philosophy-header { max-width: 860px; margin: 0 auto; padding: 88px 24px 48px; }
+    .philosophy-kicker { font-size: 12px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .philosophy-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; margin: 0 0 20px; color: var(--ink); }
+
+    @media (max-width: 767px) {
+      .nav { padding: 0 24px; }
+      .nav-links { padding: 8px 24px 28px; }
+      .philosophy-header { padding: 56px 24px 32px; }
+
+      /* Footer: stack and wrap */
+      .footer-main { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; }
+      .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
+      .footer-legal { flex-direction: column; gap: 12px; padding: 16px 24px; align-items: flex-start; }
+    }
+  
+    /* page header */
+    .pg-header { max-width: 860px; margin: 0 auto; padding: 88px 24px 48px; }
+    .pg-kicker { font-size: 12px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .pg-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; margin: 0 0 20px; color: var(--ink); }
+    .pg-lede { font-family: var(--serif); font-size: clamp(17px, 2.2vw, 21px); line-height: 1.7; color: var(--secondary); margin: 0; }
+    .pg-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+    @media (max-width: 767px) { .pg-header { padding: 56px 24px 32px; } }
+
+    .post-body figure img { cursor: default; }
+    .post-body figure.ob-sq { max-width: 480px; margin-left: auto; margin-right: auto; }
+    .ob-facts { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 8px 0; margin: 0 0 32px; }
+    .ob-facts dl { margin: 0; }
+    .ob-facts div { display: grid; grid-template-columns: 140px 1fr; gap: 20px; padding: 12px 0; border-top: 1px solid var(--border); }
+    .ob-facts div:first-child { border-top: none; }
+    .ob-facts dt { font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); padding-top: 4px; }
+    .ob-facts dd { margin: 0; font-family: var(--serif); font-size: 17px; line-height: 1.6; color: var(--body); }
+    .ob-note { font-size: 14px !important; color: var(--faint) !important; margin-top: 24px !important; font-family: var(--sans) !important; }
+    .ob-note a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+    @media (max-width: 767px) { .ob-facts div { grid-template-columns: 1fr; gap: 4px; } }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">Anthony Eversole</span>
+      <span class="nav-brand-kicker">Voice &amp; Stage</span>
+    </a>
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
+      <a href="about.html">About</a>
+      <a href="performances.html">Performances</a>
+      <a href="directing.html">Directing</a>
+      <a href="research.html" class="active">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="contact.html">Contact</a>
+      <div class="nav-ctas">
+        <a href="book.html" class="nav-book">Book a Lesson</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" tabindex="-1">
+
+  <header class="pg-header">
+    <a href="research.html" class="post-back">&larr; Research</a>
+    <div class="pg-kicker">Research Collaboration &middot; Performance &amp; Technology</div>
+    <h1>Directing a Robot: OperaBot at Oregon State</h1>
+    <p class="pg-lede">In November 2019 I directed a robot in the graveyard scene from <em>Don Giovanni</em>. The roboticists who built it later wrote the collaboration up as a study of what theatre can teach robot design.</p>
+  </header>
+
+  <article class="post-body">
+
+    <aside class="ob-facts" aria-label="Project details">
+      <dl>
+        <div><dt>Production</dt><dd><em>Mozartistry</em>, twelve Mozart opera scenes, OSU Lyric Opera Ensemble</dd></div>
+        <div><dt>Performances</dt><dd>November 25 and 26, 2019, Ashbrook Independent School, Corvallis, Oregon</dd></div>
+        <div><dt>My roles</dt><dd>Stage director, robot operator, and the live voice of the Commendatore</dd></div>
+        <div><dt>Collaborators</dt><dd>CHARISMA lab, CoRIS Institute, Oregon State University: Dr. Heather Knight, with robot designers Janani Swaminathan and Denisse Alvarado</dd></div>
+        <div><dt>Published</dt><dd><em>Social Robotics + AI: ICSR+AI 2025</em>, Springer (LNCS vol. 16133), 2026</dd></div>
+      </dl>
+    </aside>
+
+    <figure>
+      <img src="images/directing/mozartistry/operabot-graveyard-scene.jpg" alt="On a dark stage, a singer in a black fur-trimmed cloak reaches an arm toward a statue-like robot standing on a stone pedestal at the right, its long fingers curled" width="865" height="687" />
+      <figcaption>The graveyard scene in performance: Don Giovanni and the Commendatore, played by the robot on its pedestal.</figcaption>
+    </figure>
+
+    <h2>The scene</h2>
+    <p><em>Mozartistry</em> was a showcase of twelve Mozart opera scenes. In the graveyard scene from <em>Don Giovanni</em>, Giovanni and his servant Leporello come upon a statue commemorating the man Giovanni killed. In our staging, the statue was a robot. As Giovanni joked, its mouth opened and laughter came out. Leporello turned, saw the statue moving and bowing, and was terrified. Giovanni refused to believe him and, as a joke, told Leporello to invite the statue to dinner.</p>
+    <p>The scene ran about eight minutes. The audience was not told ahead of time that a robot was in the cast.</p>
+
+    <h2>How it came together</h2>
+    <p>Dr. Heather Knight, a roboticist at Oregon State, and I met to decide what role a robot could play and what it would need to do. Over a three-month collaboration, Janani Swaminathan and Denisse Alvarado, robot designers in her lab, designed and built it. They brought it to our rehearsals, set it up each time, and revised it after every session. By opening night it had been through five rehearsals and a full tech process, like any other member of the company.</p>
+    <p>A stone statue that comes to life asks a human performer to move like something that is not human. For a robot, that stiffness is native. The challenge was the opposite one: deciding how little it should do.</p>
+
+    <h2>Choices I made as director</h2>
+
+    <p><strong>Stillness first.</strong> I found that the character called for restraint. As I put it in the study&rsquo;s interview: <em>&ldquo;Less is more. If you&rsquo;re going for a strong, scary character, the less movement the better.&rdquo;</em> The authors note that this maps to earlier robotics work using Laban features.</p>
+
+    <p><strong>Four movements, each with a job.</strong> The robot could open and close its jaw, so it could mimic singing; turn its head and body, so the statue&rsquo;s gaze could follow the singers; bow, as a knight would; and light up its eyes. The bow and the eyes became part of the design as rehearsals went on. The eyes were the roboticists&rsquo; suggestion, and I took it up because it was something I could never ask of a human actor: <em>&ldquo;I wouldn&rsquo;t have tried to make my actor&rsquo;s eyes light up for example, right? So, that&rsquo;s something we added because of the robot.&rdquo;</em> The Commendatore returns at the end of the opera to drag Giovanni to hell, so this was a big moment and his introduction in this form.</p>
+
+    <p><strong>Staging did half the work.</strong> We placed the robot on a pedestal at one side of the stage. That meant a turn of the head was enough, and the height let it tower over the singers. We also added reverb to its voice, an easy audio-only change that made it sound larger and more menacing.</p>
+
+    <p><strong>Costume carried the character.</strong> The roboticists handed costuming to the performance side of the team. Stuffed gloves gave the robot hands with palms. A long black skirt hid the electronics and helped make it a knight, and a chainmail hood finished the picture.</p>
+
+    <figure class="ob-sq">
+      <img src="images/directing/mozartistry/73541626_517793125619594_2196023362629664768_n.jpeg" alt="The robot costumed as the Commendatore: a pale mask, chainmail hood, black fur cloak, and a silver shield and sword, seated in a rehearsal room" width="1440" height="1440" loading="lazy" />
+      <figcaption>The Commendatore in costume: chainmail hood, fur cloak, shield, and sword.</figcaption>
+    </figure>
+
+    <p><strong>Live timing.</strong> I sang the Commendatore&rsquo;s voice from the side of the stage while operating the robot. The roboticists suggested a recorded track. I said no: <em>&ldquo;with live musicians your tempo is always going to change&hellip; So, that&rsquo;s why for the voice of the robot, I&rsquo;m going to be doing it myself.&rdquo;</em> In opera the pianist leads the timing, so the robot had to follow the pianist, and as operator and voice I was the link between them.</p>
+
+    <h2>What the study found</h2>
+    <p>The authors recorded the process through rehearsal notes, video, design documents, and interviews with me and with the two singers who shared the scene. From that material they draw four lessons for roboticists building expressive robots:</p>
+    <ul>
+      <li>Let the character suggest and simplify the specifications.</li>
+      <li>Use set design for spatial expression and control.</li>
+      <li>Give the robot capabilities a human performer does not have.</li>
+      <li>Use costume to reduce mechanical complexity.</li>
+    </ul>
+    <p>They also describe two practical needs that theatre treats as ordinary: a robot that can be moved on and off stage quickly and reliably, and control that stays flexible enough to follow live performers.</p>
+
+    <h2>What I take from it as a teacher</h2>
+    <p>The robot made a principle I teach easy to see. Restraint clarifies subtext: when a performer has only a few moves, each one has to mean something. Young singers often arrive with the opposite habit, gesturing out of nervousness. A robot cannot fidget, so every motion in this scene was chosen. That is the standard I ask of singers, and the collaboration reminded me that tactical choices (what the character wants, what the body does about it, where the eyes land) can be specified, tested in rehearsal, and revised, which is what the roboticists and I did each week.</p>
+
+    <h2>The paper</h2>
+    <p>I am not an author of the paper. I am the stage director described in the study, and the authors thank me in their acknowledgments. Dr. Knight presented the work on September 11, 2025, in the Robots on Stage special session of ICSR+AI 2025 in Naples, Italy.</p>
+    <blockquote>
+      <p>Swaminathan, J., Alvarado, D., &amp; Knight, H. (2026). OperaBot: A performer led robot theater collaboration. In M. Staffa et al. (Eds.), <em>Social Robotics + AI: ICSR+AI 2025</em> (Lecture Notes in Computer Science, vol. 16133, pp. 700&ndash;717). Springer, Singapore.</p>
+    </blockquote>
+    <div class="pg-actions">
+      <a href="https://doi.org/10.1007/978-981-95-2398-6_48" class="btn-dark" target="_blank" rel="noopener">Read the Paper (Springer)</a>
+      <a href="https://www.charismarobotics.com/publications" class="btn-outline" target="_blank" rel="noopener">CHARISMA Lab Publications</a>
+    </div>
+    <p class="ob-note">Video from the lab: <a href="https://www.youtube.com/watch?v=-y15_4Gp888" target="_blank" rel="noopener">the performance</a> and <a href="https://youtu.be/J-TXo1gVYiE" target="_blank" rel="noopener">the cast on working with the robot</a>.</p>
+  </article>
+
+  </main>
+
+  <footer class="footer-main">
+    <a href="index.html" class="footer-brand-link">Anthony Eversole, DMA</a>
+    <div class="footer-main-links">
+      <a href="about.html">About</a>
+      <a href="performances.html">Performances</a>
+      <a href="directing.html">Directing</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog.html">Writing</a>
+    </div>
+  </footer>
+  <div class="footer-legal">
+    <div class="footer-legal-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-social-links">
+      <a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.textContent = expanded ? 'Menu' : 'Close';
+        links.classList.toggle('open', !expanded);
+      });
+    })();
+  </script>
+</body>
+</html>

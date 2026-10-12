@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curriculum Vitae | Anthony Eversole</title>
+  <meta name="description" content="Curriculum vitae of Dr. Anthony Eversole, DMA: education, university teaching, directing, performance, and research in opera and musical theatre." />
+  <meta property="og:title" content="Curriculum Vitae | Anthony Eversole" />
+  <meta property="og:description" content="Curriculum vitae of Dr. Anthony Eversole, DMA: education, university teaching, directing, performance, and research in opera and musical theatre." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Nav hamburger (hidden on desktop) */
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      padding: 8px 0;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media (max-width: 1149px) {
+      .nav { padding: 0 40px; }
+      .nav-menu-btn { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 40px 28px;
+        gap: 0;
+        z-index: 99;
+        box-shadow: 0 4px 16px rgba(34,30,25,.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links > a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        letter-spacing: .12em;
+      }
+      .nav-ctas { padding: 20px 0 0; }
+      .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
+    }
+
+    /* philosophy header (reuses post-header/post-body typography) */
+    .philosophy-header { max-width: 860px; margin: 0 auto; padding: 88px 24px 48px; }
+    .philosophy-kicker { font-size: 12px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .philosophy-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; margin: 0 0 20px; color: var(--ink); }
+
+    @media (max-width: 767px) {
+      .nav { padding: 0 24px; }
+      .nav-links { padding: 8px 24px 28px; }
+      .philosophy-header { padding: 56px 24px 32px; }
+
+      /* Footer: stack and wrap */
+      .footer-main { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; }
+      .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
+      .footer-legal { flex-direction: column; gap: 12px; padding: 16px 24px; align-items: flex-start; }
+    }
+  
+    /* page header */
+    .pg-header { max-width: 860px; margin: 0 auto; padding: 88px 24px 48px; }
+    .pg-kicker { font-size: 12px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .pg-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; margin: 0 0 20px; color: var(--ink); }
+    .pg-lede { font-family: var(--serif); font-size: clamp(17px, 2.2vw, 21px); line-height: 1.7; color: var(--secondary); margin: 0; }
+    .pg-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+    @media (max-width: 767px) { .pg-header { padding: 56px 24px 32px; } }
+
+    .pg-header { max-width: 980px; }
+    .cv-link, .cv-note a { color: var(--accent); font-weight: 600; }
+    .cv-updated { font-size: 14px; color: var(--faint); font-family: var(--sans); }
+    .cv-toc { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 26px; font-size: 11.5px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+    .cv-toc a { color: var(--muted); padding-bottom: 3px; border-bottom: 1px solid var(--accent-md); }
+    .cv-toc a:hover { color: var(--accent); opacity: 1; }
+    .cv-sec { max-width: 980px; margin: 0 auto; padding: 44px 24px; border-top: 1px solid var(--border); display: grid; grid-template-columns: 220px 1fr; gap: 40px; scroll-margin-top: 80px; }
+    .cv-h2 { font-size: 12px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: var(--accent); line-height: 1.6; }
+    .cv-h3 { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 20px; color: var(--ink); margin: 28px 0 8px; }
+    .cv-h3:first-child { margin-top: 0; }
+    .cv-row { display: grid; grid-template-columns: 1fr 110px; gap: 24px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .cv-row:first-child { padding-top: 0; }
+    .cv-row:last-child { border-bottom: none; }
+    .cv-title { font-family: var(--serif); font-size: 18px; line-height: 1.4; color: var(--ink); font-weight: 500; }
+    .cv-sub { font-size: 14.5px; line-height: 1.65; color: var(--secondary); margin-top: 2px; }
+    .cv-note { font-size: 13.5px; color: var(--muted); margin-top: 6px; }
+    .cv-pad { margin-top: 18px; }
+    .cv-date { font-size: 14px; color: var(--muted); text-align: right; white-space: nowrap; }
+    .cv-list { margin: 8px 0 0; padding-left: 1.2em; font-size: 14px; line-height: 1.65; color: var(--secondary); }
+    .cv-list li { margin-bottom: 3px; }
+    .cv-table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+    .cv-table tr { border-bottom: 1px solid var(--border); }
+    .cv-table tr:last-child { border-bottom: none; }
+    .cv-table td { padding: 8px 0; vertical-align: top; line-height: 1.45; color: var(--secondary); }
+    .cv-table td:first-child { width: 22%; padding-right: 14px; color: var(--ink); }
+    .cv-table td:nth-child(2) { width: 36%; padding-right: 14px; }
+    .cv-table td:nth-child(3) { padding-right: 14px; }
+    .cv-table td:last-child { width: 60px; text-align: right; white-space: nowrap; color: var(--muted); }
+    .cv-aff { display: grid; gap: 18px; }
+    .cv-aff-label { font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); margin-bottom: 4px; }
+    .cv-aff p, .cv-plain { font-size: 14.5px; line-height: 1.7; color: var(--secondary); }
+    @media (max-width: 899px) {
+      .cv-sec { grid-template-columns: 1fr; gap: 16px; padding: 36px 24px; }
+      .cv-row { grid-template-columns: 1fr; gap: 2px; }
+      .cv-date { text-align: left; }
+      .cv-table, .cv-table tbody, .cv-table tr, .cv-table td { display: block; width: 100% !important; }
+      .cv-table tr { padding: 10px 0; }
+      .cv-table td { padding: 1px 0; text-align: left !important; }
+    }
+    @media print { .nav, .footer-main, .footer-legal, .cv-toc, .skip-link { display: none !important; } .cv-sec { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">Anthony Eversole</span>
+      <span class="nav-brand-kicker">Voice &amp; Stage</span>
+    </a>
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
+      <a href="about.html" class="active">About</a>
+      <a href="performances.html">Performances</a>
+      <a href="directing.html">Directing</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="contact.html">Contact</a>
+      <div class="nav-ctas">
+        <a href="book.html" class="nav-book">Book a Lesson</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" tabindex="-1">
+
+  <header class="pg-header">
+    <div class="pg-kicker">Curriculum Vitae</div>
+    <h1>Dr. Anthony Eversole, DMA</h1>
+    <p class="pg-lede">Baritone, stage director, and voice pedagogue. Salt Lake City, Utah. <a href="contact.html" class="cv-link">Contact</a> &middot; <span class="cv-updated">Updated October 2026</span></p>
+    <nav class="cv-toc" aria-label="CV sections">
+      <a href="#education">Education</a><a href="#teaching">Teaching</a><a href="#directing">Directing</a><a href="#performance">Performance</a><a href="#research">Research</a><a href="#honors">Honors</a>
+    </nav>
+  </header>
+
+  <section class="cv-sec" id="education">
+    <h2 class="cv-h2">Education &amp; Training</h2>
+    <div class="cv-body">
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Doctor of Musical Arts, Opera &amp; Voice</div><div class="cv-sub">University of Maryland, College Park, MD</div></div><div class="cv-date">2016</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Master of Music, Voice</div><div class="cv-sub">University of Oklahoma, Norman, OK</div></div><div class="cv-date">2013</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Bachelor of Music, Choral Music Education</div><div class="cv-sub">Utah State University, Logan, UT</div></div><div class="cv-date">2011</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Bachelor of Music, Vocal Performance</div><div class="cv-sub">Utah State University, Logan, UT</div></div><div class="cv-date">2010</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Certification</div><div class="cv-sub">Secondary Music Teaching Licensure; Elementary Music Endorsement; Orff Schulwerk Levels 1 &amp; 2</div></div><div class="cv-date"></div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Artist training</div><div class="cv-sub">Maryland Opera Studio (2014&ndash;2016); Wolf Trap Opera (2016); Charlottesville Opera (2015); Castleton Festival (2014); NYC Audition Boot Camp (2013); Utah Festival Opera &amp; Musical Theatre (2007&ndash;2010)</div></div><div class="cv-date"></div></div>
+    </div>
+  </section>
+
+  <section class="cv-sec" id="teaching">
+    <h2 class="cv-h2">Higher Education Teaching</h2>
+    <div class="cv-body">
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Visiting Assistant Professor, Opera &amp; Musical Theatre</div><div class="cv-sub">The Crane School of Music, SUNY Potsdam, Potsdam, NY</div><ul class="cv-list"><li>Courses: Opera/Musical Production; Musical Theatre Workshop; Acting for Singers; Performance Practices for Singers; Directing Musical Theatre</li><li>Committee Chair/Producer, Domenic J. Pellicciotti Opera Composition Prize (2021&ndash;2022)</li><li>Producer, CPS Summer Musical Theatre Productions, Community Performance Series (2021&ndash;2022)</li></ul></div><div class="cv-date">2021&ndash;2022</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Director of Opera &amp; Musical Theatre Studies; Artistic Director/Stage Director, OSU Lyric</div><div class="cv-sub">Oregon State University, Corvallis, OR</div><ul class="cv-list"><li>Courses: Opera Workshop; Acting for Singers; Applied Studio Voice Instruction; Aural Skills</li></ul></div><div class="cv-date">2018&ndash;2021</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Graduate Teaching Assistant</div><div class="cv-sub">University of Maryland, College Park, MD</div><ul class="cv-list"><li>Courses: Applied Studio Voice Instruction; Opera Workshop; Voice Minor Series; Group Voice; Lyric Diction (French, Italian, German, English)</li></ul></div><div class="cv-date">2013&ndash;2016</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Graduate Stage Director</div><div class="cv-sub">University of Oklahoma, Norman, OK</div><ul class="cv-list"><li>Directed Mozart opera scenes as a directing mentee</li></ul></div><div class="cv-date">2013</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Graduate Teaching Assistant</div><div class="cv-sub">University of Oklahoma, Norman, OK</div><ul class="cv-list"><li>Applied Studio Voice Instruction</li></ul></div><div class="cv-date">2011&ndash;2013</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Undergraduate Teaching Fellow</div><div class="cv-sub">Utah State University, Logan, UT</div><ul class="cv-list"><li>Non-major voice instruction</li></ul></div><div class="cv-date">2007&ndash;2010</div></div>
+    </div>
+  </section>
+
+  <section class="cv-sec">
+    <h2 class="cv-h2">Private Studio Teaching</h2>
+    <div class="cv-body">
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Independent Voice and Acting Instructor</div><div class="cv-sub">Anthony Eversole Vocal Studio, Salt Lake City, UT, and online</div></div><div class="cv-date">2014&ndash;present</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Senior Voice Instructor</div><div class="cv-sub">Opus 1 Music Studios, Palo Alto, CA</div></div><div class="cv-date">2022&ndash;2023</div></div>
+    </div>
+  </section>
+
+  <section class="cv-sec">
+    <h2 class="cv-h2">Secondary &amp; K-12 Teaching</h2>
+    <div class="cv-body">
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Director of Choirs</div><div class="cv-sub">Providence Hall Charter School, Herriman, UT</div></div><div class="cv-date">2017&ndash;2018</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Lab Director, Music</div><div class="cv-sub">Franklin Discovery Academy, Vineyard, UT</div></div><div class="cv-date">2016&ndash;2017</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Student Teacher</div><div class="cv-sub">Mountain Crest High School, Hyrum, UT</div></div><div class="cv-date">2011</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Voice Instructor</div><div class="cv-sub">Cache Children&rsquo;s Choir Voice Camp</div></div><div class="cv-date">2010</div></div>
+    </div>
+  </section>
+
+  <section class="cv-sec">
+    <h2 class="cv-h2">Program Development &amp; Community Engagement</h2>
+    <div class="cv-body">
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Founder and Director, Overture Series</div><div class="cv-sub">Oregon State University, Corvallis, OR</div><ul class="cv-list"><li>A recurring community performance series created to broaden public access to opera and musical theatre, staged in bars and coffee shops in Corvallis. Programs drew on repertoire from each term&rsquo;s mainstage production and brought together collaborators from across the music program.</li></ul></div><div class="cv-date">2018&ndash;2020</div></div>
+    </div>
+  </section>
+
+  <section class="cv-sec" id="directing">
+    <h2 class="cv-h2">Directing &amp; Producing</h2>
+    <div class="cv-body">
+      <table class="cv-table">
+        <tr><td>Producer / Vocal Director</td><td><em>Once Upon a Mattress</em> (Rodgers)</td><td>Community Performance Series</td><td>2022</td></tr>
+        <tr><td>Stage Director</td><td><em>Zazà</em> (Leoncavallo)</td><td>The Crane Opera Ensemble</td><td>2022</td></tr>
+        <tr><td>Stage Director</td><td><em>The Medium</em> (Menotti)</td><td>The Crane Opera Ensemble</td><td>2021</td></tr>
+        <tr><td>Stage Director</td><td><em>Mahagonny Songspiel</em> (Weill/Brecht)</td><td>The Crane Opera Ensemble</td><td>2021</td></tr>
+        <tr><td>Stage Director</td><td>Musical Theatre Scenes (various)</td><td>Oregon State University</td><td>2021</td></tr>
+        <tr><td>Stage Director</td><td><em>L&rsquo;elisir d&rsquo;amore</em> (Donizetti)</td><td>Oregon State University</td><td>2021</td></tr>
+        <tr><td>Music Director</td><td><em>Romeo and Juliet</em> (Shakespeare)</td><td>OSU Bard in the Quad</td><td>2021</td></tr>
+        <tr><td>Stage Director</td><td><em>The Secret Garden</em> (Simon/Norman)</td><td>Oregon State University</td><td>2020</td></tr>
+        <tr><td>Stage Director</td><td><em>Mozartistry</em>: Mozart opera scenes, including the OperaBot collaboration</td><td>Oregon State University</td><td>2019</td></tr>
+        <tr><td>Music Director</td><td><em>Shakespeare in Love</em> (Hall)</td><td>Oregon State University</td><td>2019</td></tr>
+        <tr><td>Stage Director</td><td><em>La rondine</em> (Puccini)</td><td>Oregon State University</td><td>2019</td></tr>
+        <tr><td>Stage Director</td><td><em>So Many Possibilities</em> (various)</td><td>Oregon State University</td><td>2018</td></tr>
+        <tr><td>Music Director</td><td><em>Guys and Dolls</em> (Loesser)</td><td>Providence Hall H.S.</td><td>2017</td></tr>
+        <tr><td>Stage Director</td><td><em>Annie</em> (Strouse)</td><td>Franklin Discovery Academy</td><td>2017</td></tr>
+        <tr><td>Stage Director</td><td>Mozart Scenes (Mozart)</td><td>University of Oklahoma</td><td>2013</td></tr>
+      </table>
+      <p class="cv-note cv-pad"><a href="directing.html">Directing page, with production photos and dramaturgy &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="cv-sec" id="performance">
+    <h2 class="cv-h2">Performance</h2>
+    <div class="cv-body">
+      <h3 class="cv-h3">Opera</h3>
+      <table class="cv-table">
+        <tr><td>Marullo</td><td><em>Rigoletto</em></td><td>Utah Lyric Opera</td><td>2018</td></tr>
+        <tr><td>Papageno</td><td><em>Die Zauberflöte</em></td><td>Maryland Opera Studio</td><td>2016</td></tr>
+        <tr><td>Oscar Hubbard</td><td><em>Regina</em></td><td>Maryland Opera Studio</td><td>2016</td></tr>
+        <tr><td>Don Giovanni</td><td><em>Don Giovanni</em></td><td>Maryland Opera Studio</td><td>2015</td></tr>
+        <tr><td>Sharpless</td><td><em>Madama Butterfly</em></td><td>Charlottesville Opera</td><td>2015</td></tr>
+        <tr><td>Ollie Jr.</td><td><em>A Family Reunion</em></td><td>Maryland Opera Studio</td><td>2015</td></tr>
+        <tr><td>Sharpless</td><td><em>Madama Butterfly</em></td><td>Castleton Festival</td><td>2014</td></tr>
+        <tr><td>Falstaff</td><td><em>Falstaff</em></td><td>University of Oklahoma</td><td>2013</td></tr>
+        <tr><td>Thoas</td><td><em>Iphigénie en Tauride</em></td><td>University of Oklahoma</td><td>2013</td></tr>
+        <tr><td>Bartley</td><td><em>Riders to the Sea</em></td><td>University of Oklahoma</td><td>2012</td></tr>
+        <tr><td>Seneca</td><td><em>L&rsquo;incoronazione di Poppea</em></td><td>University of Oklahoma</td><td>2011</td></tr>
+        <tr><td>Papageno</td><td><em>Die Zauberflöte</em></td><td>Utah State University</td><td>2011</td></tr>
+        <tr><td>Germont (cover)</td><td><em>La traviata</em></td><td>Utah Festival Opera</td><td>2010</td></tr>
+        <tr><td>Sweeney Todd</td><td><em>Sweeney Todd</em></td><td>Utah State University</td><td>2010</td></tr>
+        <tr><td>Gianni Schicchi</td><td><em>Gianni Schicchi</em></td><td>Utah State University</td><td>2010</td></tr>
+        <tr><td>Rambaldo</td><td><em>La rondine</em></td><td>Utah State University</td><td>2009</td></tr>
+        <tr><td>Plunkett</td><td><em>Martha</em></td><td>Utah State University</td><td>2008</td></tr>
+        <tr><td>Vidal Hernando</td><td><em>Luisa Fernanda</em></td><td>Utah State University</td><td>2008</td></tr>
+        <tr><td>Father / Peter</td><td><em>Hansel &amp; Gretel</em></td><td>Utah State University</td><td>2007</td></tr>
+        <tr><td>Belcore</td><td><em>L&rsquo;elisir d&rsquo;amore</em></td><td>Utah State University</td><td>2007</td></tr>
+        <tr><td>Top</td><td><em>The Tender Land</em></td><td>Utah State University</td><td>2006</td></tr>
+      </table>
+      <h3 class="cv-h3">Musical theatre</h3>
+      <table class="cv-table">
+        <tr><td>Angus Tuck</td><td><em>Tuck Everlasting</em></td><td>Sandy Arts</td><td>2026</td></tr>
+        <tr><td>Russian Soloist</td><td><em>Fiddler on the Roof</em></td><td>Centerpoint Theatre</td><td>2026</td></tr>
+        <tr><td>Harry Bright</td><td><em>Mamma Mia!</em></td><td>Riverside Productions</td><td>2025</td></tr>
+        <tr><td>Sir Harry</td><td><em>Once Upon a Mattress</em></td><td>Community Performance Series</td><td>2022</td></tr>
+        <tr><td>Andrew Carnes</td><td><em>Oklahoma!</em></td><td>Sundance Summer Theatre</td><td>2019</td></tr>
+        <tr><td>Chauvelin</td><td><em>The Scarlet Pimpernel</em></td><td>Cache Regional Theatre</td><td>2010</td></tr>
+        <tr><td>Franz</td><td><em>The Sound of Music</em></td><td>Utah Festival Opera</td><td>2010</td></tr>
+        <tr><td>Joseph Hewes</td><td><em>1776</em></td><td>Utah Festival Opera</td><td>2008</td></tr>
+        <tr><td>Pastey</td><td><em>Gypsy</em></td><td>Utah Festival Opera</td><td>2008</td></tr>
+        <tr><td>Pasquale</td><td><em>The Most Happy Fella</em></td><td>Utah Festival Opera</td><td>2007</td></tr>
+        <tr><td>Windy</td><td><em>Show Boat</em></td><td>Utah Festival Opera</td><td>2007</td></tr>
+        <tr><td>Officer Krupke</td><td><em>West Side Story</em></td><td>Utah Festival Opera</td><td>2007</td></tr>
+      </table>
+      <h3 class="cv-h3">Solo concert and oratorio</h3>
+      <table class="cv-table">
+        <tr><td>Haydn</td><td><em>The Creation</em></td><td>Corvallis Repertory Singers</td><td>2019</td></tr>
+        <tr><td>Brahms</td><td><em>Ein Deutsches Requiem</em></td><td>University of Maryland</td><td>2015</td></tr>
+        <tr><td>Saint-Saëns</td><td><em>Christmas Oratorio</em></td><td>Silver Spring United Methodist</td><td>2014</td></tr>
+        <tr><td>Rutter</td><td><em>Gloria</em></td><td>Calvary Lutheran Church</td><td>2014</td></tr>
+        <tr><td>Beethoven</td><td>Symphony No. 9</td><td>University of Oklahoma</td><td>2013</td></tr>
+        <tr><td>Vaughan Williams</td><td><em>Hodie</em></td><td>Tulsa Oratorio Chorus</td><td>2012</td></tr>
+        <tr><td>Rutter</td><td><em>Mass of the Children</em></td><td>Tulsa Oratorio Chorus</td><td>2012</td></tr>
+        <tr><td>Handel</td><td><em>Messiah</em></td><td>Westminster Presbyterian</td><td>2011</td></tr>
+        <tr><td>Mendelssohn</td><td><em>Die erste Walpurgisnacht</em></td><td>University of Oklahoma</td><td>2011</td></tr>
+        <tr><td>Haydn</td><td><em>Nicolaimesse</em></td><td>University of Oklahoma</td><td>2011</td></tr>
+        <tr><td>Beethoven</td><td>Symphony No. 9</td><td>Utah State University</td><td>2009</td></tr>
+      </table>
+      <h3 class="cv-h3">Recitals</h3>
+      <table class="cv-table">
+        <tr><td>Faculty Showcase</td><td></td><td>The Crane School of Music</td><td>2021</td></tr>
+        <tr><td>Voice Area Faculty Recital</td><td></td><td>Oregon State University</td><td>2020</td></tr>
+        <tr><td>DMA General Recital</td><td></td><td>University of Maryland</td><td>2015</td></tr>
+        <tr><td>DMA Lecture Recital</td><td></td><td>University of Maryland</td><td>2014</td></tr>
+        <tr><td>MM Recital</td><td></td><td>University of Oklahoma</td><td>2013</td></tr>
+        <tr><td>BM Senior Recital</td><td></td><td>Utah State University</td><td>2009</td></tr>
+        <tr><td>BM Junior Recital</td><td></td><td>Utah State University</td><td>2008</td></tr>
+        <tr><td>BM Sophomore Recital</td><td></td><td>Utah State University</td><td>2007</td></tr>
+      </table>
+      <p class="cv-note cv-pad"><a href="performances.html">Performances page, with recordings and photos &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="cv-sec" id="research">
+    <h2 class="cv-h2">Research &amp; Scholarship</h2>
+    <div class="cv-body">
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Doctoral dissertation</div><div class="cv-sub"><em>Sexism and Imperialism in Mozart&rsquo;s Don Giovanni, Puccini&rsquo;s Madama Butterfly, and Blitzstein&rsquo;s Regina: A Performance Study.</em> University of Maryland.</div><p class="cv-note"><a href="research/eversole-dissertation.pdf" target="_blank" rel="noopener">PDF</a></p></div><div class="cv-date">2016</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Papers</div><div class="cv-sub"><em>Japonisme, Authenticity, and Anti-Imperialism in Puccini&rsquo;s Madama Butterfly.</em> University of Maryland.</div><p class="cv-note"><a href="research/madama-butterfly-exoticism.pdf" target="_blank" rel="noopener">PDF</a></p></div><div class="cv-date"></div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title"></div><div class="cv-sub"><em>&ldquo;The Words That Chose Him&rdquo;: Gerald Finzi and the Poetry of Thomas Hardy.</em> University of Maryland.</div><p class="cv-note"><a href="research/finzi-hardy-songs.pdf" target="_blank" rel="noopener">PDF</a></p></div><div class="cv-date"></div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title"></div><div class="cv-sub"><em>Avant-Garde Compositional Devices and Folk Elements in Beethoven&rsquo;s Sonata Op. 28, No. 4 and Sonatina Op. 79.</em> University of Maryland.</div></div><div class="cv-date"></div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Collaborative research</div><div class="cv-sub">Stage director, robot operator, and live voice of the Commendatore in the graveyard scene from <em>Don Giovanni</em> (<em>Mozartistry</em>, Oregon State University, November 2019), the production studied in: Swaminathan, J., Alvarado, D., &amp; Knight, H. (2026). OperaBot: A performer led robot theater collaboration. In M. Staffa et al. (Eds.), <em>Social Robotics + AI: ICSR+AI 2025</em> (Lecture Notes in Computer Science, vol. 16133, pp. 700&ndash;717). Springer, Singapore. Acknowledged as director; not an author.</div><p class="cv-note"><a href="operabot.html">Project page</a> &middot; <a href="https://doi.org/10.1007/978-981-95-2398-6_48" target="_blank" rel="noopener">doi:10.1007/978-981-95-2398-6_48</a></p></div><div class="cv-date">2019 / 2026</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Research interests</div><div class="cv-sub">Tactical actioning; beat and tactics systems in dramatic coaching for singers; eye focus and physical movement in singing-actor training; vulnerability and risk-taking for the singing actor; chakra and movement for the singing actor; Gerald Finzi&rsquo;s song settings of Thomas Hardy; melody sources of Puccini&rsquo;s Orientalist operas; sexism, imperialism, and exploitation in operatic traditions; verismo and the Giovane Scuola; Russian opera of the 19th century.</div><p class="cv-note"><a href="research.html">Research page &rarr;</a></p></div><div class="cv-date"></div></div>
+    </div>
+  </section>
+
+  <section class="cv-sec" id="honors">
+    <h2 class="cv-h2">Honors &amp; Distinctions</h2>
+    <div class="cv-body">
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Fellowships and assistantships</div><div class="cv-sub">Teaching Assistantship, University of Maryland; Graduate Assistantship, University of Maryland; WCFCA Opera Fellowship, University of Oklahoma; Vocal Talent Scholarship, Utah State University; Marie Eccles Caine Opera Quartet Scholarship</div></div><div class="cv-date"></div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Competitions</div><div class="cv-sub">1st Place, Classical Singer University Competition, 2011; 3rd Place, Benton Schmidt Vocal Competition, 2011; Winner, USU Concerto Competition, 2009 and 2011; 1st Place, NATS Student Auditions, Advanced Division, 2009 and 2010; Finalist, MONC Auditions, Utah District, 2008&ndash;2010</div></div><div class="cv-date"></div></div>
+    </div>
+  </section>
+
+  <section class="cv-sec">
+    <h2 class="cv-h2">Church Music</h2>
+    <div class="cv-body">
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Director of Music</div><div class="cv-sub">Canton First Presbyterian Church, Canton, NY</div></div><div class="cv-date">2022&ndash;2023</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Cantor/Soloist</div><div class="cv-sub">Historic Christ Church, Alexandria, VA</div></div><div class="cv-date">2016&ndash;2017</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Bass Section Leader/Soloist</div><div class="cv-sub">Chevy Chase Presbyterian Church, Washington, DC</div></div><div class="cv-date">2015&ndash;2016</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Bass Section Leader/Soloist</div><div class="cv-sub">Grace Church, Alexandria, VA</div></div><div class="cv-date">2013&ndash;2015</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Soloist</div><div class="cv-sub">Calvary Lutheran Church, Silver Spring, MD</div></div><div class="cv-date">2013, 2014</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Bass Choral Intern/Soloist</div><div class="cv-sub">Westminster Presbyterian Church, Oklahoma City, OK</div></div><div class="cv-date">2012&ndash;2013</div></div>
+      <div class="cv-row"><div class="cv-main"><div class="cv-title">Bass Section Leader/Soloist</div><div class="cv-sub">McFarlin Methodist Church, Norman, OK</div></div><div class="cv-date">2011&ndash;2012</div></div>
+    </div>
+  </section>
+
+  <section class="cv-sec">
+    <h2 class="cv-h2">Artistic Affiliates</h2>
+    <div class="cv-body">
+      <div class="cv-aff">
+        <div><div class="cv-aff-label">Coaches</div><p>Elizabeth Avery, Stephen Carey, David Hanlon, Miah Im, Lynn Jemison-Keisker, Benedicte Jourdois, Justina Lee, David Mayfield, Bradley Moore, Shelby Rhoades, Stephanie Rhodes, Lorne Richstone, Ben Salisbury</p></div>
+        <div><div class="cv-aff-label">Masterclasses</div><p>Colin Baldy, Deb Birnbaum, Lauren Flanigan, Marilyn Horne, Stephen King, Cynthia Lawrence, Stanford Olsen, Mark Padmore</p></div>
+        <div><div class="cv-aff-label">Conductors</div><p>Andy Anderson, Sergio Bernal, Barbara Day-Turner, Nathan Fifeld, Steven Jarvi, Craig Jessop, Karen Keltner, Craig Kier, Bradley Moore, Jonathan Shames, Tim Sharp, Richard Zielinski</p></div>
+        <div><div class="cv-aff-label">Stage directors</div><p>Colin Baldy, Amanda Consol, Andrea Dorf-McGray, Kevin Doyle, William Ferrara, Rachel Harris, Daniel Helfgot, James Marvel, Dan Rigazzi, Michael Shell, Jack Shouse, Tomer Zvulun</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cv-sec">
+    <h2 class="cv-h2">References</h2>
+    <div class="cv-body"><p class="cv-plain">Available on request through the <a href="contact.html" class="cv-link">contact page</a>.</p></div>
+  </section>
+
+  </main>
+
+  <footer class="footer-main">
+    <a href="index.html" class="footer-brand-link">Anthony Eversole, DMA</a>
+    <div class="footer-main-links">
+      <a href="about.html">About</a>
+      <a href="performances.html">Performances</a>
+      <a href="directing.html">Directing</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog.html">Writing</a>
+    </div>
+  </footer>
+  <div class="footer-legal">
+    <div class="footer-legal-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-social-links">
+      <a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.textContent = expanded ? 'Menu' : 'Close';
+        links.classList.toggle('open', !expanded);
+      });
+    })();
+  </script>
+</body>
+</html>

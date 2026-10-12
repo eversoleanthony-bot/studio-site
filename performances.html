@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Performances | Anthony Eversole</title>
+  <meta name="description" content="Recordings, production photos, and credits in opera, musical theatre, and concert from baritone Dr. Anthony Eversole." />
+  <meta property="og:title" content="Performances | Anthony Eversole" />
+  <meta property="og:description" content="Recordings, production photos, and credits from a performing career in opera, musical theatre, and concert." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ---- Anchor scroll offset for sticky nav ---- */
+    html { scroll-padding-top: 80px; }
+
+    /* ---- Hero ---- */
+    .page-hero-text { padding: 88px 64px 48px; }
+    .page-h1 { font-family: var(--serif); font-weight: 300; font-size: 58px; line-height: 1.02; letter-spacing: -0.015em; margin: 0 0 24px; }
+    .page-sub { font-family: var(--serif); font-size: 21px; line-height: 1.65; color: #4A453C; max-width: 640px; margin-bottom: 36px; }
+    .page-actions { display: flex; gap: 20px; flex-wrap: wrap; }
+    .page-hero-banner { position: relative; height: 400px; overflow: hidden; background: var(--ink); }
+    .page-hero-banner img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; display: block; }
+    .page-hero-banner::after {
+      content: ''; position: absolute; left: 0; right: 0; bottom: 0;
+      height: 55%; background: linear-gradient(to bottom, transparent, var(--ink));
+      pointer-events: none;
+    }
+
+    /* ---- Listening Room ---- */
+    .listening-room { background: var(--ink); padding: 80px 64px; border-bottom: 3px solid rgba(226,218,203,.2); }
+    .listening-room .kicker { color: rgba(246,241,231,.55); }
+    .listening-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
+    .listening-label { font-size: 13.5px; line-height: 1.7; color: rgba(246,241,231,.6); }
+
+    .track-list { display: flex; flex-direction: column; }
+    .track-row { display: flex; flex-direction: column; gap: 8px; padding: 16px 0; border-bottom: 1px solid #3B362E; }
+    .track-row:last-child { border-bottom: none; }
+    .track-top { display: flex; align-items: center; gap: 18px; }
+    .track-play {
+      flex: none; width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(246,241,231,.35); background: none; color: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 13px; padding: 0; line-height: 1;
+      transition: background .15s, color .15s, border-color .15s;
+    }
+    .track-play:hover, .track-play.playing { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+    .track-info { flex: 1; min-width: 0; }
+    .track-title { font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--bg); margin-bottom: 3px; }
+    .track-meta { font-size: 12px; color: var(--meta); letter-spacing: .02em; }
+    .track-time { flex: none; font-size: 11px; color: var(--faint); font-variant-numeric: tabular-nums; min-width: 34px; text-align: right; }
+
+    .track-seek {
+      -webkit-appearance: none; appearance: none;
+      width: calc(100% - 54px); height: 3px; margin: 0 0 0 54px; padding: 0;
+      background: #3B362E; border-radius: 2px; cursor: pointer;
+    }
+    .track-seek:disabled { cursor: default; opacity: .6; }
+    .track-seek::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--accent); border: none;
+      margin-top: -4.5px;
+    }
+    .track-seek::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: none; }
+    .track-seek::-webkit-slider-runnable-track { height: 3px; border-radius: 2px; background: transparent; }
+    .track-seek::-moz-range-track { height: 3px; border-radius: 2px; background: #3B362E; }
+    .track-seek::-moz-range-progress { height: 3px; border-radius: 2px; background: var(--accent); }
+
+    /* ---- Production Photos ---- */
+    .stills-section { background: var(--ink); padding: 72px 64px; border-bottom: 1px solid #3B362E; }
+    .stills-section .kicker { color: rgba(246,241,231,.55); }
+    .stills-inner { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
+    .stills-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+    .still-item { position: relative; aspect-ratio: 4/3; overflow: hidden; }
+    .still-item img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; transition: transform .3s ease; }
+    .still-item:hover img { transform: scale(1.03); }
+    .still-caption {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 10px 14px;
+      background: rgba(34, 30, 25, .38);
+      backdrop-filter: blur(10px) saturate(140%);
+      -webkit-backdrop-filter: blur(10px) saturate(140%);
+      border-top: 1px solid rgba(246, 241, 231, .15);
+      color: var(--bg); font-size: 11px; letter-spacing: .03em; line-height: 1.4;
+    }
+
+    /* ---- Lightbox ---- */
+    .lightbox-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(34,30,25,.88); z-index: 200;
+      align-items: center; justify-content: center;
+      padding: 40px; backdrop-filter: blur(4px);
+    }
+    .lightbox-overlay.open { display: flex; }
+    .lightbox-frame {
+      display: flex; flex-direction: column;
+      width: 100%; max-width: 1040px;
+    }
+    .lightbox-inner {
+      position: relative; display: flex;
+      width: 100%; height: 580px; max-height: 84vh; overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,.55);
+    }
+    .lightbox-data {
+      flex: none; width: 300px; background: var(--ink);
+      padding: 48px 40px; overflow-y: auto; display: flex; flex-direction: column;
+      border-right: 1px solid #3B362E;
+    }
+    .lightbox-kicker { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: var(--accent-md); margin-bottom: 20px; }
+    .lightbox-production { font-family: var(--serif); font-weight: 300; font-style: italic; font-size: 26px; line-height: 1.25; color: var(--bg); margin: 0 0 10px; }
+    .lightbox-role { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--meta); margin-bottom: 32px; }
+    .lightbox-rule { height: 1px; background: #3B362E; margin-bottom: 28px; }
+    .lightbox-section { margin-bottom: 24px; }
+    .lightbox-section-head { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent-md); margin-bottom: 8px; }
+    .lightbox-section-text { font-size: 13px; line-height: 1.75; color: rgba(246,241,231,.72); margin: 0; }
+    .lightbox-footer { margin-top: auto; padding-top: 28px; font-size: 11px; color: rgba(246,241,231,.35); letter-spacing: .04em; }
+    .lightbox-photo-wrap { flex: 1; overflow: hidden; background: #111; min-height: 400px; }
+    .lightbox-img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .lightbox-close {
+      position: absolute; top: 14px; right: 14px;
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 1px solid rgba(246,241,231,.25); background: rgba(34,30,25,.7);
+      backdrop-filter: blur(8px); color: rgba(246,241,231,.8);
+      font-size: 11px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s, border-color .15s;
+    }
+    .lightbox-close:hover { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+    .lightbox-nav {
+      display: flex; align-items: center; justify-content: center;
+      gap: 20px; padding-top: 16px;
+    }
+    .lb-arrow {
+      background: none; border: 1px solid rgba(246,241,231,.25);
+      color: rgba(246,241,231,.65); width: 36px; height: 36px;
+      border-radius: 50%; cursor: pointer; font-size: 14px; line-height: 1;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .15s, border-color .15s, color .15s; flex-shrink: 0;
+    }
+    .lb-arrow:hover { background: rgba(246,241,231,.12); border-color: rgba(246,241,231,.5); color: var(--bg); }
+    .lb-dots { display: flex; gap: 8px; align-items: center; }
+    .lb-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: rgba(246,241,231,.2); border: none; padding: 0;
+      cursor: pointer; transition: background .2s, transform .2s;
+    }
+    .lb-dot.active { background: rgba(246,241,231,.75); transform: scale(1.4); }
+
+    /* ---- Résumé accordions ---- */
+    .resume-section { border-bottom: 1px solid var(--border); }
+    .resume-section:last-of-type { border-bottom: none; }
+    .resume-section.alt { background: var(--bg-alt); }
+    .resume-section > summary {
+      list-style: none;
+      cursor: pointer;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      padding: 32px 64px;
+      position: relative;
+    }
+    .resume-section > summary::-webkit-details-marker { display: none; }
+    .resume-section > summary::marker { display: none; }
+    .resume-section > summary::after { content: ''; position: absolute; right: 64px; top: 50%; transform: translateY(-50%); width: 12px; height: 1.5px; background: var(--accent); }
+    .resume-section > summary::before { content: ''; position: absolute; right: 69.25px; top: 50%; transform: translateY(-50%); width: 1.5px; height: 12px; background: var(--accent); transition: opacity .15s; }
+    .resume-section[open] > summary::before { opacity: 0; }
+    .resume-section[open] > summary { border-bottom: 1px solid var(--border); }
+    .resume-inner { padding: 40px 64px 56px; }
+    .resume-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .resume-table tr { border-bottom: 1px solid var(--border); }
+    .resume-table tr:last-child { border-bottom: none; }
+    .resume-table td { padding: 10px 0; vertical-align: top; line-height: 1.45; }
+    .r-role  { color: var(--ink); width: 24%; padding-right: 16px; }
+    .r-title { color: var(--secondary); font-family: var(--serif); font-style: italic; font-size: 16px; width: 30%; padding-right: 16px; }
+    .r-org   { color: var(--secondary); width: 32%; padding-right: 16px; font-size: 13px; }
+    .r-yr    { color: var(--accent); text-align: right; width: 14%; font-size: 12px; letter-spacing: .08em; white-space: nowrap; padding-top: 1px; }
+    .tag-upcoming { font-size: 9px; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; border: 1px solid var(--accent); color: var(--accent); padding: 1px 5px; vertical-align: middle; margin-left: 7px; opacity: .8; }
+
+    .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 24px; }
+    .pill  { font-size: 12px; padding: 5px 12px; border: 1px solid var(--border); color: var(--secondary); letter-spacing: .03em; }
+    .resume-section.alt .pill { border-color: rgba(34,30,25,.28); }
+    .resume-sublabel { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); margin: 24px 0 10px; }
+
+    /* ---- Research ---- */
+    .research-item { padding: 16px 0; border-top: 1px solid var(--border); }
+    .research-item:last-child { border-bottom: 1px solid var(--border); }
+    .research-title { font-family: var(--serif); font-size: 16px; line-height: 1.5; margin-bottom: 6px; }
+    .research-title a { color: var(--ink); }
+    .research-title a:hover { color: var(--accent); opacity: 1; }
+    .research-meta { font-size: 12px; color: var(--muted); letter-spacing: .04em; }
+
+    /* ---- Distinctions ---- */
+    .distinctions { columns: 2; column-gap: 40px; }
+    .distinctions li { list-style: none; font-size: 13.5px; color: var(--secondary); line-height: 2; }
+    .distinctions li::before { content: "·"; color: var(--accent); margin-right: 10px; font-size: 1.4em; vertical-align: middle; }
+
+    /* ---- Artistic Affiliates ---- */
+    .aff-grid  { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 32px; }
+    .aff-item  { }
+    .aff-label { font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .aff-names { list-style: none; margin: 0; padding: 0; }
+    .aff-names li { font-size: 13px; color: var(--secondary); padding: 6px 0; border-bottom: 1px solid var(--border); line-height: 1.4; }
+    .aff-names li:last-child { border-bottom: none; }
+
+    /* ---- Nav hamburger (hidden on desktop) ---- */
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      padding: 8px 0;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ---- Responsive: tablet / small desktop (≤ 1149px) ---- */
+    @media (max-width: 1149px) {
+      .nav { padding: 0 40px; }
+      .nav-menu-btn { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 40px 28px;
+        gap: 0;
+        z-index: 99;
+        box-shadow: 0 4px 16px rgba(34,30,25,.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links > a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        letter-spacing: .12em;
+      }
+      .nav-ctas { padding: 20px 0 0; }
+      .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
+      .page-hero-text { padding: 64px 48px 36px; }
+      .page-h1 { font-size: 46px; }
+      .listening-room { padding: 64px 48px; }
+      .stills-section { padding: 56px 48px; }
+      .resume-section > summary { padding: 28px 48px; }
+      .resume-inner { padding: 32px 48px 44px; }
+    }
+
+    /* ---- Responsive: mobile (≤ 767px) ---- */
+    @media (max-width: 767px) {
+      .nav { padding: 0 24px; }
+      .nav-links { padding: 8px 24px 28px; }
+
+      /* Hero */
+      .page-hero-text { padding: 48px 24px 32px; }
+      .page-h1 { font-size: 36px; line-height: 1.1; }
+      .page-sub { font-size: 18px; }
+      .page-hero-banner { height: 240px; }
+      .page-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+
+      /* Listening room */
+      .listening-room { padding: 48px 24px; }
+      .listening-inner { grid-template-columns: 1fr; gap: 24px; }
+
+      /* Production photos */
+      .stills-section { padding: 48px 24px; }
+      .stills-inner { grid-template-columns: 1fr; gap: 20px; }
+      .stills-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+
+      /* Resume sections */
+      .resume-section > summary { padding: 24px; }
+      .resume-inner { padding: 24px 24px 36px; }
+
+      /* Resume tables: reflow to stacked cards */
+      .resume-table,
+      .resume-table tbody,
+      .resume-table tr,
+      .resume-table td { display: block; }
+      .resume-table tr {
+        padding: 14px 0;
+        border-top: 1px solid var(--border);
+        border-bottom: none !important;
+      }
+      .resume-table tr:first-child { border-top: none; }
+      .resume-table td { padding: 1px 0 !important; width: auto !important; padding-right: 0 !important; }
+      .r-role  { font-size: 13px; font-weight: 600; color: var(--ink); }
+      .r-title { font-size: 15px; padding-top: 2px !important; }
+      .r-org   { font-size: 12px; color: var(--muted); }
+      .r-yr    { font-size: 11px; text-align: left !important; color: var(--accent); padding-top: 3px !important; }
+
+      /* Distinctions: single column */
+      .distinctions { columns: 1; }
+
+      /* Affiliates: two columns on mobile */
+      .aff-grid { grid-template-columns: 1fr 1fr; gap: 24px 24px; }
+      .aff-item { margin-bottom: 0; }
+
+      /* Lightbox */
+      .lightbox-overlay { padding: 0; align-items: flex-end; }
+      .lightbox-frame { max-width: none; }
+      .lightbox-inner { flex-direction: column; height: auto; max-height: 95vh; }
+      .lightbox-photo-wrap { height: 260px; min-height: unset; flex: none; order: -1; }
+      .lightbox-data { width: 100%; border-right: none; border-top: 1px solid #3B362E; padding: 32px 24px; max-height: 55vh; }
+      .lightbox-production { font-size: 22px; }
+      .lightbox-nav { padding: 12px 0 20px; }
+
+      /* Book band */
+      .book-band { flex-direction: column; align-items: flex-start; gap: 24px; padding: 48px 24px; }
+      .book-band-hl { font-size: 26px; }
+
+      /* Footer */
+      .footer-main { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; }
+      .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
+      .footer-legal { flex-direction: column; gap: 12px; padding: 16px 24px; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">Anthony Eversole</span>
+      <span class="nav-brand-kicker">Voice &amp; Stage</span>
+    </a>
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
+      <a href="about.html">About</a>
+      <a href="performances.html" class="active">Performances</a>
+      <a href="directing.html">Directing</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="contact.html">Contact</a>
+      <div class="nav-ctas">
+        <a href="book.html" class="nav-book">Book a Lesson</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" tabindex="-1">
+
+  <!-- hero -->
+  <header class="page-hero">
+    <div class="page-hero-text">
+      <div class="kicker" style="margin-bottom: 20px;">Baritone · Singing Actor</div>
+      <h1 class="page-h1">Performances</h1>
+      <p class="page-sub">Recordings, production photos, and credits from a performing career in opera, musical theatre, and concert.</p>
+      <div class="page-actions">
+        <a href="#recordings" class="btn-dark">Recordings</a>
+        <a href="#photos" class="btn-outline">Production Photos</a>
+        <a href="#credits" class="btn-outline">Credits</a>
+      </div>
+    </div>
+    <div class="page-hero-banner">
+      <img src="images/site/Performer.jpeg" alt="A performer facing an empty theater from the stage, backlit by stage lights" />
+    </div>
+  </header>
+
+  <!-- listening room -->
+  <section class="listening-room" id="recordings">
+    <div class="listening-inner">
+      <div>
+        <div class="kicker" style="margin-bottom: 16px;">The Listening Room</div>
+        <p class="listening-label">Selected live recordings from recital, opera, and concert.</p>
+      </div>
+      <div>
+        <div class="track-list">
+          <div class="track-row">
+            <div class="track-top">
+              <button class="track-play" aria-label="Play">▶</button>
+              <div class="track-info">
+                <div class="track-title">Litany</div>
+                <div class="track-meta">John Musto</div>
+              </div>
+              <div class="track-time">0:00</div>
+            </div>
+            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Litany" disabled>
+            <audio class="track-audio" preload="none" src="audio/litany.m4a"></audio>
+          </div>
+          <div class="track-row">
+            <div class="track-top">
+              <button class="track-play" aria-label="Play">▶</button>
+              <div class="track-info">
+                <div class="track-title">Pretty Women</div>
+                <div class="track-meta">Stephen Sondheim · Sweeney Todd</div>
+              </div>
+              <div class="track-time">0:00</div>
+            </div>
+            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Pretty Women" disabled>
+            <audio class="track-audio" preload="none" src="audio/pretty-women.mp3"></audio>
+          </div>
+          <div class="track-row">
+            <div class="track-top">
+              <button class="track-play" aria-label="Play">▶</button>
+              <div class="track-info">
+                <div class="track-title">The Phantom</div>
+                <div class="track-meta">Gerald Finzi · Earth and Air and Rain (Thomas Hardy)</div>
+              </div>
+              <div class="track-time">0:00</div>
+            </div>
+            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: The Phantom" disabled>
+            <audio class="track-audio" preload="none" src="audio/the-phantom.mp3"></audio>
+          </div>
+          <div class="track-row">
+            <div class="track-top">
+              <button class="track-play" aria-label="Play">▶</button>
+              <div class="track-info">
+                <div class="track-title">Ein deutsches Requiem — Mvt. VI</div>
+                <div class="track-meta">Johannes Brahms · University of Maryland, cond. Edward Maclary</div>
+              </div>
+              <div class="track-time">0:00</div>
+            </div>
+            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Ein deutsches Requiem — Mvt. VI" disabled>
+            <audio class="track-audio" preload="none" src="audio/brahms-requiem-vi.mp3"></audio>
+          </div>
+          <div class="track-row">
+            <div class="track-top">
+              <button class="track-play" aria-label="Play">▶</button>
+              <div class="track-info">
+                <div class="track-title">Die zwei blauen Augen von meinem Schatz</div>
+                <div class="track-meta">Gustav Mahler · Lieder eines fahrenden Gesellen, No. IV</div>
+              </div>
+              <div class="track-time">0:00</div>
+            </div>
+            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Die zwei blauen Augen von meinem Schatz" disabled>
+            <audio class="track-audio" preload="none" src="audio/die-zwei-blauen-augen.m4a"></audio>
+          </div>
+          <div class="track-row">
+            <div class="track-top">
+              <button class="track-play" aria-label="Play">▶</button>
+              <div class="track-info">
+                <div class="track-title">Madama Butterfly — Act III Trio</div>
+                <div class="track-meta">Giacomo Puccini · Castleton Festival</div>
+              </div>
+              <div class="track-time">0:00</div>
+            </div>
+            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Madama Butterfly — Act III Trio" disabled>
+            <audio class="track-audio" preload="none" src="audio/butterfly-act3-trio.mp3"></audio>
+          </div>
+          <div class="track-row">
+            <div class="track-top">
+              <button class="track-play" aria-label="Play">▶</button>
+              <div class="track-info">
+                <div class="track-title">L'assiolo canta</div>
+                <div class="track-meta">Francesco Santoliquido · I canti della sera</div>
+              </div>
+              <div class="track-time">0:00</div>
+            </div>
+            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: L'assiolo canta" disabled>
+            <audio class="track-audio" preload="none" src="audio/lassiolo-canta.m4a"></audio>
+          </div>
+          <div class="track-row">
+            <div class="track-top">
+              <button class="track-play" aria-label="Play">▶</button>
+              <div class="track-info">
+                <div class="track-title">La Coccinelle</div>
+                <div class="track-meta">Camille Saint-Saëns</div>
+              </div>
+              <div class="track-time">0:00</div>
+            </div>
+            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: La Coccinelle" disabled>
+            <audio class="track-audio" preload="none" src="audio/la-coccinelle.m4a"></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- production photos -->
+  <section class="stills-section" id="photos">
+    <div class="stills-inner">
+      <div>
+        <div class="kicker" style="margin-bottom: 16px;">Production Photos</div>
+        <p class="listening-label">Stills from selected productions.</p>
+      </div>
+      <div>
+        <div class="stills-grid">
+          <div class="still-item"
+            data-production="Regina"
+            data-role="Oscar Hubbard"
+            data-org="Maryland Opera Studio" data-year="2016"
+            data-plot="A Southern family schemes to reverse their father's will before the money goes to charity."
+            data-char="Oscar is the weakest in a family of predators. He flatters up and punishes down.">
+            <img src="images/site/IMG_1883.JPG" alt="Anthony Eversole as Oscar Hubbard in Regina" loading="lazy" style="object-position: 50% 8%;" />
+            <div class="still-caption">Regina · Oscar Hubbard</div>
+          </div>
+          <div class="still-item"
+            data-production="Madama Butterfly"
+            data-role="Sharpless"
+            data-org="Charlottesville Opera" data-year="2015"
+            data-plot="Cio-Cio-San marries an American officer who abandons her. He returns with his American wife."
+            data-char="Sharpless sees what's coming and can't stop it. He tries to warn Butterfly. She never listens.">
+            <img src="images/site/madamabutterfly-3.jpg" alt="Anthony Eversole as Sharpless in Madama Butterfly" loading="lazy" />
+            <div class="still-caption">Madama Butterfly · Sharpless</div>
+          </div>
+          <div class="still-item"
+            data-production="Luisa Fernanda"
+            data-role="Vidal Hernando"
+            data-org="Utah State University" data-year="2008"
+            data-plot="A 1932 Spanish zarzuela. Two men want the same woman during political upheaval in 19th-century Madrid."
+            data-char="Vidal is confident the way people are when things always work out. He never figures out why.">
+            <img src="images/site/luisafernanda.jpeg" alt="Anthony Eversole as Vidal Hernando in Luisa Fernanda" loading="lazy" />
+            <div class="still-caption">Luisa Fernanda · Vidal Hernando</div>
+          </div>
+          <div class="still-item"
+            data-production="Don Giovanni"
+            data-role="Don Giovanni"
+            data-org="Maryland Opera Studio" data-year="2015"
+            data-plot="Seduction, deception, no consequences. Until a ghost shows up. He still won't apologize."
+            data-char="Giovanni is after the chase, not the catch. Charming, quick, and completely empty underneath.">
+            <img src="images/site/dongiovanni-3.jpg" alt="Anthony Eversole as Don Giovanni" loading="lazy" />
+            <div class="still-caption">Don Giovanni · Title Role</div>
+          </div>
+          <div class="still-item"
+            data-production="Die Zauberflöte"
+            data-role="Papageno"
+            data-org="Maryland Opera Studio" data-year="2016"
+            data-plot="Mozart's fairy tale about a prince, a quest, and magic instruments. Also very funny."
+            data-char="Papageno wanted a girlfriend, not a hero's journey. He fails every test and still ends up happy.">
+            <img src="images/site/DSC_8841.jpg" alt="Anthony Eversole as Papageno in Die Zauberflöte" loading="lazy" />
+            <div class="still-caption">Die Zauberflöte · Papageno</div>
+          </div>
+          <div class="still-item"
+            data-production="Gianni Schicchi"
+            data-role="Gianni Schicchi"
+            data-org="Utah State University" data-year="2010"
+            data-plot="A Florentine dies and leaves everything to a monastery. His family hires someone to impersonate the corpse."
+            data-char="Schicchi is the smartest person in a room of people who think they are. He charges accordingly.">
+            <img src="images/site/Gianni Schicchi.jpg" alt="Anthony Eversole as Gianni Schicchi" loading="lazy" />
+            <div class="still-caption">Gianni Schicchi · Title Role</div>
+          </div>
+          <div class="still-item"
+            data-production="L'Incoronazione di Poppea"
+            data-role="Seneca"
+            data-org="University of Oklahoma" data-year="2011"
+            data-plot="Nero wants to crown his mistress empress. His advisors object, he ignores them, and the bad guys win."
+            data-char="Seneca keeps telling Nero this is a mistake. Nero has him killed for it. He doesn't flinch.">
+            <img src="images/site/DSC_0906.JPG" alt="Anthony Eversole as Seneca in L'Incoronazione di Poppea" loading="lazy" />
+            <div class="still-caption">L'Incoronazione di Poppea · Seneca</div>
+          </div>
+          <div class="still-item"
+            data-production="Sweeney Todd"
+            data-role="Sweeney Todd"
+            data-org="Utah State University" data-year="2010"
+            data-plot="A barber was falsely imprisoned. He comes back as Sweeney Todd. His landlady bakes the bodies into pies."
+            data-char="Todd starts as someone you're rooting for. By the end he's lost everyone he came back to save.">
+            <img src="images/site/sweeneytodd.jpeg" alt="Anthony Eversole as Sweeney Todd" loading="lazy" />
+            <div class="still-caption">Sweeney Todd · Title Role</div>
+          </div>
+          <div class="still-item"
+            data-production="L'elisir d'amore"
+            data-role="Belcore"
+            data-org="Utah State University" data-year="2007"
+            data-plot="A lovesick villager, a confident sergeant, and a quack with a love potion. Things sort themselves out."
+            data-char="Belcore is sure of himself, and it usually works. Adina is more interested in Nemorino's sincerity.">
+            <img src="images/site/DSC_0158.jpg" alt="Anthony Eversole as Belcore in L'elisir d'amore" loading="lazy" />
+            <div class="still-caption">L'elisir d'amore · Belcore</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- credits: musical theatre -->
+  <details id="credits" class="resume-section alt" open>
+    <summary class="kicker">Musical Theatre · Performer</summary>
+    <div class="resume-inner">
+      <table class="resume-table">
+        <tr><td class="r-role">Angus Tuck</td><td class="r-title">Tuck Everlasting</td><td class="r-org">Sandy Arts</td><td class="r-yr">2026</td></tr>
+        <tr><td class="r-role">Russian Soloist</td><td class="r-title">Fiddler on the Roof</td><td class="r-org">Centerpoint Theatre</td><td class="r-yr">2026</td></tr>
+        <tr><td class="r-role">Harry Bright</td><td class="r-title">Mamma Mia!</td><td class="r-org">Riverside Productions</td><td class="r-yr">2025</td></tr>
+        <tr><td class="r-role">Sir Harry</td><td class="r-title">Once Upon a Mattress</td><td class="r-org">Community Performance Series</td><td class="r-yr">2022</td></tr>
+        <tr><td class="r-role">Friar Lawrence</td><td class="r-title">Romeo and Juliet</td><td class="r-org">OSU Bard in the Quad</td><td class="r-yr">2021</td></tr>
+        <tr><td class="r-role">Andrew Carnes</td><td class="r-title">Oklahoma!</td><td class="r-org">Sundance Summer Theatre</td><td class="r-yr">2019</td></tr>
+        <tr><td class="r-role">Chauvelin</td><td class="r-title">The Scarlet Pimpernel</td><td class="r-org">Cache Regional Theatre</td><td class="r-yr">2010</td></tr>
+        <tr><td class="r-role">Franz</td><td class="r-title">The Sound of Music</td><td class="r-org">Utah Festival Opera &amp; Musical Theatre</td><td class="r-yr">2010</td></tr>
+        <tr><td class="r-role">Joseph Hewes</td><td class="r-title">1776</td><td class="r-org">Utah Festival Opera &amp; Musical Theatre</td><td class="r-yr">2008</td></tr>
+        <tr><td class="r-role">Officer Krupke</td><td class="r-title">West Side Story</td><td class="r-org">Utah Festival Opera &amp; Musical Theatre</td><td class="r-yr">2007</td></tr>
+      </table>
+    </div>
+  </details>
+
+  <!-- credits: operatic roles -->
+  <details class="resume-section">
+    <summary class="kicker">Opera · Performer</summary>
+    <div class="resume-inner">
+      <table class="resume-table">
+        <tr><td class="r-role">Oscar Hubbard</td><td class="r-title">Regina</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2016</td></tr>
+        <tr><td class="r-role">Papageno</td><td class="r-title">Die Zauberflöte</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2016</td></tr>
+        <tr><td class="r-role">Don Giovanni</td><td class="r-title">Don Giovanni</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2015</td></tr>
+        <tr><td class="r-role">Ollie Jr.</td><td class="r-title">A Family Reunion</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2015</td></tr>
+        <tr><td class="r-role">Sharpless</td><td class="r-title">Madama Butterfly</td><td class="r-org">Charlottesville Opera</td><td class="r-yr">2015</td></tr>
+        <tr><td class="r-role">Sharpless</td><td class="r-title">Madama Butterfly</td><td class="r-org">Castleton Festival</td><td class="r-yr">2014</td></tr>
+        <tr><td class="r-role">Falstaff</td><td class="r-title">Falstaff</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2013</td></tr>
+        <tr><td class="r-role">Thoas</td><td class="r-title">Iphigénie en Tauride</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2013</td></tr>
+        <tr><td class="r-role">Seneca</td><td class="r-title">L'incoronazione di Poppea</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2011</td></tr>
+        <tr><td class="r-role">Papageno</td><td class="r-title">Die Zauberflöte</td><td class="r-org">Utah State University</td><td class="r-yr">2011</td></tr>
+        <tr><td class="r-role">Sweeney Todd</td><td class="r-title">Sweeney Todd</td><td class="r-org">Utah State University</td><td class="r-yr">2010</td></tr>
+        <tr><td class="r-role">Gianni Schicchi</td><td class="r-title">Gianni Schicchi</td><td class="r-org">Utah State University</td><td class="r-yr">2010</td></tr>
+        <tr><td class="r-role">Rambaldo</td><td class="r-title">La rondine</td><td class="r-org">Utah State University</td><td class="r-yr">2009</td></tr>
+        <tr><td class="r-role">Vidal Hernando</td><td class="r-title">Luisa Fernanda</td><td class="r-org">Utah State University</td><td class="r-yr">2008</td></tr>
+        <tr><td class="r-role">Belcore</td><td class="r-title">L'elisir d'amore</td><td class="r-org">Utah State University</td><td class="r-yr">2007</td></tr>
+        <tr><td class="r-role">Father / Peter</td><td class="r-title">Hansel &amp; Gretel</td><td class="r-org">Utah State University</td><td class="r-yr">2007</td></tr>
+        <tr><td class="r-role">Top</td><td class="r-title">The Tender Land</td><td class="r-org">Utah State University</td><td class="r-yr">2006</td></tr>
+      </table>
+    </div>
+  </details>
+
+  <!-- credits: concert & oratorio -->
+  <details class="resume-section alt">
+    <summary class="kicker">Concert &amp; Oratorio · Performer</summary>
+    <div class="resume-inner">
+      <table class="resume-table">
+        <tr><td class="r-role">Haydn</td><td class="r-title">The Creation</td><td class="r-org">Corvallis Repertory Singers</td><td class="r-yr">2019</td></tr>
+        <tr><td class="r-role">Brahms</td><td class="r-title">Ein Deutsches Requiem</td><td class="r-org">University of Maryland</td><td class="r-yr">2015</td></tr>
+        <tr><td class="r-role">Fauré</td><td class="r-title">Requiem</td><td class="r-org">Grace Church, Alexandria</td><td class="r-yr">2015</td></tr>
+        <tr><td class="r-role">Britten</td><td class="r-title">War Requiem</td><td class="r-org">The Baltimore Symphony</td><td class="r-yr">2014</td></tr>
+        <tr><td class="r-role">Saint-Saëns</td><td class="r-title">Christmas Oratorio</td><td class="r-org">Silver Spring United Methodist</td><td class="r-yr">2014</td></tr>
+        <tr><td class="r-role">Beethoven</td><td class="r-title">Symphony No. 9</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2013</td></tr>
+        <tr><td class="r-role">Rutter</td><td class="r-title">Mass of the Children / Gloria</td><td class="r-org">Tulsa Oratorio Chorus</td><td class="r-yr">2012</td></tr>
+        <tr><td class="r-role">Vaughan Williams</td><td class="r-title">Hodie</td><td class="r-org">Tulsa Oratorio Chorus</td><td class="r-yr">2012</td></tr>
+        <tr><td class="r-role">Mendelssohn</td><td class="r-title">Die erste Walpurgisnacht</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2011</td></tr>
+        <tr><td class="r-role">Haydn</td><td class="r-title">Nicolaimesse</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2011</td></tr>
+        <tr><td class="r-role">Beethoven</td><td class="r-title">Symphony No. 9</td><td class="r-org">Utah State University</td><td class="r-yr">2009</td></tr>
+      </table>
+    </div>
+  </details>
+
+  <!-- Lightbox modal -->
+  <div class="lightbox-overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Production detail">
+    <div class="lightbox-frame">
+      <div class="lightbox-inner">
+        <div class="lightbox-data">
+          <div class="lightbox-kicker">Character Study</div>
+          <h2 class="lightbox-production" id="lb-production"></h2>
+          <div class="lightbox-role" id="lb-role"></div>
+          <div class="lightbox-rule"></div>
+          <div class="lightbox-section">
+            <div class="lightbox-section-head">The Story</div>
+            <p class="lightbox-section-text" id="lb-plot"></p>
+          </div>
+          <div class="lightbox-section">
+            <div class="lightbox-section-head">The Character</div>
+            <p class="lightbox-section-text" id="lb-char"></p>
+          </div>
+          <div class="lightbox-footer" id="lb-footer"></div>
+        </div>
+        <div class="lightbox-photo-wrap">
+          <img class="lightbox-img" id="lb-img" src="" alt="" />
+        </div>
+        <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+      </div>
+      <div class="lightbox-nav">
+        <button class="lb-arrow" id="lb-prev" aria-label="Previous photo">&#8592;</button>
+        <div class="lb-dots" id="lb-dots"></div>
+        <button class="lb-arrow" id="lb-next" aria-label="Next photo">&#8594;</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="book-band">
+    <p class="book-band-hl">Interested in working together?</p>
+    <a href="book.html" class="btn-light">Get in Touch</a>
+  </div>
+
+  </main>
+
+  <footer class="footer-main">
+    <a href="index.html" class="footer-brand-link">Anthony Eversole, DMA</a>
+    <div class="footer-main-links">
+      <a href="about.html">About</a>
+      <a href="performances.html">Performances</a>
+      <a href="directing.html">Directing</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog.html">Writing</a>
+    </div>
+  </footer>
+  <div class="footer-legal">
+    <div class="footer-legal-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-social-links">
+      <a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <script>
+    function formatTime(seconds) {
+      if (!isFinite(seconds) || seconds < 0) return '0:00';
+      var m = Math.floor(seconds / 60);
+      var s = Math.floor(seconds % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    var POS_PREFIX = 'eversole-track-pos:';
+    var activeAudio = null;
+
+    function savePosition(audio) {
+      var key = POS_PREFIX + audio.getAttribute('src');
+      try { localStorage.setItem(key, audio.currentTime); } catch (e) {}
+    }
+    function readSavedPosition(audio) {
+      var key = POS_PREFIX + audio.getAttribute('src');
+      var v;
+      try { v = parseFloat(localStorage.getItem(key)); } catch (e) { v = NaN; }
+      return isFinite(v) ? v : 0;
+    }
+    function clearPosition(audio) {
+      var key = POS_PREFIX + audio.getAttribute('src');
+      try { localStorage.removeItem(key); } catch (e) {}
+    }
+
+    document.querySelectorAll('.track-row').forEach(function (row) {
+      var btn    = row.querySelector('.track-play');
+      var audio  = row.querySelector('.track-audio');
+      var timeEl = row.querySelector('.track-time');
+      var seek   = row.querySelector('.track-seek');
+      var title  = row.querySelector('.track-title').textContent.trim();
+      var artist = row.querySelector('.track-meta').textContent.trim();
+      var userSeeking = false;
+      var lastSave = 0;
+
+      function fillSeek() {
+        var pct = seek.max > 0 ? (seek.value / seek.max) * 100 : 0;
+        seek.style.background = 'linear-gradient(to right, var(--accent) ' + pct + '%, #3B362E ' + pct + '%)';
+      }
+
+      btn.addEventListener('click', function () {
+        if (audio.paused) {
+          document.querySelectorAll('.track-audio').forEach(function (a) { if (a !== audio) a.pause(); });
+          audio.play();
+        } else { audio.pause(); }
+      });
+
+      audio.addEventListener('play', function () {
+        document.querySelectorAll('.track-play').forEach(function (b) { b.classList.remove('playing'); b.textContent = '▶'; });
+        btn.classList.add('playing'); btn.textContent = '❚❚';
+        activeAudio = audio;
+        if ('mediaSession' in navigator) {
+          navigator.mediaSession.metadata = new MediaMetadata({
+            title: title, artist: artist, album: 'Anthony Eversole — Performances'
+          });
+          navigator.mediaSession.playbackState = 'playing';
+        }
+      });
+      audio.addEventListener('pause', function () {
+        btn.classList.remove('playing'); btn.textContent = '▶';
+        savePosition(audio);
+        if ('mediaSession' in navigator && activeAudio === audio) navigator.mediaSession.playbackState = 'paused';
+      });
+      audio.addEventListener('ended', function () {
+        btn.classList.remove('playing'); btn.textContent = '▶';
+        timeEl.textContent = formatTime(audio.duration || 0);
+        clearPosition(audio);
+        seek.value = 0; fillSeek();
+      });
+      audio.addEventListener('loadedmetadata', function () {
+        seek.max = audio.duration;
+        seek.disabled = false;
+        var saved = readSavedPosition(audio);
+        if (saved > 0 && saved < audio.duration - 1) audio.currentTime = saved;
+        seek.value = audio.currentTime;
+        fillSeek();
+        timeEl.textContent = formatTime(audio.duration - audio.currentTime);
+      });
+      audio.addEventListener('timeupdate', function () {
+        timeEl.textContent = formatTime(audio.duration - audio.currentTime);
+        if (!userSeeking) { seek.value = audio.currentTime; fillSeek(); }
+        var now = Date.now();
+        if (now - lastSave > 2000) { savePosition(audio); lastSave = now; }
+      });
+
+      seek.addEventListener('pointerdown', function () { userSeeking = true; });
+      seek.addEventListener('input', function () {
+        audio.currentTime = parseFloat(seek.value);
+        fillSeek();
+      });
+      seek.addEventListener('change', function () {
+        userSeeking = false;
+        savePosition(audio);
+      });
+    });
+
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('play',  function () { if (activeAudio) activeAudio.play(); });
+      navigator.mediaSession.setActionHandler('pause', function () { if (activeAudio) activeAudio.pause(); });
+      navigator.mediaSession.setActionHandler('seekto', function (details) {
+        if (activeAudio && details.seekTime != null) activeAudio.currentTime = details.seekTime;
+      });
+      navigator.mediaSession.setActionHandler('seekbackward', function (details) {
+        if (activeAudio) activeAudio.currentTime = Math.max(0, activeAudio.currentTime - (details.seekOffset || 10));
+      });
+      navigator.mediaSession.setActionHandler('seekforward', function (details) {
+        if (activeAudio) activeAudio.currentTime = Math.min(activeAudio.duration, activeAudio.currentTime + (details.seekOffset || 10));
+      });
+    }
+
+    window.addEventListener('pagehide', function () {
+      document.querySelectorAll('.track-audio').forEach(function (a) { if (!a.paused) savePosition(a); });
+    });
+  </script>
+
+  <script>
+    (function () {
+      var overlay       = document.getElementById('lightbox');
+      var lbImg         = document.getElementById('lb-img');
+      var lbProd        = document.getElementById('lb-production');
+      var lbRole        = document.getElementById('lb-role');
+      var lbPlot        = document.getElementById('lb-plot');
+      var lbChar        = document.getElementById('lb-char');
+      var lbFooter      = document.getElementById('lb-footer');
+      var closeBtn      = document.getElementById('lightbox-close');
+      var prevBtn       = document.getElementById('lb-prev');
+      var nextBtn       = document.getElementById('lb-next');
+      var dotsContainer = document.getElementById('lb-dots');
+
+      var items = Array.from(document.querySelectorAll('.still-item'));
+      var currentIndex = 0;
+
+      var dots = items.map(function (_, i) {
+        var dot = document.createElement('button');
+        dot.className = 'lb-dot';
+        dot.setAttribute('aria-label', 'Photo ' + (i + 1));
+        dot.addEventListener('click', function () { goTo(i); });
+        dotsContainer.appendChild(dot);
+        return dot;
+      });
+
+      function populate(item) {
+        var img = item.querySelector('img');
+        lbImg.src = img.src;
+        lbImg.alt = img.alt;
+        lbImg.style.objectPosition = img.style.objectPosition || '';
+        lbProd.textContent   = item.dataset.production;
+        lbRole.textContent   = item.dataset.role;
+        lbPlot.textContent   = item.dataset.plot;
+        lbChar.textContent   = item.dataset.char;
+        lbFooter.textContent = item.dataset.org + ' · ' + item.dataset.year;
+      }
+
+      function updateDots() {
+        dots.forEach(function (d, i) { d.classList.toggle('active', i === currentIndex); });
+      }
+
+      function goTo(index) {
+        currentIndex = (index + items.length) % items.length;
+        populate(items[currentIndex]);
+        updateDots();
+      }
+
+      function openLightbox(index) {
+        currentIndex = index;
+        populate(items[index]);
+        updateDots();
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        closeBtn.focus();
+      }
+
+      function closeLightbox() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      items.forEach(function (item, i) {
+        item.addEventListener('click', function () { openLightbox(i); });
+      });
+
+      prevBtn.addEventListener('click', function () { goTo(currentIndex - 1); });
+      nextBtn.addEventListener('click', function () { goTo(currentIndex + 1); });
+
+      closeBtn.addEventListener('click', closeLightbox);
+      overlay.addEventListener('click', function (e) { if (e.target === overlay) closeLightbox(); });
+      document.addEventListener('keydown', function (e) {
+        if (!overlay.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft')  goTo(currentIndex - 1);
+        if (e.key === 'ArrowRight') goTo(currentIndex + 1);
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var btn   = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      btn.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', open);
+        btn.textContent = open ? 'Close' : 'Menu';
+      });
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('.nav')) {
+          links.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.textContent = 'Menu';
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research | Anthony Eversole</title>
+  <meta name="description" content="Research and creative inquiry by Dr. Anthony Eversole: opera and performance studies, pedagogy of the singing actor, song and text, and performance and technology." />
+  <meta property="og:title" content="Research | Anthony Eversole" />
+  <meta property="og:description" content="Research and creative inquiry by Dr. Anthony Eversole: opera and performance studies, pedagogy of the singing actor, song and text, and performance and technology." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%237E3B2C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='34' fill='%23F6F1E7' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* Nav hamburger (hidden on desktop) */
+    .nav-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--ink);
+      cursor: pointer;
+      padding: 8px 0;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media (max-width: 1149px) {
+      .nav { padding: 0 40px; }
+      .nav-menu-btn { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px; left: 0; right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: stretch;
+        padding: 8px 40px 28px;
+        gap: 0;
+        z-index: 99;
+        box-shadow: 0 4px 16px rgba(34,30,25,.08);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links > a {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+        font-size: 13px;
+        letter-spacing: .12em;
+      }
+      .nav-ctas { padding: 20px 0 0; }
+      .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
+    }
+
+    /* philosophy header (reuses post-header/post-body typography) */
+    .philosophy-header { max-width: 860px; margin: 0 auto; padding: 88px 24px 48px; }
+    .philosophy-kicker { font-size: 12px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .philosophy-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; margin: 0 0 20px; color: var(--ink); }
+
+    @media (max-width: 767px) {
+      .nav { padding: 0 24px; }
+      .nav-links { padding: 8px 24px 28px; }
+      .philosophy-header { padding: 56px 24px 32px; }
+
+      /* Footer: stack and wrap */
+      .footer-main { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; }
+      .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
+      .footer-legal { flex-direction: column; gap: 12px; padding: 16px 24px; align-items: flex-start; }
+    }
+  
+    /* page header */
+    .pg-header { max-width: 860px; margin: 0 auto; padding: 88px 24px 48px; }
+    .pg-kicker { font-size: 12px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px; }
+    .pg-header h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(30px, 5vw, 46px); line-height: 1.15; margin: 0 0 20px; color: var(--ink); }
+    .pg-lede { font-family: var(--serif); font-size: clamp(17px, 2.2vw, 21px); line-height: 1.7; color: var(--secondary); margin: 0; }
+    .pg-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px; }
+    @media (max-width: 767px) { .pg-header { padding: 56px 24px 32px; } }
+
+    .section-2col.alt { background: var(--bg-alt); }
+    .rs-title { font-family: var(--serif); font-weight: 400; font-size: 30px; line-height: 1.15; color: var(--ink); }
+    .rs-blurb { font-family: var(--serif); font-size: 20px; line-height: 1.7; color: var(--body); max-width: 720px; margin-bottom: 28px; }
+    .rs-items { list-style: none; padding: 0; margin: 0 0 8px; max-width: 760px; }
+    .rs-item { padding: 18px 0; border-top: 1px solid var(--border); }
+    .rs-item:last-child { border-bottom: 1px solid var(--border); }
+    .rs-item-title { font-family: var(--serif); font-size: 19px; line-height: 1.4; color: var(--ink); }
+    .rs-item-title a { border-bottom: 1px solid var(--accent-md); }
+    .rs-item-title a:hover { color: var(--accent); opacity: 1; }
+    .rs-item-meta { font-size: 14px; line-height: 1.65; color: var(--muted); margin-top: 6px; }
+    .rs-item-meta a { color: var(--accent); font-weight: 600; }
+    .rs-pill { display: inline-block; vertical-align: 2px; margin-left: 8px; font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); border: 1px solid var(--accent-md); padding: 3px 8px; }
+    .rs-areas { margin-top: 24px; max-width: 760px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .rs-areas-label { font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--faint); margin-right: 8px; }
+    .rs-chip { font-size: 13px; color: var(--secondary); border: 1px solid var(--border); background: var(--card); padding: 6px 12px; }
+    .rs-writing { padding: 64px; display: flex; align-items: center; justify-content: space-between; gap: 40px; background: var(--ink); color: var(--bg); }
+    .rs-writing .kicker { color: var(--accent-md); margin-bottom: 14px; }
+    .rs-writing-h2 { font-family: var(--serif); font-weight: 300; font-size: 32px; font-style: italic; margin-bottom: 14px; }
+    .rs-writing-body { font-family: var(--serif); font-size: 17px; line-height: 1.7; color: var(--accent-lt); max-width: 620px; }
+    .rs-writing-body a { color: var(--bg); border-bottom: 1px solid var(--accent-md); }
+    @media (max-width: 899px) {
+      .section-2col { grid-template-columns: 1fr; gap: 20px; padding: 56px 24px; }
+      .rs-writing { flex-direction: column; align-items: flex-start; padding: 48px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-brand">
+      <span class="nav-brand-name">Anthony Eversole</span>
+      <span class="nav-brand-kicker">Voice &amp; Stage</span>
+    </a>
+    <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Open menu" aria-expanded="false">Menu</button>
+    <div class="nav-links" id="nav-links">
+      <a href="about.html">About</a>
+      <a href="performances.html">Performances</a>
+      <a href="directing.html">Directing</a>
+      <a href="research.html" class="active">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="contact.html">Contact</a>
+      <div class="nav-ctas">
+        <a href="book.html" class="nav-book">Book a Lesson</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content" tabindex="-1">
+
+  <header class="pg-header">
+    <div class="pg-kicker">Research</div>
+    <h1>Research &amp; Creative Inquiry</h1>
+    <p class="pg-lede">Four threads connect my scholarship to my teaching and directing: how opera performs power, how singers learn to act, how text becomes song, and how performance meets technology.</p>
+  </header>
+
+  <section class="section-2col border-b" id="thread-1">
+    <div>
+      <div class="service-num">01</div>
+      <h2 class="rs-title">Opera &amp; Performance Studies</h2>
+    </div>
+    <div>
+      <p class="rs-blurb">How opera performs power. My dissertation and papers ask how sexism, imperialism, and exploitation shape the standard repertoire, and what singers and directors can do about it on stage.</p>
+      <ul class="rs-items">
+          <li class="rs-item"><div class="rs-item-title"><a href="research/eversole-dissertation.pdf" target="_blank" rel="noopener">Sexism and Imperialism in Mozart&rsquo;s <em>Don Giovanni</em>, Puccini&rsquo;s <em>Madama Butterfly</em>, and Blitzstein&rsquo;s <em>Regina</em>: A Performance Study</a> <span class="rs-pill">PDF</span></div><div class="rs-item-meta">Doctoral dissertation, University of Maryland, 2016. A performance study written alongside three roles: Sharpless (Castleton Festival, 2014), Don Giovanni (Maryland Opera Studio, 2015), and Oscar Hubbard (Maryland Opera Studio, 2016).</div></li>
+          <li class="rs-item"><div class="rs-item-title"><a href="research/madama-butterfly-exoticism.pdf" target="_blank" rel="noopener">Japonisme, Authenticity, and Anti-Imperialism in Puccini&rsquo;s <em>Madama Butterfly</em></a> <span class="rs-pill">PDF</span></div><div class="rs-item-meta">Research paper, University of Maryland. Puccini&rsquo;s borrowing of Japanese melodies, and the opera&rsquo;s portrait of American condescension.</div></li>
+      </ul>
+      <div class="rs-areas"><span class="rs-areas-label">Also working on</span>
+        <span class="rs-chip">Melody sources of Puccini&rsquo;s Orientalist operas</span>
+        <span class="rs-chip">Verismo and the Giovane Scuola</span>
+        <span class="rs-chip">Russian opera of the 19th century</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-2col border-b alt" id="thread-2">
+    <div>
+      <div class="service-num">02</div>
+      <h2 class="rs-title">Pedagogy of the Singing Actor</h2>
+    </div>
+    <div>
+      <p class="rs-blurb">How singers learn to act. My teaching and research build a working system for the singing actor: tactical actioning, eye focus and economy of gesture, vulnerability and risk-taking, and motor learning for vocal coordination.</p>
+      <ul class="rs-items">
+          <li class="rs-item"><div class="rs-item-title"><a href="philosophy.html">On Teaching the Singing Actor</a></div><div class="rs-item-meta">Teaching philosophy.</div></li>
+          <li class="rs-item"><div class="rs-item-title"><a href="posts/singing-actor.html">Preparing &ldquo;It&rsquo;s Hard to Speak My Heart&rdquo;: A Framework for the Singing Actor</a></div><div class="rs-item-meta">Beat-by-beat actioning, physical gesture, and eye focus applied to one audition piece. April 2026.</div></li>
+          <li class="rs-item"><div class="rs-item-title"><a href="posts/daring-greatly.html">Daring Greatly on Stage: A Blueprint for Vulnerable Performance</a></div><div class="rs-item-meta">A five-step framework for risking emotional exposure on stage, drawing on Brené Brown and Stanislavski. July 2026.</div></li>
+          <li class="rs-item"><div class="rs-item-title"><a href="/larynx">Larynx Model: Landmark Explorer</a></div><div class="rs-item-meta">An interactive 3D model of the larynx for teaching vocal anatomy. In development.</div></li>
+          <li class="rs-item"><div class="rs-item-title">Acting for Singers curriculum for classical performers <span class="rs-pill">Planned</span></div><div class="rs-item-meta">Drawing on the musical theatre writings of Joe Deer.</div></li>
+      </ul>
+      <div class="rs-areas"><span class="rs-areas-label">Areas of inquiry</span>
+        <span class="rs-chip">Tactical actioning</span>
+        <span class="rs-chip">Beat and tactics systems in dramatic coaching</span>
+        <span class="rs-chip">Eye focus and physical movement</span>
+        <span class="rs-chip">Vulnerability and risk-taking</span>
+        <span class="rs-chip">Chakra and movement</span>
+        <span class="rs-chip">Motor learning in the voice studio</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-2col border-b" id="thread-3">
+    <div>
+      <div class="service-num">03</div>
+      <h2 class="rs-title">Song, Text &amp; Diction</h2>
+    </div>
+    <div>
+      <p class="rs-blurb">How text becomes song. I study how composers choose, and are chosen by, poetry, and I want to build tools that make foreign-language repertoire easier for singers to learn and stage.</p>
+      <ul class="rs-items">
+          <li class="rs-item"><div class="rs-item-title"><a href="research/finzi-hardy-songs.pdf" target="_blank" rel="noopener">&ldquo;The Words That Chose Him&rdquo;: Gerald Finzi and the Poetry of Thomas Hardy</a> <span class="rs-pill">PDF</span></div><div class="rs-item-meta">Research paper, University of Maryland. How Hardy&rsquo;s poetry shaped Finzi&rsquo;s song composition.</div></li>
+          <li class="rs-item"><div class="rs-item-title">Zarzuela libretti of Federico Moreno-Torroba and Pablo Sorozábal <span class="rs-pill">Planned</span></div><div class="rs-item-meta">Complete libretti with IPA transcription and word-for-word translation, to make the repertoire accessible to singers and producers.</div></li>
+      </ul>
+      <div class="rs-areas"><span class="rs-areas-label">Teaching connection</span>
+        <span class="rs-chip">Lyric diction: French, Italian, German, English</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-2col border-b alt" id="thread-4">
+    <div>
+      <div class="service-num">04</div>
+      <h2 class="rs-title">Performance &amp; Technology</h2>
+    </div>
+    <div>
+      <p class="rs-blurb">Where theatre meets machines. A collaboration between a stage director and a robotics lab, and a continuing interest in how singers work with the technology they will meet in their careers.</p>
+      <ul class="rs-items">
+          <li class="rs-item"><div class="rs-item-title"><a href="https://doi.org/10.1007/978-981-95-2398-6_48" target="_blank" rel="noopener">OperaBot: A Performer Led Robot Theater Collaboration</a> <span class="rs-pill">Springer</span></div><div class="rs-item-meta">Oregon State University, 2019. I directed and operated a robot as the Commendatore in the graveyard scene from <em>Don Giovanni</em>. The CHARISMA robotics lab published the collaboration at ICSR+AI 2025 (Springer, 2026), and I am thanked in the paper as the stage director. <a href="operabot.html">Read the story &rarr;</a></div></li>
+          <li class="rs-item"><div class="rs-item-title"><a href="philosophy.html">Amplified performance for musical theatre</a></div><div class="rs-item-meta">On-mic rehearsal from the first session, so that singers learn the conventions and dramatic possibilities of amplification before tech week.</div></li>
+      </ul>
+
+    </div>
+  </section>
+
+  <section class="rs-writing">
+    <div>
+      <div class="kicker">Writing</div>
+      <h2 class="rs-writing-h2">Dramaturgy and character work</h2>
+      <p class="rs-writing-body">Research for each production is written up as it happens: historical context, psychology, visual world, and character. Production dramaturgy appears with the <a href="directing.html#dramaturgy">directing credits</a>, and all posts are collected under Writing.</p>
+    </div>
+    <a href="blog.html" class="btn-light">All Writing</a>
+  </section>
+
+  </main>
+
+  <footer class="footer-main">
+    <a href="index.html" class="footer-brand-link">Anthony Eversole, DMA</a>
+    <div class="footer-main-links">
+      <a href="about.html">About</a>
+      <a href="performances.html">Performances</a>
+      <a href="directing.html">Directing</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="contact.html">Contact</a>
+      <a href="blog.html">Writing</a>
+    </div>
+  </footer>
+  <div class="footer-legal">
+    <div class="footer-legal-links">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+    <div class="footer-social-links">
+      <a href="https://www.instagram.com/eversole_voice" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      var btn = document.getElementById('nav-menu-btn');
+      var links = document.getElementById('nav-links');
+      if (!btn || !links) return;
+      btn.addEventListener('click', function() {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !expanded);
+        btn.textContent = expanded ? 'Menu' : 'Close';
+        links.classList.toggle('open', !expanded);
+      });
+    })();
+  </script>
+</body>
+</html>

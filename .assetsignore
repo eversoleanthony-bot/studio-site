@@ -5,6 +5,5 @@ lab/*
 !lab/larynx-explorer.html
 !lab/larynx-explorer.js
 !lab/larynx-styled.glb
-research/
 blog-drafts/
 .gitignore
