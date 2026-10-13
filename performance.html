@@ -73,11 +73,12 @@
     .photo-acc[open] > summary::before { opacity: 0; }
     .photo-acc-inner { padding: 4px 64px 40px; }
     .stills-strip { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); gap: 8px; }
-    .stills-strip .still-item { position: relative; aspect-ratio: 4/3; overflow: hidden; }
-    .stills-strip .still-item img { width: 100%; height: 100%; object-fit: cover; display: block; cursor: zoom-in; transition: transform .3s ease; }
-    .stills-strip .still-item:hover img { transform: scale(1.05); }
-    .stills-strip .still-caption { padding: 5px 7px; font-size: 10px; line-height: 1.3; opacity: 0; transition: opacity .15s; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .stills-strip .still-item:hover .still-caption, .stills-strip .still-item:focus-within .still-caption { opacity: 1; }
+    .stills-strip .still-item { position: relative; cursor: pointer; aspect-ratio: auto; overflow: visible; }
+    .stills-strip .still-item img { width: 100%; aspect-ratio: 4/3; height: auto; object-fit: cover; display: block; cursor: zoom-in; transition: opacity .2s ease; }
+    .stills-strip .still-item:hover img { opacity: .82; }
+    .stills-strip .still-label { display: block; margin-top: 8px; font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; line-height: 1.4; color: rgba(246,241,231,.78); text-wrap: balance; min-height: 2.8em; }
+    .stills-strip .still-item:hover .still-label { color: var(--bg); }
+    .stills-strip .still-caption { display: none; }
     .photo-acc-note { font-size: 12.5px; color: rgba(246,241,231,.55); margin: 14px 0 0; }
 
     /* ---- production photos (dark) ---- */
@@ -263,7 +264,6 @@
       .stills-strip { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: 24px; -webkit-overflow-scrolling: touch; margin: 0 -24px; padding: 0 24px 6px; scrollbar-width: none; }
       .stills-strip::-webkit-scrollbar { display: none; }
       .stills-strip .still-item { flex: 0 0 34%; scroll-snap-align: start; }
-      .stills-strip .still-caption { opacity: 1; font-size: 9.5px; }
       .perf-section-head { flex-direction: column; align-items: flex-start; gap: 8px; margin-bottom: 24px; }
       .perf-section-note { text-align: left; }
       .perf-section-title { font-size: 28px; }
@@ -456,6 +456,7 @@
             data-role="Oscar Hubbard"
             data-org="Maryland Opera Studio" data-year="2016">
             <img src="images/site/IMG_1883.JPG" alt="Anthony Eversole as Oscar Hubbard in Regina" loading="lazy" style="object-position: 50% 8%;" />
+          <span class="still-label">Regina</span>
             <div class="still-caption">Regina · Oscar Hubbard</div>
           </div>
         <div class="still-item"
@@ -464,6 +465,7 @@
             data-role="Sharpless"
             data-org="Charlottesville Opera" data-year="2015">
             <img src="images/site/madamabutterfly-3.jpg" alt="Anthony Eversole as Sharpless in Madama Butterfly" loading="lazy" />
+          <span class="still-label">Madama Butterfly</span>
             <div class="still-caption">Madama Butterfly · Sharpless</div>
           </div>
         <div class="still-item"
@@ -472,6 +474,7 @@
             data-role="Vidal Hernando"
             data-org="Utah State University" data-year="2008">
             <img src="images/site/luisafernanda.jpeg" alt="Anthony Eversole as Vidal Hernando in Luisa Fernanda" loading="lazy" />
+          <span class="still-label">Luisa Fernanda</span>
             <div class="still-caption">Luisa Fernanda · Vidal Hernando</div>
           </div>
         <div class="still-item"
@@ -480,6 +483,7 @@
             data-role="Don Giovanni"
             data-org="Maryland Opera Studio" data-year="2015">
             <img src="images/site/dongiovanni-3.jpg" alt="Anthony Eversole as Don Giovanni" loading="lazy" />
+          <span class="still-label">Don Giovanni</span>
             <div class="still-caption">Don Giovanni · Title Role</div>
           </div>
         <div class="still-item"
@@ -488,6 +492,7 @@
             data-role="Papageno"
             data-org="Maryland Opera Studio" data-year="2016">
             <img src="images/site/DSC_8841.jpg" alt="Anthony Eversole as Papageno in Die Zauberflöte" loading="lazy" />
+          <span class="still-label">Die Zauberflöte</span>
             <div class="still-caption">Die Zauberflöte · Papageno</div>
           </div>
         <div class="still-item"
@@ -496,6 +501,7 @@
             data-role="Gianni Schicchi"
             data-org="Utah State University" data-year="2010">
             <img src="images/site/Gianni Schicchi.jpg" alt="Anthony Eversole as Gianni Schicchi" loading="lazy" />
+          <span class="still-label">Gianni Schicchi</span>
             <div class="still-caption">Gianni Schicchi · Title Role</div>
           </div>
         <div class="still-item"
@@ -504,6 +510,7 @@
             data-role="Seneca"
             data-org="University of Oklahoma" data-year="2011">
             <img src="images/site/DSC_0906.JPG" alt="Anthony Eversole as Seneca in L'Incoronazione di Poppea" loading="lazy" />
+          <span class="still-label">L'Incoronazione di Poppea</span>
             <div class="still-caption">L'Incoronazione di Poppea · Seneca</div>
           </div>
         <div class="still-item"
@@ -512,6 +519,7 @@
             data-role="Sweeney Todd"
             data-org="Utah State University" data-year="2010">
             <img src="images/site/sweeneytodd.jpeg" alt="Anthony Eversole as Sweeney Todd" loading="lazy" />
+          <span class="still-label">Sweeney Todd</span>
             <div class="still-caption">Sweeney Todd · Title Role</div>
           </div>
         <div class="still-item"
@@ -520,6 +528,7 @@
             data-role="Belcore"
             data-org="Utah State University" data-year="2007">
             <img src="images/site/DSC_0158.jpg" alt="Anthony Eversole as Belcore in L'elisir d'amore" loading="lazy" />
+          <span class="still-label">L'elisir d'amore</span>
             <div class="still-caption">L'elisir d'amore · Belcore</div>
           </div>
       </div>
