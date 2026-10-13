@@ -101,7 +101,8 @@
     .lightbox-role { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--meta); margin-bottom: 32px; }
     .lightbox-rule { height: 1px; background: #3B362E; margin-bottom: 28px; }
     .lightbox-stats { margin: 0; }
-    .lightbox-stat { margin-bottom: 18px; }
+    .lightbox-stat { margin-bottom: 16px; }
+    .lightbox-stat dd em { font-style: italic; }
     .lightbox-stat dt { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent-md); margin-bottom: 6px; }
     .lightbox-stat dd { margin: 0; font-size: 15px; line-height: 1.5; color: var(--bg); }
     .lightbox-section { margin-bottom: 24px; }
@@ -397,6 +398,7 @@
     <div class="stills-grid">
       <div class="still-item"
             data-production="Regina"
+            data-composer="Marc Blitzstein (1905&amp;ndash;1964)" data-librettist="Marc Blitzstein (1905&amp;ndash;1964), after Lillian Hellman&amp;#8217;s &lt;em&gt;The Little Foxes&lt;/em&gt;" data-liblabel="Libretto" data-composed="1949"
             data-role="Oscar Hubbard"
             data-org="Maryland Opera Studio" data-year="2016">
             <img src="images/site/IMG_1883.JPG" alt="Anthony Eversole as Oscar Hubbard in Regina" loading="lazy" style="object-position: 50% 8%;" />
@@ -404,6 +406,7 @@
           </div>
       <div class="still-item"
             data-production="Madama Butterfly"
+            data-composer="Giacomo Puccini (1858&amp;ndash;1924)" data-librettist="Luigi Illica (1857&amp;ndash;1919) and Giuseppe Giacosa (1847&amp;ndash;1906)" data-liblabel="Libretto" data-composed="1904"
             data-role="Sharpless"
             data-org="Charlottesville Opera" data-year="2015">
             <img src="images/site/madamabutterfly-3.jpg" alt="Anthony Eversole as Sharpless in Madama Butterfly" loading="lazy" />
@@ -411,6 +414,7 @@
           </div>
       <div class="still-item"
             data-production="Luisa Fernanda"
+            data-composer="Federico Moreno Torroba (1891&amp;ndash;1982)" data-librettist="Federico Romero (1886&amp;ndash;1976) and Guillermo Fern&amp;aacute;ndez-Shaw (1893&amp;ndash;1965)" data-liblabel="Libretto" data-composed="1932"
             data-role="Vidal Hernando"
             data-org="Utah State University" data-year="2008">
             <img src="images/site/luisafernanda.jpeg" alt="Anthony Eversole as Vidal Hernando in Luisa Fernanda" loading="lazy" />
@@ -418,6 +422,7 @@
           </div>
       <div class="still-item"
             data-production="Don Giovanni"
+            data-composer="Wolfgang Amadeus Mozart (1756&amp;ndash;1791)" data-librettist="Lorenzo Da Ponte (1749&amp;ndash;1838)" data-liblabel="Libretto" data-composed="1787"
             data-role="Don Giovanni"
             data-org="Maryland Opera Studio" data-year="2015">
             <img src="images/site/dongiovanni-3.jpg" alt="Anthony Eversole as Don Giovanni" loading="lazy" />
@@ -425,6 +430,7 @@
           </div>
       <div class="still-item"
             data-production="Die Zauberflöte"
+            data-composer="Wolfgang Amadeus Mozart (1756&amp;ndash;1791)" data-librettist="Emanuel Schikaneder (1751&amp;ndash;1812)" data-liblabel="Libretto" data-composed="1791"
             data-role="Papageno"
             data-org="Maryland Opera Studio" data-year="2016">
             <img src="images/site/DSC_8841.jpg" alt="Anthony Eversole as Papageno in Die Zauberflöte" loading="lazy" />
@@ -432,6 +438,7 @@
           </div>
       <div class="still-item"
             data-production="Gianni Schicchi"
+            data-composer="Giacomo Puccini (1858&amp;ndash;1924)" data-librettist="Giovacchino Forzano (1884&amp;ndash;1970)" data-liblabel="Libretto" data-composed="1918"
             data-role="Gianni Schicchi"
             data-org="Utah State University" data-year="2010">
             <img src="images/site/Gianni Schicchi.jpg" alt="Anthony Eversole as Gianni Schicchi" loading="lazy" />
@@ -439,6 +446,7 @@
           </div>
       <div class="still-item"
             data-production="L'Incoronazione di Poppea"
+            data-composer="Claudio Monteverdi (1567&amp;ndash;1643)" data-librettist="Giovanni Francesco Busenello (1598&amp;ndash;1659)" data-liblabel="Libretto" data-composed="1643"
             data-role="Seneca"
             data-org="University of Oklahoma" data-year="2011">
             <img src="images/site/DSC_0906.JPG" alt="Anthony Eversole as Seneca in L'Incoronazione di Poppea" loading="lazy" />
@@ -446,6 +454,7 @@
           </div>
       <div class="still-item"
             data-production="Sweeney Todd"
+            data-composer="Stephen Sondheim (1930&amp;ndash;2021)" data-librettist="Hugh Wheeler (1912&amp;ndash;1987)" data-liblabel="Book" data-composed="1979"
             data-role="Sweeney Todd"
             data-org="Utah State University" data-year="2010">
             <img src="images/site/sweeneytodd.jpeg" alt="Anthony Eversole as Sweeney Todd" loading="lazy" />
@@ -453,6 +462,7 @@
           </div>
       <div class="still-item"
             data-production="L'elisir d'amore"
+            data-composer="Gaetano Donizetti (1797&amp;ndash;1848)" data-librettist="Felice Romani (1788&amp;ndash;1865)" data-liblabel="Libretto" data-composed="1832"
             data-role="Belcore"
             data-org="Utah State University" data-year="2007">
             <img src="images/site/DSC_0158.jpg" alt="Anthony Eversole as Belcore in L'elisir d'amore" loading="lazy" />
@@ -645,8 +655,12 @@
           <div class="lightbox-role" id="lb-role"></div>
           <div class="lightbox-rule"></div>
           <dl class="lightbox-stats">
+            <div class="lightbox-stat"><dt>Composer</dt><dd id="lb-composer"></dd></div>
+            <div class="lightbox-stat"><dt id="lb-liblabel">Libretto</dt><dd id="lb-librettist"></dd></div>
+            <div class="lightbox-stat"><dt>Composed</dt><dd id="lb-composed"></dd></div>
+            <div class="lightbox-rule" style="margin: 22px 0;"></div>
             <div class="lightbox-stat"><dt>Company</dt><dd id="lb-org"></dd></div>
-            <div class="lightbox-stat"><dt>Year</dt><dd id="lb-year"></dd></div>
+            <div class="lightbox-stat"><dt>Year performed</dt><dd id="lb-year"></dd></div>
           </dl>
         </div>
         <div class="lightbox-photo-wrap">
@@ -812,6 +826,10 @@
       var lbProd        = document.getElementById('lb-production');
       var lbRole        = document.getElementById('lb-role');
       var lbOrg         = document.getElementById('lb-org');
+      var lbComposer    = document.getElementById('lb-composer');
+      var lbLibretto    = document.getElementById('lb-librettist');
+      var lbLibLabel    = document.getElementById('lb-liblabel');
+      var lbComposed    = document.getElementById('lb-composed');
       var lbYear        = document.getElementById('lb-year');
       var closeBtn      = document.getElementById('lightbox-close');
       var prevBtn       = document.getElementById('lb-prev');
@@ -837,6 +855,10 @@
         lbImg.style.objectPosition = img.style.objectPosition || '';
         lbProd.textContent   = item.dataset.production;
         lbRole.textContent   = item.dataset.role;
+        lbComposer.innerHTML = item.dataset.composer || '';
+        lbLibretto.innerHTML = item.dataset.librettist || '';
+        lbLibLabel.textContent = item.dataset.liblabel || 'Libretto';
+        lbComposed.textContent = item.dataset.composed || '';
         lbOrg.textContent    = item.dataset.org;
         lbYear.textContent   = item.dataset.year;
       }
