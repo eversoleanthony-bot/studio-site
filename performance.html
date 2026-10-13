@@ -13,6 +13,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,300,0,0&icon_names=info&display=block" rel="stylesheet" />
   <style>
     html { scroll-padding-top: 90px; }
 
@@ -161,8 +162,10 @@
 
     /* ---- tooltip ---- */
     .tip { position: relative; display: inline-flex; }
-    .tip-btn { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--accent-md); background: none; color: var(--accent); font-family: var(--serif); font-style: italic; font-size: 14px; line-height: 1; cursor: help; padding: 0; display: flex; align-items: center; justify-content: center; }
-    .tip-btn:hover, .tip-btn:focus-visible { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+    .material-symbols-outlined { font-family: 'Material Symbols Outlined'; font-weight: 300; font-style: normal; line-height: 1; letter-spacing: normal; text-transform: none; display: inline-block; white-space: nowrap; word-wrap: normal; direction: ltr; -webkit-font-feature-settings: 'liga'; font-feature-settings: 'liga'; -webkit-font-smoothing: antialiased; }
+    .tip-btn { width: 32px; height: 32px; border: none; background: none; color: var(--accent); cursor: help; padding: 0; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; }
+    .tip-btn .material-symbols-outlined { font-size: 30px; width: 30px; height: 30px; overflow: hidden; }
+    .tip-btn:hover, .tip-btn:focus-visible { color: var(--ink); }
     .tip-body { position: absolute; left: -8px; top: 100%; margin-top: 10px; width: 340px; padding: 14px 16px; background: var(--ink); color: rgba(246,241,231,.9); font-size: 13.5px; line-height: 1.6; box-shadow: 0 8px 28px rgba(34,30,25,.25); opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity .15s, transform .15s, visibility .15s; z-index: 20; }
     .tip-body::before { content: ''; position: absolute; left: 0; right: 0; top: -12px; height: 12px; }
     .tip:hover .tip-body, .tip:focus-within .tip-body { opacity: 1; visibility: visible; transform: translateY(0); }
@@ -522,7 +525,7 @@
     <div class="perf-credits-head">
       <h2 class="perf-section-title">Credits</h2>
       <span class="tip">
-        <button class="tip-btn" type="button" aria-label="About these credits" aria-describedby="credits-tip">i</button>
+        <button class="tip-btn" type="button" aria-label="About these credits" aria-describedby="credits-tip"><span class="material-symbols-outlined" aria-hidden="true">info</span></button>
         <span class="tip-body" role="tooltip" id="credits-tip">Selected credits, most recent first. Directing credits are on the <a href="directing.html" class="text-link">Directing</a> page. The complete record is in the <a href="downloads/Anthony_Eversole_CV.pdf" class="text-link" target="_blank" rel="noopener">curriculum vitae</a>.</span>
       </span>
     </div>
