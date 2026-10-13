@@ -159,9 +159,18 @@
     .lb-dot.active { background: rgba(246,241,231,.75); transform: scale(1.4); }
 
 
+    /* ---- tooltip ---- */
+    .tip { position: relative; display: inline-flex; }
+    .tip-btn { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--accent-md); background: none; color: var(--accent); font-family: var(--serif); font-style: italic; font-size: 14px; line-height: 1; cursor: help; padding: 0; display: flex; align-items: center; justify-content: center; }
+    .tip-btn:hover, .tip-btn:focus-visible { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+    .tip-body { position: absolute; left: -8px; top: 100%; margin-top: 10px; width: 340px; padding: 14px 16px; background: var(--ink); color: rgba(246,241,231,.9); font-size: 13.5px; line-height: 1.6; box-shadow: 0 8px 28px rgba(34,30,25,.25); opacity: 0; visibility: hidden; transform: translateY(-4px); transition: opacity .15s, transform .15s, visibility .15s; z-index: 20; }
+    .tip-body::before { content: ''; position: absolute; left: 0; right: 0; top: -12px; height: 12px; }
+    .tip:hover .tip-body, .tip:focus-within .tip-body { opacity: 1; visibility: visible; transform: translateY(0); }
+    .tip-body .text-link { color: var(--accent-lt); border-bottom-color: rgba(221,185,166,.5); }
+
     /* ---- credits: collapsible, alternating plain / tinted ---- */
     .perf-credits { background: var(--bg); }
-    .perf-credits-head { display: flex; align-items: baseline; justify-content: space-between; gap: 32px; padding: 72px 64px 36px; }
+    .perf-credits-head { display: flex; align-items: center; justify-content: flex-start; gap: 14px; padding: 72px 64px 36px; }
     .resume-section { border-top: 1px solid var(--border); }
     .resume-section:last-of-type { border-bottom: 1px solid var(--border); }
     .resume-section.alt { background: var(--bg-alt); }
@@ -250,7 +259,8 @@
       .perf-section-note { text-align: left; }
       .perf-section-title { font-size: 28px; }
       .stills-grid { gap: 8px; }
-      .perf-credits-head { flex-direction: column; align-items: flex-start; gap: 8px; padding: 44px 24px 24px; }
+      .perf-credits-head { padding: 44px 24px 24px; }
+      .tip-body { width: min(300px, calc(100vw - 48px)); }
       .resume-section > summary { padding: 22px 24px; }
       .resume-section > summary::after { right: 24px; }
       .resume-section > summary::before { right: 29.25px; }
@@ -511,7 +521,10 @@
   <section id="credits" class="perf-credits">
     <div class="perf-credits-head">
       <h2 class="perf-section-title">Credits</h2>
-      <p class="perf-section-note">Selected credits, most recent first. Directing credits are on the <a href="directing.html" class="text-link">Directing</a> page, and the complete record is in the <a href="downloads/Anthony_Eversole_CV.pdf" target="_blank" rel="noopener" class="text-link">curriculum vitae</a>.</p>
+      <span class="tip">
+        <button class="tip-btn" type="button" aria-label="About these credits" aria-describedby="credits-tip">i</button>
+        <span class="tip-body" role="tooltip" id="credits-tip">Selected credits, most recent first. Directing credits are on the <a href="directing.html" class="text-link">Directing</a> page. The complete record is in the <a href="downloads/Anthony_Eversole_CV.pdf" class="text-link" target="_blank" rel="noopener">curriculum vitae</a>.</span>
+      </span>
     </div>
     <details class="resume-section" open>
       <summary class="kicker">Training &amp; Education</summary>
