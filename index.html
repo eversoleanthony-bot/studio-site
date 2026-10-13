@@ -54,11 +54,11 @@
 
 
     /* ---- credentials at a glance + featured recording ---- */
-    .glance { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; }
+    .glance { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 40px; }
     .glance-label { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 14px; }
     .glance-list { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
     .glance-list li { font-family: var(--serif); font-size: 17px; line-height: 1.35; color: var(--body); }
-    .glance-list small { display: block; font-family: var(--sans); font-size: 10.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); line-height: 1.5; margin-top: 2px; }
+    .glance-list small { display: block; font-family: var(--sans); font-size: 10.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); line-height: 1.5; margin-top: 2px; text-wrap: balance; }
     .glance-more { margin-top: 36px; font-family: var(--serif); font-size: 16px; color: var(--secondary); }
     .listen-card { background: var(--ink); color: var(--bg); padding: 22px 24px 24px; }
     .listen-card .kicker { color: var(--accent-md); margin-bottom: 12px; font-size: 11px; }
@@ -198,7 +198,7 @@
         <ul class="glance-list">
           <li>University of Maryland<small>Doctor of Musical Arts, Voice/Opera</small></li>
           <li>University of Oklahoma<small>Master of Music, Voice</small></li>
-          <li>Utah State University<small>Bachelor of Music, Vocal Performance and Choral Music Education</small></li>
+          <li>Utah State University<small>Bachelor of Music<br />Vocal Performance and Choral Music Education</small></li>
         </ul>
       </div>
       <div>
