@@ -61,6 +61,14 @@
     .cred-items > span { white-space: nowrap; }
     .cred-items .cred-group { flex-basis: 100%; font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin: 14px 0 0; white-space: normal; }
     .cred-items .cred-group:first-child { margin-top: 0; }
+
+    .cred-items.is-degrees { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 36px; }
+    .deg { display: flex; flex-direction: column; gap: 3px; white-space: normal; }
+    .deg-school { font-family: var(--serif); font-size: 18.5px; line-height: 1.3; color: var(--body); margin-bottom: 2px; }
+    .deg-name { font-family: var(--sans); font-size: 10.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
+    .deg-name + .deg-name { margin-bottom: 4px; }
+    .deg-place { font-family: var(--serif); font-size: 15.5px; font-style: italic; color: var(--faint); margin-top: 4px; }
+
     .listen-card { background: var(--ink); color: var(--bg); padding: 40px 36px 36px; }
     .listen-card .kicker { color: var(--accent-md); margin-bottom: 20px; }
     .listen-title { font-family: var(--serif); font-weight: 300; font-size: 36px; line-height: 1.1; margin-bottom: 18px; }
@@ -121,6 +129,7 @@
     @media (max-width: 767px) {
       .cred-row { grid-template-columns: 1fr; gap: 8px; }
       .cred-items { font-size: 17px; }
+      .cred-items.is-degrees { grid-template-columns: 1fr; gap: 20px; }
       .listen-card { padding: 28px 24px; }
       .nav { padding: 0 24px; }
       .nav-links { padding: 8px 24px 28px; }
@@ -198,7 +207,7 @@
       <div>
         <div class="cred-row">
           <div class="cred-label">Degrees</div>
-          <div class="cred-items"><span>University of Maryland, DMA</span><span>University of Oklahoma, MM</span><span>Utah State University, BM</span></div>
+          <div class="cred-items is-degrees"><span class="deg"><span class="deg-school">University of Maryland</span><span class="deg-name">Doctor of Musical Arts</span><span class="deg-name">Opera and Voice Pedagogy</span><span class="deg-place">College Park, Maryland</span></span><span class="deg"><span class="deg-school">University of Oklahoma</span><span class="deg-name">Master of Music</span><span class="deg-name">Voice Performance</span><span class="deg-place">Norman, Oklahoma</span></span><span class="deg"><span class="deg-school">Utah State University</span><span class="deg-name">Bachelor of Music</span><span class="deg-name">Vocal Performance</span><span class="deg-name">Bachelor of Music</span><span class="deg-name">Choral Music Education</span><span class="deg-place">Logan, Utah</span></span></div>
         </div>
         <div class="cred-row">
           <div class="cred-label">Teaching</div>
