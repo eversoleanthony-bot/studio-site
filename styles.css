@@ -662,3 +662,6 @@ a.research-card:hover { background: #2D2822; opacity: 1; }
 
 .research-card-title.is-long { font-size: 23px; line-height: 1.32; }
 .research-card-title em { font-style: italic; }
+
+.research-card-desc em { font-style: italic; }
+.research-card-title.is-long + .research-card-desc { font-size: 15.5px; line-height: 1.65; }
