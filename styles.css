@@ -665,3 +665,20 @@ a.research-card:hover { background: #2D2822; opacity: 1; }
 
 .research-card-desc em { font-style: italic; }
 .research-card-title.is-long + .research-card-desc { font-size: 15.5px; line-height: 1.65; }
+
+/* Align tag / title / abstract / footer rows across the cards in a grid row */
+@supports (grid-template-rows: subgrid) {
+  .research-card {
+    display: grid;
+    grid-row: span 4;
+    grid-template-rows: subgrid;
+    row-gap: 14px;
+    align-content: start;
+  }
+  .research-card-foot { margin-top: 0; align-self: end; }
+}
+@media (max-width: 899px) {
+  @supports (grid-template-rows: subgrid) {
+    .research-card { grid-row: auto; grid-template-rows: auto; align-content: start; }
+  }
+}
