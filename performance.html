@@ -100,6 +100,10 @@
     .lightbox-production { font-family: var(--serif); font-weight: 300; font-style: italic; font-size: 26px; line-height: 1.25; color: var(--bg); margin: 0 0 10px; }
     .lightbox-role { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--meta); margin-bottom: 32px; }
     .lightbox-rule { height: 1px; background: #3B362E; margin-bottom: 28px; }
+    .lightbox-stats { margin: 0; }
+    .lightbox-stat { margin-bottom: 18px; }
+    .lightbox-stat dt { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent-md); margin-bottom: 6px; }
+    .lightbox-stat dd { margin: 0; font-size: 15px; line-height: 1.5; color: var(--bg); }
     .lightbox-section { margin-bottom: 24px; }
     .lightbox-section-head { font-size: 9px; letter-spacing: .2em; text-transform: uppercase; color: var(--accent-md); margin-bottom: 8px; }
     .lightbox-section-text { font-size: 13px; line-height: 1.75; color: rgba(246,241,231,.72); margin: 0; }
@@ -137,30 +141,35 @@
     .lb-dot.active { background: rgba(246,241,231,.75); transform: scale(1.4); }
 
 
-    /* ---- credits (light, one surface, no alternating rows) ---- */
-    .credit-block { display: grid; grid-template-columns: 220px 1fr; gap: 40px; padding: 34px 0; border-top: 1px solid var(--border); }
-    .credit-block:first-of-type { border-top: 1px solid var(--ink); }
-    .credit-label { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); padding-top: 4px; }
+    /* ---- credits: collapsible, alternating plain / tinted ---- */
+    .perf-credits { background: var(--bg); }
+    .perf-credits-head { display: flex; align-items: baseline; justify-content: space-between; gap: 32px; padding: 72px 64px 36px; }
+    .resume-section { border-top: 1px solid var(--border); }
+    .resume-section:last-of-type { border-bottom: 1px solid var(--border); }
+    .resume-section.alt { background: var(--bg-alt); }
+    .resume-section > summary { list-style: none; cursor: pointer; user-select: none; display: flex; align-items: center; padding: 28px 64px; position: relative; }
+    .resume-section > summary::-webkit-details-marker { display: none; }
+    .resume-section > summary::marker { display: none; }
+    .resume-section > summary::after { content: ''; position: absolute; right: 64px; top: 50%; transform: translateY(-50%); width: 12px; height: 1.5px; background: var(--accent); }
+    .resume-section > summary::before { content: ''; position: absolute; right: 69.25px; top: 50%; transform: translateY(-50%); width: 1.5px; height: 12px; background: var(--accent); transition: opacity .15s; }
+    .resume-section[open] > summary::before { opacity: 0; }
+    .resume-section[open] > summary { border-bottom: 1px solid var(--border); }
+    .resume-inner { padding: 32px 64px 48px; }
     .resume-table { width: 100%; border-collapse: collapse; font-size: 14px; }
     .resume-table tr { border-bottom: 1px solid var(--border); }
     .resume-table tr:last-child { border-bottom: none; }
-    .resume-table td { padding: 9px 0; vertical-align: top; line-height: 1.45; }
-    .resume-table tr:first-child td { padding-top: 0; }
+    .resume-table td { padding: 10px 0; vertical-align: top; line-height: 1.45; }
     .r-role  { color: var(--ink); width: 26%; padding-right: 16px; }
     .r-title { color: var(--secondary); font-family: var(--serif); font-style: italic; font-size: 16px; width: 30%; padding-right: 16px; }
     .r-org   { color: var(--secondary); width: 32%; padding-right: 16px; font-size: 13px; }
     .r-yr    { color: var(--accent); text-align: right; width: 12%; font-size: 12px; letter-spacing: .08em; white-space: nowrap; padding-top: 1px; }
-
-    /* ---- honors & affiliates (dark) ---- */
-    .honors-grid { display: grid; grid-template-columns: 1fr; gap: 56px; }
-    .honors-label { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-md); margin-bottom: 18px; }
     .distinctions { columns: 2; column-gap: 48px; margin: 0; padding: 0; }
-    .distinctions li { list-style: none; font-size: 14.5px; color: rgba(246,241,231,.82); line-height: 1.9; break-inside: avoid; }
-    .distinctions li::before { content: "\00b7"; color: var(--accent-md); margin-right: 10px; font-size: 1.4em; vertical-align: middle; }
+    .distinctions li { list-style: none; font-size: 14.5px; color: var(--secondary); line-height: 1.9; break-inside: avoid; }
+    .distinctions li::before { content: "\00b7"; color: var(--accent); margin-right: 10px; font-size: 1.4em; vertical-align: middle; }
     .aff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0 32px; }
-    .aff-label { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-md); margin-bottom: 8px; }
+    .aff-label { font-size: 10.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
     .aff-names { list-style: none; margin: 0; padding: 0; }
-    .aff-names li { font-size: 13px; color: rgba(246,241,231,.78); padding: 6px 0; border-bottom: 1px solid rgba(246,241,231,.14); line-height: 1.4; }
+    .aff-names li { font-size: 13px; color: var(--secondary); padding: 6px 0; border-bottom: 1px solid var(--border); line-height: 1.4; }
     .aff-names li:last-child { border-bottom: none; }
 
     /* ---- nav hamburger ---- */
@@ -175,7 +184,11 @@
       .perf-head { padding: 52px 40px 44px; }
       .perf-section { padding: 56px 40px; }
       .track-cols { gap: 0 40px; }
-      .credit-block { grid-template-columns: 160px 1fr; gap: 28px; }
+      .perf-credits-head { padding: 56px 40px 28px; }
+      .resume-section > summary { padding: 24px 40px; }
+      .resume-section > summary::after { right: 40px; }
+      .resume-section > summary::before { right: 45.25px; }
+      .resume-inner { padding: 28px 40px 40px; }
       .aff-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 32px; }
     }
     @media (max-width: 899px) {
@@ -194,7 +207,11 @@
       .perf-section-note { text-align: left; }
       .perf-section-title { font-size: 28px; }
       .stills-grid { gap: 8px; }
-      .credit-block { grid-template-columns: 1fr; gap: 14px; padding: 26px 0; }
+      .perf-credits-head { flex-direction: column; align-items: flex-start; gap: 8px; padding: 44px 24px 24px; }
+      .resume-section > summary { padding: 22px 24px; }
+      .resume-section > summary::after { right: 24px; }
+      .resume-section > summary::before { right: 29.25px; }
+      .resume-inner { padding: 24px 24px 36px; }
       .resume-table, .resume-table tbody, .resume-table tr, .resume-table td { display: block; }
       .resume-table tr { padding: 12px 0; border-top: 1px solid var(--border); border-bottom: none !important; }
       .resume-table tr:first-child { border-top: none; padding-top: 0; }
@@ -249,7 +266,7 @@
       <a href="#recordings">Recordings</a>
       <a href="#photos">Production photos</a>
       <a href="#credits">Credits</a>
-      <a href="#honors">Honors &amp; affiliates</a>
+      <a href="#honors">Distinctions</a>
       <a href="cv.html">Curriculum vitae</a>
     </p>
   </header>
@@ -368,102 +385,85 @@
   <section class="perf-section is-dark" id="photos">
     <div class="perf-section-head">
       <h2 class="perf-section-title">Production photographs</h2>
-      <p class="perf-section-note">Select a photograph to read about the role.</p>
+      <p class="perf-section-note">Select a photograph for production details.</p>
     </div>
     <div class="stills-grid">
       <div class="still-item"
             data-production="Regina"
             data-role="Oscar Hubbard"
-            data-org="Maryland Opera Studio" data-year="2016"
-            data-plot="A Southern family schemes to reverse their father's will before the money goes to charity."
-            data-char="Oscar is the weakest in a family of predators. He flatters up and punishes down.">
+            data-org="Maryland Opera Studio" data-year="2016">
             <img src="images/site/IMG_1883.JPG" alt="Anthony Eversole as Oscar Hubbard in Regina" loading="lazy" style="object-position: 50% 8%;" />
             <div class="still-caption">Regina · Oscar Hubbard</div>
           </div>
       <div class="still-item"
             data-production="Madama Butterfly"
             data-role="Sharpless"
-            data-org="Charlottesville Opera" data-year="2015"
-            data-plot="Cio-Cio-San marries an American officer who abandons her. He returns with his American wife."
-            data-char="Sharpless sees what's coming and can't stop it. He tries to warn Butterfly. She never listens.">
+            data-org="Charlottesville Opera" data-year="2015">
             <img src="images/site/madamabutterfly-3.jpg" alt="Anthony Eversole as Sharpless in Madama Butterfly" loading="lazy" />
             <div class="still-caption">Madama Butterfly · Sharpless</div>
           </div>
       <div class="still-item"
             data-production="Luisa Fernanda"
             data-role="Vidal Hernando"
-            data-org="Utah State University" data-year="2008"
-            data-plot="A 1932 Spanish zarzuela. Two men want the same woman during political upheaval in 19th-century Madrid."
-            data-char="Vidal is confident the way people are when things always work out. He never figures out why.">
+            data-org="Utah State University" data-year="2008">
             <img src="images/site/luisafernanda.jpeg" alt="Anthony Eversole as Vidal Hernando in Luisa Fernanda" loading="lazy" />
             <div class="still-caption">Luisa Fernanda · Vidal Hernando</div>
           </div>
       <div class="still-item"
             data-production="Don Giovanni"
             data-role="Don Giovanni"
-            data-org="Maryland Opera Studio" data-year="2015"
-            data-plot="Seduction, deception, no consequences. Until a ghost shows up. He still won't apologize."
-            data-char="Giovanni is after the chase, not the catch. Charming, quick, and completely empty underneath.">
+            data-org="Maryland Opera Studio" data-year="2015">
             <img src="images/site/dongiovanni-3.jpg" alt="Anthony Eversole as Don Giovanni" loading="lazy" />
             <div class="still-caption">Don Giovanni · Title Role</div>
           </div>
       <div class="still-item"
             data-production="Die Zauberflöte"
             data-role="Papageno"
-            data-org="Maryland Opera Studio" data-year="2016"
-            data-plot="Mozart's fairy tale about a prince, a quest, and magic instruments. Also very funny."
-            data-char="Papageno wanted a girlfriend, not a hero's journey. He fails every test and still ends up happy.">
+            data-org="Maryland Opera Studio" data-year="2016">
             <img src="images/site/DSC_8841.jpg" alt="Anthony Eversole as Papageno in Die Zauberflöte" loading="lazy" />
             <div class="still-caption">Die Zauberflöte · Papageno</div>
           </div>
       <div class="still-item"
             data-production="Gianni Schicchi"
             data-role="Gianni Schicchi"
-            data-org="Utah State University" data-year="2010"
-            data-plot="A Florentine dies and leaves everything to a monastery. His family hires someone to impersonate the corpse."
-            data-char="Schicchi is the smartest person in a room of people who think they are. He charges accordingly.">
+            data-org="Utah State University" data-year="2010">
             <img src="images/site/Gianni Schicchi.jpg" alt="Anthony Eversole as Gianni Schicchi" loading="lazy" />
             <div class="still-caption">Gianni Schicchi · Title Role</div>
           </div>
       <div class="still-item"
             data-production="L'Incoronazione di Poppea"
             data-role="Seneca"
-            data-org="University of Oklahoma" data-year="2011"
-            data-plot="Nero wants to crown his mistress empress. His advisors object, he ignores them, and the bad guys win."
-            data-char="Seneca keeps telling Nero this is a mistake. Nero has him killed for it. He doesn't flinch.">
+            data-org="University of Oklahoma" data-year="2011">
             <img src="images/site/DSC_0906.JPG" alt="Anthony Eversole as Seneca in L'Incoronazione di Poppea" loading="lazy" />
             <div class="still-caption">L'Incoronazione di Poppea · Seneca</div>
           </div>
       <div class="still-item"
             data-production="Sweeney Todd"
             data-role="Sweeney Todd"
-            data-org="Utah State University" data-year="2010"
-            data-plot="A barber was falsely imprisoned. He comes back as Sweeney Todd. His landlady bakes the bodies into pies."
-            data-char="Todd starts as someone you're rooting for. By the end he's lost everyone he came back to save.">
+            data-org="Utah State University" data-year="2010">
             <img src="images/site/sweeneytodd.jpeg" alt="Anthony Eversole as Sweeney Todd" loading="lazy" />
             <div class="still-caption">Sweeney Todd · Title Role</div>
           </div>
       <div class="still-item"
             data-production="L'elisir d'amore"
             data-role="Belcore"
-            data-org="Utah State University" data-year="2007"
-            data-plot="A lovesick villager, a confident sergeant, and a quack with a love potion. Things sort themselves out."
-            data-char="Belcore is sure of himself, and it usually works. Adina is more interested in Nemorino's sincerity.">
+            data-org="Utah State University" data-year="2007">
             <img src="images/site/DSC_0158.jpg" alt="Anthony Eversole as Belcore in L'elisir d'amore" loading="lazy" />
             <div class="still-caption">L'elisir d'amore · Belcore</div>
           </div>
     </div>
   </section>
 
-  <!-- credits (light) -->
-  <section class="perf-section" id="credits">
-    <div class="perf-section-head">
+  <!-- credits (light, collapsible) -->
+  <section id="credits" class="perf-credits">
+    <div class="perf-credits-head">
       <h2 class="perf-section-title">Credits</h2>
       <p class="perf-section-note">Selected credits, most recent first. Directing credits are on the <a href="directing.html" class="text-link">Directing</a> page, and the complete record is in the <a href="cv.html" class="text-link">curriculum vitae</a>.</p>
     </div>
-    <div class="credit-block">
-      <div class="credit-label">Training &amp; education</div>
-      <table class="resume-table">
+    <details class="resume-section" open>
+      <summary class="kicker">Training &amp; Education</summary>
+      <div class="resume-inner">
+        <table class="resume-table">
         <tr><td class="r-role">Doctor of Musical Arts</td><td class="r-title">Voice/Opera</td><td class="r-org">University of Maryland</td><td class="r-yr">2016</td></tr>
         <tr><td class="r-role">Master of Music</td><td class="r-title">Voice</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2013</td></tr>
         <tr><td class="r-role">Bachelor of Music</td><td class="r-title">Choral Music Education</td><td class="r-org">Utah State University</td><td class="r-yr">2011</td></tr>
@@ -475,10 +475,12 @@
         <tr><td class="r-role"></td><td class="r-title">NYC Audition Boot Camp</td><td class="r-org"></td><td class="r-yr">2013</td></tr>
         <tr><td class="r-role"></td><td class="r-title">Utah Festival Opera &amp; Musical Theatre</td><td class="r-org"></td><td class="r-yr">2007&ndash;2010</td></tr>
       </table>
-    </div>
-    <div class="credit-block">
-      <div class="credit-label">Opera</div>
-      <table class="resume-table">
+      </div>
+    </details>
+    <details class="resume-section alt">
+      <summary class="kicker">Opera · Performer</summary>
+      <div class="resume-inner">
+        <table class="resume-table">
         <tr><td class="r-role">Oscar Hubbard</td><td class="r-title">Regina</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2016</td></tr>
         <tr><td class="r-role">Papageno</td><td class="r-title">Die Zauberflöte</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2016</td></tr>
         <tr><td class="r-role">Don Giovanni</td><td class="r-title">Don Giovanni</td><td class="r-org">Maryland Opera Studio</td><td class="r-yr">2015</td></tr>
@@ -497,10 +499,12 @@
         <tr><td class="r-role">Father / Peter</td><td class="r-title">Hansel &amp; Gretel</td><td class="r-org">Utah State University</td><td class="r-yr">2007</td></tr>
         <tr><td class="r-role">Top</td><td class="r-title">The Tender Land</td><td class="r-org">Utah State University</td><td class="r-yr">2006</td></tr>
       </table>
-    </div>
-    <div class="credit-block">
-      <div class="credit-label">Musical theatre</div>
-      <table class="resume-table">
+      </div>
+    </details>
+    <details class="resume-section">
+      <summary class="kicker">Musical Theatre · Performer</summary>
+      <div class="resume-inner">
+        <table class="resume-table">
         <tr><td class="r-role">Angus Tuck</td><td class="r-title">Tuck Everlasting</td><td class="r-org">Sandy Arts</td><td class="r-yr">2026</td></tr>
         <tr><td class="r-role">Russian Soloist</td><td class="r-title">Fiddler on the Roof</td><td class="r-org">Centerpoint Theatre</td><td class="r-yr">2026</td></tr>
         <tr><td class="r-role">Harry Bright</td><td class="r-title">Mamma Mia!</td><td class="r-org">Riverside Productions</td><td class="r-yr">2025</td></tr>
@@ -512,10 +516,12 @@
         <tr><td class="r-role">Joseph Hewes</td><td class="r-title">1776</td><td class="r-org">Utah Festival Opera &amp; Musical Theatre</td><td class="r-yr">2008</td></tr>
         <tr><td class="r-role">Officer Krupke</td><td class="r-title">West Side Story</td><td class="r-org">Utah Festival Opera &amp; Musical Theatre</td><td class="r-yr">2007</td></tr>
       </table>
-    </div>
-    <div class="credit-block">
-      <div class="credit-label">Concert &amp; oratorio</div>
-      <table class="resume-table">
+      </div>
+    </details>
+    <details class="resume-section alt">
+      <summary class="kicker">Concert &amp; Oratorio · Performer</summary>
+      <div class="resume-inner">
+        <table class="resume-table">
         <tr><td class="r-role">Haydn</td><td class="r-title">The Creation</td><td class="r-org">Corvallis Repertory Singers</td><td class="r-yr">2019</td></tr>
         <tr><td class="r-role">Brahms</td><td class="r-title">Ein Deutsches Requiem</td><td class="r-org">University of Maryland</td><td class="r-yr">2015</td></tr>
         <tr><td class="r-role">Fauré</td><td class="r-title">Requiem</td><td class="r-org">Grace Church, Alexandria</td><td class="r-yr">2015</td></tr>
@@ -528,14 +534,11 @@
         <tr><td class="r-role">Haydn</td><td class="r-title">Nicolaimesse</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2011</td></tr>
         <tr><td class="r-role">Beethoven</td><td class="r-title">Symphony No. 9</td><td class="r-org">Utah State University</td><td class="r-yr">2009</td></tr>
       </table>
-    </div>
-  </section>
-
-  <!-- honors + affiliates (dark) -->
-  <section class="perf-section is-dark" id="honors">
-    <div class="honors-grid">
-      <div>
-        <div class="honors-label">Distinctions</div>
+      </div>
+    </details>
+    <details class="resume-section" id="honors">
+      <summary class="kicker">Distinctions</summary>
+      <div class="resume-inner">
         <ul class="distinctions">
         <li>1st Place, Classical Singer University Competition, 2011</li>
         <li>1st Place, NATS Student Auditions, Advanced, 2009 &amp; 2010</li>
@@ -547,10 +550,12 @@
         <li>Marie Eccles Caine Opera Quartet Scholarship</li>
       </ul>
       </div>
-      <div>
-        <div class="honors-label">Artistic affiliates</div>
+    </details>
+    <details class="resume-section alt">
+      <summary class="kicker">Artistic Affiliates</summary>
+      <div class="resume-inner">
         <div class="aff-grid">
-        <div class="aff-item">
+          <div class="aff-item">
           <div class="aff-label">Coaches</div>
           <ul class="aff-names">
             <li>Elizabeth Avery</li>
@@ -568,7 +573,7 @@
             <li>Ben Salisbury</li>
           </ul>
         </div>
-        <div class="aff-item">
+          <div class="aff-item">
           <div class="aff-label">Conductors</div>
           <ul class="aff-names">
             <li>Andy Anderson</li>
@@ -585,7 +590,7 @@
             <li>Richard Zielinski</li>
           </ul>
         </div>
-        <div class="aff-item">
+          <div class="aff-item">
           <div class="aff-label">Stage Directors</div>
           <ul class="aff-names">
             <li>Colin Baldy</li>
@@ -602,7 +607,7 @@
             <li>Tomer Zvulun</li>
           </ul>
         </div>
-        <div class="aff-item">
+          <div class="aff-item">
           <div class="aff-label">Masterclasses</div>
           <ul class="aff-names">
             <li>Colin Baldy</li>
@@ -615,10 +620,9 @@
             <li>Mark Padmore</li>
           </ul>
         </div>
+        </div>
       </div>
-
-      </div>
-    </div>
+    </details>
   </section>
 
   <!-- Lightbox modal -->
@@ -626,19 +630,14 @@
     <div class="lightbox-frame">
       <div class="lightbox-inner">
         <div class="lightbox-data">
-          <div class="lightbox-kicker">Character Study</div>
+          <div class="lightbox-kicker">Production</div>
           <h2 class="lightbox-production" id="lb-production"></h2>
           <div class="lightbox-role" id="lb-role"></div>
           <div class="lightbox-rule"></div>
-          <div class="lightbox-section">
-            <div class="lightbox-section-head">The Story</div>
-            <p class="lightbox-section-text" id="lb-plot"></p>
-          </div>
-          <div class="lightbox-section">
-            <div class="lightbox-section-head">The Character</div>
-            <p class="lightbox-section-text" id="lb-char"></p>
-          </div>
-          <div class="lightbox-footer" id="lb-footer"></div>
+          <dl class="lightbox-stats">
+            <div class="lightbox-stat"><dt>Company</dt><dd id="lb-org"></dd></div>
+            <div class="lightbox-stat"><dt>Year</dt><dd id="lb-year"></dd></div>
+          </dl>
         </div>
         <div class="lightbox-photo-wrap">
           <img class="lightbox-img" id="lb-img" src="" alt="" />
@@ -802,9 +801,8 @@
       var lbImg         = document.getElementById('lb-img');
       var lbProd        = document.getElementById('lb-production');
       var lbRole        = document.getElementById('lb-role');
-      var lbPlot        = document.getElementById('lb-plot');
-      var lbChar        = document.getElementById('lb-char');
-      var lbFooter      = document.getElementById('lb-footer');
+      var lbOrg         = document.getElementById('lb-org');
+      var lbYear        = document.getElementById('lb-year');
       var closeBtn      = document.getElementById('lightbox-close');
       var prevBtn       = document.getElementById('lb-prev');
       var nextBtn       = document.getElementById('lb-next');
@@ -829,9 +827,8 @@
         lbImg.style.objectPosition = img.style.objectPosition || '';
         lbProd.textContent   = item.dataset.production;
         lbRole.textContent   = item.dataset.role;
-        lbPlot.textContent   = item.dataset.plot;
-        lbChar.textContent   = item.dataset.char;
-        lbFooter.textContent = item.dataset.org + ' · ' + item.dataset.year;
+        lbOrg.textContent    = item.dataset.org;
+        lbYear.textContent   = item.dataset.year;
       }
 
       function updateDots() {
