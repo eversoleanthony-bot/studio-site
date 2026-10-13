@@ -164,6 +164,7 @@
     .r-title { color: var(--secondary); font-family: var(--serif); font-style: italic; font-size: 16px; width: 30%; padding-right: 16px; }
     .r-org   { color: var(--secondary); width: 32%; padding-right: 16px; font-size: 13px; }
     .r-yr    { color: var(--accent); text-align: right; width: 12%; font-size: 12px; letter-spacing: .08em; white-space: nowrap; padding-top: 1px; }
+    .resume-table .r-wide { width: 56%; }
     .resume-sublabel { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin: 32px 0 6px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
     .program-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 40px; }
     .program { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--border); }
@@ -556,7 +557,18 @@
       </table>
       </div>
     </details>
-    <details class="resume-section" id="honors">
+    <details class="resume-section">
+      <summary class="kicker">Recitals · Performer</summary>
+      <div class="resume-inner">
+        <table class="resume-table">
+          <tr><td class="r-title r-wide">Faculty Showcase</td><td class="r-org">The Crane School of Music</td><td class="r-yr">2021</td></tr>
+          <tr><td class="r-title r-wide">Voice Area Faculty Recital</td><td class="r-org">Oregon State University</td><td class="r-yr">2020</td></tr>
+          <tr><td class="r-title r-wide">DMA General Recital</td><td class="r-org">University of Maryland</td><td class="r-yr">2015</td></tr>
+          <tr><td class="r-title r-wide">MM Recital</td><td class="r-org">University of Oklahoma</td><td class="r-yr">2013</td></tr>
+        </table>
+      </div>
+    </details>
+    <details class="resume-section alt" id="honors">
       <summary class="kicker">Distinctions</summary>
       <div class="resume-inner">
         <ul class="distinctions">
@@ -571,7 +583,7 @@
       </ul>
       </div>
     </details>
-    <details class="resume-section alt">
+    <details class="resume-section">
       <summary class="kicker">Artistic Affiliates</summary>
       <div class="resume-inner">
         <div class="aff-grid">
