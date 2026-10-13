@@ -54,9 +54,11 @@
 
 
     /* ---- credentials at a glance + featured recording ---- */
-    .glance { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1fr; gap: 40px; }
+    .glance { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 56px; align-items: start; }
+    .glance-main { display: grid; gap: 36px; }
+    .glance-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px 32px; }
     .glance-label { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 14px; }
-    .glance-list { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+    .glance-list { display: grid; margin: 0; padding: 0; list-style: none; }
     .glance-list li { font-family: var(--serif); font-size: 17px; line-height: 1.35; color: var(--body); }
     .glance-list small { display: block; font-family: var(--sans); font-size: 10.5px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); line-height: 1.5; margin-top: 2px; text-wrap: balance; }
     .glance-more { margin-top: 36px; font-family: var(--serif); font-size: 16px; color: var(--secondary); }
@@ -109,7 +111,8 @@
         .stage-grid { gap: 40px; }
     }
     @media (max-width: 1149px) {
-      .glance { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 40px; }
+      .glance { grid-template-columns: 1fr; gap: 40px; }
+      .listen-card { max-width: 420px; }
     }
     @media (max-width: 899px) {
       .blog-layout { grid-template-columns: 1fr; gap: 40px; }
@@ -118,7 +121,7 @@
       .home-studio { flex-direction: column; align-items: flex-start; }
     }
     @media (max-width: 767px) {
-      .glance { grid-template-columns: 1fr; gap: 32px; }
+      .glance-list { grid-template-columns: 1fr; gap: 18px; }
       .drawer-panel { grid-template-columns: 1fr; gap: 14px; }
       .nav { padding: 0 24px; }
       .nav-links { padding: 8px 24px 28px; }
@@ -193,34 +196,26 @@
   <!-- credentials at a glance (light) -->
   <section class="band">
     <div class="glance">
-      <div>
-        <div class="glance-label">Degrees</div>
-        <ul class="glance-list">
-          <li>University of Maryland<small>Doctor of Musical Arts, Voice/Opera</small></li>
-          <li>University of Oklahoma<small>Master of Music, Voice</small></li>
-          <li>Utah State University<small>Bachelor of Music<br />Vocal Performance and Choral Music Education</small></li>
-        </ul>
-      </div>
-      <div>
-        <div class="glance-label">Teaching</div>
-        <ul class="glance-list">
-          <li>The Crane School of Music, SUNY Potsdam<small>Visiting Assistant Professor of Opera and Musical Theatre</small></li>
-          <li>Oregon State University<small>Director of Opera and Musical Theatre Studies</small></li>
-          <li>University of Maryland<small>Graduate Teaching Assistant</small></li>
-          <li>University of Oklahoma<small>Graduate Teaching Assistant<br />Graduate Stage Director</small></li>
-          <li>Utah State University<small>Undergraduate Teaching Fellow</small></li>
-          <li>Eversole Voice Studio<small>Independent Voice and Acting Instructor</small></li>
-        </ul>
-      </div>
-      <div>
-        <div class="glance-label">Artist training</div>
-        <ul class="glance-list">
-          <li>Wolf Trap Opera</li>
-          <li>Maryland Opera Studio<small>Don Giovanni &middot; Papageno &middot; Oscar Hubbard &middot; Ollie Jr.</small></li>
-          <li>Charlottesville Opera<small>Sharpless</small></li>
-          <li>Castleton Festival<small>Sharpless</small></li>
-          <li>Utah Festival Opera and Musical Theatre<small>Franz &middot; Joseph Hewes &middot; Pasquale &middot; Officer Krupke</small></li>
-        </ul>
+      <div class="glance-main">
+        <div>
+          <div class="glance-label">Degrees</div>
+          <ul class="glance-list">
+            <li>University of Maryland<small>Doctor of Musical Arts<br />Voice/Opera</small></li>
+            <li>University of Oklahoma<small>Master of Music<br />Voice</small></li>
+            <li>Utah State University<small>Bachelor of Music<br />Vocal Performance and<br />Choral Music Education</small></li>
+          </ul>
+        </div>
+        <div>
+          <div class="glance-label">Teaching</div>
+          <ul class="glance-list">
+            <li>The Crane School of Music, SUNY Potsdam<small>Visiting Assistant Professor of Opera and Musical Theatre</small></li>
+            <li>Oregon State University<small>Director of Opera and Musical Theatre Studies</small></li>
+            <li>University of Maryland<small>Graduate Teaching Assistant</small></li>
+            <li>University of Oklahoma<small>Graduate Teaching Assistant<br />Graduate Stage Director</small></li>
+            <li>Utah State University<small>Undergraduate Teaching Fellow</small></li>
+            <li>Eversole Voice Studio<small>Independent Voice and Acting Instructor</small></li>
+          </ul>
+        </div>
       </div>
       <aside class="listen-card" aria-label="Featured recording">
         <div class="kicker">Listen</div>
