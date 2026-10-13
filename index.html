@@ -52,53 +52,21 @@
 
 
 
-    /* ---- credentials + featured recording (light) ---- */
-    .cred-layout { display: grid; grid-template-columns: 1fr 400px; gap: 72px; align-items: start; }
-    .cred-row { display: grid; grid-template-columns: 170px 1fr; gap: 32px; padding: 26px 0; border-top: 1px solid var(--border); }
-    .cred-row:last-child { border-bottom: 1px solid var(--border); }
-    .cred-label { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); padding-top: 6px; line-height: 1.5; }
-    .cred-items { font-family: var(--serif); font-size: 18.5px; line-height: 1.6; color: var(--body); display: flex; flex-wrap: wrap; gap: 6px 26px; }
-    .cred-items > span { white-space: nowrap; }
-    .cred-items .cred-group { flex-basis: 100%; font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin: 14px 0 0; white-space: normal; }
-    .cred-items .cred-group:first-child { margin-top: 0; }
 
-    .cred-items.is-degrees { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px 36px; }
-    .cred-items .deg { display: flex; flex-direction: column; gap: 3px; white-space: normal; }
-    .deg-school { font-family: var(--serif); font-size: 18.5px; line-height: 1.3; color: var(--body); margin-bottom: 2px; }
-    .deg-name { font-family: var(--sans); font-size: 10.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); line-height: 1.5; }
-    .deg-name + .deg-name { margin-bottom: 4px; }
-    .deg-place { font-family: var(--serif); font-size: 15.5px; font-style: italic; color: var(--faint); margin-top: 4px; }
-
-
-    .teach-list { display: grid; }
-    .teach-group { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin: 0 0 6px; }
-    .teach-group:not(:first-child) { margin-top: 22px; }
-    .teach-row { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 11px 0; border-top: 1px solid var(--border); }
-    .teach-group + .teach-row { border-top: none; }
-    .teach-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-    .teach-inst { font-family: var(--serif); font-size: 18.5px; line-height: 1.3; color: var(--body); }
-    .teach-role { font-family: var(--sans); font-size: 12.5px; line-height: 1.5; color: var(--muted); }
-    .teach-yrs { font-family: var(--sans); font-size: 12.5px; letter-spacing: .04em; color: var(--meta); white-space: nowrap; }
-    .listen-card { position: sticky; top: 150px; }
-
-    .listen-card { background: var(--ink); color: var(--bg); padding: 40px 36px 36px; }
-    .listen-card .kicker { color: var(--accent-md); margin-bottom: 20px; }
-    .listen-title { font-family: var(--serif); font-weight: 300; font-size: 36px; line-height: 1.1; margin-bottom: 18px; }
-    .listen-cite { font-family: var(--serif); font-size: 16.5px; line-height: 1.7; color: rgba(246, 241, 231, .78); margin-bottom: 26px; }
+    /* ---- credentials at a glance + featured recording ---- */
+    .glance { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px; }
+    .glance-label { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); padding-bottom: 12px; border-bottom: 1px solid var(--border); margin-bottom: 14px; }
+    .glance-list { display: grid; gap: 9px; margin: 0; padding: 0; list-style: none; }
+    .glance-list li { font-family: var(--serif); font-size: 17px; line-height: 1.35; color: var(--body); }
+    .glance-list small { display: block; font-family: var(--sans); font-size: 10.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); line-height: 1.5; margin-top: 2px; }
+    .glance-more { margin-top: 36px; font-family: var(--serif); font-size: 16px; color: var(--secondary); }
+    .listen-card { background: var(--ink); color: var(--bg); padding: 22px 24px 24px; }
+    .listen-card .kicker { color: var(--accent-md); margin-bottom: 12px; font-size: 11px; }
+    .listen-title { font-family: var(--serif); font-weight: 300; font-size: 26px; line-height: 1.15; margin-bottom: 10px; }
+    .listen-cite { font-family: var(--serif); font-size: 14.5px; line-height: 1.6; color: rgba(246, 241, 231, .78); margin: 0 0 16px; }
     .listen-cite em { font-style: italic; color: var(--bg); }
-    .listen-note { font-size: 12px; letter-spacing: .06em; color: rgba(246, 241, 231, .5); margin-top: 14px; }
-    .listen-card audio { width: 100%; height: 40px; }
-
-
-    .research-aside { margin-top: 28px; font-family: var(--serif); font-size: 17px; line-height: 1.65; color: rgba(246, 241, 231, .72); max-width: 760px; }
-
-
-    /* ---- studio band (dark) ---- */
-    .home-studio { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
-    .home-studio-hl { font-family: var(--serif); font-weight: 300; font-size: 36px; line-height: 1.2; max-width: 720px; margin-bottom: 14px; }
-    .home-studio-sub { font-size: 14px; line-height: 1.7; color: rgba(246, 241, 231, .7); max-width: 620px; }
-    .home-studio-actions { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; flex: none; }
-
+    .listen-note { font-size: 11.5px; letter-spacing: .06em; color: rgba(246, 241, 231, .5); margin: 10px 0 0; }
+    .listen-card audio { width: 100%; height: 36px; }
 
     /* ---- blog: featured drawer + recents ---- */
     .blog-compact { padding-top: 56px; padding-bottom: 56px; }
@@ -135,21 +103,19 @@
       .hero-text { padding: 72px 48px; }
         .stage-grid { gap: 40px; }
     }
+    @media (max-width: 1149px) {
+      .glance { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 40px; }
+    }
     @media (max-width: 899px) {
-      .cred-layout { grid-template-columns: 1fr; gap: 48px; }
       .blog-layout { grid-template-columns: 1fr; gap: 40px; }
       .home-about { grid-template-columns: 1fr; gap: 20px; }
       .stage-grid { grid-template-columns: 1fr; gap: 56px; }
       .home-studio { flex-direction: column; align-items: flex-start; }
     }
     @media (max-width: 767px) {
+      .glance { grid-template-columns: 1fr; gap: 32px; }
       .drawer-panel { grid-template-columns: 1fr; gap: 14px; }
       .drawer-meta { display: none; }
-      .cred-row { grid-template-columns: 1fr; gap: 8px; }
-      .cred-items { font-size: 17px; }
-      .cred-items.is-degrees { grid-template-columns: 1fr; gap: 20px; }
-      .listen-card { padding: 28px 24px; position: static; }
-      .teach-row { flex-direction: column; gap: 2px; }
       .nav { padding: 0 24px; }
       .nav-links { padding: 8px 24px 28px; }
       .hero { grid-template-columns: 1fr; min-height: 0; }
@@ -220,31 +186,47 @@
     </div>
   </section>
 
-  <!-- credentials + featured recording (light) -->
+  <!-- credentials at a glance (light) -->
   <section class="band">
-    <div class="cred-layout">
+    <div class="glance">
       <div>
-        <div class="cred-row">
-          <div class="cred-label">Degrees</div>
-          <div class="cred-items is-degrees"><span class="deg"><span class="deg-school">University of Maryland</span><span class="deg-name">Doctor of Musical Arts, Voice/Opera</span><span class="deg-place">College Park, Maryland</span></span><span class="deg"><span class="deg-school">University of Oklahoma</span><span class="deg-name">Master of Music, Voice</span><span class="deg-place">Norman, Oklahoma</span></span><span class="deg"><span class="deg-school">Utah State University</span><span class="deg-name">Bachelor of Music, Choral Music Education</span><span class="deg-place">Logan, Utah</span></span><span class="deg"><span class="deg-school">Utah State University</span><span class="deg-name">Bachelor of Music, Vocal Performance</span><span class="deg-place">Logan, Utah</span></span></div>
-        </div>
-        <div class="cred-row">
-          <div class="cred-label">Teaching</div>
-          <div class="teach-list"><div class="teach-group">Higher education</div><div class="teach-row"><div class="teach-main"><span class="teach-inst">The Crane School of Music, SUNY Potsdam</span><span class="teach-role">Visiting Assistant Professor of Opera and Musical Theatre &middot; Potsdam, New York</span></div><span class="teach-yrs">2021&ndash;2022</span></div><div class="teach-row"><div class="teach-main"><span class="teach-inst">Oregon State University</span><span class="teach-role">Director of Opera and Musical Theatre Studies &middot; Corvallis, Oregon</span></div><span class="teach-yrs">2018&ndash;2021</span></div><div class="teach-row"><div class="teach-main"><span class="teach-inst">University of Maryland</span><span class="teach-role">Graduate Teaching Assistant &middot; College Park, Maryland</span></div><span class="teach-yrs">2013&ndash;2016</span></div><div class="teach-row"><div class="teach-main"><span class="teach-inst">University of Oklahoma</span><span class="teach-role">Graduate Teaching Assistant and Graduate Stage Director &middot; Norman, Oklahoma</span></div><span class="teach-yrs">2011&ndash;2013</span></div><div class="teach-row"><div class="teach-main"><span class="teach-inst">Utah State University</span><span class="teach-role">Undergraduate Teaching Fellow &middot; Logan, Utah</span></div><span class="teach-yrs">2007&ndash;2010</span></div><div class="teach-group">Secondary, K-12, and studio</div><div class="teach-row"><div class="teach-main"><span class="teach-inst">Eversole Voice Studio</span><span class="teach-role">Independent Voice and Acting Instructor &middot; Salt Lake City, Utah, and online</span></div><span class="teach-yrs">2014&ndash;present</span></div><div class="teach-row"><div class="teach-main"><span class="teach-inst">Opus 1 Music Studios</span><span class="teach-role">Senior Voice Instructor &middot; Palo Alto, California</span></div><span class="teach-yrs">2022&ndash;2023</span></div><div class="teach-row"><div class="teach-main"><span class="teach-inst">Providence Hall Charter School</span><span class="teach-role">Director of Choirs &middot; Herriman, Utah</span></div><span class="teach-yrs">2017&ndash;2018</span></div><div class="teach-row"><div class="teach-main"><span class="teach-inst">Franklin Discovery Academy</span><span class="teach-role">Lab Director, Music &middot; Vineyard, Utah</span></div><span class="teach-yrs">2016&ndash;2017</span></div><div class="teach-row"><div class="teach-main"><span class="teach-inst">Mountain Crest High School</span><span class="teach-role">Student Teacher &middot; Hyrum, Utah</span></div><span class="teach-yrs">2011</span></div></div>
-        </div>
-        <div class="cred-row">
-          <div class="cred-label">Artist training</div>
-          <div class="teach-list"><div class="teach-row"><span class="teach-inst">Wolf Trap Opera</span><span class="teach-yrs">2016</span></div><div class="teach-row"><span class="teach-inst">Maryland Opera Studio</span><span class="teach-yrs">2014&ndash;2016</span></div><div class="teach-row"><span class="teach-inst">Charlottesville Opera</span><span class="teach-yrs">2015</span></div><div class="teach-row"><span class="teach-inst">Castleton Festival</span><span class="teach-yrs">2014</span></div><div class="teach-row"><span class="teach-inst">NYC Audition Boot Camp</span><span class="teach-yrs">2013</span></div><div class="teach-row"><span class="teach-inst">Utah Festival Opera and Musical Theatre</span><span class="teach-yrs">2007&ndash;2010</span></div></div>
-        </div>
+        <div class="glance-label">Degrees</div>
+        <ul class="glance-list">
+          <li>University of Maryland<small>Doctor of Musical Arts, Voice/Opera</small></li>
+          <li>University of Oklahoma<small>Master of Music, Voice</small></li>
+          <li>Utah State University<small>Bachelor of Music, Vocal Performance and Choral Music Education</small></li>
+        </ul>
+      </div>
+      <div>
+        <div class="glance-label">Teaching</div>
+        <ul class="glance-list">
+          <li>The Crane School of Music, SUNY Potsdam</li>
+          <li>Oregon State University</li>
+          <li>University of Maryland</li>
+          <li>University of Oklahoma</li>
+          <li>Utah State University</li>
+          <li>Eversole Voice Studio</li>
+        </ul>
+      </div>
+      <div>
+        <div class="glance-label">Artist training</div>
+        <ul class="glance-list">
+          <li>Wolf Trap Opera</li>
+          <li>Maryland Opera Studio</li>
+          <li>Charlottesville Opera</li>
+          <li>Castleton Festival</li>
+          <li>Utah Festival Opera and Musical Theatre</li>
+        </ul>
       </div>
       <aside class="listen-card" aria-label="Featured recording">
         <div class="kicker">Listen</div>
         <div class="listen-title">Litany</div>
-        <p class="listen-cite">John Musto (b. 1954), <em>Shadow of the Blues</em> (1987), no. 2.<br />Text by Langston Hughes (1901&ndash;1967).</p>
+        <p class="listen-cite">John Musto (b. 1954), <em>Shadow of the Blues</em> (1987), no. 2. Text by Langston Hughes (1901&ndash;1967).</p>
         <audio controls preload="none" src="audio/litany.m4a" aria-label="Litany from Shadow of the Blues by John Musto, text by Langston Hughes"></audio>
         <p class="listen-note">Live recording</p>
       </aside>
     </div>
+    <p class="glance-more">Full details are in the <a href="cv.html" class="text-link">curriculum vitae</a>.</p>
   </section>
 
   <!-- research (dark) -->
