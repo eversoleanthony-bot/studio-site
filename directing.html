@@ -373,7 +373,7 @@
     <div class="photo-acc-inner">
       <div class="stills-strip stills-strip-10">
         <div class="still-item" data-production="Zazà" data-role="Stage Director" data-org="The Crane Opera Ensemble" data-year="2022" data-clabel="Composer" data-composer="Ruggero Leoncavallo (1857&amp;ndash;1919)" data-llabel="Libretto" data-librettist="Ruggero Leoncavallo, after the play by Pierre Berton and Charles Simon" data-composed="1900" data-poster="images/directing/zaza/zaza-poster.jpg">
-          <img src="images/directing/zaza/14601B3E-EAE8-4805-9787-8449FDA7595B.jpeg" alt="Zazà, The Crane Opera Ensemble, 2022" loading="lazy" />
+          <img src="images/directing/zaza/OperaEnsemble01.JPG" alt="Zazà, The Crane Opera Ensemble, 2022" loading="lazy" />
           <div class="still-caption">Zazà · Stage Director</div>
         </div>
         <div class="still-item" data-production="The Medium" data-role="Stage Director" data-org="The Crane Opera Ensemble" data-year="2021" data-clabel="Composer" data-composer="Gian Carlo Menotti (1911&amp;ndash;2007)" data-llabel="Libretto" data-librettist="Gian Carlo Menotti" data-composed="1946" data-poster="images/directing/medium/Crane-Ensemble-Poster-2.jpg">
@@ -397,18 +397,18 @@
           <div class="still-caption">The Secret Garden · Stage Director</div>
         </div>
         <div class="still-item" data-production="La rondine" data-role="Stage Director, Producer" data-org="Oregon State University" data-year="2019" data-clabel="Composer" data-composer="Giacomo Puccini (1858&amp;ndash;1924)" data-llabel="Libretto" data-librettist="Giuseppe Adami (1878&amp;ndash;1946)" data-composed="1917" data-poster="images/directing/la-rondine/larondinePoster.jpeg">
-          <img src="images/directing/la-rondine/D7D2A722-5AE8-41F3-8B03-37C34EE9988D_1_201_a.jpeg" alt="La rondine, Oregon State University, 2019" loading="lazy" />
+          <img src="images/directing/la-rondine/D7D2A722-5AE8-41F3-8B03-37C34EE9988D_1_201_a.jpeg" style="object-position: 50% 8%;" alt="La rondine, Oregon State University, 2019" loading="lazy" />
           <div class="still-caption">La rondine · Stage Director</div>
         </div>
-        <div class="still-item" data-production="Mozartistry" data-role="Stage Director" data-org="Oregon State University" data-year="2019" data-clabel="Composer" data-composer="Wolfgang Amadeus Mozart (1756&amp;ndash;1791)" data-llabel="" data-librettist="" data-composed="" data-poster="images/directing/mozartistry/Mozart-Scenes-Poster.jpeg">
-          <img src="images/directing/mozartistry/73541626_517793125619594_2196023362629664768_n.jpeg" alt="Mozartistry, Oregon State University, 2019" loading="lazy" />
+        <div class="still-item" data-production="Mozartistry" data-role="Stage Director" data-org="Oregon State University" data-year="2019" data-clabel="Composer" data-composer="Wolfgang Amadeus Mozart (1756&amp;ndash;1791)" data-llabel="" data-librettist="" data-composed="" data-note="A program of Mozart opera scenes." data-poster="images/directing/mozartistry/Mozart-Scenes-Poster.jpeg">
+          <img src="images/directing/mozartistry/74428419_526266214772285_7070802546280890368_n.jpeg" alt="Mozartistry, Oregon State University, 2019" loading="lazy" />
           <div class="still-caption">Mozartistry · Stage Director</div>
         </div>
         <div class="still-item" data-production="Shakespeare in Love" data-role="Music Director" data-org="Oregon State University Theatre Arts" data-year="2019" data-clabel="Playwright" data-composer="Lee Hall (b. 1966), after the screenplay by Marc Norman and Tom Stoppard" data-llabel="" data-librettist="" data-composed="2014" data-poster="images/directing/shakespeare-in-love/Shakesloveposter.jpeg">
           <img src="images/directing/shakespeare-in-love/Shakeslove1.jpeg" alt="Shakespeare in Love, Oregon State University Theatre Arts, 2019" loading="lazy" />
           <div class="still-caption">Shakespeare in Love · Music Director</div>
         </div>
-        <div class="still-item" data-production="So Many Possibilities" data-role="Director, Producer" data-org="Overture Series, Oregon State University" data-year="2018" data-clabel="" data-composer="" data-llabel="" data-librettist="" data-composed="" data-poster="images/directing/so-many-possibilities/SMP_Poster.jpg">
+        <div class="still-item" data-production="So Many Possibilities" data-role="Director, Producer" data-org="Overture Series, Oregon State University" data-year="2018" data-clabel="" data-composer="" data-llabel="" data-librettist="" data-composed="" data-note="A program of opera and musical theatre scenes. Pictured: “Cell Block Tango” from Chicago." data-poster="images/directing/so-many-possibilities/SMP_Poster.jpg">
           <img src="images/directing/so-many-possibilities/IMG_2661.jpg" alt="So Many Possibilities, Overture Series, Oregon State University, 2018" loading="lazy" />
           <div class="still-caption">So Many Possibilities · Director</div>
         </div>
@@ -436,6 +436,7 @@
             <div class="lightbox-stat" id="lb-row-composer"><dt id="lb-clabel">Composer</dt><dd id="lb-composer"></dd></div>
             <div class="lightbox-stat" id="lb-row-librettist"><dt id="lb-llabel">Libretto</dt><dd id="lb-librettist"></dd></div>
             <div class="lightbox-stat" id="lb-row-composed"><dt id="lb-cdlabel">Composed</dt><dd id="lb-composed"></dd></div>
+            <div class="lightbox-stat" id="lb-row-note"><dt>About</dt><dd id="lb-note"></dd></div>
             <div class="lightbox-stat"><dt>Company</dt><dd id="lb-org"></dd></div>
             <div class="lightbox-stat"><dt>Year</dt><dd id="lb-year"></dd></div>
           </dl>
@@ -494,6 +495,7 @@
       var lbLLabel      = document.getElementById('lb-llabel');
       var lbCDLabel     = document.getElementById('lb-cdlabel');
       var lbPoster      = document.getElementById('lb-poster');
+      var lbNote        = document.getElementById('lb-note');
       function setRow(id, show) { document.getElementById(id).style.display = show ? '' : 'none'; }
       var lbYear        = document.getElementById('lb-year');
       var closeBtn      = document.getElementById('lightbox-close');
@@ -530,6 +532,8 @@
         setRow('lb-row-composer', !!d.composer);
         setRow('lb-row-librettist', !!d.librettist);
         setRow('lb-row-composed', !!d.composed);
+        lbNote.textContent = d.note || '';
+        setRow('lb-row-note', !!d.note);
         if (d.poster) { lbPoster.src = d.poster; lbPoster.alt = 'Poster for ' + d.production; lbPoster.style.display = ''; }
         else { lbPoster.style.display = 'none'; }
         lbOrg.textContent    = item.dataset.org;
