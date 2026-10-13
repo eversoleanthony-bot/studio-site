@@ -161,10 +161,6 @@
     .faq-list li strong { color: var(--ink); font-weight: 600; }
 
     /* ---- Dark Intake Block ---- */
-    .intake-dark { background: var(--ink); color: var(--bg); padding: 96px 64px; display: grid; grid-template-columns: 1fr auto; gap: 64px; align-items: center; }
-    .intake-dark .kicker { color: var(--accent-md); margin-bottom: 20px; }
-    .intake-dark-hl { font-family: var(--serif); font-size: 42px; font-weight: 300; font-style: italic; line-height: 1.1; letter-spacing: -0.01em; color: var(--bg); margin-bottom: 20px; max-width: 680px; }
-    .intake-dark-sub { font-size: 14px; line-height: 1.8; color: var(--accent-lt); max-width: 560px; text-wrap: balance; }
 
     /* Offset anchor target below sticky nav */
     #session-options { scroll-margin-top: 80px; }
@@ -183,8 +179,6 @@
     .back-to-top a:hover { color: var(--accent); opacity: 1; }
 
     /* Intake dark block — cream button for contrast on dark background */
-    .intake-dark .gateway-btn { background: var(--bg); color: var(--ink); border-color: var(--bg); }
-    .intake-dark .gateway-btn:hover { background: transparent; color: var(--bg); border-color: var(--bg); }
 
     /* Nav hamburger (hidden on desktop) */
     .nav-menu-btn {
@@ -238,8 +232,7 @@
       .price-matrix { padding: 40px 40px 44px; }
       .faq-block { padding: 64px 48px; }
       .faq-details[open] { margin-left: -48px; margin-right: -48px; padding-left: 48px; padding-right: 48px; }
-      .intake-dark { padding: 72px 48px; }
-      .back-to-top { padding: 20px 48px; }
+        .back-to-top { padding: 20px 48px; }
       .practice-block { padding: 72px 48px; }
       .location-strip { grid-template-columns: 280px 1fr; }
       .location-strip-text { padding: 48px; }
@@ -288,10 +281,7 @@
       .location-strip-map iframe { min-height: 260px; }
       .faq-block { padding: 48px 24px; }
       .faq-details[open] { margin-left: -24px; margin-right: -24px; padding-left: 24px; padding-right: 24px; }
-      .intake-dark { padding: 56px 24px; grid-template-columns: 1fr; gap: 32px; }
-      .intake-dark-hl { font-size: 32px; }
-      .intake-dark .gateway-btn { align-self: flex-start; }
-      .back-to-top { padding: 20px 24px; }
+            .back-to-top { padding: 20px 24px; }
       .footer-main { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; }
       .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
       .footer-legal { flex-direction: column; gap: 12px; padding: 16px 24px; align-items: flex-start; }
@@ -624,16 +614,6 @@
   <div class="back-to-top">
     <a href="#session-options">↑ Back to Session Options</a>
   </div>
-
-  <!-- intake block -->
-  <section class="intake-dark">
-    <div>
-      <div class="kicker" style="margin-bottom: 20px;">Now Enrolling New Students</div>
-      <h2 class="intake-dark-hl">Come find out what your voice can do.</h2>
-      <p class="intake-dark-sub">The consultation is free. We'll talk goals, get to know your voice, and figure out if we're a good fit.</p>
-    </div>
-    <a href="book.html" class="gateway-btn">Book a Free Consultation</a>
-  </section>
 
   </main>
 
