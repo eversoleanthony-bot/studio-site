@@ -622,3 +622,13 @@ a.research-card:hover { background: #2D2822; opacity: 1; }
   .band-head { flex-direction: column; align-items: flex-start; gap: 12px; }
   .band-title { font-size: 32px; }
 }
+
+/* Quiet text links (no buttons, no arrows) */
+.text-link { color: var(--accent); border-bottom: 1px solid var(--accent-md); padding-bottom: 1px; }
+.text-link:hover { border-bottom-color: var(--accent); opacity: 1; }
+.band-dark .text-link { color: var(--accent-lt); border-bottom-color: rgba(221, 185, 166, .45); }
+.kicker-link { color: inherit; border-bottom: 1px solid transparent; padding-bottom: 2px; }
+.kicker-link:hover { border-bottom-color: currentColor; opacity: 1; }
+.page-jumps { display: flex; flex-wrap: wrap; gap: 8px 28px; font-size: 12px; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; }
+.page-jumps a { color: var(--muted); border-bottom: 1px solid var(--accent-md); padding-bottom: 2px; }
+.page-jumps a:hover { color: var(--accent); opacity: 1; }

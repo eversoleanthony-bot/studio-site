@@ -47,12 +47,10 @@
     .upcoming-event-role { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
     .upcoming-event-title { font-style: italic; font-size: 16px; color: var(--ink); margin-bottom: 4px; }
     .upcoming-event-meta { font-size: 13px; color: var(--muted); }
-    .btn-ticket { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; background: transparent; color: var(--accent); border: 1px solid var(--accent); padding: 13px 20px; white-space: nowrap; flex: none; transition: background .15s, color .15s; }
-    .btn-ticket:hover { background: var(--accent); color: var(--bg); opacity: 1; }
     .stage-more { margin-top: 24px; }
 
     /* ---- blog strip ---- */
-    .strip-posts { display: grid; grid-template-columns: 1fr 1fr; gap: 0 72px; }
+    .strip-posts { display: grid; grid-template-columns: 1fr; gap: 0; max-width: 820px; }
     .strip-col { display: grid; align-content: start; }
     .strip-post { display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-top: 1px solid var(--border); }
     .strip-col > .strip-post:first-child { border-top: none; padding-top: 0; }
@@ -98,7 +96,6 @@
       .home-about-lede { font-size: 22px; }
       .upcoming-event { flex-direction: column; align-items: flex-start; gap: 12px; width: 100%; }
       .upcoming-event-img { display: none; }
-      .btn-ticket { display: block; width: 100%; text-align: center; white-space: normal; }
       .strip-posts { grid-template-columns: 1fr; gap: 0; }
       .strip-col:last-child > .strip-post:first-child { border-top: 1px solid var(--border); padding-top: 16px; }
       .home-studio-hl { font-size: 28px; }
@@ -126,9 +123,6 @@
       <a href="lessons.html">Studio</a>
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
-      <div class="nav-ctas">
-        <a href="book.html" class="nav-book">Book a Session</a>
-      </div>
     </div>
   </nav>
 
@@ -140,10 +134,6 @@
       <div class="hero-role">Baritone &middot; Voice Pedagogue &middot; Director</div>
       <h1 class="hero-h1">Anthony Eversole</h1>
       <p class="hero-sub">Anthony Eversole joins vocal science, motor learning, and actor training in his work as a performer, teacher, researcher, and director of the singing actor.</p>
-      <div class="hero-actions">
-        <a href="research.html" class="btn-light">Research</a>
-        <a href="about.html" class="btn-outline-light">About</a>
-      </div>
     </div>
     <div class="hero-img">
       <img src="images/site/headshot-homepage.jpg" alt="Anthony Eversole" />
@@ -157,7 +147,6 @@
       <div>
         <p class="home-about-lede">Anthony Eversole is a baritone, voice pedagogue, and director with the Doctor of Musical Arts from the University of Maryland.</p>
         <p class="home-about-body">He has taught applied voice for more than fifteen years, in private studios, K-12 classrooms, and university voice, musical theatre, and opera programs. His work centers on evidence-based, motor learning-driven vocal technique, paired with tactical, action-driven acting.</p>
-        <a href="about.html" class="offering-link">About Anthony Eversole &rarr;</a>
       </div>
     </div>
   </section>
@@ -165,121 +154,85 @@
   <!-- research (dark) -->
   <section class="band band-dark">
     <div class="band-head">
-      <h2 class="band-title">Research</h2>
-      <a href="research.html" class="offering-link">All research &rarr;</a>
+      <h2 class="band-title"><a href="research.html" class="kicker-link">Research</a></h2>
     </div>
     <div class="research-grid">
         <a class="research-card" href="research/eversole-dissertation.pdf" target="_blank" rel="noopener">
-          <span class="research-card-tag">Dissertation &middot; 2016</span>
+          <span class="research-card-tag">Dissertation &middot; 2016 &middot; PDF</span>
           <span class="research-card-title">Doctoral Dissertation</span>
           <span class="research-card-desc"><em>Sexism and Imperialism in Mozart&#8217;s Don Giovanni, Puccini&#8217;s Madama Butterfly, and Blitzstein&#8217;s Regina: A Performance Study</em>. University of Maryland.</span>
-          <span class="research-card-foot">Read the PDF &rarr;</span>
         </a>
         <a class="research-card" href="research/madama-butterfly-exoticism.pdf" target="_blank" rel="noopener">
-          <span class="research-card-tag">Research Paper</span>
+          <span class="research-card-tag">Research Paper &middot; PDF</span>
           <span class="research-card-title">Puccini</span>
           <span class="research-card-desc"><em>Japonisme, Authenticity, and Anti-Imperialism in Puccini&#8217;s Madama Butterfly</em>. University of Maryland.</span>
-          <span class="research-card-foot">Read the PDF &rarr;</span>
         </a>
         <a class="research-card" href="research/finzi-hardy-songs.pdf" target="_blank" rel="noopener">
-          <span class="research-card-tag">Research Paper</span>
+          <span class="research-card-tag">Research Paper &middot; PDF</span>
           <span class="research-card-title">Finzi</span>
           <span class="research-card-desc"><em>&#8220;The Words That Chose Him&#8221;: Gerald Finzi and the Poetry of Thomas Hardy</em>. University of Maryland.</span>
-          <span class="research-card-foot">Read the PDF &rarr;</span>
         </a>
     </div>
   </section>
 
-  <!-- performance + directing (light) -->
+  <!-- recently (light) -->
   <section class="band">
     <div class="stage-grid">
       <div>
-        <div class="kicker" style="margin-bottom: 14px;">Performance</div>
-        <h2 class="stage-col-title">On stage</h2>
+        <div class="kicker" style="margin-bottom: 20px;"><a href="performance.html" class="kicker-link">Performance</a></div>
         <div class="upcoming-event">
-          <img class="upcoming-event-img" src="images/On%20Stage/Tuck.png" alt="Tuck Everlasting" />
           <div class="upcoming-event-info">
-            <span class="upcoming-event-badge badge-upcoming">Upcoming</span>
             <span class="upcoming-event-role">Angus Tuck</span>
             <span class="upcoming-event-title">Tuck Everlasting</span>
             <span class="upcoming-event-meta">Sandy Arts &middot; The Theater at Mount Jordan &middot; October 2026</span>
           </div>
-          <a href="https://www.sandyarts.com/tuck-everlasting" class="btn-ticket" target="_blank" rel="noopener">Get Tickets</a>
         </div>
         <div class="upcoming-event">
-          <img class="upcoming-event-img" src="images/On%20Stage/Fiddler.png" alt="Fiddler on the Roof" />
           <div class="upcoming-event-info">
-            <span class="upcoming-event-badge badge-recent">Recent</span>
             <span class="upcoming-event-role">Russian Soloist</span>
             <span class="upcoming-event-title">Fiddler on the Roof</span>
             <span class="upcoming-event-meta">Centerpoint Theatre &middot; May &ndash; June 2026</span>
           </div>
         </div>
-        <div class="stage-more"><a href="performance.html" class="offering-link">Performance &amp; Credits &rarr;</a></div>
       </div>
       <div>
-        <div class="kicker" style="margin-bottom: 14px;">Directing</div>
-        <h2 class="stage-col-title">Behind the production</h2>
+        <div class="kicker" style="margin-bottom: 20px;"><a href="directing.html" class="kicker-link">Directing</a></div>
         <div class="upcoming-event">
           <div class="upcoming-event-info">
-            <span class="upcoming-event-badge badge-recent">Stage Director</span>
+            <span class="upcoming-event-role">Stage Director</span>
             <span class="upcoming-event-title">Zazà</span>
             <span class="upcoming-event-meta">The Crane Opera Ensemble &middot; 2022</span>
           </div>
         </div>
         <div class="upcoming-event">
           <div class="upcoming-event-info">
-            <span class="upcoming-event-badge badge-recent">Stage Director</span>
+            <span class="upcoming-event-role">Stage Director</span>
             <span class="upcoming-event-title">The Medium</span>
             <span class="upcoming-event-meta">The Crane Opera Ensemble &middot; 2021</span>
           </div>
         </div>
-        <div class="stage-more"><a href="directing.html" class="offering-link">Directing &amp; Production Photos &rarr;</a></div>
       </div>
     </div>
   </section>
 
-  <!-- blog strip (rendered from posts-data.js, always the 6 latest posts) -->
+  <!-- blog (rendered from posts-data.js: the 3 latest posts) -->
   <section class="band band-alt">
-    <div class="kicker" style="margin-bottom: 28px;">From the Blog</div>
+    <div class="kicker" style="margin-bottom: 28px;"><a href="blog.html" class="kicker-link">Blog</a></div>
     <div class="strip-posts" id="strip-posts"></div>
-    <a href="blog.html" class="offering-link strip-all">All posts &rarr;</a>
   </section>
 
   <script>
     (function() {
       var container = document.getElementById('strip-posts');
       if (!container || typeof POSTS === 'undefined') return;
-      var latest = POSTS.slice(0, 6);
-      var cols = [latest.slice(0, 3), latest.slice(3, 6)];
-      container.innerHTML = cols.map(function(col) {
-        return '<div class="strip-col">' + col.map(function(p, i) {
-          var num = String(latest.indexOf(p) + 1).padStart(2, '0');
-          var excerpt = p.homeExcerpt || p.excerpt;
-          return '<a href="' + p.href + '" class="strip-post">' +
-            '<span class="strip-post-num">' + num + '</span>' +
-            '<span class="strip-post-title">' + p.title + '</span>' +
-            '<span class="strip-post-excerpt">' + excerpt + '</span>' +
-            '</a>';
-        }).join('') + '</div>';
-      }).join('');
+      container.innerHTML = '<div class="strip-col">' + POSTS.slice(0, 3).map(function(p) {
+        return '<a href="' + p.href + '" class="strip-post">' +
+          '<span class="strip-post-title">' + p.title + '</span>' +
+          '<span class="strip-post-excerpt">' + p.category + ' &middot; ' + p.show + '</span>' +
+          '</a>';
+      }).join('') + '</div>';
     })();
   </script>
-
-  <!-- studio (dark) -->
-  <section class="band band-dark">
-    <div class="home-studio">
-      <div>
-        <div class="kicker" style="margin-bottom: 16px;">Voice Studio</div>
-        <p class="home-studio-hl">Private lessons, audition preparation, and ensemble clinics.</p>
-        <p class="home-studio-sub">Online worldwide and in-studio in Salt Lake City.</p>
-      </div>
-      <div class="home-studio-actions">
-        <a href="lessons.html" class="btn-light">Studio &amp; Rates</a>
-        <a href="organizations.html" class="offering-link">For Organizations &rarr;</a>
-      </div>
-    </div>
-  </section>
 
   </main>
 
