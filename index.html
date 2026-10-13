@@ -69,6 +69,18 @@
     .deg-name + .deg-name { margin-bottom: 4px; }
     .deg-place { font-family: var(--serif); font-size: 15.5px; font-style: italic; color: var(--faint); margin-top: 4px; }
 
+
+    .teach-list { display: grid; }
+    .teach-group { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); margin: 0 0 6px; }
+    .teach-group:not(:first-child) { margin-top: 22px; }
+    .teach-row { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 11px 0; border-top: 1px solid var(--border); }
+    .teach-group + .teach-row { border-top: none; }
+    .teach-main { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+    .teach-inst { font-family: var(--serif); font-size: 18.5px; line-height: 1.3; color: var(--body); }
+    .teach-role { font-family: var(--sans); font-size: 12.5px; line-height: 1.5; color: var(--muted); }
+    .teach-yrs { font-family: var(--sans); font-size: 12.5px; letter-spacing: .04em; color: var(--meta); white-space: nowrap; }
+    .listen-card { position: sticky; top: 150px; }
+
     .listen-card { background: var(--ink); color: var(--bg); padding: 40px 36px 36px; }
     .listen-card .kicker { color: var(--accent-md); margin-bottom: 20px; }
     .listen-title { font-family: var(--serif); font-weight: 300; font-size: 36px; line-height: 1.1; margin-bottom: 18px; }
@@ -130,7 +142,8 @@
       .cred-row { grid-template-columns: 1fr; gap: 8px; }
       .cred-items { font-size: 17px; }
       .cred-items.is-degrees { grid-template-columns: 1fr; gap: 20px; }
-      .listen-card { padding: 28px 24px; }
+      .listen-card { padding: 28px 24px; position: static; }
+      .teach-row { flex-direction: column; gap: 2px; }
       .nav { padding: 0 24px; }
       .nav-links { padding: 8px 24px 28px; }
       .hero { grid-template-columns: 1fr; min-height: 0; }
@@ -211,16 +224,11 @@
         </div>
         <div class="cred-row">
           <div class="cred-label">Teaching</div>
-          <div class="cred-items">
-            <span class="cred-group">Higher education</span>
-            <span>The Crane School of Music, SUNY Potsdam</span><span>Oregon State University</span><span>University of Maryland</span><span>University of Oklahoma</span><span>Utah State University</span>
-            <span class="cred-group">Secondary, K-12, and studio</span>
-            <span>Providence Hall Charter School</span><span>Franklin Discovery Academy</span><span>Mountain Crest High School</span><span>Opus 1 Music Studios</span><span>Eversole Voice Studio</span>
-          </div>
+          <div class="teach-list"><div class="teach-group">Higher education</div><div class="teach-row"><div class="teach-main"><span class="teach-inst">The Crane School of Music, SUNY Potsdam</span><span class="teach-role">Visiting Assistant Professor of Opera and Musical Theatre &middot; Potsdam, New York</span></div><span class="teach-yrs">2021&ndash;2022</span></div><div class="teach-row"><div class="teach-main"><span class="teach-inst">Oregon State University</span><span class="teach-role">Director of Opera and Musical Theatre Studies &middot; Corvallis, Oregon</span></div><span class="teach-yrs">2018&ndash;2021</span></div><div class="teach-row"><div class="teach-main"><span class="teach-inst">University of Maryland</span><span class="teach-role">Graduate Teaching Assistant &middot; College Park, Maryland</span></div><span class="teach-yrs">2013&ndash;2016</span></div><div class="teach-row"><div class="teach-main"><span class="teach-inst">University of Oklahoma</span><span class="teach-role">Graduate Teaching Assistant and Graduate Stage Director &middot; Norman, Oklahoma</span></div><span class="teach-yrs">2011&ndash;2013</span></div><div class="teach-row"><div class="teach-main"><span class="teach-inst">Utah State University</span><span class="teach-role">Undergraduate Teaching Fellow &middot; Logan, Utah</span></div><span class="teach-yrs">2007&ndash;2010</span></div><div class="teach-group">Secondary, K-12, and studio</div><div class="teach-row"><div class="teach-main"><span class="teach-inst">Eversole Voice Studio</span><span class="teach-role">Independent Voice and Acting Instructor &middot; Salt Lake City, Utah, and online</span></div><span class="teach-yrs">2014&ndash;present</span></div><div class="teach-row"><div class="teach-main"><span class="teach-inst">Opus 1 Music Studios</span><span class="teach-role">Senior Voice Instructor &middot; Palo Alto, California</span></div><span class="teach-yrs">2022&ndash;2023</span></div><div class="teach-row"><div class="teach-main"><span class="teach-inst">Providence Hall Charter School</span><span class="teach-role">Director of Choirs &middot; Herriman, Utah</span></div><span class="teach-yrs">2017&ndash;2018</span></div><div class="teach-row"><div class="teach-main"><span class="teach-inst">Franklin Discovery Academy</span><span class="teach-role">Lab Director, Music &middot; Vineyard, Utah</span></div><span class="teach-yrs">2016&ndash;2017</span></div><div class="teach-row"><div class="teach-main"><span class="teach-inst">Mountain Crest High School</span><span class="teach-role">Student Teacher &middot; Hyrum, Utah</span></div><span class="teach-yrs">2011</span></div></div>
         </div>
         <div class="cred-row">
-          <div class="cred-label">Artist training &amp; engagements</div>
-          <div class="cred-items"><span>Maryland Opera Studio</span><span>Charlottesville Opera</span><span>Castleton Festival</span><span>Wolf Trap Opera</span><span>Utah Festival Opera &amp; Musical Theatre</span></div>
+          <div class="cred-label">Artist training</div>
+          <div class="teach-list"><div class="teach-row"><span class="teach-inst">Wolf Trap Opera</span><span class="teach-yrs">2016</span></div><div class="teach-row"><span class="teach-inst">Maryland Opera Studio</span><span class="teach-yrs">2014&ndash;2016</span></div><div class="teach-row"><span class="teach-inst">Charlottesville Opera</span><span class="teach-yrs">2015</span></div><div class="teach-row"><span class="teach-inst">Castleton Festival</span><span class="teach-yrs">2014</span></div><div class="teach-row"><span class="teach-inst">NYC Audition Boot Camp</span><span class="teach-yrs">2013</span></div><div class="teach-row"><span class="teach-inst">Utah Festival Opera and Musical Theatre</span><span class="teach-yrs">2007&ndash;2010</span></div></div>
         </div>
       </div>
       <aside class="listen-card" aria-label="Featured recording">
