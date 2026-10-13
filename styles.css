@@ -652,3 +652,8 @@ a.research-card:hover { background: #2D2822; opacity: 1; }
   }
   .nav .nav-links > a { border-bottom-color: rgba(246, 241, 231, .12); }
 }
+
+/* Slim light strip between the dark nav and a dark hero */
+.band-strip { background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: 14px 64px; font-size: 11px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); }
+@media (max-width: 1149px) { .band-strip { padding: 14px 40px; } }
+@media (max-width: 767px) { .band-strip { padding: 12px 24px; font-size: 10px; letter-spacing: .18em; } }
