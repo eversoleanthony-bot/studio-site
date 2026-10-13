@@ -164,7 +164,10 @@
     .r-org   { color: var(--secondary); width: 32%; padding-right: 16px; font-size: 13px; }
     .r-yr    { color: var(--accent); text-align: right; width: 12%; font-size: 12px; letter-spacing: .08em; white-space: nowrap; padding-top: 1px; }
     .resume-sublabel { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin: 32px 0 6px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
-    .resume-table-programs .r-wide { width: 88%; }
+    .program-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 40px; }
+    .program { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--border); }
+    .program-name { font-family: var(--serif); font-style: italic; font-size: 16px; line-height: 1.4; color: var(--secondary); }
+    .program-yr { font-size: 12px; letter-spacing: .08em; color: var(--accent); white-space: nowrap; }
     .distinctions { columns: 2; column-gap: 48px; margin: 0; padding: 0; }
     .distinctions li { list-style: none; font-size: 14.5px; color: var(--secondary); line-height: 1.9; break-inside: avoid; }
     .distinctions li::before { content: "\00b7"; color: var(--accent); margin-right: 10px; font-size: 1.4em; vertical-align: middle; }
@@ -192,6 +195,7 @@
       .resume-section > summary::before { right: 45.25px; }
       .resume-inner { padding: 28px 40px 40px; }
       .aff-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 32px; }
+      .program-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 899px) {
       .track-cols { grid-template-columns: 1fr; }
@@ -223,6 +227,7 @@
       .r-org { font-size: 12px; color: var(--muted); }
       .r-yr { font-size: 11px; text-align: left !important; padding-top: 3px !important; }
       .distinctions { columns: 1; }
+      .program-list { grid-template-columns: 1fr; }
       .aff-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
       .lightbox-overlay { padding: 0; align-items: flex-end; }
       .lightbox-frame { max-width: none; }
@@ -472,14 +477,14 @@
         <tr><td class="r-role">Bachelor of Music</td><td class="r-title">Vocal Performance</td><td class="r-org">Utah State University</td><td class="r-yr">2010</td></tr>
       </table>
         <div class="resume-sublabel">Artist training</div>
-        <table class="resume-table resume-table-programs">
-          <tr><td class="r-title r-wide">Wolf Trap Opera</td><td class="r-yr">2016</td></tr>
-          <tr><td class="r-title r-wide">Maryland Opera Studio</td><td class="r-yr">2014&ndash;2016</td></tr>
-          <tr><td class="r-title r-wide">Charlottesville Opera</td><td class="r-yr">2015</td></tr>
-          <tr><td class="r-title r-wide">Castleton Festival</td><td class="r-yr">2014</td></tr>
-          <tr><td class="r-title r-wide">NYC Audition Boot Camp</td><td class="r-yr">2013</td></tr>
-          <tr><td class="r-title r-wide">Utah Festival Opera &amp; Musical Theatre</td><td class="r-yr">2007&ndash;2010</td></tr>
-        </table>
+        <div class="program-list">
+          <div class="program"><span class="program-name">Wolf Trap Opera</span><span class="program-yr">2016</span></div>
+          <div class="program"><span class="program-name">Maryland Opera Studio</span><span class="program-yr">2014&ndash;2016</span></div>
+          <div class="program"><span class="program-name">Charlottesville Opera</span><span class="program-yr">2015</span></div>
+          <div class="program"><span class="program-name">Castleton Festival</span><span class="program-yr">2014</span></div>
+          <div class="program"><span class="program-name">NYC Audition Boot Camp</span><span class="program-yr">2013</span></div>
+          <div class="program"><span class="program-name">Utah Festival Opera &amp; Musical Theatre</span><span class="program-yr">2007&ndash;2010</span></div>
+        </div>
       </div>
     </details>
     <details class="resume-section alt">
