@@ -659,3 +659,6 @@ a.research-card:hover { background: #2D2822; opacity: 1; }
 @media (max-width: 767px) { .band-strip { padding: 12px 24px; font-size: 10px; letter-spacing: .18em; } }
 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+.research-card-title.is-long { font-size: 23px; line-height: 1.32; }
+.research-card-title em { font-style: italic; }
