@@ -49,16 +49,26 @@
     .upcoming-event-meta { font-size: 13px; color: var(--muted); }
     .stage-more { margin-top: 24px; }
 
-    /* ---- blog strip ---- */
-    .strip-posts { display: grid; grid-template-columns: 1fr; gap: 0; max-width: 820px; }
-    .strip-col { display: grid; align-content: start; }
-    .strip-post { display: flex; flex-direction: column; gap: 6px; padding: 16px 0; border-top: 1px solid var(--border); }
-    .strip-col > .strip-post:first-child { border-top: none; padding-top: 0; }
-    .strip-post-num { font-family: var(--serif); font-style: italic; font-size: 12px; color: var(--accent); }
-    .strip-post-title { font-family: var(--serif); font-size: 19px; line-height: 1.4; color: var(--body); transition: color .18s; }
-    .strip-post-excerpt { font-size: 13px; line-height: 1.55; color: var(--muted); margin-top: 4px; }
-    .strip-post:hover .strip-post-title { color: var(--accent); }
-    .strip-all { display: inline-block; margin-top: 32px; }
+
+
+    /* ---- blog: featured + recent ---- */
+    .blog-feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 64px; }
+    .blog-feature { display: flex; flex-direction: column; }
+    .blog-feature:hover { opacity: 1; }
+    .blog-feature-img { aspect-ratio: 4/3; overflow: hidden; background: var(--border); margin-bottom: 20px; }
+    .blog-feature-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; transition: transform .3s ease; }
+    .blog-feature:hover .blog-feature-img img { transform: scale(1.03); }
+    .blog-feature-meta { font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .blog-feature-title { font-family: var(--serif); font-size: 24px; line-height: 1.25; color: var(--ink); margin-bottom: 10px; transition: color .15s; }
+    .blog-feature:hover .blog-feature-title { color: var(--accent); }
+    .blog-feature-excerpt { font-family: var(--serif); font-size: 16px; line-height: 1.65; color: var(--secondary); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .blog-recent-label { font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--faint); padding-top: 28px; border-top: 1px solid var(--border); margin-bottom: 8px; }
+    .blog-recent { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, auto); grid-auto-flow: column; gap: 0 56px; }
+    .blog-recent-item { display: grid; grid-template-columns: 76px 1fr; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 14px; line-height: 1.45; }
+    .blog-recent-item:hover { opacity: 1; }
+    .blog-recent-date { color: var(--meta); font-size: 12px; letter-spacing: .04em; padding-top: 1px; }
+    .blog-recent-title { font-family: var(--serif); font-size: 16px; color: var(--body); transition: color .15s; }
+    .blog-recent-item:hover .blog-recent-title { color: var(--accent); }
 
     /* ---- studio band (dark) ---- */
     .home-studio { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
@@ -78,9 +88,11 @@
       .hero-text { padding: 72px 48px; }
       .hero-h1 { font-size: 60px; }
       .stage-grid { gap: 40px; }
-      .strip-posts { gap: 0 48px; }
+      .blog-feature-grid { gap: 28px; }
     }
     @media (max-width: 899px) {
+      .blog-feature-grid { grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; }
+      .blog-recent { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
       .home-about { grid-template-columns: 1fr; gap: 20px; }
       .stage-grid { grid-template-columns: 1fr; gap: 56px; }
       .home-studio { flex-direction: column; align-items: flex-start; }
@@ -96,8 +108,6 @@
       .home-about-lede { font-size: 22px; }
       .upcoming-event { flex-direction: column; align-items: flex-start; gap: 12px; width: 100%; }
       .upcoming-event-img { display: none; }
-      .strip-posts { grid-template-columns: 1fr; gap: 0; }
-      .strip-col:last-child > .strip-post:first-child { border-top: 1px solid var(--border); padding-top: 16px; }
       .home-studio-hl { font-size: 28px; }
       .footer-main { flex-direction: column; align-items: flex-start; gap: 20px; padding: 28px 24px; }
       .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
@@ -215,22 +225,35 @@
     </div>
   </section>
 
-  <!-- blog (rendered from posts-data.js: the 3 latest posts) -->
+  <!-- blog: featured (varied topics) + six most recent -->
   <section class="band band-alt">
-    <div class="kicker" style="margin-bottom: 28px;"><a href="blog.html" class="kicker-link">Blog</a></div>
-    <div class="strip-posts" id="strip-posts"></div>
+    <div class="kicker" style="margin-bottom: 32px;"><a href="blog.html" class="kicker-link">Blog</a></div>
+    <div class="blog-feature-grid" id="blog-featured"></div>
+    <div class="blog-recent-label">Recent posts</div>
+    <div class="blog-recent" id="blog-recent"></div>
   </section>
 
   <script>
     (function() {
-      var container = document.getElementById('strip-posts');
-      if (!container || typeof POSTS === 'undefined') return;
-      container.innerHTML = '<div class="strip-col">' + POSTS.slice(0, 3).map(function(p) {
-        return '<a href="' + p.href + '" class="strip-post">' +
-          '<span class="strip-post-title">' + p.title + '</span>' +
-          '<span class="strip-post-excerpt">' + p.category + ' &middot; ' + p.show + '</span>' +
+      if (typeof POSTS === 'undefined') return;
+      // Featured: newest post from each of three different topics
+      var seen = {}, featured = [];
+      POSTS.forEach(function(p) {
+        if (featured.length < 3 && !seen[p.show]) { seen[p.show] = true; featured.push(p); }
+      });
+      document.getElementById('blog-featured').innerHTML = featured.map(function(p) {
+        return '<a href="' + p.href + '" class="blog-feature">' +
+          (p.image ? '<div class="blog-feature-img"><img src="' + p.image + '" alt="' + (p.imageAlt || '') + '" loading="lazy" /></div>' : '') +
+          '<span class="blog-feature-meta">' + p.category + ' &middot; ' + p.show + '</span>' +
+          '<span class="blog-feature-title">' + p.title + '</span>' +
+          '<span class="blog-feature-excerpt">' + (p.homeExcerpt || p.excerpt) + '</span>' +
           '</a>';
-      }).join('') + '</div>';
+      }).join('');
+      document.getElementById('blog-recent').innerHTML = POSTS.slice(0, 6).map(function(p) {
+        return '<a href="' + p.href + '" class="blog-recent-item">' +
+          '<span class="blog-recent-date">' + p.date + '</span>' +
+          '<span class="blog-recent-title">' + p.title + '</span></a>';
+      }).join('');
     })();
   </script>
 
