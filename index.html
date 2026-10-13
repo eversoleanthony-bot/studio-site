@@ -71,13 +71,18 @@
     /* ---- blog: featured drawer + recents ---- */
     .blog-compact { padding-top: 56px; padding-bottom: 56px; }
     .blog-layout { display: grid; grid-template-columns: 1.55fr 1fr; gap: 64px; align-items: start; }
-    .drawer { border-top: 1px solid var(--border); }
+    .drawer { border-top: none; }
     .drawer-item { border-bottom: 1px solid var(--border); }
-    .drawer-head { width: 100%; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; background: none; border: none; padding: 16px 0; text-align: left; cursor: pointer; }
+    .drawer-head { width: 100%; display: flex; align-items: center; gap: 16px; background: none; border: none; padding: 12px 0; text-align: left; cursor: pointer; }
+    .drawer-thumb { flex: none; width: 76px; height: 56px; overflow: hidden; background: var(--border); }
+    .drawer-thumb img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+    .drawer-head-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
     .drawer-title { font-family: var(--serif); font-size: 19px; line-height: 1.35; color: var(--body); transition: color .15s; }
-    .drawer-meta { font-size: 10.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); white-space: nowrap; }
+    .drawer-meta { font-size: 10.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
     .drawer-head:hover .drawer-title, .drawer-item.open .drawer-title { color: var(--accent); }
-    .drawer-panel { display: none; grid-template-columns: 210px 1fr; gap: 24px; padding: 2px 0 20px; }
+    .drawer-panel { display: none; grid-template-columns: 210px 1fr; gap: 24px; padding: 4px 0 20px; }
+    .drawer-item.open .drawer-thumb { display: none; }
+    .drawer-item.open .drawer-head { padding-bottom: 6px; }
     .drawer-item.open .drawer-panel { display: grid; }
     .drawer-img { aspect-ratio: 4/3; overflow: hidden; background: var(--border); }
     .drawer-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
@@ -115,7 +120,6 @@
     @media (max-width: 767px) {
       .glance { grid-template-columns: 1fr; gap: 32px; }
       .drawer-panel { grid-template-columns: 1fr; gap: 14px; }
-      .drawer-meta { display: none; }
       .nav { padding: 0 24px; }
       .nav-links { padding: 8px 24px 28px; }
       .hero { grid-template-columns: 1fr; min-height: 0; }
@@ -261,7 +265,10 @@
   <section class="band band-alt blog-compact">
     <div class="kicker" style="margin-bottom: 24px;"><a href="blog.html" class="kicker-link">Blog</a></div>
     <div class="blog-layout">
-      <div class="drawer" id="blog-drawer"></div>
+      <div>
+        <div class="recents-label">Featured posts</div>
+        <div class="drawer" id="blog-drawer"></div>
+      </div>
       <div>
         <div class="recents-label">Recent posts</div>
         <div class="recents" id="blog-recent"></div>
@@ -281,8 +288,9 @@
       drawer.innerHTML = featured.map(function(p, i) {
         return '<div class="drawer-item' + (i === 0 ? ' open' : '') + '">' +
           '<button class="drawer-head" aria-expanded="' + (i === 0) + '" aria-controls="drawer-panel-' + i + '">' +
-            '<span class="drawer-title">' + p.title + '</span>' +
-            '<span class="drawer-meta">' + p.category + ' &middot; ' + p.show + '</span>' +
+            (p.image ? '<span class="drawer-thumb"><img src="' + p.image + '" alt="" loading="lazy" /></span>' : '<span class="drawer-thumb"></span>') +
+            '<span class="drawer-head-text"><span class="drawer-title">' + p.title + '</span>' +
+            '<span class="drawer-meta">' + p.category + ' &middot; ' + p.show + '</span></span>' +
           '</button>' +
           '<div class="drawer-panel" id="drawer-panel-' + i + '">' +
             (p.image ? '<a href="' + p.href + '" class="drawer-img" tabindex="-1" aria-hidden="true"><img src="' + p.image + '" alt="' + (p.imageAlt || '') + '" loading="lazy" /></a>' : '<span></span>') +
