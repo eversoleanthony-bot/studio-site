@@ -51,6 +51,29 @@
 
 
 
+
+    /* ---- now + featured recording (light) ---- */
+    .now-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: start; }
+    .now-list { display: grid; }
+    .now-item { display: grid; grid-template-columns: 130px 1fr; gap: 24px; padding: 22px 0; border-top: 1px solid var(--border); }
+    .now-item:last-child { border-bottom: 1px solid var(--border); }
+    .now-label { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); padding-top: 5px; }
+    .now-text { font-family: var(--serif); font-size: 20px; line-height: 1.55; color: var(--body); }
+    .now-text em { font-style: italic; }
+    .now-sub { display: block; font-family: var(--sans); font-size: 13.5px; color: var(--muted); margin-top: 4px; }
+    .now-listen { background: var(--ink); color: var(--bg); padding: 36px 36px 32px; }
+    .now-listen .kicker { color: var(--accent-md); margin-bottom: 18px; }
+    .now-listen-title { font-family: var(--serif); font-weight: 300; font-size: 32px; line-height: 1.15; margin-bottom: 6px; }
+    .now-listen-meta { font-size: 13.5px; color: rgba(246, 241, 231, .65); margin-bottom: 24px; }
+    .now-listen audio { width: 100%; height: 40px; }
+
+    /* ---- credentials strip (dark) ---- */
+    .cred-strip { display: grid; grid-template-columns: 220px 1fr; gap: 48px; padding: 0; }
+    .cred-row + .cred-row { margin-top: 28px; padding-top: 28px; border-top: 1px solid rgba(246, 241, 231, .14); }
+    .cred-label { font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--accent-md); padding-top: 6px; }
+    .cred-items { font-family: var(--serif); font-size: 21px; line-height: 1.7; color: rgba(246, 241, 231, .86); }
+    .cred-items span + span::before { content: "\00b7"; margin: 0 14px; color: var(--accent-md); }
+
     /* ---- blog: featured + recent ---- */
     .blog-feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 64px; }
     .blog-feature { display: flex; flex-direction: column; }
@@ -92,12 +115,17 @@
     }
     @media (max-width: 899px) {
       .blog-feature-grid { grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; }
+      .now-grid { grid-template-columns: 1fr; gap: 40px; }
       .blog-recent { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
       .home-about { grid-template-columns: 1fr; gap: 20px; }
       .stage-grid { grid-template-columns: 1fr; gap: 56px; }
       .home-studio { flex-direction: column; align-items: flex-start; }
     }
     @media (max-width: 767px) {
+      .now-item { grid-template-columns: 1fr; gap: 6px; }
+      .now-listen { padding: 28px 24px; }
+      .cred-strip { grid-template-columns: 1fr; gap: 12px; }
+      .cred-items { font-size: 18px; }
       .nav { padding: 0 24px; }
       .nav-links { padding: 8px 24px 28px; }
       .hero { grid-template-columns: 1fr; min-height: 0; }
@@ -185,43 +213,44 @@
     </div>
   </section>
 
-  <!-- recently (light) -->
+  <!-- now + featured recording (light) -->
   <section class="band">
-    <div class="stage-grid">
+    <div class="now-grid">
       <div>
-        <div class="kicker" style="margin-bottom: 20px;"><a href="performance.html" class="kicker-link">Performance</a></div>
-        <div class="upcoming-event">
-          <div class="upcoming-event-info">
-            <span class="upcoming-event-role">Angus Tuck</span>
-            <span class="upcoming-event-title">Tuck Everlasting</span>
-            <span class="upcoming-event-meta">Sandy Arts &middot; The Theater at Mount Jordan &middot; October 2026</span>
+        <div class="kicker" style="margin-bottom: 24px;">Now</div>
+        <div class="now-list">
+          <div class="now-item">
+            <span class="now-label">Performing</span>
+            <span class="now-text">Angus Tuck in <em>Tuck Everlasting</em><span class="now-sub">Sandy Arts &middot; The Theater at Mount Jordan &middot; October 2026</span></span>
           </div>
-        </div>
-        <div class="upcoming-event">
-          <div class="upcoming-event-info">
-            <span class="upcoming-event-role">Russian Soloist</span>
-            <span class="upcoming-event-title">Fiddler on the Roof</span>
-            <span class="upcoming-event-meta">Centerpoint Theatre &middot; May &ndash; June 2026</span>
+          <div class="now-item">
+            <span class="now-label">Researching</span>
+            <span class="now-text">Eye focus and movement, Chekhov and Laban, and motor learning in the training of the singing actor</span>
+          </div>
+          <div class="now-item">
+            <span class="now-label">Teaching</span>
+            <span class="now-text">Eversole Voice Studio<span class="now-sub">Salt Lake City, Utah</span></span>
           </div>
         </div>
       </div>
-      <div>
-        <div class="kicker" style="margin-bottom: 20px;"><a href="directing.html" class="kicker-link">Directing</a></div>
-        <div class="upcoming-event">
-          <div class="upcoming-event-info">
-            <span class="upcoming-event-role">Stage Director</span>
-            <span class="upcoming-event-title">Zazà</span>
-            <span class="upcoming-event-meta">The Crane Opera Ensemble &middot; 2022</span>
-          </div>
-        </div>
-        <div class="upcoming-event">
-          <div class="upcoming-event-info">
-            <span class="upcoming-event-role">Stage Director</span>
-            <span class="upcoming-event-title">The Medium</span>
-            <span class="upcoming-event-meta">The Crane Opera Ensemble &middot; 2021</span>
-          </div>
-        </div>
+      <div class="now-listen">
+        <div class="kicker">Listen</div>
+        <div class="now-listen-title">Litany</div>
+        <div class="now-listen-meta">John Musto &middot; Live recording</div>
+        <audio controls preload="none" src="audio/litany.m4a" aria-label="Litany by John Musto"></audio>
       </div>
+    </div>
+  </section>
+
+  <!-- credentials strip (dark) -->
+  <section class="band band-dark" style="padding-top: 64px; padding-bottom: 64px;">
+    <div class="cred-row cred-strip">
+      <div class="cred-label">Degrees</div>
+      <div class="cred-items"><span>University of Maryland, DMA</span><span>University of Oklahoma, MM</span><span>Utah State University, BM</span></div>
+    </div>
+    <div class="cred-row cred-strip">
+      <div class="cred-label">Artist training &amp; engagements</div>
+      <div class="cred-items"><span>Maryland Opera Studio</span><span>Charlottesville Opera</span><span>Castleton Festival</span><span>Wolf Trap Opera</span><span>Utah Festival Opera &amp; Musical Theatre</span></div>
     </div>
   </section>
 
