@@ -23,11 +23,11 @@
     .hero { display: grid; grid-template-columns: 1.15fr 1fr; background: var(--ink); color: var(--bg); min-height: 620px; }
     .hero-text { display: flex; flex-direction: column; justify-content: center; padding: 88px 64px; }
     .hero-role { font-size: 12px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--accent-md); margin-bottom: 28px; }
-    .hero-h1 { font-family: var(--serif); font-weight: 300; font-size: 76px; line-height: 1; letter-spacing: -0.02em; margin: 0 0 28px; }
-    .hero-sub { font-family: var(--serif); font-size: 22px; line-height: 1.65; color: rgba(246, 241, 231, .78); max-width: 620px; margin-bottom: 40px; }
+    .hero-lede { font-family: var(--serif); font-weight: 300; font-size: 31px; line-height: 1.48; letter-spacing: -0.005em; color: var(--bg); max-width: 640px; margin: 0 0 28px; text-wrap: pretty; }
+    .hero-cred { font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--accent-md); }
     .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
     .hero-img { position: relative; background: #2D2822; min-height: 420px; }
-    .hero-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; }
+    .hero-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
 
     /* ---- about strip (light) ---- */
     .home-about { display: grid; grid-template-columns: 280px 1fr; gap: 48px; }
@@ -104,8 +104,7 @@
       .nav-ctas { padding: 20px 0 0; }
       .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
       .hero-text { padding: 72px 48px; }
-      .hero-h1 { font-size: 60px; }
-      .stage-grid { gap: 40px; }
+        .stage-grid { gap: 40px; }
       .blog-feature-grid { gap: 28px; }
     }
     @media (max-width: 899px) {
@@ -125,8 +124,7 @@
       .hero { grid-template-columns: 1fr; min-height: 0; }
       .hero-img { order: -1; min-height: 320px; }
       .hero-text { padding: 48px 24px 56px; }
-      .hero-h1 { font-size: 44px; }
-      .hero-sub { font-size: 18px; margin-bottom: 28px; }
+      .hero-lede { font-size: 22px; margin-bottom: 20px; }
       .home-about-lede { font-size: 22px; }
       .upcoming-event { flex-direction: column; align-items: flex-start; gap: 12px; width: 100%; }
       .upcoming-event-img { display: none; }
@@ -165,11 +163,12 @@
   <!-- hero (dark) -->
   <section class="hero">
     <div class="hero-text">
-      <h1 class="hero-h1">Anthony Eversole</h1>
-      <p class="hero-sub">Dr. Anthony Eversole is a baritone, voice pedagogue, and stage director. He has performed and directed widely throughout the United States and taught voice for more than fifteen years. His research interests include actor training for singers, the songs of Gerald Finzi, and the operas of Puccini and the verismo composers.</p>
+      <h1 class="sr-only">Anthony Eversole</h1>
+      <p class="hero-lede">Dr. Anthony Eversole is a baritone, voice pedagogue, and stage director. He has performed and directed widely throughout the United States and taught voice for more than fifteen years. His research interests include actor training for singers, the songs of Gerald Finzi, and the operas of Puccini and the verismo composers.</p>
+      <p class="hero-cred">Doctor of Musical Arts, University of Maryland</p>
     </div>
     <div class="hero-img">
-      <img src="images/site/headshot-homepage.jpg" alt="Anthony Eversole" />
+      <img src="images/site/DSC_8841.jpg" alt="Anthony Eversole as Papageno in Die Zauberflöte" />
     </div>
   </section>
 

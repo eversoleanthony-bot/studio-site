@@ -657,3 +657,5 @@ a.research-card:hover { background: #2D2822; opacity: 1; }
 .band-strip { position: sticky; top: 68px; z-index: 90; background: var(--bg-alt); border-bottom: 1px solid var(--border); padding: 14px 64px; font-size: 11px; font-weight: 600; letter-spacing: .24em; text-transform: uppercase; color: var(--accent); }
 @media (max-width: 1149px) { .band-strip { padding: 14px 40px; } }
 @media (max-width: 767px) { .band-strip { padding: 12px 24px; font-size: 10px; letter-spacing: .18em; } }
+
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
