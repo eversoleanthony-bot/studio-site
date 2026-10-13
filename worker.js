@@ -162,8 +162,8 @@ export default {
     const MOVED = {
       "/on-stage": "/performance.html",
       "/on-stage.html": "/performance.html",
-      "/philosophy": "/about.html",
-      "/philosophy.html": "/about.html",
+      "/about": "/philosophy.html",
+      "/about.html": "/philosophy.html",
     };
     if (MOVED[path]) {
       return Response.redirect(new URL(MOVED[path], url), 301);
