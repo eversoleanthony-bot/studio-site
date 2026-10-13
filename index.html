@@ -171,7 +171,18 @@
       <p class="hero-cred">Doctor of Musical Arts, University of Maryland</p>
     </div>
     <div class="hero-img">
-      <img src="images/site/DSC_8841.jpg" alt="Anthony Eversole as Papageno in Die Zauberflöte" />
+      <img id="hero-img" src="images/site/hero-don-giovanni-1.jpg" alt="Anthony Eversole as Don Giovanni, raising a toast with the ensemble" style="object-position: 42% 30%;" />
+      <script>
+        (function () {
+          var shots = [
+            { src: "images/site/hero-don-giovanni-1.jpg", alt: "Anthony Eversole as Don Giovanni, raising a toast with the ensemble", pos: "42% 30%" },
+            { src: "images/site/hero-don-giovanni-2.jpg", alt: "Anthony Eversole as Don Giovanni, gesturing across a purple-lit stage", pos: "78% 50%" }
+          ];
+          var pick = shots[Math.floor(Math.random() * shots.length)];
+          var img = document.getElementById("hero-img");
+          img.src = pick.src; img.alt = pick.alt; img.style.objectPosition = pick.pos;
+        })();
+      </script>
     </div>
   </section>
 
