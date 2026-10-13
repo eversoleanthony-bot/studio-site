@@ -92,30 +92,36 @@
 
     .research-aside { margin-top: 28px; font-family: var(--serif); font-size: 17px; line-height: 1.65; color: rgba(246, 241, 231, .72); max-width: 760px; }
 
-    /* ---- blog: featured + recent ---- */
-    .blog-feature-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-bottom: 64px; }
-    .blog-feature { display: flex; flex-direction: column; }
-    .blog-feature:hover { opacity: 1; }
-    .blog-feature-img { aspect-ratio: 4/3; overflow: hidden; background: var(--border); margin-bottom: 20px; }
-    .blog-feature-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; transition: transform .3s ease; }
-    .blog-feature:hover .blog-feature-img img { transform: scale(1.03); }
-    .blog-feature-meta { font-size: 11px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
-    .blog-feature-title { font-family: var(--serif); font-size: 24px; line-height: 1.25; color: var(--ink); margin-bottom: 10px; transition: color .15s; }
-    .blog-feature:hover .blog-feature-title { color: var(--accent); }
-    .blog-feature-excerpt { font-family: var(--serif); font-size: 16px; line-height: 1.65; color: var(--secondary); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-    .blog-recent-label { font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--faint); padding-top: 28px; border-top: 1px solid var(--border); margin-bottom: 8px; }
-    .blog-recent { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: repeat(3, auto); grid-auto-flow: column; gap: 0 56px; }
-    .blog-recent-item { display: grid; grid-template-columns: 76px 1fr; gap: 16px; padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 14px; line-height: 1.45; }
-    .blog-recent-item:hover { opacity: 1; }
-    .blog-recent-date { color: var(--meta); font-size: 12px; letter-spacing: .04em; padding-top: 1px; }
-    .blog-recent-title { font-family: var(--serif); font-size: 16px; color: var(--body); transition: color .15s; }
-    .blog-recent-item:hover .blog-recent-title { color: var(--accent); }
 
     /* ---- studio band (dark) ---- */
     .home-studio { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
     .home-studio-hl { font-family: var(--serif); font-weight: 300; font-size: 36px; line-height: 1.2; max-width: 720px; margin-bottom: 14px; }
     .home-studio-sub { font-size: 14px; line-height: 1.7; color: rgba(246, 241, 231, .7); max-width: 620px; }
     .home-studio-actions { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; flex: none; }
+
+
+    /* ---- blog: featured drawer + recents ---- */
+    .blog-compact { padding-top: 56px; padding-bottom: 56px; }
+    .blog-layout { display: grid; grid-template-columns: 1.55fr 1fr; gap: 64px; align-items: start; }
+    .drawer { border-top: 1px solid var(--border); }
+    .drawer-item { border-bottom: 1px solid var(--border); }
+    .drawer-head { width: 100%; display: flex; align-items: baseline; justify-content: space-between; gap: 20px; background: none; border: none; padding: 16px 0; text-align: left; cursor: pointer; }
+    .drawer-title { font-family: var(--serif); font-size: 19px; line-height: 1.35; color: var(--body); transition: color .15s; }
+    .drawer-meta { font-size: 10.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); white-space: nowrap; }
+    .drawer-head:hover .drawer-title, .drawer-item.open .drawer-title { color: var(--accent); }
+    .drawer-panel { display: none; grid-template-columns: 210px 1fr; gap: 24px; padding: 2px 0 20px; }
+    .drawer-item.open .drawer-panel { display: grid; }
+    .drawer-img { aspect-ratio: 4/3; overflow: hidden; background: var(--border); }
+    .drawer-img img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+    .drawer-text p { font-family: var(--serif); font-size: 15.5px; line-height: 1.65; color: var(--secondary); margin: 0 0 10px; }
+    .drawer-text a { font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+    .recents-label { font-size: 11px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--faint); padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .recents { display: grid; }
+    .recent-item { display: grid; grid-template-columns: 70px 1fr; gap: 14px; padding: 10px 0; border-bottom: 1px solid var(--border); line-height: 1.4; }
+    .recent-item:hover { opacity: 1; }
+    .recent-date { font-size: 12px; letter-spacing: .04em; color: var(--meta); padding-top: 2px; }
+    .recent-title { font-family: var(--serif); font-size: 15.5px; color: var(--body); transition: color .15s; }
+    .recent-item:hover .recent-title { color: var(--accent); }
 
     /* ---- responsive ---- */
     @media (max-width: 1149px) {
@@ -128,17 +134,17 @@
       .nav-book { display: block !important; text-align: center; padding: 12px 20px !important; }
       .hero-text { padding: 72px 48px; }
         .stage-grid { gap: 40px; }
-      .blog-feature-grid { gap: 28px; }
     }
     @media (max-width: 899px) {
-      .blog-feature-grid { grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; }
       .cred-layout { grid-template-columns: 1fr; gap: 48px; }
-      .blog-recent { grid-template-columns: 1fr; grid-template-rows: none; grid-auto-flow: row; }
+      .blog-layout { grid-template-columns: 1fr; gap: 40px; }
       .home-about { grid-template-columns: 1fr; gap: 20px; }
       .stage-grid { grid-template-columns: 1fr; gap: 56px; }
       .home-studio { flex-direction: column; align-items: flex-start; }
     }
     @media (max-width: 767px) {
+      .drawer-panel { grid-template-columns: 1fr; gap: 14px; }
+      .drawer-meta { display: none; }
       .cred-row { grid-template-columns: 1fr; gap: 8px; }
       .cred-items { font-size: 17px; }
       .cred-items.is-degrees { grid-template-columns: 1fr; gap: 20px; }
@@ -269,12 +275,16 @@
     <p class="research-aside">Also: <a href="lab/larynx-explorer.html" class="text-link">Larynx Explorer</a>, a free interactive 3D model of laryngeal anatomy built for students and colleagues. A work in progress.</p>
   </section>
 
-  <!-- blog: featured (varied topics) + six most recent -->
-  <section class="band band-alt">
-    <div class="kicker" style="margin-bottom: 32px;"><a href="blog.html" class="kicker-link">Blog</a></div>
-    <div class="blog-feature-grid" id="blog-featured"></div>
-    <div class="blog-recent-label">Recent posts</div>
-    <div class="blog-recent" id="blog-recent"></div>
+  <!-- blog: featured drawer + recents -->
+  <section class="band band-alt blog-compact">
+    <div class="kicker" style="margin-bottom: 24px;"><a href="blog.html" class="kicker-link">Blog</a></div>
+    <div class="blog-layout">
+      <div class="drawer" id="blog-drawer"></div>
+      <div>
+        <div class="recents-label">Recent posts</div>
+        <div class="recents" id="blog-recent"></div>
+      </div>
+    </div>
   </section>
 
   <script>
@@ -285,18 +295,31 @@
       POSTS.forEach(function(p) {
         if (featured.length < 3 && !seen[p.show]) { seen[p.show] = true; featured.push(p); }
       });
-      document.getElementById('blog-featured').innerHTML = featured.map(function(p) {
-        return '<a href="' + p.href + '" class="blog-feature">' +
-          (p.image ? '<div class="blog-feature-img"><img src="' + p.image + '" alt="' + (p.imageAlt || '') + '" loading="lazy" /></div>' : '') +
-          '<span class="blog-feature-meta">' + p.category + ' &middot; ' + p.show + '</span>' +
-          '<span class="blog-feature-title">' + p.title + '</span>' +
-          '<span class="blog-feature-excerpt">' + (p.homeExcerpt || p.excerpt) + '</span>' +
-          '</a>';
+      var drawer = document.getElementById('blog-drawer');
+      drawer.innerHTML = featured.map(function(p, i) {
+        return '<div class="drawer-item' + (i === 0 ? ' open' : '') + '">' +
+          '<button class="drawer-head" aria-expanded="' + (i === 0) + '" aria-controls="drawer-panel-' + i + '">' +
+            '<span class="drawer-title">' + p.title + '</span>' +
+            '<span class="drawer-meta">' + p.category + ' &middot; ' + p.show + '</span>' +
+          '</button>' +
+          '<div class="drawer-panel" id="drawer-panel-' + i + '">' +
+            (p.image ? '<a href="' + p.href + '" class="drawer-img" tabindex="-1" aria-hidden="true"><img src="' + p.image + '" alt="' + (p.imageAlt || '') + '" loading="lazy" /></a>' : '<span></span>') +
+            '<div class="drawer-text"><p>' + (p.homeExcerpt || p.excerpt) + '</p><a href="' + p.href + '">Read the post</a></div>' +
+          '</div></div>';
       }).join('');
+      drawer.addEventListener('click', function(e) {
+        var head = e.target.closest('.drawer-head');
+        if (!head) return;
+        drawer.querySelectorAll('.drawer-item').forEach(function(item) {
+          var open = item === head.parentNode;
+          item.classList.toggle('open', open);
+          item.querySelector('.drawer-head').setAttribute('aria-expanded', open);
+        });
+      });
       document.getElementById('blog-recent').innerHTML = POSTS.slice(0, 6).map(function(p) {
-        return '<a href="' + p.href + '" class="blog-recent-item">' +
-          '<span class="blog-recent-date">' + p.date + '</span>' +
-          '<span class="blog-recent-title">' + p.title + '</span></a>';
+        return '<a href="' + p.href + '" class="recent-item">' +
+          '<span class="recent-date">' + p.date + '</span>' +
+          '<span class="recent-title">' + p.title + '</span></a>';
       }).join('');
     })();
   </script>
