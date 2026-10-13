@@ -634,23 +634,23 @@ a.research-card:hover { background: #2D2822; opacity: 1; }
 .page-jumps a:hover { color: var(--accent); opacity: 1; }
 
 /* ============================================================
-   NAV: dark theme (selectors are scoped under .nav so they win
+   NAV: rust theme (selectors are scoped under .nav so they win
    over the per-page inline nav rules)
    ============================================================ */
-.nav { background: var(--ink); border-bottom: 1px solid rgba(246, 241, 231, .12); }
+.nav { background: var(--accent); border-bottom: 1px solid rgba(34, 30, 25, .35); }
 .nav .nav-brand-name { color: var(--bg); }
-.nav .nav-links { color: rgba(246, 241, 231, .68); }
-.nav .nav-links a:hover { color: var(--bg); opacity: 1; }
-.nav .nav-links a.active:not(.nav-book):not(.nav-login) { color: var(--bg); border-bottom: 1px solid var(--accent-md); padding-bottom: 2px; }
+.nav .nav-links { color: rgba(246, 241, 231, .8); }
+.nav .nav-links a:hover { color: #fff; opacity: 1; }
+.nav .nav-links a.active:not(.nav-book):not(.nav-login) { color: #fff; border-bottom: 1px solid var(--accent-lt); padding-bottom: 2px; }
 .nav .nav-menu-btn { color: var(--bg); }
-.nav :focus-visible { outline-color: var(--accent-lt); box-shadow: 0 0 0 4px rgba(221, 185, 166, .25); }
+.nav :focus-visible { outline-color: var(--bg); box-shadow: 0 0 0 4px rgba(246, 241, 231, .3); }
 @media (max-width: 1149px) {
   .nav .nav-links {
-    background: var(--ink);
-    border-bottom: 1px solid rgba(246, 241, 231, .12);
+    background: var(--accent);
+    border-bottom: 1px solid rgba(34, 30, 25, .35);
     box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
   }
-  .nav .nav-links > a { border-bottom-color: rgba(246, 241, 231, .12); }
+  .nav .nav-links > a { border-bottom-color: rgba(246, 241, 231, .18); }
 }
 
 /* Slim light strip between the dark nav and a dark hero */
