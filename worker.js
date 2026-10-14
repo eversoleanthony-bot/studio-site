@@ -5,7 +5,7 @@ const CAL_API_BASE = "https://api.cal.com/v2";
 // and the lab explorer stay reachable so existing links keep working.
 // To preview the real site, visit any page once with ?preview=PREVIEW_KEY;
 // that sets a 30-day cookie. Set UNDER_CONSTRUCTION to false to go live.
-const UNDER_CONSTRUCTION = true;
+const UNDER_CONSTRUCTION = false;
 const PREVIEW_KEY = "9d526efcf1";
 
 // Event types are looked up server-side by a short code so the client
