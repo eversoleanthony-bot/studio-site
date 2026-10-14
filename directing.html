@@ -308,6 +308,20 @@
       .footer-main-links { flex-wrap: wrap; gap: 14px 20px; }
       .footer-legal { flex-direction: column; gap: 12px; padding: 16px 24px; align-items: flex-start; }
     }
+
+    /* ---- phone refinements: compact credit rows, smaller lightbox poster ---- */
+    @media (max-width: 767px) {
+      .resume-table:not(.rep-table) tr { display: flex; flex-wrap: wrap; align-items: baseline; padding: 10px 0; }
+      .resume-table:not(.rep-table) td { padding: 0 !important; width: auto !important; }
+      .resume-table:not(.rep-table) .r-title { order: 1; flex-basis: 100%; font-size: 16px; padding-top: 0 !important; padding-bottom: 2px !important; }
+      .resume-table:not(.rep-table) .r-role { order: 2; font-size: 12.5px; font-weight: 500; color: var(--secondary); }
+      .resume-table:not(.rep-table) .r-org { order: 3; font-size: 12.5px; }
+      .resume-table:not(.rep-table) .r-yr { order: 4; font-size: 12px; }
+      .resume-table:not(.rep-table) .r-role ~ .r-org::before,
+      .resume-table:not(.rep-table) .r-yr::before { content: "\00b7"; margin: 0 8px; color: var(--accent-md); }
+      .resume-table:not(.rep-table) .r-sub { flex-basis: 100%; }
+      .lightbox-poster { max-height: 110px; margin-bottom: 12px; }
+    }
   </style>
 </head>
 <body>
@@ -614,6 +628,15 @@
           btn.textContent = 'Menu';
         }
       });
+    })();
+  </script>
+  <script>
+    // On phones, start with the credits list closed so the productions strip is within reach
+    (function () {
+      if (window.matchMedia('(max-width: 767px)').matches) {
+        var d = document.querySelector('#credits details');
+        if (d) d.removeAttribute('open');
+      }
     })();
   </script>
 </body>
