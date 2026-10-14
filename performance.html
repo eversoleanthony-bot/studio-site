@@ -33,8 +33,36 @@
     .perf-section-note { font-size: 13.5px; line-height: 1.6; color: var(--muted); max-width: 420px; text-align: right; }
     .is-dark .perf-section-note { color: rgba(246,241,231,.6); }
 
-    /* ---- recordings (light) ---- */
-    .track-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 64px; }
+    /* ---- recordings: complete cycle + grouped selections ---- */
+    .rec-cycle { background: var(--bg-alt); border: 1px solid var(--border); padding: 36px 40px 28px; margin-bottom: 56px; }
+    .cycle-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 32px; }
+    .rec-label, .rec-group-label { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
+    .cycle-title { font-family: var(--serif); font-weight: 400; font-style: italic; font-size: 32px; line-height: 1.15; margin: 10px 0 12px; }
+    .cycle-credit { font-family: var(--serif); font-size: 17px; line-height: 1.5; color: var(--body); margin: 0 0 4px; }
+    .cycle-work, .cycle-perf { font-size: 13.5px; line-height: 1.65; color: var(--muted); margin: 0; }
+    .cycle-perf { margin-top: 2px; }
+    .cycle-play { flex: none; align-self: center; background: var(--accent); color: var(--bg); border: 1px solid var(--accent); font-family: var(--sans); font-size: 11.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; padding: 14px 20px; cursor: pointer; white-space: nowrap; transition: background .15s, color .15s; }
+    .cycle-play:hover { background: transparent; color: var(--accent); }
+    .cycle-songs { margin-top: 26px; border-top: 1px solid var(--border); }
+    .cycle-songs > summary { list-style: none; cursor: pointer; padding: 16px 0 4px; font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--faint); display: flex; align-items: center; gap: 10px; }
+    .cycle-songs > summary::-webkit-details-marker { display: none; }
+    .cycle-songs > summary::after { content: '+'; font-size: 16px; color: var(--accent); letter-spacing: 0; }
+    .cycle-songs[open] > summary::after { content: '\2212'; }
+    .cycle-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; }
+    .cycle-row { border-bottom: 1px solid var(--border); }
+    .cycle-row .track-top { gap: 12px; }
+    .track-num { flex: none; width: 22px; font-family: var(--serif); font-style: italic; font-size: 14px; color: var(--accent); text-align: right; }
+    .cycle-row .track-title { margin-bottom: 0; }
+    .cycle-row .track-seek { width: calc(100% - 78px); margin-left: 78px; }
+    .rec-group + .rec-group { margin-top: 44px; }
+    .rec-group-label { padding-bottom: 12px; border-bottom: 1px solid var(--ink); }
+    .rec-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 56px; }
+    .rec-list .track-row { border-bottom: 1px solid var(--border); padding: 18px 0; }
+    .track-work { font-size: 13.5px; line-height: 1.5; color: var(--secondary); margin-bottom: 2px; }
+    .track-work em { font-family: var(--serif); font-style: italic; font-size: 14.5px; }
+    .track-perf { font-size: 12.5px; line-height: 1.55; color: var(--accent); margin-top: 3px; }
+    .track-meta { margin-top: 1px; }
+    /* ---- recordings: base rows ---- */
     .track-list { display: flex; flex-direction: column; border-top: 1px solid var(--border); }
     .track-row { display: flex; flex-direction: column; gap: 8px; padding: 16px 0; border-bottom: 1px solid var(--border); }
     .track-top { display: flex; align-items: center; gap: 16px; }
@@ -53,13 +81,13 @@
     .track-seek {
       -webkit-appearance: none; appearance: none;
       width: calc(100% - 52px); height: 3px; margin: 0 0 0 52px; padding: 0;
-      background: var(--border); border-radius: 2px; cursor: pointer;
+      background: rgba(34,30,25,.14); border-radius: 2px; cursor: pointer;
     }
     .track-seek:disabled { cursor: default; opacity: .7; }
     .track-seek::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: none; margin-top: -4.5px; }
     .track-seek::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: none; }
     .track-seek::-webkit-slider-runnable-track { height: 3px; border-radius: 2px; background: transparent; }
-    .track-seek::-moz-range-track { height: 3px; border-radius: 2px; background: var(--border); }
+    .track-seek::-moz-range-track { height: 3px; border-radius: 2px; background: rgba(34,30,25,.14); }
     .track-seek::-moz-range-progress { height: 3px; border-radius: 2px; background: var(--accent); }
 
     .tracks-toggle { display: none; margin-top: 20px; background: none; border: none; border-bottom: 1px solid var(--accent-md); padding: 0 0 2px; font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); cursor: pointer; }
@@ -234,7 +262,8 @@
       .photo-acc > summary::before { right: 45.25px; }
       .photo-acc-inner { padding: 4px 40px 32px; }
       .stills-strip { grid-template-columns: repeat(5, minmax(0, 1fr)); }
-      .track-cols { gap: 0 40px; }
+      .cycle-grid, .rec-list { column-gap: 40px; }
+      .rec-cycle { padding: 30px 28px 24px; }
       .perf-credits-head { padding: 56px 40px 28px; }
       .resume-section > summary { padding: 24px 40px; }
       .resume-section > summary::after { right: 40px; }
@@ -244,8 +273,9 @@
       .program-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 899px) {
-      .track-cols { grid-template-columns: 1fr; }
-      .track-cols .track-list + .track-list { border-top: none; }
+      .cycle-grid, .rec-list { grid-template-columns: 1fr; }
+      .cycle-head { flex-direction: column; gap: 22px; }
+      .cycle-play { align-self: flex-start; }
       .stills-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 767px) {
@@ -256,7 +286,10 @@
       .perf-sub { font-size: 17px; }
       .perf-section { padding: 44px 24px; }
       .tracks-toggle { display: inline-block; }
-      .track-cols:not(.show-all) .track-more { display: none; }
+      #recordings:not(.show-all) .rec-group.track-more { display: none; }
+      .rec-cycle { padding: 24px 20px 20px; margin-bottom: 40px; }
+      .cycle-title { font-size: 26px; }
+      .cycle-row .track-seek { width: calc(100% - 70px); margin-left: 70px; }
       .photo-acc > summary { padding: 22px 24px; }
       .photo-acc > summary::after { right: 24px; }
       .photo-acc > summary::before { right: 29.25px; }
@@ -354,111 +387,260 @@
   <section class="perf-section" id="recordings">
     <div class="perf-section-head">
       <h2 class="perf-section-title">Recordings</h2>
-      <p class="perf-section-note">Selected live recordings from recital, opera, and concert.</p>
+      <p class="perf-section-note">Live recordings from recital, opera, and concert.</p>
     </div>
-    <div class="track-cols">
-      <div class="track-list">
-        <div class="track-row">
-            <div class="track-top">
-              <button class="track-play" aria-label="Play">▶</button>
-              <div class="track-info">
-                <div class="track-title">Litany</div>
-                <div class="track-meta">John Musto</div>
-              </div>
-              <div class="track-time">0:00</div>
-            </div>
-            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Litany" disabled>
-            <audio class="track-audio" preload="none" src="audio/litany.m4a"></audio>
-          </div>
-        <div class="track-row">
-            <div class="track-top">
-              <button class="track-play" aria-label="Play">▶</button>
-              <div class="track-info">
-                <div class="track-title">Pretty Women</div>
-                <div class="track-meta">Stephen Sondheim · Sweeney Todd</div>
-              </div>
-              <div class="track-time">0:00</div>
-            </div>
-            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Pretty Women" disabled>
-            <audio class="track-audio" preload="none" src="audio/pretty-women.mp3"></audio>
-          </div>
-        <div class="track-row">
-            <div class="track-top">
-              <button class="track-play" aria-label="Play">▶</button>
-              <div class="track-info">
-                <div class="track-title">The Phantom</div>
-                <div class="track-meta">Gerald Finzi · Earth and Air and Rain (Thomas Hardy)</div>
-              </div>
-              <div class="track-time">0:00</div>
-            </div>
-            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: The Phantom" disabled>
-            <audio class="track-audio" preload="none" src="audio/the-phantom.mp3"></audio>
-          </div>
-        <div class="track-row">
-            <div class="track-top">
-              <button class="track-play" aria-label="Play">▶</button>
-              <div class="track-info">
-                <div class="track-title">Ein deutsches Requiem — Mvt. VI</div>
-                <div class="track-meta">Johannes Brahms · University of Maryland, cond. Edward Maclary</div>
-              </div>
-              <div class="track-time">0:00</div>
-            </div>
-            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Ein deutsches Requiem — Mvt. VI" disabled>
-            <audio class="track-audio" preload="none" src="audio/brahms-requiem-vi.mp3"></audio>
-          </div>
+
+    <article class="rec-cycle">
+      <div class="cycle-head">
+        <div class="cycle-text">
+          <div class="rec-label">Complete song cycle</div>
+          <h3 class="cycle-title">Earth and Air and Rain</h3>
+          <p class="cycle-credit">Music by Gerald Finzi (1901&ndash;1956) &middot; Texts by Thomas Hardy (1840&ndash;1928)</p>
+          <p class="cycle-work">Op. 15, composed 1928&ndash;32 &middot; Ten songs</p>
+          <p class="cycle-perf">Master of Music Recital, University of Oklahoma &middot; April 28, 2013 &middot; Jonathan Murphy, piano</p>
+        </div>
+        <button type="button" class="cycle-play" id="cycle-play">Play the complete cycle</button>
       </div>
-      <div class="track-list">
-        <div class="track-row">
-            <div class="track-top">
-              <button class="track-play" aria-label="Play">▶</button>
-              <div class="track-info">
-                <div class="track-title">Die zwei blauen Augen von meinem Schatz</div>
-                <div class="track-meta">Gustav Mahler · Lieder eines fahrenden Gesellen, No. IV</div>
-              </div>
-              <div class="track-time">0:00</div>
+      <details class="cycle-songs" open>
+        <summary>The ten songs</summary>
+        <div class="cycle-grid">
+        <div class="track-row cycle-row" data-cycle="1" data-artist="Gerald Finzi · Earth and Air and Rain">
+          <div class="track-top">
+          <span class="track-num">1</span>
+          <button class="track-play" aria-label="Play Summer Schemes">▶</button>
+            <div class="track-info">
+            <div class="track-title">Summer Schemes</div>
             </div>
-            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Die zwei blauen Augen von meinem Schatz" disabled>
-            <audio class="track-audio" preload="none" src="audio/die-zwei-blauen-augen.m4a"></audio>
+            <div class="track-time">0:00</div>
           </div>
-        <div class="track-row">
-            <div class="track-top">
-              <button class="track-play" aria-label="Play">▶</button>
-              <div class="track-info">
-                <div class="track-title">Madama Butterfly — Act III Trio</div>
-                <div class="track-meta">Giacomo Puccini · Castleton Festival</div>
-              </div>
-              <div class="track-time">0:00</div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Summer Schemes" disabled>
+          <audio class="track-audio" preload="none" src="audio/finzi/01-summer-schemes.mp3"></audio>
+        </div>
+        <div class="track-row cycle-row" data-cycle="1" data-artist="Gerald Finzi · Earth and Air and Rain">
+          <div class="track-top">
+          <span class="track-num">2</span>
+          <button class="track-play" aria-label="Play When I Set Out for Lyonesse">▶</button>
+            <div class="track-info">
+            <div class="track-title">When I Set Out for Lyonesse</div>
             </div>
-            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Madama Butterfly — Act III Trio" disabled>
-            <audio class="track-audio" preload="none" src="audio/butterfly-act3-trio.mp3"></audio>
+            <div class="track-time">0:00</div>
           </div>
-        <div class="track-row">
-            <div class="track-top">
-              <button class="track-play" aria-label="Play">▶</button>
-              <div class="track-info">
-                <div class="track-title">L'assiolo canta</div>
-                <div class="track-meta">Francesco Santoliquido · I canti della sera</div>
-              </div>
-              <div class="track-time">0:00</div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: When I Set Out for Lyonesse" disabled>
+          <audio class="track-audio" preload="none" src="audio/finzi/02-when-i-set-out-for-lyonesse.mp3"></audio>
+        </div>
+        <div class="track-row cycle-row" data-cycle="1" data-artist="Gerald Finzi · Earth and Air and Rain">
+          <div class="track-top">
+          <span class="track-num">3</span>
+          <button class="track-play" aria-label="Play Waiting Both">▶</button>
+            <div class="track-info">
+            <div class="track-title">Waiting Both</div>
             </div>
-            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: L'assiolo canta" disabled>
-            <audio class="track-audio" preload="none" src="audio/lassiolo-canta.m4a"></audio>
+            <div class="track-time">0:00</div>
           </div>
-        <div class="track-row">
-            <div class="track-top">
-              <button class="track-play" aria-label="Play">▶</button>
-              <div class="track-info">
-                <div class="track-title">La Coccinelle</div>
-                <div class="track-meta">Camille Saint-Saëns</div>
-              </div>
-              <div class="track-time">0:00</div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Waiting Both" disabled>
+          <audio class="track-audio" preload="none" src="audio/finzi/03-waiting-both.mp3"></audio>
+        </div>
+        <div class="track-row cycle-row" data-cycle="1" data-artist="Gerald Finzi · Earth and Air and Rain">
+          <div class="track-top">
+          <span class="track-num">4</span>
+          <button class="track-play" aria-label="Play The Phantom">▶</button>
+            <div class="track-info">
+            <div class="track-title">The Phantom</div>
             </div>
-            <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: La Coccinelle" disabled>
-            <audio class="track-audio" preload="none" src="audio/la-coccinelle.m4a"></audio>
+            <div class="track-time">0:00</div>
           </div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: The Phantom" disabled>
+          <audio class="track-audio" preload="none" src="audio/finzi/04-the-phantom.mp3"></audio>
+        </div>
+        <div class="track-row cycle-row" data-cycle="1" data-artist="Gerald Finzi · Earth and Air and Rain">
+          <div class="track-top">
+          <span class="track-num">5</span>
+          <button class="track-play" aria-label="Play So I Have Fared">▶</button>
+            <div class="track-info">
+            <div class="track-title">So I Have Fared</div>
+            </div>
+            <div class="track-time">0:00</div>
+          </div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: So I Have Fared" disabled>
+          <audio class="track-audio" preload="none" src="audio/finzi/05-so-i-have-fared.mp3"></audio>
+        </div>
+        <div class="track-row cycle-row" data-cycle="1" data-artist="Gerald Finzi · Earth and Air and Rain">
+          <div class="track-top">
+          <span class="track-num">6</span>
+          <button class="track-play" aria-label="Play Rollicum-Rorum">▶</button>
+            <div class="track-info">
+            <div class="track-title">Rollicum-Rorum</div>
+            </div>
+            <div class="track-time">0:00</div>
+          </div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Rollicum-Rorum" disabled>
+          <audio class="track-audio" preload="none" src="audio/finzi/06-rollicum-rorum.mp3"></audio>
+        </div>
+        <div class="track-row cycle-row" data-cycle="1" data-artist="Gerald Finzi · Earth and Air and Rain">
+          <div class="track-top">
+          <span class="track-num">7</span>
+          <button class="track-play" aria-label="Play To Lizbie Browne">▶</button>
+            <div class="track-info">
+            <div class="track-title">To Lizbie Browne</div>
+            </div>
+            <div class="track-time">0:00</div>
+          </div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: To Lizbie Browne" disabled>
+          <audio class="track-audio" preload="none" src="audio/finzi/07-to-lizbie-browne.mp3"></audio>
+        </div>
+        <div class="track-row cycle-row" data-cycle="1" data-artist="Gerald Finzi · Earth and Air and Rain">
+          <div class="track-top">
+          <span class="track-num">8</span>
+          <button class="track-play" aria-label="Play The Clock of the Years">▶</button>
+            <div class="track-info">
+            <div class="track-title">The Clock of the Years</div>
+            </div>
+            <div class="track-time">0:00</div>
+          </div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: The Clock of the Years" disabled>
+          <audio class="track-audio" preload="none" src="audio/finzi/08-the-clock-of-the-years.mp3"></audio>
+        </div>
+        <div class="track-row cycle-row" data-cycle="1" data-artist="Gerald Finzi · Earth and Air and Rain">
+          <div class="track-top">
+          <span class="track-num">9</span>
+          <button class="track-play" aria-label="Play In a Churchyard">▶</button>
+            <div class="track-info">
+            <div class="track-title">In a Churchyard</div>
+            </div>
+            <div class="track-time">0:00</div>
+          </div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: In a Churchyard" disabled>
+          <audio class="track-audio" preload="none" src="audio/finzi/09-in-a-churchyard.mp3"></audio>
+        </div>
+        <div class="track-row cycle-row" data-cycle="1" data-artist="Gerald Finzi · Earth and Air and Rain">
+          <div class="track-top">
+          <span class="track-num">10</span>
+          <button class="track-play" aria-label="Play Proud Songsters">▶</button>
+            <div class="track-info">
+            <div class="track-title">Proud Songsters</div>
+            </div>
+            <div class="track-time">0:00</div>
+          </div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Proud Songsters" disabled>
+          <audio class="track-audio" preload="none" src="audio/finzi/10-proud-songsters.mp3"></audio>
+        </div>
+        </div>
+      </details>
+    </article>
+
+    <div class="rec-group">
+      <div class="rec-group-label">Art song</div>
+      <div class="rec-list">
+        <div class="track-row" data-artist="John Musto">
+          <div class="track-top">
+          <button class="track-play" aria-label="Play Litany">▶</button>
+            <div class="track-info">
+            <div class="track-title">Litany</div>
+            <div class="track-work">from <em>Shadow of the Blues</em> (1987), no. 2</div>
+            <div class="track-meta">Music by John Musto (b. 1954) &middot; Text by Langston Hughes (1901&ndash;1967)</div>
+            <div class="track-perf">DMA Recital, University of Maryland &middot; May 12, 2015</div>
+            </div>
+            <div class="track-time">0:00</div>
+          </div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Litany" disabled>
+          <audio class="track-audio" preload="none" src="audio/litany.m4a"></audio>
+        </div>
+        <div class="track-row" data-artist="Gustav Mahler">
+          <div class="track-top">
+          <button class="track-play" aria-label="Play Die zwei blauen Augen von meinem Schatz">▶</button>
+            <div class="track-info">
+            <div class="track-title">Die zwei blauen Augen von meinem Schatz</div>
+            <div class="track-work">from <em>Lieder eines fahrenden Gesellen</em> (1884&ndash;85), no. 4</div>
+            <div class="track-meta">Music and text by Gustav Mahler (1860&ndash;1911)</div>
+            <div class="track-perf">DMA Recital, University of Maryland &middot; May 12, 2015</div>
+            </div>
+            <div class="track-time">0:00</div>
+          </div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Die zwei blauen Augen von meinem Schatz" disabled>
+          <audio class="track-audio" preload="none" src="audio/die-zwei-blauen-augen.m4a"></audio>
+        </div>
+        <div class="track-row" data-artist="Francesco Santoliquido">
+          <div class="track-top">
+          <button class="track-play" aria-label="Play L&amp;#8217;assiolo canta">▶</button>
+            <div class="track-info">
+            <div class="track-title">L&#8217;assiolo canta</div>
+            <div class="track-work">from <em>I canti della sera</em> (published 1912), no. 1</div>
+            <div class="track-meta">Music by Francesco Santoliquido (1883&ndash;1971)</div>
+            <div class="track-perf">DMA Recital, University of Maryland &middot; May 12, 2015</div>
+            </div>
+            <div class="track-time">0:00</div>
+          </div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: L&amp;#8217;assiolo canta" disabled>
+          <audio class="track-audio" preload="none" src="audio/lassiolo-canta.m4a"></audio>
+        </div>
+        <div class="track-row" data-artist="Camille Saint-Saëns">
+          <div class="track-top">
+          <button class="track-play" aria-label="Play La coccinelle">▶</button>
+            <div class="track-info">
+            <div class="track-title">La coccinelle</div>
+            <div class="track-work">M&eacute;lodie (1868)</div>
+            <div class="track-meta">Music by Camille Saint-Sa&euml;ns (1835&ndash;1921) &middot; Text by Victor Hugo (1802&ndash;1885)</div>
+            <div class="track-perf">DMA Recital, University of Maryland &middot; May 12, 2015</div>
+            </div>
+            <div class="track-time">0:00</div>
+          </div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: La coccinelle" disabled>
+          <audio class="track-audio" preload="none" src="audio/la-coccinelle.m4a"></audio>
+        </div>
       </div>
     </div>
-    <button type="button" class="tracks-toggle" id="tracks-toggle" aria-expanded="false">Show all recordings</button>
+    <div class="rec-group track-more">
+      <div class="rec-group-label">Opera and concert</div>
+      <div class="rec-list">
+        <div class="track-row" data-artist="Giacomo Puccini">
+          <div class="track-top">
+          <button class="track-play" aria-label="Play Act III trio">▶</button>
+            <div class="track-info">
+            <div class="track-title">Act III trio</div>
+            <div class="track-work">from <em>Madama Butterfly</em> (1904)</div>
+            <div class="track-meta">Music by Giacomo Puccini (1858&ndash;1924) &middot; Libretto by Luigi Illica (1857&ndash;1919) and Giuseppe Giacosa (1847&ndash;1906)</div>
+            <div class="track-perf">Sharpless &middot; Castleton Festival, 2014 &middot; Bradley Moore, conductor</div>
+            </div>
+            <div class="track-time">0:00</div>
+          </div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Act III trio" disabled>
+          <audio class="track-audio" preload="none" src="audio/butterfly-act3-trio.mp3"></audio>
+        </div>
+        <div class="track-row" data-artist="Johannes Brahms">
+          <div class="track-top">
+          <button class="track-play" aria-label="Play Denn wir haben hie keine bleibende Statt">▶</button>
+            <div class="track-info">
+            <div class="track-title">Denn wir haben hie keine bleibende Statt</div>
+            <div class="track-work">from <em>Ein deutsches Requiem</em>, Op. 45 (1865&ndash;68), no. 6</div>
+            <div class="track-meta">Music by Johannes Brahms (1833&ndash;1897) &middot; Text from the Luther Bible</div>
+            <div class="track-perf">University of Maryland, 2015 &middot; Edward Maclary, conductor &middot; Dress rehearsal</div>
+            </div>
+            <div class="track-time">0:00</div>
+          </div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Denn wir haben hie keine bleibende Statt" disabled>
+          <audio class="track-audio" preload="none" src="audio/brahms-requiem-vi.mp3"></audio>
+        </div>
+      </div>
+    </div>
+    <div class="rec-group track-more">
+      <div class="rec-group-label">Musical theatre</div>
+      <div class="rec-list">
+        <div class="track-row" data-artist="Stephen Sondheim">
+          <div class="track-top">
+          <button class="track-play" aria-label="Play Pretty Women">▶</button>
+            <div class="track-info">
+            <div class="track-title">Pretty Women</div>
+            <div class="track-work">from <em>Sweeney Todd</em> (1979)</div>
+            <div class="track-meta">Music and lyrics by Stephen Sondheim (1930&ndash;2021) &middot; Book by Hugh Wheeler (1912&ndash;1987)</div>
+            </div>
+            <div class="track-time">0:00</div>
+          </div>
+          <input type="range" class="track-seek" min="0" max="0" value="0" step="0.01" aria-label="Seek: Pretty Women" disabled>
+          <audio class="track-audio" preload="none" src="audio/pretty-women.mp3"></audio>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="tracks-toggle" id="tracks-toggle" aria-expanded="false">Show more recordings</button>
   </section>
 
   <!-- production photographs (dark, collapsible, one-row strip) -->
@@ -932,13 +1114,14 @@
       var timeEl = row.querySelector('.track-time');
       var seek   = row.querySelector('.track-seek');
       var title  = row.querySelector('.track-title').textContent.trim();
-      var artist = row.querySelector('.track-meta').textContent.trim();
+      var metaEl = row.querySelector('.track-meta');
+      var artist = row.dataset.artist || (metaEl ? metaEl.textContent.trim() : '');
       var userSeeking = false;
       var lastSave = 0;
 
       function fillSeek() {
         var pct = seek.max > 0 ? (seek.value / seek.max) * 100 : 0;
-        seek.style.background = 'linear-gradient(to right, var(--accent) ' + pct + '%, #3B362E ' + pct + '%)';
+        seek.style.background = 'linear-gradient(to right, var(--accent) ' + pct + '%, rgba(34,30,25,.14) ' + pct + '%)';
       }
 
       btn.addEventListener('click', function () {
@@ -969,6 +1152,11 @@
         timeEl.textContent = formatTime(audio.duration || 0);
         clearPosition(audio);
         seek.value = 0; fillSeek();
+        var nxt = row.nextElementSibling;
+        if (row.dataset.cycle && nxt && nxt.classList.contains('cycle-row')) {
+          var na = nxt.querySelector('.track-audio');
+          if (na) { try { na.currentTime = 0; } catch (e) {} na.play(); }
+        }
       });
       audio.addEventListener('loadedmetadata', function () {
         seek.max = audio.duration;
@@ -1123,16 +1311,35 @@
 
   <script>
     (function () {
-      var cols = document.querySelector('.track-cols');
+      var sec = document.getElementById('recordings');
       var btn = document.getElementById('tracks-toggle');
-      if (!cols || !btn) return;
-      var rows = Array.prototype.slice.call(cols.querySelectorAll('.track-row'));
-      rows.forEach(function (r, i) { if (i >= 3) r.classList.add('track-more'); });
-      btn.addEventListener('click', function () {
-        var open = cols.classList.toggle('show-all');
-        btn.setAttribute('aria-expanded', open);
-        btn.textContent = open ? 'Show fewer recordings' : 'Show all recordings';
-      });
+      if (btn && sec) {
+        btn.addEventListener('click', function () {
+          var open = sec.classList.toggle('show-all');
+          btn.setAttribute('aria-expanded', open);
+          btn.textContent = open ? 'Show fewer recordings' : 'Show more recordings';
+        });
+      }
+      var songs = document.querySelector('.cycle-songs');
+      if (songs && window.matchMedia('(max-width: 767px)').matches) songs.removeAttribute('open');
+
+      var cyclePlay = document.getElementById('cycle-play');
+      var cycleAudios = Array.prototype.slice.call(document.querySelectorAll('.cycle-row .track-audio'));
+      if (cyclePlay && cycleAudios.length) {
+        function anyPlaying() { return cycleAudios.some(function (a) { return !a.paused; }); }
+        function label() { cyclePlay.textContent = anyPlaying() ? 'Pause the cycle' : 'Play the complete cycle'; }
+        cyclePlay.addEventListener('click', function () {
+          var playing = cycleAudios.filter(function (a) { return !a.paused; })[0];
+          if (playing) { playing.pause(); return; }
+          document.querySelectorAll('.track-audio').forEach(function (a) { a.pause(); });
+          var start = cycleAudios[0];
+          try { start.currentTime = 0; } catch (e) {}
+          start.play();
+        });
+        cycleAudios.forEach(function (a) {
+          ['play', 'pause', 'ended'].forEach(function (ev) { a.addEventListener(ev, function () { setTimeout(label, 0); }); });
+        });
+      }
     })();
   </script>
 </body>
