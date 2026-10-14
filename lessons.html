@@ -70,6 +70,14 @@
     /* ---- Studio Mechanics ---- */
     /* ---- Practice expectations (dark accordion grid) ---- */
     .practice-block { background: var(--ink); padding: 96px 64px; }
+    .beyond { padding: 80px 64px; border-bottom: 1px solid var(--border); }
+    .beyond-head { margin-bottom: 40px; }
+    .beyond-title { font-family: var(--serif); font-weight: 300; font-size: 34px; line-height: 1.15; margin-top: 14px; }
+    .beyond-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 40px; border-top: 1px solid var(--border); }
+    .beyond-item { padding: 26px 0 8px; }
+    .beyond-hl { font-family: var(--serif); font-weight: 400; font-size: 21px; line-height: 1.25; margin-bottom: 10px; }
+    .beyond-text { font-size: 14.5px; line-height: 1.75; color: var(--secondary); }
+    .beyond-note { margin-top: 32px; font-family: var(--serif); font-size: 17px; color: var(--secondary); }
     .lab-bar { padding: 56px 64px; }
     .lab-bar .lab-callout { margin-top: 0; }
     .practice-header { max-width: 640px; margin: 0 auto 56px; text-align: center; }
@@ -237,6 +245,8 @@
       .faq-details[open] { margin-left: -48px; margin-right: -48px; padding-left: 48px; padding-right: 48px; }
         .back-to-top { padding: 20px 48px; }
       .practice-block { padding: 72px 48px; }
+      .beyond { padding: 64px 48px; }
+      .beyond-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .location-strip { grid-template-columns: 280px 1fr; }
       .location-strip-text { padding: 48px; }
     }
@@ -276,6 +286,9 @@
       .gateway-card { padding: 36px 24px 32px; }
       .gateway-btn { display: block; width: 100%; box-sizing: border-box; text-align: center; }
       .practice-block { padding: 56px 24px; }
+      .beyond { padding: 48px 24px; }
+      .beyond-grid { grid-template-columns: 1fr; }
+      .beyond-title { font-size: 28px; }
       .practice-grid { grid-template-columns: 1fr; }
       .practice-hl { font-size: 28px; }
       .location-strip { grid-template-columns: 1fr; }
@@ -459,6 +472,33 @@
 
   </section>
 
+  <!-- beyond private lessons -->
+  <section class="beyond" id="beyond">
+    <div class="beyond-head">
+      <div class="kicker">Beyond Private Lessons</div>
+      <h3 class="beyond-title">Productions, groups, and projects</h3>
+    </div>
+    <div class="beyond-grid">
+      <div class="beyond-item">
+        <h4 class="beyond-hl">Vocal direction</h4>
+        <p class="beyond-text">I get a cast sounding right for the show, in any style and at any experience level. The work is about what the music asks singers to do dramatically, as well as the notes.</p>
+      </div>
+      <div class="beyond-item">
+        <h4 class="beyond-hl">Stage direction</h4>
+        <p class="beyond-text">Opera and musical theatre staging built on specific choices: what each character wants, and how that lives in the body.</p>
+      </div>
+      <div class="beyond-item">
+        <h4 class="beyond-hl">Workshops and clinics</h4>
+        <p class="beyond-text">Sessions for choirs, schools, and companies on ensemble singing, audition craft, vocal health, and singing with a microphone.</p>
+      </div>
+      <div class="beyond-item">
+        <h4 class="beyond-hl">Music production</h4>
+        <p class="beyond-text">Home-studio demos, self-tape sessions, and arrangements for singers and theatrical projects. I also teach music production.</p>
+      </div>
+    </div>
+    <p class="beyond-note">To talk about a project, reach out through the <a href="contact.html" class="text-link">contact page</a>.</p>
+  </section>
+
   <!-- larynx explorer link (dark bar) -->
   <section class="practice-block lab-bar">
     <div class="lab-callout">
@@ -537,7 +577,7 @@
       <details class="faq-details">
         <summary class="faq-summary">Do you work with groups, schools, or choirs?</summary>
         <div class="faq-answer">
-          <p>Yes. I run clinics, masterclasses, and workshops for choirs, schools, and companies. The details are on the <a href="organizations.html" class="text-link">For Organizations</a> page.</p>
+          <p>Yes. I run clinics, masterclasses, and workshops for choirs, schools, and companies. See "Beyond private lessons" above, or reach out through the <a href="contact.html" class="text-link">contact page</a>.</p>
         </div>
       </details>
 

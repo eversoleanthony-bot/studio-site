@@ -162,6 +162,8 @@ export default {
     const MOVED = {
       "/on-stage": "/performance.html",
       "/on-stage.html": "/performance.html",
+      "/organizations": "/lessons.html#beyond",
+      "/organizations.html": "/lessons.html#beyond",
       "/cv": "/downloads/Anthony_Eversole_CV.pdf",
       "/cv.html": "/downloads/Anthony_Eversole_CV.pdf",
       "/about": "/philosophy.html",
